@@ -3,40 +3,44 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>B2B PARTNERS BRZL — teste sem corte</title>
+  <title>B2B PARTNERS BRZL — teste mobile sem corte</title>
   <meta name="theme-color" content="#000000">
   <style>
-    /* Página limpa e escura para valorizar o BG */
+    /* Base limpa, mobile-first */
     html, body {
       margin: 0;
-      height: 100%;
-      background: #000; /* bordas neutras quando sobrar espaço */
+      background: #000;
+      color: #fff;
+      overflow-x: hidden; /* evita linha lateral em alguns navegadores */
+      -webkit-text-size-adjust: 100%;
     }
-    /* Área de visualização ocupa a tela inteira */
-    .viewport {
-      min-height: 100svh;
-      min-height: 100vh;
-      width: 100vw;
-      display: grid;
-      place-items: center; /* centraliza a imagem sem corte */
-      overflow: hidden;
+
+    /* Contêiner padrão da página */
+    main {
+      width: 100%;
     }
-    /* Imagem SEM CORTE: sempre inteira na tela */
-    img.full {
-      max-width: 100vw;
-      max-height: 100svh;  /* respeita barras do mobile */
-      height: auto;
-      width: auto;
-      object-fit: contain; /* chave para NÃO cortar */
+
+    /* IMAGEM SEM CORTE, ADAPTÁVEL: ocupa 100% da largura, altura proporcional.
+       Em telas altas, a imagem pode ficar mais alta que o viewport: rolagem vertical é ok. */
+    img.bg {
       display: block;
+      width: 100%;
+      height: auto;      /* mantém proporção, sem crop */
+      max-width: 100%;
+    }
+
+    /* Opcional: em desktops muito largos, limitar a largura máxima
+       para não estourar nitidez de imagens otimizadas para mobile */
+    @media (min-width: 1400px){
+      main { max-width: 1400px; margin: 0 auto; }
     }
   </style>
 </head>
 <body>
-  <main class="viewport" aria-label="Fundo de teste sem corte">
-    <img class="full"
+  <main aria-label="Fundo de teste, adaptável e sem cortes">
+    <img class="bg"
          src="images/teste_index_bg.webp"
-         alt="Imagem de teste — exibida inteira, sem cortes">
+         alt="Imagem de teste exibida sem cortes e adaptada à largura da tela">
   </main>
 </body>
 </html>
