@@ -3,77 +3,49 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>B2B PARTNERS BRZL — desktop=contain / mobile=crop</title>
+  <title>B2B PARTNERS BRZL — desktop contain / mobile crop</title>
   <meta name="theme-color" content="#000000">
   <style>
-    /* ---------- Base ---------- */
     :root{
-      /* ponto de foco do recorte no mobile (0% esquerda/alto → 100% direita/baixo) */
+      /* ponto de foco do recorte no mobile (0–100%) */
       --focus-x: 50%;
       --focus-y: 45%;
     }
     html, body{
       margin:0;
       height:100%;
-      background:#000;
-      color:#fff;
-      overflow-x:hidden; /* previne “linha” lateral */
+      background:#000;         /* cor das “faixas” quando houver */
+      overflow-x:hidden;       /* evita qualquer sobra horizontal */
       -webkit-text-size-adjust:100%;
     }
-
-    /* Palco da página: 100% da viewport em altura */
+    /* Palco ocupa a viewport inteira */
     .stage{
       width:100%;
-      min-height:100svh; /* considera barras no mobile */
-      display:grid;
-      place-items:center;
+      min-height:100svh;       /* respeita barras do mobile */
+      background-color:#000;   /* garante continuidade nas bordas */
+      background-image:url("images/teste_index_bg.webp");
+      background-repeat:no-repeat;
+      background-position:center center;
     }
 
-    /* A imagem única do teste */
-    .hero{
-      display:block;
-      max-width:100%;
-      height:auto;
-    }
-
-    /* ---------- Regras por breakpoint ---------- */
-
-    /* DESKTOP / TELAS LARGAS: mostrar a arte inteira (sem cortes) */
-    @media (min-width: 721px){
+    /* DESKTOP: ver a arte inteira, sem cortes e sem “linha” */
+    @media (min-width:721px){
       .stage{
-        /* para telas muito largas, centralizamos um container opcional */
-        max-width: 1600px;
-        margin: 0 auto;
-      }
-      .hero{
-        width:100%;
-        height:auto;      /* contain “natural”: sem cortes */
-        object-fit: contain;
-        object-position: center center;
+        background-size: contain; /* imagem inteira */
       }
     }
 
-    /* MOBILE / TELAS ESTREITAS: recortar para ocupar a tela como conteúdo */
-    @media (max-width: 720px){
+    /* MOBILE: ocupar a tela como se houvesse conteúdo (recorte controlado) */
+    @media (max-width:720px){
       .stage{
-        /* ocupa a tela toda para “simular conteúdo” */
         min-height:100svh;
-      }
-      .hero{
-        width:100%;
-        height:100svh;            /* chave para preencher a tela */
-        object-fit: cover;        /* recorta para caber */
-        object-position: var(--focus-x) var(--focus-y); /* foca no centro desejado */
+        background-size: cover; /* recorta para caber */
+        background-position: var(--focus-x) var(--focus-y);
       }
     }
   </style>
 </head>
 <body>
-  <main class="stage" aria-label="B2B PARTNERS BRZL — visual adaptável">
-    <img
-      class="hero"
-      src="images/teste_index_bg.webp"
-      alt="Fundo institucional — ajustado para desktop e recortado no mobile conforme foco">
-  </main>
+  <main class="stage" aria-label="Fundo institucional adaptável"></main>
 </body>
 </html>
