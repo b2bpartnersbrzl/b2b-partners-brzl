@@ -3,44 +3,77 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>B2B PARTNERS BRZL — teste mobile sem corte</title>
+  <title>B2B PARTNERS BRZL — desktop=contain / mobile=crop</title>
   <meta name="theme-color" content="#000000">
   <style>
-    /* Base limpa, mobile-first */
-    html, body {
-      margin: 0;
-      background: #000;
-      color: #fff;
-      overflow-x: hidden; /* evita linha lateral em alguns navegadores */
-      -webkit-text-size-adjust: 100%;
+    /* ---------- Base ---------- */
+    :root{
+      /* ponto de foco do recorte no mobile (0% esquerda/alto → 100% direita/baixo) */
+      --focus-x: 50%;
+      --focus-y: 45%;
+    }
+    html, body{
+      margin:0;
+      height:100%;
+      background:#000;
+      color:#fff;
+      overflow-x:hidden; /* previne “linha” lateral */
+      -webkit-text-size-adjust:100%;
     }
 
-    /* Contêiner padrão da página */
-    main {
-      width: 100%;
+    /* Palco da página: 100% da viewport em altura */
+    .stage{
+      width:100%;
+      min-height:100svh; /* considera barras no mobile */
+      display:grid;
+      place-items:center;
     }
 
-    /* IMAGEM SEM CORTE, ADAPTÁVEL: ocupa 100% da largura, altura proporcional.
-       Em telas altas, a imagem pode ficar mais alta que o viewport: rolagem vertical é ok. */
-    img.bg {
-      display: block;
-      width: 100%;
-      height: auto;      /* mantém proporção, sem crop */
-      max-width: 100%;
+    /* A imagem única do teste */
+    .hero{
+      display:block;
+      max-width:100%;
+      height:auto;
     }
 
-    /* Opcional: em desktops muito largos, limitar a largura máxima
-       para não estourar nitidez de imagens otimizadas para mobile */
-    @media (min-width: 1400px){
-      main { max-width: 1400px; margin: 0 auto; }
+    /* ---------- Regras por breakpoint ---------- */
+
+    /* DESKTOP / TELAS LARGAS: mostrar a arte inteira (sem cortes) */
+    @media (min-width: 721px){
+      .stage{
+        /* para telas muito largas, centralizamos um container opcional */
+        max-width: 1600px;
+        margin: 0 auto;
+      }
+      .hero{
+        width:100%;
+        height:auto;      /* contain “natural”: sem cortes */
+        object-fit: contain;
+        object-position: center center;
+      }
+    }
+
+    /* MOBILE / TELAS ESTREITAS: recortar para ocupar a tela como conteúdo */
+    @media (max-width: 720px){
+      .stage{
+        /* ocupa a tela toda para “simular conteúdo” */
+        min-height:100svh;
+      }
+      .hero{
+        width:100%;
+        height:100svh;            /* chave para preencher a tela */
+        object-fit: cover;        /* recorta para caber */
+        object-position: var(--focus-x) var(--focus-y); /* foca no centro desejado */
+      }
     }
   </style>
 </head>
 <body>
-  <main aria-label="Fundo de teste, adaptável e sem cortes">
-    <img class="bg"
-         src="images/teste_index_bg.webp"
-         alt="Imagem de teste exibida sem cortes e adaptada à largura da tela">
+  <main class="stage" aria-label="B2B PARTNERS BRZL — visual adaptável">
+    <img
+      class="hero"
+      src="images/teste_index_bg.webp"
+      alt="Fundo institucional — ajustado para desktop e recortado no mobile conforme foco">
   </main>
 </body>
 </html>
