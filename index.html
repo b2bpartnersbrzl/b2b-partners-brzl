@@ -1,51 +1,49 @@
-<!doctype html>
-<html lang="pt-br">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>B2B PARTNERS BRZL — desktop contain / mobile crop</title>
-  <meta name="theme-color" content="#000000">
-  <style>
-    :root{
-      /* ponto de foco do recorte no mobile (0–100%) */
-      --focus-x: 50%;
-      --focus-y: 45%;
-    }
-    html, body{
-      margin:0;
-      height:100%;
-      background:#000;         /* cor das “faixas” quando houver */
-      overflow-x:hidden;       /* evita qualquer sobra horizontal */
-      -webkit-text-size-adjust:100%;
-    }
-    /* Palco ocupa a viewport inteira */
-    .stage{
-      width:100%;
-      min-height:100svh;       /* respeita barras do mobile */
-      background-color:#000;   /* garante continuidade nas bordas */
-      background-image:url("images/teste_index_bg.webp");
-      background-repeat:no-repeat;
-      background-position:center center;
-    }
+<!-- Botão WhatsApp Fixo -->
+<a href="https://wa.me/5571993081072?text=Ol%C3%A1!%20Seja%20bem-vindo%20%C3%A0%20B2B%20Partners%20BRZL.%0ASomos%20especialistas%20em%20apoiar%20ag%C3%AAncias%20e%20marcas%20na%20execu%C3%A7%C3%A3o%20de%20ativa%C3%A7%C3%B5es,%20live%20marketing%20e%20produ%C3%A7%C3%A3o%20360%20com%20escala%20e%20opera%C3%A7%C3%A3o%20multi-pra%C3%A7a.%0A%0AComo%20podemos%20ajudar%20sua%20opera%C3%A7%C3%A3o%20hoje%3F" 
+   class="whatsapp-float" 
+   target="_blank" 
+   aria-label="Abrir WhatsApp da B2B Partners BRZL">
+    <img src="assets/img/cta/cta-whatsapp.svg" alt="WhatsApp" class="whatsapp-icon">
+</a>
 
-    /* DESKTOP: ver a arte inteira, sem cortes e sem “linha” */
-    @media (min-width:721px){
-      .stage{
-        background-size: contain; /* imagem inteira */
-      }
-    }
+<style>
+/* Container fixo */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;      /* distância da borda inferior */
+  right: 20px;       /* distância da borda direita */
+  z-index: 9999;     /* sempre por cima */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;       /* tamanho base no mobile */
+  height: 64px;
+  border-radius: 50%;
+  background: #0B0F1A;   /* círculo sóbrio grafite */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease-in-out;
+}
 
-    /* MOBILE: ocupar a tela como se houvesse conteúdo (recorte controlado) */
-    @media (max-width:720px){
-      .stage{
-        min-height:100svh;
-        background-size: cover; /* recorta para caber */
-        background-position: var(--focus-x) var(--focus-y);
-      }
-    }
-  </style>
-</head>
-<body>
-  <main class="stage" aria-label="Fundo institucional adaptável"></main>
-</body>
-</html>
+/* Ícone dentro */
+.whatsapp-icon {
+  width: 32px;       /* tamanho do ícone dentro do círculo */
+  height: 32px;
+}
+
+/* Efeito hover (desktop) */
+.whatsapp-float:hover {
+  transform: scale(1.08);
+}
+
+/* Ajuste para desktop */
+@media (min-width: 768px) {
+  .whatsapp-float {
+    width: 56px;
+    height: 56px;
+  }
+  .whatsapp-icon {
+    width: 28px;
+    height: 28px;
+  }
+}
+</style>
