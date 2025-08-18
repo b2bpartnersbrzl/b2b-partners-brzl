@@ -72,21 +72,17 @@ html, body{
 }
 
 /* --------- Regras de imagem: desktop x mobile --------- */
-/* Desktop/largo: mostra a arte inteira (sem cortes) */
 @media (min-width: 721px){
-  .slide{ background-size: contain; }
+  .slide{ background-size: contain; } /* mostra arte inteira */
 }
-
-/* Mobile/estreito: recorta como se tivesse conteúdo (cover) com foco ajustável */
 @media (max-width: 720px){
   .slide{ 
-    background-size: cover;
+    background-size: cover;           /* recorta como se tivesse conteúdo */
     background-position: var(--focus-x, 50%) var(--focus-y, 45%);
   }
 }
 
 /* --------- Mapear cada lâmina --------- */
-/* s1 já aponta para sua imagem atual de teste */
 .s1 { background-image: url("images/teste_index_bg.webp"); --focus-x: 50%; --focus-y: 45%; }
 .s2 { background-image: url("images/0002.webp"); --focus-x: 50%; --focus-y: 45%; }
 .s3 { background-image: url("images/0003.webp"); --focus-x: 50%; --focus-y: 45%; }
@@ -103,32 +99,23 @@ html, body{
 .s14{ background-image: url("images/0014.webp"); --focus-x: 50%; --focus-y: 45%; }
 .s15{ background-image: url("images/0015.webp"); --focus-x: 50%; --focus-y: 45%; }
 
-/* --------- CTA fixo de WhatsApp (cores oficiais + 3 mm à esquerda) --------- */
-/* 3 mm ≈ 11 px em CSS (base 96dpi). Mantemos deslocamento relativo e safe-area. */
+/* --------- CTA fixo de WhatsApp (usa o SVG oficial) --------- */
+/* 3 mm ≈ 11 px (96dpi). Mantemos safe-area para iOS. */
 .whatsapp-float {
   position: fixed;
-  bottom: calc(60px + env(safe-area-inset-bottom, 0px)); /* espaço para o rodapé fixo */
-  right: calc(27px + env(safe-area-inset-right, 0px));   /* 16px + ~11px (3mm) = 27px */
-  z-index: 9999; /* por cima de tudo */
+  bottom: calc(60px + env(safe-area-inset-bottom, 0px)); 
+  right: calc(27px + env(safe-area-inset-right, 0px));   
+  z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 64px; 
   height: 64px;
-  border-radius: 50%;
-  background: #25D366; /* verde oficial WhatsApp */
 }
-
-/* Ícone interno (SVG) centralizado, branco, com respiro */
 .whatsapp-icon {
-  width: 32px;
-  height: 32px;
+  width: 64px;
+  height: 64px;
   display: block;
-}
-
-/* Desktop: ajuste opcional de tamanho do ícone dentro do círculo */
-@media (min-width: 768px){
-  .whatsapp-icon { width: 28px; height: 28px; }
 }
 
 /* --------- Rodapé fixo no viewport --------- */
