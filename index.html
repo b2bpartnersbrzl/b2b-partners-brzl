@@ -11,16 +11,38 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Fundo principal (sem rolagem) -->
-  <main class="bg" aria-label="Página inicial B2B PARTNERS BRZL">
-    <img src="images/teste_index_bg.webp" alt="B2B Partners BRZL" class="background-image" />
+  <!-- Palco em SVG para manter coordenadas perfeitas em qualquer tela -->
+  <main class="stage" aria-label="Página inicial B2B PARTNERS BRZL">
+    <!-- viewBox = resolução nativa do arquivo que você enviou: 2048 × 1131 -->
+    <svg class="stage-svg" viewBox="0 0 2048 1131" preserveAspectRatio="xMidYMin slice" role="img" aria-label="B2B Partners BRZL — Hub">
+      <!-- Imagem de fundo -->
+      <image href="images/teste_index_bg.webp" x="0" y="0" width="2048" height="1131" />
 
-    <!-- Conteúdo central opcional (indexável) -->
-    <div class="center-content" aria-label="Ações principais">
-      <a class="btn btn-primary" href="manifesto.html" aria-label="Abrir Manifesto Ser 5.0">
-        Ser 5.0
+      <!-- =========================================
+           HOTSPOT TRANSPARENTE — “SER 5.0”
+           Essas medidas foram estimadas no layout 2048×1131.
+           Se precisar, ajusto milimetricamente.
+           ========================================= -->
+      <a xlink:href="manifesto.html" aria-label="Abrir Manifesto — Ser 5.0">
+        <!-- DEBUG: para ver o retângulo, adicione a classe hotspot--debug abaixo -->
+        <rect class="hotspot"
+              x="1160" y="190"
+              width="300" height="70"
+              rx="18" ry="18" />
       </a>
-    </div>
+
+      <!-- (FUTURO) Outros botões do BG:
+      <a xlink:href="#" aria-label="Vamos">
+        <rect class="hotspot" x="1210" y="305" width="260" height="66" rx="18" ry="18" />
+      </a>
+      <a xlink:href="#" aria-label="Marcas">
+        <rect class="hotspot" x="1200" y="470" width="260" height="66" rx="18" ry="18" />
+      </a>
+      <a xlink:href="#" aria-label="Artistas">
+        <rect class="hotspot" x="1185" y="560" width="260" height="66" rx="18" ry="18" />
+      </a>
+      -->
+    </svg>
   </main>
 
   <!-- CTA fixo de WhatsApp (SVG oficial) -->
