@@ -103,11 +103,10 @@ html, body{
 .s14{ background-image: url("images/0014.webp"); --focus-x: 50%; --focus-y: 45%; }
 .s15{ background-image: url("images/0015.webp"); --focus-x: 50%; --focus-y: 45%; }
 
-/* --------- CTA fixo de WhatsApp --------- */
+/* --------- CTA fixo de WhatsApp (sem hover de aumento/subida) --------- */
 .whatsapp-float {
   position: fixed;
-  /* sobe para não conflitar com o rodapé fixo */
-  bottom: calc(60px + env(safe-area-inset-bottom, 0px));
+  bottom: calc(60px + env(safe-area-inset-bottom, 0px)); /* espaço para o rodapé fixo */
   right: calc(16px + env(safe-area-inset-right, 0px));
   z-index: 9999; /* por cima de tudo */
   display: flex;
@@ -116,8 +115,7 @@ html, body{
   width: 64px; 
   height: 64px;
   border-radius: 50%;
-  background: transparent; /* o círculo está no próprio SVG; mantemos transparente */
-  transition: transform 0.3s ease, bottom 0.3s ease;
+  background: transparent; /* o círculo/estilo está no próprio SVG */
 }
 .whatsapp-icon {
   width: 64px;
@@ -125,16 +123,9 @@ html, body{
   display: block;
 }
 
-/* Aumenta 10% e sobe levemente no hover (desktop) */
-.whatsapp-float:hover {
-  transform: scale(1.1);
-  bottom: calc(70px + env(safe-area-inset-bottom, 0px));
-}
-
-/* Desktop: se quiser um pouco menor */
+/* Desktop: ligeiro ajuste opcional de tamanho */
 @media (min-width: 768px){
   .whatsapp-icon { width: 56px; height: 56px; }
-  .whatsapp-float:hover { bottom: calc(66px + env(safe-area-inset-bottom, 0px)); }
 }
 
 /* --------- Rodapé fixo no viewport --------- */
@@ -153,5 +144,5 @@ html, body{
 
 /* Preferência por menos movimento */
 @media (prefers-reduced-motion: reduce){
-  .whatsapp-float{ transition: none; }
+  /* sem transições/efeitos no CTA */
 }
