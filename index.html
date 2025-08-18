@@ -1,72 +1,47 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!doctype html>
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>B2B Partners BRZL</title>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      font-family: 'IBM Plex Sans', sans-serif;
-    }
-
-    /* fundo */
-    .bg {
-      background: url('teste_index_bg.webp') no-repeat center center;
-      background-size: cover;
-      height: 100vh;
-      width: 100%;
-    }
-
-    /* botão whatsapp */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 60px; /* espaço pro rodapé */
-      right: 20px;
-      width: 60px;
-      height: 60px;
-      cursor: pointer;
-      transition: transform 0.3s ease, bottom 0.3s ease;
-      z-index: 1000;
-    }
-
-    .whatsapp-float:hover {
-      transform: scale(1.1); /* aumenta 10% */
-      bottom: 70px;          /* sobe levemente */
-    }
-
-    /* rodapé */
-    footer {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      text-align: center;
-      font-size: 12px;
-      color: #aaa;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 10px 0;
-      z-index: 900;
-    }
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>B2B PARTNERS BRZL — Hub</title>
+  <meta name="theme-color" content="#000000" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <main aria-label="Sequência de lâminas em rolagem vertical">
+    <section class="slide s1"><div class="content center"></div></section>
+    <section class="slide s2"><div class="content center"></div></section>
+    <section class="slide s3"><div class="content center"></div></section>
+    <section class="slide s4"><div class="content center"></div></section>
+    <section class="slide s5"><div class="content center"></div></section>
+    <section class="slide s6"><div class="content center"></div></section>
+    <section class="slide s7"><div class="content center"></div></section>
+    <section class="slide s8"><div class="content center"></div></section>
+    <section class="slide s9"><div class="content center"></div></section>
+    <section class="slide s10"><div class="content center"></div></section>
+    <section class="slide s11"><div class="content center"></div></section>
+    <section class="slide s12"><div class="content center"></div></section>
+    <section class="slide s13"><div class="content center"></div></section>
+    <section class="slide s14"><div class="content center"></div></section>
+    <section class="slide s15"><div class="content center"></div></section>
+  </main>
 
-  <!-- background -->
-  <div class="bg"></div>
-
-  <!-- botão whatsapp -->
-  <a href="https://wa.me/5571993081072?text=Olá!%20Seja%20bem-vindo%20à%20B2B%20Partners%20BRZL.%0ASomos%20especialistas%20em%20apoiar%20agências%20e%20marcas%20na%20execução%20de%20ativações,%20live%20marketing%20e%20produção%20360%20com%20escala%20e%20operação%20multi-praça.%0A%0AComo%20podemos%20ajudar%20sua%20operação%20hoje?" target="_blank">
-    <img src="whatsapp.svg" alt="WhatsApp" class="whatsapp-float">
+  <!-- CTA fixo de WhatsApp -->
+  <a
+    class="whatsapp-float"
+    href="https://wa.me/5571993081072?text=Ol%C3%A1!%20Seja%20bem-vindo%20%C3%A0%20B2B%20Partners%20BRZL.%0ASomos%20especialistas%20em%20apoiar%20ag%C3%AAncias%20e%20marcas%20na%20execu%C3%A7%C3%A3o%20de%20ativa%C3%A7%C3%B5es,%20live%20marketing%20e%20produ%C3%A7%C3%A3o%20360%20com%20escala%20e%20opera%C3%A7%C3%A3o%20multi-pra%C3%A7a.%0A%0AComo%20podemos%20ajudar%20sua%20opera%C3%A7%C3%A3o%20hoje%3F"
+    target="_blank"
+    rel="noopener"
+    aria-label="Abrir WhatsApp da B2B Partners BRZL">
+    <img src="images/cta-whatsapp.svg" alt="WhatsApp" class="whatsapp-icon" />
   </a>
 
-  <!-- rodapé -->
-  <footer>
+  <!-- Rodapé fixo no viewport -->
+  <footer class="site-footer" aria-label="Créditos e direitos">
     Desenvolvido por Edson Lucena © 2025
   </footer>
-
 </body>
 </html>

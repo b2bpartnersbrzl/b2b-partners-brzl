@@ -85,8 +85,8 @@ html, body{
   }
 }
 
-/* --------- Apontando cada lâmina para seu arquivo e foco mobile --------- */
-/* A s1 usa, por ora, a imagem de teste que você já subiu; as demais seguem a matriz 0002–0015 */
+/* --------- Mapear cada lâmina --------- */
+/* s1 já aponta para sua imagem atual de teste */
 .s1 { background-image: url("images/teste_index_bg.webp"); --focus-x: 50%; --focus-y: 45%; }
 .s2 { background-image: url("images/0002.webp"); --focus-x: 50%; --focus-y: 45%; }
 .s3 { background-image: url("images/0003.webp"); --focus-x: 50%; --focus-y: 45%; }
@@ -106,9 +106,9 @@ html, body{
 /* --------- CTA fixo de WhatsApp --------- */
 .whatsapp-float {
   position: fixed;
-  /* safe area iOS + respiro */
+  /* sobe para não conflitar com o rodapé fixo */
+  bottom: calc(60px + env(safe-area-inset-bottom, 0px));
   right: calc(16px + env(safe-area-inset-right, 0px));
-  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
   z-index: 9999; /* por cima de tudo */
   display: flex;
   align-items: center;
@@ -116,20 +116,39 @@ html, body{
   width: 64px; 
   height: 64px;
   border-radius: 50%;
-  background: #0B0F1A;            /* opção sóbria (grafite) */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-  transition: transform 0.2s ease-in-out;
+  background: transparent; /* o círculo está no próprio SVG; mantemos transparente */
+  transition: transform 0.3s ease, bottom 0.3s ease;
 }
 .whatsapp-icon {
-  width: 28px;
-  height: 28px;
+  width: 64px;
+  height: 64px;
+  display: block;
 }
-.whatsapp-float:hover { transform: scale(1.06); }
 
-/* Desktop: ligeiro ajuste de tamanho */
+/* Aumenta 10% e sobe levemente no hover (desktop) */
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  bottom: calc(70px + env(safe-area-inset-bottom, 0px));
+}
+
+/* Desktop: se quiser um pouco menor */
 @media (min-width: 768px){
-  .whatsapp-float { width: 56px; height: 56px; }
-  .whatsapp-icon { width: 24px; height: 24px; }
+  .whatsapp-icon { width: 56px; height: 56px; }
+  .whatsapp-float:hover { bottom: calc(66px + env(safe-area-inset-bottom, 0px)); }
+}
+
+/* --------- Rodapé fixo no viewport --------- */
+.site-footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  color: #aaa;
+  background: rgba(0,0,0,0.6);
+  padding: 10px 0;
+  z-index: 900; /* abaixo do CTA */
 }
 
 /* Preferência por menos movimento */
