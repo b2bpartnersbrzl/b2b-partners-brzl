@@ -11,36 +11,22 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Palco em SVG para mapeamento perfeito dos hotspots (proporções do arquivo 2048×1131) -->
+  <!-- Palco em SVG para mapeamento perfeito dos hotspots -->
   <main class="stage" aria-label="Página inicial B2B PARTNERS BRZL">
     <svg class="stage-svg" viewBox="0 0 2048 1131" preserveAspectRatio="xMidYMin slice" role="img" aria-label="B2B Partners BRZL — Hub">
       <!-- Imagem de fundo -->
       <image href="images/teste_index_bg.webp" x="0" y="0" width="2048" height="1131" />
 
-      <!-- HOTSPOT TRANSPARENTE — “SER 5.0”
-           Posição ajustada conforme solicitado:
-           - Descer 1,25 × altura (70 × 1,25 = 87,5 → ~278 no eixo Y a partir do ponto anterior)
-           - Recuar 0,5 × largura para a esquerda (300 × 0,5 = 150 → x=1010)
-      -->
+      <!-- HOTSPOT VISÍVEL TEMPORARIAMENTE COM BORDA BRANCA -->
       <a xlink:href="manifesto.html" aria-label="Abrir Manifesto — Ser 5.0">
         <rect class="hotspot"
               x="1010" y="278"
               width="300" height="70"
               rx="18" ry="18"
-              fill="transparent" />
+              fill="transparent"
+              stroke="white"
+              stroke-width="2" />
       </a>
-
-      <!-- (OPCIONAL FUTURO) Outros botões do BG:
-      <a xlink:href="#" aria-label="Vamos">
-        <rect class="hotspot" x="1210" y="305" width="260" height="66" rx="18" ry="18" fill="transparent" />
-      </a>
-      <a xlink:href="#" aria-label="Marcas">
-        <rect class="hotspot" x="1200" y="470" width="260" height="66" rx="18" ry="18" fill="transparent" />
-      </a>
-      <a xlink:href="#" aria-label="Artistas">
-        <rect class="hotspot" x="1185" y="560" width="260" height="66" rx="18" ry="18" fill="transparent" />
-      </a>
-      -->
     </svg>
   </main>
 
