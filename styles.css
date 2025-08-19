@@ -80,7 +80,7 @@ body{
 .overlay .line em{ font-style: italic; }
 .overlay .line strong{ font-weight: 700; }
 
-/* ===== Menu hambúrguer (apenas páginas internas) ===== */
+/* ===== Menu hambúrguer (mobile) ===== */
 .menu-toggle{
   position: fixed;
   top: 16px; right: 16px;
@@ -115,11 +115,40 @@ body{
   text-decoration: none;
   font-size: 14px;
   font-weight: 600;
-  padding: 6px 8px;
+  padding: 10px 12px;
   border-radius: 6px;
+  width: 220px;            /* área confortável de toque */
 }
 .dropdown-menu a:hover,
 .dropdown-menu a[aria-current="page"]{
+  background: rgba(255,255,255,.16);
+  color: #FFE069;
+}
+
+/* ===== Menu desktop (barra superior) ===== */
+.top-menu{
+  position: fixed;
+  top: 16px; left: 50%;
+  transform: translateX(-50%);
+  display: none;            /* aparece só no desktop */
+  gap: 22px;
+  background: rgba(0,0,0,.35);
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 999px;
+  padding: 10px 16px;
+  z-index: 12000;
+  backdrop-filter: saturate(120%) blur(6px);
+}
+.top-menu a{
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+.top-menu a:hover,
+.top-menu a[aria-current="page"]{
   background: rgba(255,255,255,.16);
   color: #FFE069;
 }
@@ -128,6 +157,13 @@ body{
 @media (max-width: 640px){
   .overlay-box{
     padding: 16px;
-    transform: translateY(-6vh); /* ajuste fino para igualar a altura ao desktop */
+    transform: translateY(-6vh); /* mantém alinhamento vertical igual ao desktop */
   }
+}
+
+/* Breakpoint: exibe barra no desktop e esconde hambúrguer */
+@media (min-width: 768px){
+  .menu-toggle,
+  .dropdown-menu{ display: none !important; }
+  .top-menu{ display: flex; }
 }
