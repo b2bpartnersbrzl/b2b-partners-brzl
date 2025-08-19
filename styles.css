@@ -69,9 +69,9 @@ body{
 }
 .overlay .line{
   margin: 0 0 6px 0;
-  font-size: 14px;
+  font-size: 15px;           /* AUMENTADO de 14px para 15px */
   font-weight: 400;
-  text-align: left; /* texto alinhado à esquerda */
+  text-align: left;          /* texto alinhado à esquerda */
   letter-spacing: 0.2px;
 }
 .overlay .line.white{ color: #FFFFFF; }
@@ -81,5 +81,5 @@ body{
 .overlay .line strong{ font-weight: 700; }
 @media (max-width: 640px){
   .overlay-box{ padding: 16px; }
-  .overlay .line{ font-size: 13px; }
+  .overlay .line{ font-size: 15px; } /* mantém 15px também no mobile */
 }
