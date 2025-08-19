@@ -69,7 +69,7 @@ body{
 }
 .overlay .line{
   margin: 0 0 6px 0;
-  font-size: 15px;           /* AUMENTADO de 14px para 15px */
+  font-size: 16px;           /* atualizado para 16px em todas as telas */
   font-weight: 400;
   text-align: left;          /* texto alinhado à esquerda */
   letter-spacing: 0.2px;
@@ -79,7 +79,8 @@ body{
 .overlay .line.strong-line{ font-weight: 700; }
 .overlay .line em{ font-style: italic; }
 .overlay .line strong{ font-weight: 700; }
+
 @media (max-width: 640px){
   .overlay-box{ padding: 16px; }
-  .overlay .line{ font-size: 15px; } /* mantém 15px também no mobile */
+  .overlay .line{ font-size: 16px; } /* mantém 16px também no mobile */
 }
