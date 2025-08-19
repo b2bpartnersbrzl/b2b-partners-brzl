@@ -68,10 +68,9 @@ body{
 .overlay-box{
   max-width: 720px;
   pointer-events: auto;
-  background: rgba(0,0,0,.42);       /* fundo translúcido */
+  background: rgba(0,0,0,.30);      /* fundo translúcido mais leve */
   border-radius: 16px;
   padding: 16px 20px;
-  /* blur removido */
   box-shadow: 0 8px 24px rgba(0,0,0,.25);
 }
 
