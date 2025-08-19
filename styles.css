@@ -48,18 +48,29 @@ body{
 .overlay{
   position: fixed;
   inset: 0;
-  display: grid;             /* centralização exata */
-  place-items: center;       /* centro vertical e horizontal */
+  width: 100vw;
+  /* Altura com fallback para evitar variações de barra do navegador em mobile */
+  height: 100vh;
   pointer-events: none;      /* não bloqueia cliques fora da box */
   z-index: 5000;             /* acima do BG; abaixo do CTA/rodapé/topbar */
 }
-
-.overlay-box{
-  max-width: 720px;
-  width: min(90vw, 720px);
-  pointer-events: auto;      /* permite seleção/cópia do texto */
+@supports (height: 100dvh){
+  .overlay{ height: 100dvh; }  /* usa viewport dinâmica quando disponível */
 }
 
+/* Centralização ABSOLUTA do bloco (robusta em mobile) */
+.overlay-box{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  max-width: 720px;
+  width: min(92vw, 720px);
+  pointer-events: auto;      /* permite seleção/cópia do texto */
+  margin: 0;                 /* garante que nada desloque o centro */
+}
+
+/* Tipografia do manifesto */
 .overlay .line{
   margin: 0 0 6px 0;
   font-size: 15px;           /* tamanho definido */
@@ -74,7 +85,7 @@ body{
 .overlay .line em{ font-style: italic; }
 .overlay .line strong{ font-weight: 700; }
 
+/* Ajustes responsivos */
 @media (max-width: 640px){
-  .overlay-box{ padding: 0 8px; }
   .overlay .line{ font-size: 14px; } /* leve ajuste para leitura em telas pequenas */
 }
