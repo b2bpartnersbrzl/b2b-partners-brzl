@@ -12,27 +12,22 @@
 </head>
 <body>
   <!-- Topbar: Voltar -->
-  <nav class="topbar" aria-label="Navegação">
-    <a class="btn btn-ghost" href="index.html" aria-label="Voltar para a página inicial">Voltar</a>
+  <nav class="topbar" aria-label="Navegação" style="position:fixed;top:14px;left:14px;z-index:10000;">
+    <a href="index.html" aria-label="Voltar para a página inicial" style="display:inline-block;padding:12px 20px;border-radius:999px;border:2px solid #fff;color:#fff;text-decoration:none;font-weight:600;">Voltar</a>
   </nav>
 
-  <!-- Área de fundo (sem rolagem) -->
-  <main class="bg manifesto-bg" aria-label="Manifesto Ser 5.0">
-    <img src="images/manifesto_bg.webp" alt="Manifesto Ser 5.0 — B2B Partners BRZL" class="background-image" />
-
-    <!-- TEXTO INDEXÁVEL (a ser formatado) -->
-    <!--
-    <section class="manifesto-overlay" aria-label="Conteúdo do Manifesto">
-      <h1>Ser 5.0</h1>
-      <p>Criatividade. Tecnologia. Humanidade.</p>
-    </section>
-    -->
+  <!-- Fundo do Manifesto (mesmo esquema de imagem fixa sem rolagem) -->
+  <main class="stage" aria-label="Manifesto Ser 5.0">
+    <svg class="stage-svg" viewBox="0 0 2048 1131" preserveAspectRatio="xMidYMin slice" role="img" aria-label="Manifesto — B2B Partners BRZL">
+      <image href="images/manifesto_bg.webp" x="0" y="0" width="2048" height="1131" />
+      <!-- Quando quiser, podemos adicionar overlay de texto indexável aqui. -->
+    </svg>
   </main>
 
   <!-- CTA fixo de WhatsApp -->
   <a
     class="whatsapp-float"
-    href="https://wa.me/5571993081072?text=Ol%C3%A1!%20Seja%20bem-vindo%20%C3%A0%20B2B%20Partners%20BRZL.%0AQuero%20falar%20sobre%20o%20Manifesto%20Ser%205.0."
+    href="https://wa.me/5571993081072?text=Ol%C3%A1!%20Quero%20falar%20sobre%20o%20Manifesto%20Ser%205.0."
     target="_blank"
     rel="noopener"
     aria-label="Abrir WhatsApp da B2B Partners BRZL">

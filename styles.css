@@ -9,23 +9,24 @@ body{
 
 :root{ --footer-muted:#ccc; }
 
-/* SVG fullscreen */
+/* SVG fullscreen para manter coordenadas 1:1 com a imagem */
 .stage{ position: fixed; inset: 0; }
 .stage-svg{ width: 100vw; height: 100vh; display: block; }
 
 /* Hotspot transparente (clicável) */
 .hotspot{
-  fill: transparent;
+  fill: transparent;          /* garante invisibilidade */
   cursor: pointer;
   pointer-events: auto;
 }
 
-/* Debug visual do hotspot (opcional: ative adicionando a classe hotspot--debug no <rect>) */
+/* (debug opcional) — para visualizar a área clicável, adicione a classe abaixo no rect:
 .hotspot.hotspot--debug{
   fill: rgba(255,255,255,.08);
   stroke: rgba(255,255,255,.5);
   stroke-width: 1;
 }
+*/
 
 /* CTA WhatsApp */
 .whatsapp-float{
