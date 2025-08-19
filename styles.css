@@ -9,31 +9,23 @@ body{
 
 :root{ --footer-muted:#ccc; }
 
-/* SVG fullscreen */
+/* Fundo / palco */
 .stage{ position: fixed; inset: 0; z-index: 0; }
 .stage-svg{ width: 100vw; height: 100vh; display: block; }
 
-/* Hotspot transparente */
+/* Hotspots (home) */
 .hotspot{
   fill: transparent;
   cursor: pointer;
   pointer-events: auto;
 }
 
-/* (debug opcional)
-.hotspot.hotspot--debug{
-  fill: rgba(255,255,255,.08);
-  stroke: rgba(255,255,255,.5);
-  stroke-width: 1;
-}
-*/
-
 /* CTA WhatsApp */
 .whatsapp-float{
   position: fixed;
   bottom: calc(60px + env(safe-area-inset-bottom, 0px));
   right: calc(27px + env(safe-area-inset-right, 0px));
-  z-index: 9999;
+  z-index: 10000; /* acima do overlay */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -56,27 +48,26 @@ body{
 .overlay{
   position: fixed;
   inset: 0;
-  display: flex;
-  align-items: center;       /* centraliza vertical */
-  justify-content: center;   /* centraliza horizontal */
-  pointer-events: none;      /* não intercepta cliques fora da box */
-  z-index: 5000;             /* acima do fundo, abaixo do CTA/rodapé */
+  display: grid;             /* centralização exata */
+  place-items: center;       /* centro vertical e horizontal */
+  pointer-events: none;      /* não bloqueia cliques fora da box */
+  z-index: 5000;             /* acima do BG; abaixo do CTA/rodapé/topbar */
 }
-.overlay--manifesto{
-  padding: 20px;
-}
+
 .overlay-box{
   max-width: 720px;
   width: min(90vw, 720px);
-  pointer-events: auto;      /* permite seleção/cópia */
+  pointer-events: auto;      /* permite seleção/cópia do texto */
 }
+
 .overlay .line{
   margin: 0 0 6px 0;
-  font-size: 15px;           /* tamanho ajustado */
+  font-size: 15px;           /* tamanho definido */
   font-weight: 400;          /* IBM Plex Sans normal */
-  text-align: left;          /* alinhamento à esquerda */
+  text-align: left;          /* alinhamento de texto à esquerda */
   letter-spacing: 0.2px;
 }
+
 .overlay .line.white{ color: #FFFFFF; }
 .overlay .line.accent{ color: #FFE069; font-weight: 700; }
 .overlay .line.strong-line{ font-weight: 700; }
@@ -85,5 +76,5 @@ body{
 
 @media (max-width: 640px){
   .overlay-box{ padding: 0 8px; }
-  .overlay .line{ font-size: 14px; } /* leve ajuste em telas pequenas */
+  .overlay .line{ font-size: 14px; } /* leve ajuste para leitura em telas pequenas */
 }
