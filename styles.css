@@ -61,7 +61,7 @@ body{
   pointer-events: none;
 }
 .overlay--manifesto{
-  padding: 20px; /* margem interna, opcional */
+  padding: 20px;
 }
 
 /* Overlay container aplicado ao texto do manifesto */
@@ -69,7 +69,7 @@ body{
   max-width: 720px;
   pointer-events: auto;
   background: rgba(0,0,0,.42);
-  border: 1px solid rgba(255,255,255,.18);
+  /* border removida */
   border-radius: 16px;
   padding: 16px 20px;
   -webkit-backdrop-filter: blur(2px) saturate(120%);
@@ -83,7 +83,7 @@ body{
   font-weight: 400;
   text-align: left;
   letter-spacing: 0.2px;
-  line-height: 1.5;          /* aumento do respiro entre linhas */
+  line-height: 1.6;          /* mais respiro entre linhas */
 }
 .overlay .line.white{ color: #FFFFFF; }
 .overlay .line.accent{ color: #FFE069; font-weight: 700; }
