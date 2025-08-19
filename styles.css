@@ -56,22 +56,22 @@ body{
   position: fixed;
   inset: 0;
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  pointer-events: none; /* não intercepta hotspots */
+  align-items: center;       /* centraliza vertical */
+  justify-content: center;   /* centraliza horizontal */
+  pointer-events: none;
 }
 .overlay--manifesto{
-  padding: min(8vh,80px) min(8vw,80px);
+  padding: 20px; /* margem interna, opcional */
 }
 .overlay-box{
   max-width: 720px;
-  pointer-events: auto; /* permite seleção/cópia */
+  pointer-events: auto;
 }
 .overlay .line{
   margin: 0 0 6px 0;
   font-size: 14px;
   font-weight: 400;
-  text-align: left;
+  text-align: left; /* texto alinhado à esquerda */
   letter-spacing: 0.2px;
 }
 .overlay .line.white{ color: #FFFFFF; }
@@ -80,6 +80,6 @@ body{
 .overlay .line em{ font-style: italic; }
 .overlay .line strong{ font-weight: 700; }
 @media (max-width: 640px){
-  .overlay--manifesto{ padding: 24px; }
+  .overlay-box{ padding: 16px; }
   .overlay .line{ font-size: 13px; }
 }
