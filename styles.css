@@ -9,23 +9,31 @@ body{
 
 :root{ --footer-muted:#ccc; }
 
-/* Fundo / palco */
-.stage{ position: fixed; inset: 0; z-index: 0; }
+/* SVG fullscreen */
+.stage{ position: fixed; inset: 0; }
 .stage-svg{ width: 100vw; height: 100vh; display: block; }
 
-/* Hotspots (home) */
+/* Hotspot transparente */
 .hotspot{
   fill: transparent;
   cursor: pointer;
   pointer-events: auto;
 }
 
+/* (debug opcional)
+.hotspot.hotspot--debug{
+  fill: rgba(255,255,255,.08);
+  stroke: rgba(255,255,255,.5);
+  stroke-width: 1;
+}
+*/
+
 /* CTA WhatsApp */
 .whatsapp-float{
   position: fixed;
   bottom: calc(60px + env(safe-area-inset-bottom, 0px));
   right: calc(27px + env(safe-area-inset-right, 0px));
-  z-index: 10000; /* acima do overlay */
+  z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -41,7 +49,6 @@ body{
   font-size: 12px;
   color: var(--footer-muted);
   pointer-events: none;
-  z-index: 9000;
 }
 
 /* ===== Overlay Manifesto (texto indexável) ===== */
@@ -51,30 +58,28 @@ body{
   display: flex;
   align-items: center;       /* centraliza vertical */
   justify-content: center;   /* centraliza horizontal */
-  pointer-events: none;      /* não bloqueia cliques fora da box */
-  z-index: 5000;             /* acima do BG; abaixo do CTA/rodapé/topbar */
+  pointer-events: none;
 }
-
+.overlay--manifesto{
+  padding: 20px; /* margem interna, opcional */
+}
 .overlay-box{
   max-width: 720px;
-  width: min(90vw, 720px);
-  pointer-events: auto;      /* permite seleção/cópia do texto */
+  pointer-events: auto;
 }
-
 .overlay .line{
   margin: 0 0 6px 0;
-  font-size: 15px;           /* aumentado de 14px para 15px */
+  font-size: 14px;
   font-weight: 400;
-  text-align: left;
+  text-align: left; /* texto alinhado à esquerda */
   letter-spacing: 0.2px;
 }
-
 .overlay .line.white{ color: #FFFFFF; }
 .overlay .line.accent{ color: #FFE069; font-weight: 700; }
 .overlay .line.strong-line{ font-weight: 700; }
 .overlay .line em{ font-style: italic; }
 .overlay .line strong{ font-weight: 700; }
-
 @media (max-width: 640px){
-  .overlay .line{ font-size: 14px; } /* volta a 14px em telas pequenas */
+  .overlay-box{ padding: 16px; }
+  .overlay .line{ font-size: 13px; }
 }
