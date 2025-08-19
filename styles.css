@@ -39,7 +39,23 @@ body{
   justify-content: center;
   width: 64px; height: 64px;
 }
-.whatsapp-icon{ width: 64px; height: 64px; display: block; }
+.whatsapp-icon{
+  width: 64px; height: 64px; display: block;
+
+  /* micro pulso suave */
+  animation: pulse 2.4s ease-in-out infinite;
+  will-change: transform;
+  transform-origin: center center;
+}
+/* animação */
+@keyframes pulse{
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.06); } /* micro pulso */
+}
+/* acessibilidade: respeita usuários que preferem menos movimento */
+@media (prefers-reduced-motion: reduce){
+  .whatsapp-icon{ animation: none; }
+}
 
 /* Rodapé fixo */
 .footer{
@@ -100,7 +116,7 @@ body{
   font-size: 22px;
   line-height: 1;
   cursor: pointer;
-  z-index: 12000;
+  z-index: 12000; /* acima do overlay e demais elementos */
 }
 .menu-toggle:focus{ outline: 3px solid #FFE069; outline-offset: 2px; }
 
@@ -125,7 +141,7 @@ body{
   font-weight: 600;
   padding: 10px 12px;
   border-radius: 6px;
-  width: 220px;
+  width: 220px;            /* área confortável de toque */
 }
 .dropdown-menu a:hover,
 .dropdown-menu a[aria-current="page"]{
@@ -138,7 +154,7 @@ body{
   position: fixed;
   top: 16px; left: 50%;
   transform: translateX(-50%);
-  display: none;
+  display: none;            /* aparece só no desktop */
   gap: 22px;
   background: rgba(0,0,0,.35);
   border: 1px solid rgba(255,255,255,.25);
@@ -166,7 +182,7 @@ body{
 @media (max-width: 640px){
   .overlay-box{
     padding: 16px 16px;
-    transform: translateY(-6vh);
+    transform: translateY(-6vh); /* mantém alinhamento vertical igual ao desktop */
   }
 }
 
