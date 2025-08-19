@@ -69,7 +69,7 @@ body{
 }
 .overlay .line{
   margin: 0 0 6px 0;
-  font-size: 17px;           /* mantém o tamanho atual que você definiu */
+  font-size: 17px;           /* mantém 17px em todas as telas */
   font-weight: 400;
   text-align: left;          /* texto alinhado à esquerda */
   letter-spacing: 0.2px;
@@ -79,10 +79,6 @@ body{
 .overlay .line.strong-line{ font-weight: 700; }
 .overlay .line em{ font-style: italic; }
 .overlay .line strong{ font-weight: 700; }
-@media (max-width: 640px){
-  .overlay-box{ padding: 16px; }
-  .overlay .line{ font-size: 17px; }
-}
 
 /* ===== Menu hambúrguer (apenas páginas internas) ===== */
 .menu-toggle{
@@ -96,7 +92,7 @@ body{
   font-size: 22px;
   line-height: 1;
   cursor: pointer;
-  z-index: 12000; /* acima do overlay e topbar */
+  z-index: 12000; /* acima do overlay e demais elementos */
 }
 .menu-toggle:focus{ outline: 3px solid #FFE069; outline-offset: 2px; }
 
@@ -126,4 +122,12 @@ body{
 .dropdown-menu a[aria-current="page"]{
   background: rgba(255,255,255,.16);
   color: #FFE069;
+}
+
+/* ===== Responsividade ===== */
+@media (max-width: 640px){
+  .overlay-box{
+    padding: 16px;
+    transform: translateY(-6vh); /* ajuste fino para igualar a altura ao desktop */
+  }
 }
