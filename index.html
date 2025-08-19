@@ -1,85 +1,71 @@
-/* Base */
-body{
-  margin: 0;
-  font-family: 'IBM Plex Sans', sans-serif;
-  background: #000;
-  color: #fff;
-  overflow: hidden; /* sem rolagem */
-}
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>B2B PARTNERS BRZL — Hub</title>
+  <meta name="theme-color" content="#000000" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- IBM Plex Sans com itálico e pesos necessários -->
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="stage" aria-label="Página inicial B2B PARTNERS BRZL">
+    <svg class="stage-svg" viewBox="0 0 2048 1131" preserveAspectRatio="xMidYMin slice" role="img" aria-label="B2B Partners BRZL — Hub">
+      <image href="images/teste_index_bg.webp" x="0" y="0" width="2048" height="1131" />
 
-:root{ --footer-muted:#ccc; }
+      <!-- SER 5.0 -->
+      <a xlink:href="manifesto.html" aria-label="Abrir Manifesto — Ser 5.0">
+        <rect class="hotspot"
+              x="1095" y="283"
+              width="165" height="47"
+              rx="9" ry="9"
+              fill="transparent" />
+      </a>
 
-/* SVG fullscreen */
-.stage{ position: fixed; inset: 0; }
-.stage-svg{ width: 100vw; height: 100vh; display: block; }
+      <!-- VAMOS -->
+      <a xlink:href="#" aria-label="Botão VAMOS">
+        <rect class="hotspot"
+              x="1095" y="378"
+              width="165" height="47"
+              rx="9" ry="9"
+              fill="transparent" />
+      </a>
 
-/* Hotspot transparente */
-.hotspot{
-  fill: transparent;
-  cursor: pointer;
-  pointer-events: auto;
-}
+      <!-- MARCAS -->
+      <a xlink:href="#" aria-label="Botão MARCAS">
+        <rect class="hotspot"
+              x="1095" y="691"
+              width="165" height="47"
+              rx="9" ry="9"
+              fill="transparent" />
+      </a>
 
-/* (debug opcional)
-.hotspot.hotspot--debug{
-  fill: rgba(255,255,255,.08);
-  stroke: rgba(255,255,255,.5);
-  stroke-width: 1;
-}
-*/
+      <!-- ARTISTAS -->
+      <a xlink:href="#" aria-label="Botão ARTISTAS">
+        <rect class="hotspot"
+              x="1095" y="786"
+              width="165" height="47"
+              rx="9" ry="9"
+              fill="transparent" />
+      </a>
+    </svg>
+  </main>
 
-/* CTA WhatsApp */
-.whatsapp-float{
-  position: fixed;
-  bottom: calc(60px + env(safe-area-inset-bottom, 0px));
-  right: calc(27px + env(safe-area-inset-right, 0px));
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 64px; height: 64px;
-}
-.whatsapp-icon{ width: 64px; height: 64px; display: block; }
+  <!-- CTA fixo de WhatsApp -->
+  <a
+    class="whatsapp-float"
+    href="https://wa.me/5571993081072?text=Ol%C3%A1!%20Seja%20bem-vindo%20%C3%A0%20B2B%20Partners%20BRZL.%0ASomos%20especialistas%20em%20apoiar%20ag%C3%AAncias%20e%20marcas%20na%20execu%C3%A7%C3%B5es,%20live%20marketing%20e%20produ%C3%A7%C3%A3o%20360%20com%20escala%20e%20opera%C3%A7%C3%A3o%20multi-pra%C3%A7a.%0A%0AComo%20podemos%20ajudar%20sua%20opera%C3%A7%C3%A3o%20hoje%3F"
+    target="_blank"
+    rel="noopener"
+    aria-label="Abrir WhatsApp da B2B Partners BRZL">
+    <img src="images/cta-whatsapp.svg" alt="WhatsApp" class="whatsapp-icon" />
+  </a>
 
-/* Rodapé fixo */
-.footer{
-  position: fixed;
-  left: 0; right: 0; bottom: 10px;
-  text-align: center;
-  font-size: 12px;
-  color: var(--footer-muted);
-  pointer-events: none;
-}
-
-/* ===== Overlay Manifesto (texto indexável) ===== */
-.overlay{
-  position: fixed;
-  inset: 0;
-  display: flex;
-  align-items: center;       /* centraliza vertical */
-  justify-content: center;   /* centraliza horizontal */
-  pointer-events: none;
-}
-.overlay--manifesto{
-  padding: 20px;
-}
-.overlay-box{
-  max-width: 720px;
-  pointer-events: auto;
-}
-.overlay .line{
-  margin: 0 0 6px 0;
-  font-size: 15px;           /* Aumentado para 15px */
-  font-weight: 400;
-  text-align: left;
-  letter-spacing: 0.2px;
-}
-.overlay .line.white{ color: #FFFFFF; }
-.overlay .line.accent{ color: #FFE069; font-weight: 700; }
-.overlay .line.strong-line{ font-weight: 700; }
-.overlay .line em{ font-style: italic; }
-.overlay .line strong{ font-weight: 700; }
-@media (max-width: 640px){
-  .overlay-box{ padding: 16px; }
-  .overlay .line{ font-size: 14px; } /* levemente menor em telas pequenas */
-}
+  <footer class="footer" aria-label="Rodapé">
+    2025 © B2B Partners BRZL
+  </footer>
+</body>
+</html>
