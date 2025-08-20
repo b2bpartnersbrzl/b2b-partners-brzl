@@ -50,7 +50,8 @@ body{font-family:var(--font-base);color:var(--text);background:#fdfdfd;line-heig
   margin-top:8px;
   margin-bottom:10px;
   font-weight:700;
-  line-height:1.4;
+  line-height:1.5;       
+  letter-spacing:0.02em; 
   white-space:nowrap;
 }
 .logo-subline em{font-style:italic;}
