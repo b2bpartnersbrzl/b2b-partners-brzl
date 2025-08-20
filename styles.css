@@ -10,7 +10,9 @@
   --marquee-pad-bot: 12px;
   --clients-caption-h: 28px;
 
-  --gap-after-carousel: 24px;
+  --gap-after-carousel: 24px;      /* respiro padrão do conteúdo após o carrossel */
+  --anchor-offset-extra: 12px;     /* respiro extra ao rolar por âncora */
+
   --section-gap: 40px;
 
   --font-base: 'Noto Sans', sans-serif;
@@ -28,7 +30,7 @@
 
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:var(--font-base);color:var(--text);background:#fdfdfd;line-height:1.4}
+body{font-family:var(--font-base);color:var(--text);background:#fdfdfd;line-height:1.5}
 
 .main-header{
   position:fixed; top:0; left:0; right:0;
@@ -101,7 +103,7 @@ body{font-family:var(--font-base);color:var(--text);background:#fdfdfd;line-heig
   color:#FFFFFF;
   font-weight:700;
   font-size:12px;
-  letter-spacing:.14em;   /* ajuste sutil */
+  letter-spacing:.14em;
   text-transform:uppercase;
   line-height:var(--clients-caption-h);
   height:var(--clients-caption-h);
@@ -123,32 +125,56 @@ body{font-family:var(--font-base);color:var(--text);background:#fdfdfd;line-heig
   padding-bottom: calc(var(--footer-height) + 40px);
 }
 
-/* Compensação para âncoras: garante que as seções rolem para baixo do carrossel fixo */
+/* Âncoras: para no ponto certo, com respiro */
 section[id]{
   scroll-margin-top: calc(
     var(--header-height) +
     var(--marquee-pad-top) +
     var(--marquee-pad-bot) +
     var(--clients-caption-h) +
-    var(--gap-after-carousel)
+    var(--gap-after-carousel) +
+    var(--anchor-offset-extra)
   );
 }
 
+/* Blocos tipo “card” (heros) */
 .hero{
   background:var(--surface);
   border:1px solid var(--block-border);
   border-radius:var(--radius);
   max-width:1200px;
   margin: var(--section-gap) auto 0;
-  padding:24px;
+  padding:28px;                    /* + conforto interno */
   box-shadow:0 4px 12px rgba(0,0,0,.05);
 }
 .hero + .hero{margin-top: var(--section-gap);}
+.hero .hero-content > * + *{ margin-top: 12px; } /* respiro vertical previsível */
+.hero h3{ margin-top: 18px; }
 
+/* Listas internas dos heros: lista “limpa” sem bolinha e sem recuo */
+.hero ul{
+  list-style:none;
+  padding:0;
+  margin:8px 0 0 0;
+}
+.hero li{
+  display:flex; 
+  gap:10px;
+  align-items:flex-start;
+  line-height:1.6;
+}
+.hero li::before{
+  content:"—";
+  flex:0 0 auto;
+  transform: translateY(1px);
+  opacity:.65;
+}
+
+/* Grid de serviços */
 .content-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:20px;
+  gap:24px;
   max-width:1200px;
   margin: var(--section-gap) auto 0;
 }
@@ -160,11 +186,13 @@ section[id]{
 }
 .info-block:hover{transform:translateY(-5px); box-shadow:0 8px 30px rgba(0,0,0,.1)}
 .block-title{font-size:20px; font-weight:600; margin-bottom:10px}
-.block-description{font-size:15px; color:var(--text-muted); line-height:1.6}
+.block-description{font-size:15px; color:var(--text-muted); line-height:1.7}
 
+/* CTA WhatsApp */
 .whatsapp-float{position:fixed; right:20px; bottom: calc(var(--footer-height) - 16px); z-index:1400}
 .whatsapp-icon{width:64px; height:64px; filter:drop-shadow(0 6px 12px rgba(0,0,0,.25))}
 
+/* Footer fixo */
 .footer-bar{
   position:fixed; left:0; right:0; bottom:0;
   height:var(--footer-height);
