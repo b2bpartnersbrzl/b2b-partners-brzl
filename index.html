@@ -8,6 +8,7 @@
   <meta name="description" content="Somos um hub de inteligência e execução para o mercado B2B. Conectamos marcas, agências e artistas em projetos de alto impacto com escala nacional.">
   <meta name="theme-color" content="#fdfdfd">
 
+  <!-- Fonte: apenas Noto Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
@@ -37,17 +38,17 @@
   <header class="main-header">
     <div class="logo-area">
       <a href="index.html" class="logo-link" aria-label="Página inicial B2B Partners BRZL">
+        <!-- CORRIGIDO -->
         <img src="images/logo-b2b.svg" alt="Logo B2B Partners BRZL" class="logo-img">
       </a>
     </div>
 
-    <nav class="top-menu" aria-label="Menu principal (desktop)">
-      <a href="#servicos">Serviços</a>
-      <a href="#quem-somos">Quem Somos</a>
-      <a href="#o-processo">O Processo</a>
-      <a href="#seu-projeto">Seu Projeto</a>
+    <!-- MENU DESKTOP -->
+    <nav class="top-menu" aria-label="Menu principal (desktop )">
+      <a href="#" aria-current="page">teste</a>
     </nav>
 
+    <!-- BOTÃO HAMBÚRGUER -->
     <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu" type="button">
       <span class="hamburger-line"></span>
       <span class="hamburger-line"></span>
@@ -55,88 +56,88 @@
     </button>
   </header>
   
+  <!-- MENU MOBILE -->
   <div id="mobile-menu" class="mobile-menu-overlay" aria-hidden="true">
     <nav class="mobile-menu-nav" aria-label="Menu principal (mobile)">
-      <a href="#servicos">Serviços</a>
-      <a href="#quem-somos">Quem Somos</a>
-      <a href="#o-processo">O Processo</a>
-      <a href="#seu-projeto">Seu Projeto</a>
+      <a href="#">teste</a>
+      <a href="#">teste A</a>
+      <a href="#">teste B</a>
+      <a href="#">teste C</a>
+      <a href="#">teste D</a>
     </nav>
   </div>
 
   <main class="content-area">
-
-    <section id="servicos" class="page-section" aria-labelledby="servicos-titulo">
-      <h2 id="servicos-titulo" class="section-title">Soluções Completas para o Mercado B2B</h2>
-      <p class="section-subtitle">Integramos estratégia, criatividade e tecnologia para construir projetos de alto impacto.</p>
-      
-      <div class="services-grid">
-        <article class="service-card">
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12.5 18.5l-3 3l-1.5 -1.5l3 -3l1.5 1.5Z"></path><path d="M18.5 12.5l3 3l-1.5 1.5l-3 -3l1.5 -1.5Z"></path><path d="M8.223 9.41c.092 -.613 .328 -1.206 .703 -1.748l3.46 -4.563a1 1 0 0 1 1.628 .057l3.46 4.563c.375 .542 .611 1.135 .703 1.748c.11 .73 -.045 1.48 -.463 2.115l-2.459 3.61c-.418 .635 -1.034 1.055 -1.741 1.055h-2c-.707 0 -1.323 -.42 -1.741 -1.055l-2.459 -3.61c-.418 -.635 -.573 -1.385 -.463 -2.115Z"></path></svg>
-          </div>
-          <h3 class="service-title">Live Marketing & Eventos</h3>
-          <p class="service-description">Planejamento e execução de eventos corporativos, ativações de marca e experiências imersivas com operação em escala nacional.</p>
-        </article>
-
-        <article class="service-card">
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 5.5l1.5 1.5l2.5 -2.5"></path><path d="M3.5 11.5l1.5 1.5l2.5 -2.5"></path><path d="M3.5 17.5l1.5 1.5l2.5 -2.5"></path><path d="M11 6l9 0"></path><path d="M11 12l9 0"></path><path d="M11 18l9 0"></path></svg>
-          </div>
-          <h3 class="service-title">Curadoria Estratégica</h3>
-          <p class="service-description">Conectamos sua marca a artistas, influenciadores e projetos, criando parcerias autênticas que geram valor e resultados reais.</p>
-        </article>
-        
-        <article class="service-card">
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21h-9a3 3 0 0 1 -3 -3v-1h10v2a2 2 0 0 0 4 0v-2h-2.5"></path><path d="M14 12v.01"></path><path d="M3 3m0 3a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v5h-5"></path><path d="M18 18h3v-3h-3z"></path></svg>
-          </div>
-          <h3 class="service-title">Produção 360º</h3>
-          <p class="service-description">Gerenciamento completo de projetos, da concepção à entrega final, garantindo excelência, cumprimento de prazos e otimização de recursos.</p>
-        </article>
+    <!-- CARROSSEL DE LOGOS -->
+    <section id="clientes" class="clients" aria-label="Marcas que confiam em nós">
+      <div class="logo-marquee" role="region" aria-roledescription="carrossel automático" aria-label="Logos de clientes">
+        <div class="logo-marquee__track">
+          <!-- Lista 1 -->
+          <ul class="logo-list">
+            <!-- CORRIGIDO -->
+            <li class="logo-item"><img src="images/logos/logo_aneel.svg" alt="ANEEL" class="logo-img-brand" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/logos/logo_vivo.svg" alt="Vivo" class="logo-img-brand" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/logos/logo_dell.svg" alt="Dell" class="logo-img-brand" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/logos/logo_natura.svg" alt="Natura" class="logo-img-brand" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/logos/logo_itau.svg" alt="Itaú" class="logo-img-brand" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/logos/logo_jeep.svg" alt="Jeep" class="logo-img-brand" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/logos/logo_bb.svg" alt="Banco do Brasil" class="logo-img-brand" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/logos/logo_fiat.svg" alt="Fiat" class="logo-img-brand" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/logos/logo_citi.svg" alt="Citi" class="logo-img-brand" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/logos/logo_chilli_beans.svg" alt="Chilli Beans" class="logo-img-brand" loading="lazy" decoding="async"></li>
+          </ul>
+          <!-- Lista 2 (duplicata para loop perfeito) -->
+          <ul class="logo-list" aria-hidden="true">
+            <!-- CORRIGIDO -->
+            <li class="logo-item"><img src="images/logos/logo_aneel.svg" alt="" class="logo-img-brand" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/logos/logo_vivo.svg" alt="" class="logo-img-brand" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/logos/logo_dell.svg" alt="" class="logo-img-brand" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/logos/logo_natura.svg" alt="" class="logo-img-brand" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/logos/logo_itau.svg" alt="" class="logo-img-brand" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/logos/logo_jeep.svg" alt="" class="logo-img-brand" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/logos/logo_bb.svg" alt="" class="logo-img-brand" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/logos/logo_fiat.svg" alt="" class="logo-img-brand" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/logos/logo_citi.svg" alt="" class="logo-img-brand" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/logos/logo_chilli_beans.svg" alt="" class="logo-img-brand" loading="lazy" decoding="async"></li>
+          </ul>
+        </div>
       </div>
+      <p class="clients-caption">Marcas que Confiam em Nós</p>
     </section>
 
-    <section id="clientes" class="clients" aria-label="Marcas que confiam em nós">
-      </section>
-
+    <!-- BLOCO DEMO (sem link) -->
+    <div class="content-grid">
+      <article class="info-block">
+        <h2 class="block-title">Ser 5.0</h2>
+        <p class="block-description">
+          Nossa filosofia. A integração entre criatividade, tecnologia e humanidade para criar o futuro dos negócios, hoje.
+        </p>
+      </article>
+    </div>
   </main>
 
+  <!-- CTA WhatsApp -->
   <a class="whatsapp-float" href="https://wa.me/557193081072?text=Ol%C3%A1!%20Seja%20bem-vindo%20%C3%A0%20B2B%20Partners%20BRZL." target="_blank" rel="noopener">
+    <!-- CORRIGIDO -->
     <img src="images/cta-whatsapp.svg" alt="WhatsApp" class="whatsapp-icon" />
   </a>
 
   <footer class="footer">2025 © B2B Partners BRZL</footer>
 
   <script>
-    (function(){
+    (function( ){
       const btn = document.querySelector('.menu-toggle');
       const menuOverlay = document.getElementById('mobile-menu');
       if (!btn || !menuOverlay) return;
-
-      const closeMenu = () => {
-        menuOverlay.classList.remove('show');
-        btn.setAttribute('aria-expanded','false');
-        document.body.style.overflow = '';
+      const toggleMenu = (open) => {
+        const show = (open === undefined) ? !menuOverlay.classList.contains('show') : open;
+        btn.setAttribute('aria-expanded', show);
+        menuOverlay.setAttribute('aria-hidden', !show);
+        document.body.style.overflow = show ? 'hidden' : '';
+        menuOverlay.classList.toggle('show', show);
       };
-      
-      const openMenu = () => {
-        menuOverlay.classList.add('show');
-        btn.setAttribute('aria-expanded','true');
-        document.body.style.overflow = 'hidden';
-      };
-
-      btn.addEventListener('click', () => {
-        const isOpen = menuOverlay.classList.contains('show');
-        isOpen ? closeMenu() : openMenu();
-      });
-
-      // Fecha o menu ao clicar em um link
-      menuOverlay.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', closeMenu);
-      });
-
-      window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+      btn.addEventListener('click', () => toggleMenu());
+      window.addEventListener('keydown', (e) => { if (e.key === 'Escape') toggleMenu(false); });
     })();
   </script>
 
