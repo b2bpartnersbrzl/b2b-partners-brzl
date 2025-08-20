@@ -43,32 +43,33 @@ body {
   z-index: 1000;
 }
 
-/* ATUALIZADO: Largura fixa para controlar o alinhamento */
 .logo-area {
   display: flex;
   flex-direction: column;
   /* IMPORTANTE: Defina aqui a largura exata do seu logo */
-  width: 175px; /* <-- AJUSTE ESTE VALOR */
+  width: 175px; /* <-- AJUSTE ESTE VALOR PARA A LARGURA EXATA DA IMAGEM */
 }
 
 .logo-link { display: flex; align-items: center; }
 
 .logo-img {
-  /* A imagem agora ocupa 100% do container '.logo-area' */
   width: 100%;
   height: auto;
   display: block;
 }
 
-/* ATUALIZADO: Simplificado para centralizar o texto */
+/* ATUALIZADO: Ajuste fino para garantir uma única linha */
 .logo-tagline {
   font-family: var(--font-family-tagline);
   color: #666666;
-  font-size: 10px;
+  font-size: 9.5px; /* Reduzido para melhor encaixe */
   font-weight: 700;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.1px; /* Espaçamento reduzido */
   margin-top: 6px;
-  text-align: center; /* Centraliza o texto no container */
+  text-align: center;
+  white-space: nowrap; /* Impede a quebra de linha */
+  overflow: hidden; /* Garante que o texto não vaze */
+  text-overflow: ellipsis; /* Adiciona "..." se ainda assim não couber */
 }
 .logo-tagline em { font-style: italic; }
 
