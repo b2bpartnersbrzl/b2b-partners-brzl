@@ -11,22 +11,24 @@
   --color-header-bg: rgba(253, 253, 253, 0.7);
 
   --font-family-base: 'Noto Sans', sans-serif;
-  --header-height: 90px;
-  --footer-height: 56px;
+
+  /* ATENÇÃO: header real está mais fino após reduzir o SVG do logo */
+  --header-height: 76px;          /* era 90px; ajustado para aproximar o trilho do menu */
+  --footer-height: 44px;          /* barra do rodapé mais estreita */
   --border-radius: 12px;
   --transition-speed: 0.3s;
 
   /* Carrossel */
-  --logo-gap: 48px;          /* distância igual entre todas as logos */
-  --logo-height: 40px;       /* altura base das logos */
+  --logo-gap: 48px;               /* distância igual entre todas as logos */
+  --logo-height: 40px;            /* altura base das logos */
   --marquee-duration: 38s;
 
   /* Espaçamentos verticais */
-  --gap-header-carousel: 22px;      /* distância entre header e carrossel (reforçada) */
-  --carousel-inner-pad-top: 18px;   /* respiro superior dentro do trilho */
-  --carousel-inner-pad-bot: 12px;   /* respiro inferior dentro do trilho */
-  --carousel-block-height: 104px;   /* altura total aproximada do bloco do carrossel */
-  --gap-carousel-hero: 28px;        /* separação extra entre carrossel e o primeiro hero */
+  --gap-header-carousel: 10px;    /* menor para aproximar do menu, como antes */
+  --carousel-inner-pad-top: 18px; /* mais respiro superior no trilho */
+  --carousel-inner-pad-bot: 12px; /* respiro inferior (estava bom) */
+  --carousel-block-height: 104px; /* altura total aproximada do bloco do carrossel */
+  --gap-carousel-hero: 28px;      /* separação entre carrossel e primeiro hero */
 }
 
 /* --- Reset e Globais --- */
@@ -53,7 +55,7 @@ body {
   top: 0; left: 0;
   width: 100%;
   min-height: var(--header-height);
-  padding: 10px 24px;
+  padding: 8px 24px;
   display: flex;
   align-items: center; justify-content: space-between;
   background-color: var(--color-header-bg);
@@ -67,7 +69,7 @@ body {
 /* Logo */
 .logo-area { display: flex; flex-direction: column; align-items: center; }
 .logo-link { display: block; }
-.logo-img { display: block; max-width: 220px; height: auto; }
+.logo-img { display: block; max-width: 200px; height: auto; } /* logo menor */
 
 /* Menu Desktop */
 .top-menu { display: none; gap: 28px; align-items: center; }
@@ -123,7 +125,7 @@ body {
   mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
 }
 .logo-marquee__track {
-  display: flex; gap: var(--logo-gap);
+  display: flex; gap: var(--logo-gap); align-items: center;
   width: max-content; will-change: transform; contain: content;
   animation: marquee var(--marquee-duration) linear infinite;
 }
@@ -134,7 +136,7 @@ body {
 /* Ajuste fino: reduzir apenas a logo ANEEL */
 .logo-item img[alt="ANEEL"] { height: calc(var(--logo-height) - 6px); }
 
-/* Legenda do carrossel (cor já definida anteriormente) */
+/* Legenda do carrossel */
 .clients-caption {
   color: #669999;
   font-size: 12px;
@@ -213,16 +215,16 @@ body {
 .whatsapp-float {
   position: fixed;
   right: 20px;
-  bottom: calc(var(--footer-height) - 22px); /* sobrepõe a barra criando o efeito de recorte */
+  bottom: calc(var(--footer-height) - 18px); /* sobrepõe a barra criando o efeito de recorte */
   z-index: 1200;
   width: 64px; height: 64px;
 }
 .whatsapp-icon {
   width: 64px; height: 64px;
-  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.25)); /* sombra para destacar o recorte */
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.25));
 }
 
-/* Rodapé fixo (transparente, com blur – igual ao header) */
+/* Rodapé fixo (transparente, com blur – igual ao header) + botão Instagram à direita */
 .footer-bar {
   position: fixed;
   left: 0; right: 0; bottom: 0;
@@ -231,16 +233,37 @@ body {
   -webkit-backdrop-filter: saturate(120%) blur(10px);
   backdrop-filter: saturate(120%) blur(10px);
   border-top: 1px solid var(--color-block-border);
-  display: flex; align-items: center; justify-content: center;
   z-index: 1100; /* abaixo do WhatsApp, acima do conteúdo */
   box-shadow: 0 -6px 14px rgba(0,0,0,0.08);
 }
-.footer-bar p { font-size: 12px; color: var(--color-text-muted); }
+.footer-inner {
+  max-width: 1200px; margin: 0 auto;
+  height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; padding: 0 20px;
+}
+.footer-bar p { font-size: 12px; color: var(--color-text-muted); text-align: center; }
 .footer-bar a { color: #669999; text-decoration: none; font-weight: 700; }
 .footer-bar a:hover, .footer-bar a:focus-visible { text-decoration: underline; }
+
+/* Botão Instagram (próximo ao WhatsApp, no canto direito do rodapé) */
+.insta-btn {
+  position: absolute; right: 20px; top: 50%; transform: translateY(-50%);
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px;
+}
+.insta-btn img { width: 100%; height: 100%; display: block; }
 
 /* Responsividade */
 @media (min-width: 768px) {
   .menu-toggle { display: none; }
   .top-menu { display: flex; }
+}
+
+/* FIM */
+
+/* Animação do carrossel declarada ao final por organização */
+@keyframes marquee {
+  from { transform: translate3d(0,0,0); }
+  to   { transform: translate3d(-50%,0,0); }
 }
