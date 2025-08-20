@@ -10,7 +10,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 
   <script type="application/ld+json">
@@ -38,16 +38,14 @@
       <a href="index.html" class="logo-link" aria-label="Página inicial B2B Partners BRZL">
         <img src="images/logo-b2b.svg" alt="Logo B2B Partners BRZL" class="logo-img">
       </a>
-      <!-- tagline removida -->
     </div>
 
+    <!-- MENU DESKTOP: apenas 1 link -->
     <nav class="top-menu" aria-label="Menu principal (desktop)">
-      <a href="manifesto.html">Ser 5.0</a>
-      <a href="vamos.html">Vamos</a>
-      <a href="marcas.html">Marcas</a>
-      <a href="artistas.html">Artistas</a>
+      <a href="#" aria-current="page">teste</a>
     </nav>
 
+    <!-- BOTÃO HAMBÚRGUER -->
     <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu" type="button">
       <span class="hamburger-line"></span>
       <span class="hamburger-line"></span>
@@ -55,23 +53,68 @@
     </button>
   </header>
   
+  <!-- MENU MOBILE: 5 itens de teste -->
   <div id="mobile-menu" class="mobile-menu-overlay" aria-hidden="true">
     <nav class="mobile-menu-nav" aria-label="Menu principal (mobile)">
-      <a href="manifesto.html">Ser 5.0</a>
-      <a href="vamos.html">Vamos</a>
-      <a href="marcas.html">Marcas</a>
-      <a href="artistas.html">Artistas</a>
+      <a href="#">teste</a>
+      <a href="#">teste A</a>
+      <a href="#">teste B</a>
+      <a href="#">teste C</a>
+      <a href="#">teste D</a>
     </nav>
   </div>
+
   <main class="content-area">
+    <!-- CARROSSEL DE LOGOS (logo abaixo do menu fixo) -->
+    <section id="clientes" class="clients" aria-label="Marcas que confiam em nós">
+      <div class="logo-marquee" role="region" aria-roledescription="carrossel automático" aria-label="Logos de clientes">
+        <div class="logo-marquee__track">
+          <!-- Lista 1 -->
+          <ul class="logo-list">
+            <li class="logo-item"><img src="images/logos/logo_aneel.svg" alt="ANEEL" class="logo-img-brand" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/logos/logo_vivo.svg" alt="Vivo" class="logo-img-brand" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/logos/logo_dell.svg" alt="Dell" class="logo-img-brand" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/logos/logo_natura.svg" alt="Natura" class="logo-img-brand" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/logos/logo_itau.svg" alt="Itaú" class="logo-img-brand" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/logos/logo_jeep.svg" alt="Jeep" class="logo-img-brand" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/logos/logo_bb.svg" alt="Banco do Brasil" class="logo-img-brand" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/logos/logo_fiat.svg" alt="Fiat" class="logo-img-brand" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/logos/logo_citi.svg" alt="Citi" class="logo-img-brand" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/logos/logo_chilli_beans.svg" alt="Chilli Beans" class="logo-img-brand" loading="lazy" decoding="async"></li>
+          </ul>
+          <!-- Lista 2 (duplicata para loop perfeito) -->
+          <ul class="logo-list" aria-hidden="true">
+            <li class="logo-item"><img src="images/logos/logo_aneel.svg" alt="" class="logo-img-brand" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/logos/logo_vivo.svg" alt="" class="logo-img-brand" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/logos/logo_dell.svg" alt="" class="logo-img-brand" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/logos/logo_natura.svg" alt="" class="logo-img-brand" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/logos/logo_itau.svg" alt="" class="logo-img-brand" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/logos/logo_jeep.svg" alt="" class="logo-img-brand" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/logos/logo_bb.svg" alt="" class="logo-img-brand" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/logos/logo_fiat.svg" alt="" class="logo-img-brand" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/logos/logo_citi.svg" alt="" class="logo-img-brand" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/logos/logo_chilli_beans.svg" alt="" class="logo-img-brand" loading="lazy" decoding="async"></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Rodapé da seção -->
+      <p class="clients-caption">Marcas que Confiam em Nós</p>
+    </section>
+
+    <!-- CONTEÚDO EXISTENTE -->
     <div class="content-grid">
       <article class="info-block"><h2 class="block-title">Ser 5.0</h2><p class="block-description">Nossa filosofia. A integração entre criatividade, tecnologia e humanidade para criar o futuro dos negócios, hoje.</p><a href="manifesto.html" class="block-link" aria-label="Leia nosso manifesto, Ser 5.0">Saiba mais →</a></article>
-      <article class="info-block"><h2 class="block-title">Vamos</h2><p class="block-description">Inteligência de mercado e execução 360º para projetos de live marketing e produção com escala e operação multi-praça.</p><a href="vamos.html" class="block-link" aria-label="Descubra como podemos ajudar">Saiba mais →</a></article>
-      <article class="info-block"><h2 class="block-title">Marcas</h2><p class="block-description">Curadoria e desenvolvimento de projetos B2B que conectam sua marca a novos mercados e oportunidades estratégicas.</p><a href="marcas.html" class="block-link" aria-label="Veja os projetos para marcas">Saiba mais →</a></article>
-      <article class="info-block"><h2 class="block-title">Artistas</h2><p class="block-description">Uma nova ponte entre o mercado corporativo e artistas, criando projetos autênticos que geram valor para todos.</p><a href="artistas.html" class="block-link" aria-label="Conheça nossa frente para artistas">Saiba mais →</a></article>
+      <article class="info-block"><h2 class="block-title">Vamos</h2><p class="block-description">Inteligência de mercado e execução 360º para projetos de live marketing e produção com escala e operação multi-praça.</p><a href="#" class="block-link" aria-label="Descubra como podemos ajudar">Saiba mais →</a></article>
+      <article class="info-block"><h2 class="block-title">Marcas</h2><p class="block-description">Curadoria e desenvolvimento de projetos B2B que conectam sua marca a novos mercados e oportunidades estratégicas.</p><a href="#" class="block-link" aria-label="Veja os projetos para marcas">Saiba mais →</a></article>
+      <article class="info-block"><h2 class="block-title">Artistas</h2><p class="block-description">Uma nova ponte entre o mercado corporativo e artistas, criando projetos autênticos que geram valor para todos.</p><a href="#" class="block-link" aria-label="Conheça nossa frente para artistas">Saiba mais →</a></article>
     </div>
   </main>
-  <a class="whatsapp-float" href="https://wa.me/557193081072?text=Ol%C3%A1!%20Seja%20bem-vindo%20%C3%A0%20B2B%20Partners%20BRZL." target="_blank" rel="noopener" aria-label="Abrir WhatsApp da B2B Partners BRZL"><img src="images/cta-whatsapp.svg" alt="WhatsApp" class="whatsapp-icon" /></a>
+
+  <a class="whatsapp-float" href="https://wa.me/557193081072?text=Ol%C3%A1!%20Seja%20bem-vindo%20%C3%A0%20B2B%20Partners%20BRZL." target="_blank" rel="noopener" aria-label="Abrir WhatsApp da B2B Partners BRZL">
+    <img src="images/cta-whatsapp.svg" alt="WhatsApp" class="whatsapp-icon" />
+  </a>
+
   <footer class="footer" aria-label="Rodapé">2025 © B2B Partners BRZL</footer>
 
   <script>
