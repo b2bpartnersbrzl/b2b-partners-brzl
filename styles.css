@@ -123,6 +123,17 @@ body{font-family:var(--font-base);color:var(--text);background:#fdfdfd;line-heig
   padding-bottom: calc(var(--footer-height) + 40px);
 }
 
+/* Compensação para âncoras: garante que as seções rolem para baixo do carrossel fixo */
+section[id]{
+  scroll-margin-top: calc(
+    var(--header-height) +
+    var(--marquee-pad-top) +
+    var(--marquee-pad-bot) +
+    var(--clients-caption-h) +
+    var(--gap-after-carousel)
+  );
+}
+
 .hero{
   background:var(--surface);
   border:1px solid var(--block-border);
