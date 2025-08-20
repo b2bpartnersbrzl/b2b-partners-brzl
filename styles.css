@@ -10,15 +10,15 @@
   --color-block-border: #e5e5e5;
   --color-header-bg: rgba(253, 253, 253, 0.7);
 
-  --font-family-base: 'Noto Sans', sans-serif; /* fonte padrão alterada */
+  --font-family-base: 'Noto Sans', sans-serif; /* fonte padrão */
   --header-height: 90px;
   --border-radius: 12px;
   --transition-speed: 0.3s;
 
   /* Logo marquee */
-  --logo-gap: 48px;
-  --logo-height: 40px;
-  --marquee-duration: 38s;
+  --logo-gap: 48px;        /* espaçamento padrão entre logos */
+  --logo-height: 40px;     /* altura dos logos */
+  --marquee-duration: 38s; /* ↑ valor = mais lento */
 }
 
 /* --- Reset e Globais --- */
@@ -120,38 +120,43 @@ body {
 .block-description { font-size: 16px; line-height: 1.6; color: var(--color-text-muted); flex-grow: 1; margin-bottom: 20px; }
 .block-link { color: var(--color-accent); text-decoration: none; font-weight: 600; align-self: flex-start; }
 
-/* --- SEÇÃO: Marcas que Confiam em Nós --- */
-.clients {
-  max-width: 1200px; margin: 24px auto 0;
-}
+/* --- SEÇÃO: Marcas que Confiam em Nós (marquee contínuo) --- */
+.clients { max-width: 1200px; margin: 24px auto 0; }
 .logo-marquee {
   position: relative; overflow: hidden;
   padding: 14px 0; border: 1px solid var(--color-block-border);
   border-radius: var(--border-radius); background: var(--color-block-bg);
+  /* fade nas bordas (fallback: ignora se não suportar) */
   -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
   mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
 }
+/* Track com duas listas idênticas; gap garante o mesmo espaçamento em TODAS as junções */
 .logo-marquee__track {
   display: flex; gap: var(--logo-gap);
   width: max-content; will-change: transform; contain: content;
   animation: marquee var(--marquee-duration) linear infinite;
 }
+/* Pausa no hover (desktop) */
 .logo-marquee:hover .logo-marquee__track { animation-play-state: paused; }
 
+/* Listas: SEM padding lateral para não criar “vão” na junção do loop */
 .logo-list {
   display: flex; gap: var(--logo-gap);
-  align-items: center; list-style: none; padding: 0 12px; margin: 0;
+  align-items: center; list-style: none; margin: 0; padding: 0;
 }
 .logo-item { display: flex; align-items: center; }
-.logo-img-brand { height: var(--logo-height); width: auto; object-fit: contain; display: block; }
+.logo-img-brand {
+  height: var(--logo-height); width: auto; object-fit: contain; display: block;
+  image-rendering: auto; /* anti serrilhado em alguns navegadores */
+}
 
-/* Animação contínua */
+/* Loop contínuo: mover exatamente metade do conteúdo (duas listas) */
 @keyframes marquee {
   from { transform: translate3d(0,0,0); }
   to   { transform: translate3d(-50%,0,0); }
 }
 
-/* Acessibilidade */
+/* Acessibilidade: redução de movimento */
 @media (prefers-reduced-motion: reduce) {
   .logo-marquee__track { animation: none; flex-wrap: wrap; justify-content: center; }
 }
