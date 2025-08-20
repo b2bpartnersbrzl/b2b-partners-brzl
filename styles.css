@@ -1,93 +1,178 @@
-:root {
-  --header-height: 76px;
-  --footer-height: 44px;
-  --logo-gap: 48px;
-  --logo-height: 40px;
-  --marquee-duration: 38s;
+/* ---------- Design System ---------- */
+:root{
+  /* header e footer */
+  --header-height: 72px;           /* altura real do header após redução do logo */
+  --footer-height: 42px;           /* barra do rodapé mais enxuta */
+
+  /* carrossel */
+  --carousel-bg: #FFE069;          /* fundo do trilho */
+  --logo-gap: 48px;                /* distância uniforme entre logos */
+  --marquee-duration: 20s;         /* mais rápido (antes estava lento) */
+
+  /* alturas internas do trilho */
+  --marquee-pad-top: 16px;         /* respiro superior dentro do trilho */
+  --marquee-pad-bot: 12px;         /* respiro inferior já aprovado */
+  --clients-caption-h: 22px;       /* altura aproximada da legenda */
+
+  /* tipografia e cores */
+  --font-base: 'Noto Sans', sans-serif;
+  --text: #1a1a1a;
+  --text-muted: #555;
+  --accent: #669999;
+
+  /* blocos */
+  --block-border: #e5e5e5;
+  --surface: #ffffff;
+
+  /* misc */
+  --radius: 12px;
+  --blur-bg: rgba(253,253,253,0.7);
+  --transition: 0.3s;
 }
 
-/* HEADER */
-.main-header {
-  position: fixed; top: 0; left: 0; width: 100%;
-  height: var(--header-height);
-  background: rgba(253,253,253,0.7);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid #e5e5e5;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 8px 24px; z-index: 1000;
-}
-.logo-img { max-height: 56px; }
-.top-menu { display: none; gap: 20px; }
-.top-menu a { text-decoration: none; color: #1a1a1a; font-weight: 600; }
-.top-menu a:hover { color:#669999; }
+/* ---------- Reset básico ---------- */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-base);color:var(--text);background:#fdfdfd;line-height:1.4}
 
-/* MENU MOBILE */
-.menu-toggle { background:none; border:none; cursor:pointer; }
-.hamburger-line { display:block; width:28px; height:3px; margin:4px 0; background:#1a1a1a; }
-.mobile-menu-overlay {
-  position:fixed; inset:0; background:#fff; display:none;
-  align-items:center; justify-content:center; z-index:1200;
+/* ---------- Header fixo (sempre visível) ---------- */
+.main-header{
+  position:fixed; top:0; left:0; right:0;
+  height:var(--header-height);
+  background:var(--blur-bg);
+  -webkit-backdrop-filter:saturate(120%) blur(10px);
+  backdrop-filter:saturate(120%) blur(10px);
+  border-bottom:1px solid var(--block-border);
+  display:flex; align-items:center; justify-content:space-between;
+  padding:8px 24px;
+  z-index:1200;
 }
-.mobile-menu-overlay.show { display:flex; }
-.mobile-menu-nav { display:flex; flex-direction:column; gap:20px; }
-.mobile-menu-nav a { font-size:24px; font-weight:600; color:#1a1a1a; text-decoration:none; }
-.mobile-menu-nav a:hover { color:#669999; }
+.logo-img{max-height:52px;height:auto;width:auto;display:block}
 
-@media(min-width:768px){
-  .menu-toggle{display:none;}
-  .top-menu{display:flex;}
+.top-menu{display:none; gap:28px; align-items:center}
+.top-menu a{
+  text-decoration:none; color:var(--text);
+  font-weight:600; font-size:15px;
+  transition:color var(--transition) ease;
 }
+.top-menu a:hover, .top-menu a:focus-visible{color:var(--accent)}
 
-/* CARROSSEL COLADO AO HEADER */
-.clients-bar {
-  position: fixed;
-  top: var(--header-height); left:0; width:100%;
-  background:#FFE069;
-  border-bottom:1px solid #e5e5e5;
-  z-index:950;
+/* ---------- Menu mobile ---------- */
+.menu-toggle{
+  display:flex; flex-direction:column; justify-content:space-between;
+  width:30px; height:22px; background:transparent; border:none; cursor:pointer;
+}
+.hamburger-line{width:30px; height:3px; background:var(--text); border-radius:10px}
+@media(min-width:768px){ .menu-toggle{display:none} .top-menu{display:flex} }
+
+.mobile-menu-overlay{
+  position:fixed; inset:0; background:rgba(255,255,255,.92);
+  -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
+  display:flex; align-items:center; justify-content:center;
+  opacity:0; pointer-events:none; transition:opacity .25s ease; z-index:1300;
+}
+.mobile-menu-overlay.show{opacity:1; pointer-events:auto}
+.mobile-menu-nav{display:flex; flex-direction:column; gap:28px; align-items:center}
+.mobile-menu-nav a{text-decoration:none; color:var(--text); font-size:28px; font-weight:600}
+.mobile-menu-nav a:hover{color:var(--accent)}
+
+/* ---------- Carrossel (colado ao header, sem transposição) ---------- */
+.clients-fixed{
+  position:fixed; left:0; right:0;
+  top:var(--header-height);               /* cola no header (zero distância) */
+  background:var(--carousel-bg);
+  border-bottom:1px solid var(--block-border);
+  z-index:1100;                           /* abaixo do header, acima do conteúdo */
   text-align:center;
 }
-.logo-marquee { overflow:hidden; padding:16px 0 12px; }
-.logo-marquee__track {
+.logo-marquee{
+  overflow:hidden;
+  padding:var(--marquee-pad-top) 0 var(--marquee-pad-bot);
+}
+.logo-marquee__track{
   display:flex; gap:var(--logo-gap);
-  animation: marquee var(--marquee-duration) linear infinite;
+  width:max-content;
+  animation:marquee var(--marquee-duration) linear infinite;
 }
-.logo-list { display:flex; gap:var(--logo-gap); list-style:none; margin:0; padding:0; }
-.logo-item { display:flex; align-items:center; }
-.logo-img-brand { height:var(--logo-height); }
-.logo-item img[alt="ANEEL"] { height:34px; }
+.logo-list{display:flex; gap:var(--logo-gap); list-style:none; margin:0; padding:0}
+.logo-item{display:flex; align-items:center}
+.logo-img-brand{display:block; height:auto; width:auto; object-fit:contain}
 
-.clients-caption {
-  color:#669999; font-weight:bold; font-size:12px;
-  margin-top:4px; padding-bottom:6px;
+/* Tamanhos proporcionais por marca (sem comando único) */
+.logo-xs{height:28px}
+.logo-sm{height:34px}
+.logo-md{height:40px}
+.logo-lg{height:46px}
+
+/* Legenda do carrossel */
+.clients-caption{
+  color:var(--accent); font-weight:700; font-size:12px;
+  letter-spacing:.06em; padding:2px 0 6px;
 }
 
-@keyframes marquee {
-  from{transform:translateX(0);}
-  to{transform:translateX(-50%);}
+/* Animação contínua */
+@keyframes marquee{
+  from{transform:translate3d(0,0,0)}
+  to{transform:translate3d(-50%,0,0)}
 }
 
-/* CONTEÚDO */
-.content-area {
-  padding-top: calc(var(--header-height) + 100px);
+/* ---------- Área de conteúdo ---------- */
+/* Calcula o topo: header + trilho + legenda */
+.content-area{
+  padding-top: calc(
+    var(--header-height)               +
+    (var(--marquee-pad-top) + var(--marquee-pad-bot) + 40px)  /* ~altura das logos md */
+    + var(--clients-caption-h)
+  );
+  padding-left:24px; padding-right:24px;
   padding-bottom: calc(var(--footer-height) + 40px);
 }
-.hero { text-align:center; padding:24px; }
 
-/* WHATSAPP */
-.whatsapp-float { position:fixed; right:20px; bottom:calc(var(--footer-height) - 18px); z-index:1200; }
-.whatsapp-icon{ width:64px; height:64px; }
-
-/* RODAPÉ */
-.footer-bar {
-  position:fixed; bottom:0; left:0; width:100%;
-  height:var(--footer-height);
-  background:rgba(253,253,253,0.7);
-  -webkit-backdrop-filter:blur(10px);
-  backdrop-filter:blur(10px);
-  border-top:1px solid #e5e5e5;
-  display:flex; align-items:center; justify-content:center;
-  z-index:1100;
+/* HERO */
+.hero{
+  background:var(--surface);
+  border:1px solid var(--block-border);
+  border-radius:var(--radius);
+  max-width:1200px; margin:0 auto;
+  padding:24px;
+  box-shadow:0 4px 12px rgba(0,0,0,.05);
 }
-.footer-bar p{ font-size:12px; color:#555; }
+.hero-content{text-align:center}
+.hero-title{font-size:22px; margin-bottom:8px}
+.hero-subtitle{font-size:15px; color:var(--text-muted)}
+
+/* ---------- Grid genérico ---------- */
+.content-grid{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:20px; max-width:1200px; margin:40px auto 0;
+}
+.info-block{
+  background:var(--surface); border:1px solid var(--block-border);
+  border-radius:var(--radius); padding:24px;
+  transition:transform .3s ease, box-shadow .3s ease;
+  box-shadow:0 4px 12px rgba(0,0,0,.05);
+}
+.info-block:hover{transform:translateY(-5px); box-shadow:0 8px 30px rgba(0,0,0,.1)}
+.block-title{font-size:20px; font-weight:600; margin-bottom:10px}
+.block-description{font-size:15px; color:var(--text-muted); line-height:1.6}
+
+/* ---------- WhatsApp (recorte sobre a barra do rodapé) ---------- */
+.whatsapp-float{
+  position:fixed; right:20px;
+  bottom: calc(var(--footer-height) - 16px);
+  z-index:1400;
+}
+.whatsapp-icon{width:64px; height:64px; filter:drop-shadow(0 6px 12px rgba(0,0,0,.25))}
+
+/* ---------- Rodapé fixo (sem Instagram) ---------- */
+.footer-bar{
+  position:fixed; left:0; right:0; bottom:0;
+  height:var(--footer-height);
+  background:var(--blur-bg);
+  -webkit-backdrop-filter:saturate(120%) blur(10px);
+  backdrop-filter:saturate(120%) blur(10px);
+  border-top:1px solid var(--block-border);
+  display:flex; align-items:center; justify-content:center;
+  z-index:1150;
+}
+.footer-bar p{font-size:12px; color:var(--text-muted)}

@@ -4,25 +4,35 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>B2B Partners BRZL</title>
+
+  <!-- Fonte -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
   <!-- HEADER FIXO -->
-  <header class="main-header">
+  <header class="main-header" role="banner">
     <div class="logo-area">
-      <a href="#hero" class="logo-link">
-        <img src="images/logo-b2b.svg" alt="Logo B2B Partners BRZL" class="logo-img">
+      <a href="#hero" class="logo-link" aria-label="Ir para o início">
+        <img src="images/logo-b2b.svg" alt="B2B Partners BRZL" class="logo-img" />
       </a>
     </div>
-    <nav class="top-menu">
+
+    <!-- MENU DESKTOP -->
+    <nav class="top-menu" aria-label="Menu principal">
       <a href="#servicos">Serviços</a>
       <a href="#quem-somos">Quem Somos</a>
       <a href="#processo">O Processo</a>
       <a href="#clientes">Clientes</a>
       <a href="#seu-projeto">Seu Projeto</a>
     </nav>
-    <button class="menu-toggle" aria-label="Abrir menu">
+
+    <!-- HAMBÚRGUER -->
+    <button class="menu-toggle" aria-label="Abrir menu" aria-controls="mobile-menu" aria-expanded="false" type="button">
       <span class="hamburger-line"></span>
       <span class="hamburger-line"></span>
       <span class="hamburger-line"></span>
@@ -30,8 +40,8 @@
   </header>
 
   <!-- MENU MOBILE -->
-  <div id="mobile-menu" class="mobile-menu-overlay">
-    <nav class="mobile-menu-nav">
+  <div id="mobile-menu" class="mobile-menu-overlay" aria-hidden="true">
+    <nav class="mobile-menu-nav" aria-label="Menu principal (mobile)">
       <a href="#servicos">Serviços</a>
       <a href="#quem-somos">Quem Somos</a>
       <a href="#processo">O Processo</a>
@@ -40,67 +50,104 @@
     </nav>
   </div>
 
-  <!-- CARROSSEL COLADO NO MENU -->
-  <section id="clientes" class="clients-bar">
-    <div class="logo-marquee">
+  <!-- CARROSSEL FIXO (COLADO NO MENU) -->
+  <section id="clientes" class="clients-fixed" aria-label="Marcas que confiam em nós">
+    <div class="logo-marquee" role="region" aria-roledescription="carrossel automático" aria-label="Logos de clientes">
       <div class="logo-marquee__track">
+        <!-- Lista 1 -->
         <ul class="logo-list">
-          <li class="logo-item"><img src="images/logos/logo_aneel.svg" alt="ANEEL" class="logo-img-brand"></li>
-          <li class="logo-item"><img src="images/logos/logo_vivo.svg" alt="Vivo" class="logo-img-brand"></li>
-          <li class="logo-item"><img src="images/logos/logo_dell.svg" alt="Dell" class="logo-img-brand"></li>
-          <li class="logo-item"><img src="images/logos/logo_natura.svg" alt="Natura" class="logo-img-brand"></li>
-          <li class="logo-item"><img src="images/logos/logo_itau.svg" alt="Itaú" class="logo-img-brand"></li>
-          <li class="logo-item"><img src="images/logos/logo_jeep.svg" alt="Jeep" class="logo-img-brand"></li>
-          <li class="logo-item"><img src="images/logos/logo_bb.svg" alt="Banco do Brasil" class="logo-img-brand"></li>
-          <li class="logo-item"><img src="images/logos/logo_fiat.svg" alt="Fiat" class="logo-img-brand"></li>
-          <li class="logo-item"><img src="images/logos/logo_citi.svg" alt="Citi" class="logo-img-brand"></li>
-          <li class="logo-item"><img src="images/logos/logo_chilli_beans.svg" alt="Chilli Beans" class="logo-img-brand"></li>
+          <!-- use classes por marca para ajustar proporção fina -->
+          <li class="logo-item"><img src="images/logos/logo_aneel.svg" alt="ANEEL" class="logo-img-brand logo-sm"></li>
+          <li class="logo-item"><img src="images/logos/logo_vivo.svg" alt="Vivo" class="logo-img-brand logo-md"></li>
+          <li class="logo-item"><img src="images/logos/logo_dell.svg" alt="Dell" class="logo-img-brand logo-md"></li>
+          <li class="logo-item"><img src="images/logos/logo_natura.svg" alt="Natura" class="logo-img-brand logo-md"></li>
+          <li class="logo-item"><img src="images/logos/logo_itau.svg" alt="Itaú" class="logo-img-brand logo-md"></li>
+          <li class="logo-item"><img src="images/logos/logo_jeep.svg" alt="Jeep" class="logo-img-brand logo-md"></li>
+          <li class="logo-item"><img src="images/logos/logo_bb.svg" alt="Banco do Brasil" class="logo-img-brand logo-md"></li>
+          <li class="logo-item"><img src="images/logos/logo_fiat.svg" alt="Fiat" class="logo-img-brand logo-md"></li>
+          <li class="logo-item"><img src="images/logos/logo_citi.svg" alt="Citi" class="logo-img-brand logo-md"></li>
+          <li class="logo-item"><img src="images/logos/logo_chilli_beans.svg" alt="Chilli Beans" class="logo-img-brand logo-md"></li>
         </ul>
+        <!-- Lista 2 (duplicata para loop perfeito) -->
         <ul class="logo-list" aria-hidden="true">
-          <li class="logo-item"><img src="images/logos/logo_aneel.svg" alt="" class="logo-img-brand"></li>
-          <li class="logo-item"><img src="images/logos/logo_vivo.svg" alt="" class="logo-img-brand"></li>
-          <li class="logo-item"><img src="images/logos/logo_dell.svg" alt="" class="logo-img-brand"></li>
-          <li class="logo-item"><img src="images/logos/logo_natura.svg" alt="" class="logo-img-brand"></li>
-          <li class="logo-item"><img src="images/logos/logo_itau.svg" alt="" class="logo-img-brand"></li>
-          <li class="logo-item"><img src="images/logos/logo_jeep.svg" alt="" class="logo-img-brand"></li>
-          <li class="logo-item"><img src="images/logos/logo_bb.svg" alt="" class="logo-img-brand"></li>
-          <li class="logo-item"><img src="images/logos/logo_fiat.svg" alt="" class="logo-img-brand"></li>
-          <li class="logo-item"><img src="images/logos/logo_citi.svg" alt="" class="logo-img-brand"></li>
-          <li class="logo-item"><img src="images/logos/logo_chilli_beans.svg" alt="" class="logo-img-brand"></li>
+          <li class="logo-item"><img src="images/logos/logo_aneel.svg" alt="" class="logo-img-brand logo-sm"></li>
+          <li class="logo-item"><img src="images/logos/logo_vivo.svg" alt="" class="logo-img-brand logo-md"></li>
+          <li class="logo-item"><img src="images/logos/logo_dell.svg" alt="" class="logo-img-brand logo-md"></li>
+          <li class="logo-item"><img src="images/logos/logo_natura.svg" alt="" class="logo-img-brand logo-md"></li>
+          <li class="logo-item"><img src="images/logos/logo_itau.svg" alt="" class="logo-img-brand logo-md"></li>
+          <li class="logo-item"><img src="images/logos/logo_jeep.svg" alt="" class="logo-img-brand logo-md"></li>
+          <li class="logo-item"><img src="images/logos/logo_bb.svg" alt="" class="logo-img-brand logo-md"></li>
+          <li class="logo-item"><img src="images/logos/logo_fiat.svg" alt="" class="logo-img-brand logo-md"></li>
+          <li class="logo-item"><img src="images/logos/logo_citi.svg" alt="" class="logo-img-brand logo-md"></li>
+          <li class="logo-item"><img src="images/logos/logo_chilli_beans.svg" alt="" class="logo-img-brand logo-md"></li>
         </ul>
       </div>
     </div>
     <p class="clients-caption"><strong>Marcas que Confiam em Nós</strong></p>
   </section>
 
+  <!-- CONTEÚDO -->
   <main class="content-area">
     <!-- HERO -->
-    <section id="hero" class="hero">
+    <section id="hero" class="hero" aria-label="Abertura">
       <div class="hero-content">
         <h1 class="hero-title">Execução B2B em Escala Nacional</h1>
         <p class="hero-subtitle">Apoio operacional para agências e marcas em ativações, live marketing, operação multi-praça e produção 360.</p>
       </div>
     </section>
+
+    <!-- Exemplo de seções (adicione as demais conforme desejar) -->
+    <section id="servicos" class="content-grid section" aria-label="Serviços">
+      <article class="info-block">
+        <h2 class="block-title">Ativações</h2>
+        <p class="block-description">Estruturamos ativações de impacto em múltiplas praças, com controle de qualidade centralizado.</p>
+      </article>
+      <article class="info-block">
+        <h2 class="block-title">Live Marketing</h2>
+        <p class="block-description">Produção e operação de eventos, conectando marcas e pessoas com precisão logística.</p>
+      </article>
+      <article class="info-block">
+        <h2 class="block-title">Operação Multi-Praça</h2>
+        <p class="block-description">Execução simultânea em diversas cidades, mantendo padrão e consistência.</p>
+      </article>
+      <article class="info-block">
+        <h2 class="block-title">Produção 360</h2>
+        <p class="block-description">Do conceito à entrega final, com governança e indicadores de negócio.</p>
+      </article>
+    </section>
   </main>
 
-  <!-- WHATSAPP -->
+  <!-- CTA WhatsApp (sobrepondo a barra do rodapé como recorte) -->
   <a class="whatsapp-float" href="https://wa.me/557193081072" target="_blank" rel="noopener">
     <img src="images/cta-whatsapp.svg" alt="WhatsApp" class="whatsapp-icon" />
   </a>
 
-  <!-- RODAPÉ -->
-  <footer class="footer-bar">
+  <!-- RODAPÉ FIXO (sem Instagram) -->
+  <footer class="footer-bar" role="contentinfo">
     <p>2025 © B2B Partners BRZL</p>
   </footer>
 
   <script>
-    const btn = document.querySelector('.menu-toggle');
-    const overlay = document.getElementById('mobile-menu');
-    if(btn && overlay){
-      btn.addEventListener('click', ()=>{
-        overlay.classList.toggle('show');
-      });
-    }
+    (function(){
+      const btn = document.querySelector('.menu-toggle');
+      const menu = document.getElementById('mobile-menu');
+      const links = menu.querySelectorAll('a[href^="#"]');
+
+      function toggleMenu(force){
+        const show = (force !== undefined) ? force : !menu.classList.contains('show');
+        menu.classList.toggle('show', show);
+        document.body.style.overflow = show ? 'hidden' : '';
+        btn.setAttribute('aria-expanded', show);
+        menu.setAttribute('aria-hidden', !show);
+      }
+
+      if(btn && menu){
+        btn.addEventListener('click', ()=> toggleMenu());
+        window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') toggleMenu(false); });
+        links.forEach(a => a.addEventListener('click', ()=> toggleMenu(false)));
+      }
+    })();
   </script>
+
 </body>
 </html>
