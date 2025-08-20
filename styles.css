@@ -10,15 +10,15 @@
   --color-block-border: #e5e5e5;
   --color-header-bg: rgba(253, 253, 253, 0.7);
 
-  --font-family-base: 'IBM Plex Sans', sans-serif;
+  --font-family-base: 'Noto Sans', sans-serif; /* fonte padrão alterada */
   --header-height: 90px;
   --border-radius: 12px;
   --transition-speed: 0.3s;
 
   /* Logo marquee */
   --logo-gap: 48px;
-  --logo-height: 40px;         /* altura pedida */
-  --marquee-duration: 38s;     /* velocidade do loop (↑ valor = mais lento) */
+  --logo-height: 40px;
+  --marquee-duration: 38s;
 }
 
 /* --- Reset e Globais --- */
@@ -128,7 +128,6 @@ body {
   position: relative; overflow: hidden;
   padding: 14px 0; border: 1px solid var(--color-block-border);
   border-radius: var(--border-radius); background: var(--color-block-bg);
-  /* fade nas bordas (fallback: ignora se não suportar) */
   -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
   mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
 }
@@ -146,13 +145,13 @@ body {
 .logo-item { display: flex; align-items: center; }
 .logo-img-brand { height: var(--logo-height); width: auto; object-fit: contain; display: block; }
 
-/* Loop contínuo: duas listas lado a lado → mover -50% fecha o ciclo sem solavanco */
+/* Animação contínua */
 @keyframes marquee {
   from { transform: translate3d(0,0,0); }
   to   { transform: translate3d(-50%,0,0); }
 }
 
-/* Acessibilidade: redução de movimento */
+/* Acessibilidade */
 @media (prefers-reduced-motion: reduce) {
   .logo-marquee__track { animation: none; flex-wrap: wrap; justify-content: center; }
 }
