@@ -2,16 +2,17 @@
 
 /* --- Design System (Variáveis) --- */
 :root {
-  --color-background: #0a0a0a;
-  --color-text: #e0e0e0;
-  --color-text-muted: #888;
-  --color-accent: #FFE069;
-  --color-block-bg: rgba(255, 255, 255, 0.03);
-  --color-block-border: rgba(255, 255, 255, 0.1);
-  --color-header-bg: rgba(10, 10, 10, 0.6);
+  /* TEMA BRANCO */
+  --color-background: #fdfdfd;
+  --color-text: #1a1a1a;
+  --color-text-muted: #555555;
+  --color-accent: #007aff; /* Exemplo: um azul vibrante para o tema claro */
+  --color-block-bg: #ffffff;
+  --color-block-border: #e5e5e5;
+  --color-header-bg: rgba(253, 253, 253, 0.7);
 
   --font-family-base: 'IBM Plex Sans', sans-serif;
-  --header-height: 70px;
+  --header-height: 80px; /* Aumentado para acomodar o logo maior */
   --border-radius: 12px;
   --transition-speed: 0.3s;
 }
@@ -56,13 +57,13 @@ body {
 }
 
 .logo-img {
-  height: 28px; /* Ajuste a altura do seu logo conforme necessário */
+  height: 56px; /* DOBRO DO TAMANHO ANTERIOR */
   display: block;
 }
 
 /* --- Menu Desktop --- */
 .top-menu {
-  display: none; /* Escondido por padrão, aparece em telas maiores */
+  display: none;
   gap: 28px;
 }
 
@@ -124,7 +125,7 @@ body {
 .mobile-menu-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.95);
+  background: rgba(255, 255, 255, 0.9);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   
@@ -174,10 +175,10 @@ body {
 
 /* --- Conteúdo Principal (Grid e Blocos) --- */
 .content-area {
-  padding-top: var(--header-height); /* Evita que o conteúdo comece sob o header */
+  padding-top: var(--header-height);
   padding-left: 24px;
   padding-right: 24px;
-  padding-bottom: 80px; /* Espaço para o rodapé */
+  padding-bottom: 80px;
 }
 
 .content-grid {
@@ -196,12 +197,13 @@ body {
   display: flex;
   flex-direction: column;
   transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .info-block:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  border-color: #d0d0d0;
 }
 
 .block-title {
@@ -215,7 +217,7 @@ body {
   font-size: 16px;
   line-height: 1.6;
   color: var(--color-text-muted);
-  flex-grow: 1; /* Faz a descrição ocupar o espaço disponível */
+  flex-grow: 1;
   margin-bottom: 20px;
 }
 
@@ -223,7 +225,7 @@ body {
   color: var(--color-accent);
   text-decoration: none;
   font-weight: 600;
-  align-self: flex-start; /* Alinha o link no início do eixo cruzado */
+  align-self: flex-start;
 }
 
 
