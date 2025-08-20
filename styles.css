@@ -1,4 +1,4 @@
-/* ARQUIVO ATUALIZADO: styles.css */
+/* ARQUIVO FINAL: styles.css */
 
 /* --- Design System (Variáveis) --- */
 :root {
@@ -43,31 +43,29 @@ body {
   z-index: 1000;
 }
 
-/* ATUALIZADO: Removida a largura fixa. O JS vai controlar. */
 .logo-area {
   display: flex;
   flex-direction: column;
+  width: 220px; /* Largura exata do logo */
 }
 
 .logo-link { display: flex; align-items: center; }
 
 .logo-img {
-  height: 56px; /* A altura define a proporção */
+  width: 100%;
+  height: auto;
   display: block;
-  width: auto;
 }
 
 .logo-tagline {
   font-family: var(--font-family-tagline);
   color: #666666;
-  font-size: 9.5px;
+  font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.1px;
   margin-top: 6px;
   text-align: center;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 .logo-tagline em { font-style: italic; }
 
