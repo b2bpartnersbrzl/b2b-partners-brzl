@@ -10,8 +10,8 @@
   --marquee-duration: 20s;         /* mais rápido (antes estava lento) */
 
   /* alturas internas do trilho */
-  --marquee-pad-top: 16px;         /* respiro superior dentro do trilho */
-  --marquee-pad-bot: 12px;         /* respiro inferior já aprovado */
+  --marquee-pad-top: 28px;         /* respiro superior (aumentado de 16px para 28px) */
+  --marquee-pad-bot: 12px;         /* respiro inferior aprovado */
   --clients-caption-h: 22px;       /* altura aproximada da legenda */
 
   /* tipografia e cores */
@@ -164,7 +164,7 @@ body{font-family:var(--font-base);color:var(--text);background:#fdfdfd;line-heig
 }
 .whatsapp-icon{width:64px; height:64px; filter:drop-shadow(0 6px 12px rgba(0,0,0,.25))}
 
-/* ---------- Rodapé fixo (sem Instagram) ---------- */
+/* ---------- Rodapé fixo ---------- */
 .footer-bar{
   position:fixed; left:0; right:0; bottom:0;
   height:var(--footer-height);
