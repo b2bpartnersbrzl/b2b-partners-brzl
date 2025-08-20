@@ -101,7 +101,7 @@ body{font-family:var(--font-base);color:var(--text);background:#fdfdfd;line-heig
   color:#FFFFFF;
   font-weight:700;
   font-size:12px;
-  letter-spacing:.12em;
+  letter-spacing:.14em;   /* ajuste sutil */
   text-transform:uppercase;
   line-height:var(--clients-caption-h);
   height:var(--clients-caption-h);
