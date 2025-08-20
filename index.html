@@ -11,7 +11,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
-  
   <link rel="stylesheet" href="styles.css" />
 
   <script type="application/ld+json">
@@ -76,6 +75,7 @@
   </main>
   <a class="whatsapp-float" href="https://wa.me/5571993081072?text=Ol%C3%A1!%20Seja%20bem-vindo%20%C3%A0%20B2B%20Partners%20BRZL." target="_blank" rel="noopener" aria-label="Abrir WhatsApp da B2B Partners BRZL"><img src="images/cta-whatsapp.svg" alt="WhatsApp" class="whatsapp-icon" /></a>
   <footer class="footer" aria-label="Rodapé">2025 © B2B Partners BRZL</footer>
+
   <script>
     (function(){
       const btn = document.querySelector('.menu-toggle');
@@ -92,5 +92,27 @@
       window.addEventListener('keydown', (e) => { if (e.key === 'Escape') toggleMenu(false); });
     })();
   </script>
+
+  <script>
+    window.addEventListener('load', function() {
+      const logoImg = document.querySelector('.logo-img');
+      const logoArea = document.querySelector('.logo-area');
+      
+      if (logoImg && logoArea) {
+        // Função para ajustar a largura
+        const adjustWidth = () => {
+          const logoWidth = logoImg.offsetWidth;
+          logoArea.style.width = logoWidth + 'px';
+        };
+
+        // Roda a função assim que a imagem carregar
+        adjustWidth();
+
+        // Roda a função novamente se a janela for redimensionada
+        window.addEventListener('resize', adjustWidth);
+      }
+    });
+  </script>
+
 </body>
 </html>

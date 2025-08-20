@@ -43,33 +43,31 @@ body {
   z-index: 1000;
 }
 
+/* ATUALIZADO: Removida a largura fixa. O JS vai controlar. */
 .logo-area {
   display: flex;
   flex-direction: column;
-  /* IMPORTANTE: Defina aqui a largura exata do seu logo */
-  width: 175px; /* <-- AJUSTE ESTE VALOR PARA A LARGURA EXATA DA IMAGEM */
 }
 
 .logo-link { display: flex; align-items: center; }
 
 .logo-img {
-  width: 100%;
-  height: auto;
+  height: 56px; /* A altura define a proporção */
   display: block;
+  width: auto;
 }
 
-/* ATUALIZADO: Ajuste fino para garantir uma única linha */
 .logo-tagline {
   font-family: var(--font-family-tagline);
   color: #666666;
-  font-size: 9.5px; /* Reduzido para melhor encaixe */
+  font-size: 9.5px;
   font-weight: 700;
-  letter-spacing: 0.1px; /* Espaçamento reduzido */
+  letter-spacing: 0.1px;
   margin-top: 6px;
   text-align: center;
-  white-space: nowrap; /* Impede a quebra de linha */
-  overflow: hidden; /* Garante que o texto não vaze */
-  text-overflow: ellipsis; /* Adiciona "..." se ainda assim não couber */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .logo-tagline em { font-style: italic; }
 
