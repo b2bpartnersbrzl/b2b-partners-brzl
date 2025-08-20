@@ -20,7 +20,6 @@
       <a href="#hero" class="logo-link" aria-label="Ir para o início">
         <img src="images/logo-b2b.svg" alt="B2B Partners BRZL" class="logo-img" />
       </a>
-      <!-- Subline corrido: negrito; último trecho negrito+itálico, com ponto final -->
       <p class="logo-subline">
         <strong>Marketing. Eventos. <em>Com tecnologia.</em></strong>
       </p>
@@ -54,11 +53,10 @@
     </nav>
   </div>
 
-  <!-- CARROSSEL FIXO (COLADO AO MENU) -->
+  <!-- CARROSSEL FIXO -->
   <section id="clientes" class="clients-fixed" aria-label="Marcas que confiam em nós">
     <div class="logo-marquee" role="region" aria-roledescription="carrossel automático" aria-label="Logos de clientes">
       <div class="logo-marquee__track">
-        <!-- Lista 1 -->
         <ul class="logo-list">
           <li class="logo-item"><img src="images/logos/logo_aneel.svg" alt="ANEEL" class="logo-img-brand logo-sm"></li>
           <li class="logo-item"><img src="images/logos/logo_vivo.svg" alt="Vivo" class="logo-img-brand logo-md"></li>
@@ -71,7 +69,6 @@
           <li class="logo-item"><img src="images/logos/logo_citi.svg" alt="Citi" class="logo-img-brand logo-md"></li>
           <li class="logo-item"><img src="images/logos/logo_chilli_beans.svg" alt="Chilli Beans" class="logo-img-brand logo-md"></li>
         </ul>
-        <!-- Lista 2 (duplicata para loop perfeito) -->
         <ul class="logo-list" aria-hidden="true">
           <li class="logo-item"><img src="images/logos/logo_aneel.svg" alt="" class="logo-img-brand logo-sm"></li>
           <li class="logo-item"><img src="images/logos/logo_vivo.svg" alt="" class="logo-img-brand logo-md"></li>
@@ -86,14 +83,11 @@
         </ul>
       </div>
     </div>
-
-    <!-- Faixa do rodapé do trilho -->
     <p class="clients-caption"><strong>MARCAS QUE CONFIAM EM NÓS</strong></p>
   </section>
 
   <!-- CONTEÚDO -->
   <main class="content-area">
-    <!-- HERO -->
     <section id="hero" class="hero" aria-label="Abertura">
       <div class="hero-content">
         <h1 class="hero-title">Execução B2B em Escala Nacional</h1>
@@ -101,7 +95,6 @@
       </div>
     </section>
 
-    <!-- SERVIÇOS -->
     <section id="servicos" class="content-grid section" aria-label="Serviços">
       <article class="info-block">
         <h2 class="block-title">Ativações</h2>
@@ -122,12 +115,10 @@
     </section>
   </main>
 
-  <!-- CTA WhatsApp -->
   <a class="whatsapp-float" href="https://wa.me/557193081072" target="_blank" rel="noopener">
     <img src="images/cta-whatsapp.svg" alt="WhatsApp" class="whatsapp-icon" />
   </a>
 
-  <!-- RODAPÉ FIXO -->
   <footer class="footer-bar" role="contentinfo">
     <p>2025 © B2B Partners BRZL</p>
   </footer>
@@ -137,7 +128,6 @@
       const btn = document.querySelector('.menu-toggle');
       const menu = document.getElementById('mobile-menu');
       const links = menu.querySelectorAll('a[href^="#"]');
-
       function toggleMenu(force){
         const show = (force !== undefined) ? force : !menu.classList.contains('show');
         menu.classList.toggle('show', show);
@@ -145,7 +135,6 @@
         btn.setAttribute('aria-expanded', show);
         menu.setAttribute('aria-hidden', !show);
       }
-
       if(btn && menu){
         btn.addEventListener('click', ()=> toggleMenu());
         window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') toggleMenu(false); });
