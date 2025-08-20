@@ -3,69 +3,126 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>B2B PARTNERS BRZL — Hub</title>
+  
+  <title>B2B Partners BRZL: Conexões Estratégicas para Marcas e Artistas</title>
+  <meta name="description" content="Somos um hub de inteligência e execução para o mercado B2B. Conectamos marcas, agências e artistas em projetos de alto impacto com escala nacional.">
   <meta name="theme-color" content="#000000" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- IBM Plex Sans com itálico e pesos necessários -->
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet" />
+  
   <link rel="stylesheet" href="styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "B2B Partners BRZL",
+    "url": "https://b2bpartners.marketing/"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "B2B Partners BRZL",
+    "url": "https://b2bpartners.marketing/",
+    "logo": "https://b2bpartners.marketing/images/logo-b2b.svg"
+  }
+  </script>
 </head>
 <body>
-  <main class="stage" aria-label="Página inicial B2B PARTNERS BRZL">
-    <svg class="stage-svg" viewBox="0 0 2048 1131" preserveAspectRatio="xMidYMin slice" role="img" aria-label="B2B Partners BRZL — Hub">
-      <image href="images/teste_index_bg.webp" x="0" y="0" width="2048" height="1131" />
 
-      <!-- SER 5.0 -->
-      <a xlink:href="manifesto.html" aria-label="Abrir Manifesto — Ser 5.0">
-        <rect class="hotspot"
-              x="1095" y="283"
-              width="165" height="47"
-              rx="9" ry="9"
-              fill="transparent" />
-      </a>
+  <header class="main-header">
+    <a href="index.html" class="logo-link" aria-label="Página inicial B2B Partners BRZL">
+      <img src="images/logo-b2b.svg" alt="Logo B2B Partners BRZL" class="logo-img">
+    </a>
 
-      <!-- VAMOS -->
-      <a xlink:href="#" aria-label="Botão VAMOS">
-        <rect class="hotspot"
-              x="1095" y="378"
-              width="165" height="47"
-              rx="9" ry="9"
-              fill="transparent" />
-      </a>
+    <nav class="top-menu" aria-label="Menu principal (desktop)">
+      <a href="manifesto.html">Ser 5.0</a>
+      <a href="vamos.html">Vamos</a>
+      <a href="marcas.html">Marcas</a>
+      <a href="artistas.html">Artistas</a>
+    </nav>
 
-      <!-- MARCAS -->
-      <a xlink:href="#" aria-label="Botão MARCAS">
-        <rect class="hotspot"
-              x="1095" y="691"
-              width="165" height="47"
-              rx="9" ry="9"
-              fill="transparent" />
-      </a>
+    <button
+      class="menu-toggle"
+      aria-label="Abrir menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      type="button">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </header>
 
-      <!-- ARTISTAS -->
-      <a xlink:href="#" aria-label="Botão ARTISTAS">
-        <rect class="hotspot"
-              x="1095" y="786"
-              width="165" height="47"
-              rx="9" ry="9"
-              fill="transparent" />
-      </a>
-    </svg>
+  <div id="mobile-menu" class="mobile-menu-overlay" aria-hidden="true">
+    <nav class="mobile-menu-nav" aria-label="Menu principal (mobile)">
+      <a href="manifesto.html">Ser 5.0</a>
+      <a href="vamos.html">Vamos</a>
+      <a href="marcas.html">Marcas</a>
+      <a href="artistas.html">Artistas</a>
+    </nav>
+  </div>
+
+  <main class="content-area">
+    <div class="content-grid">
+      
+      <article class="info-block">
+        <h2 class="block-title">Ser 5.0</h2>
+        <p class="block-description">Nossa filosofia. A integração entre criatividade, tecnologia e humanidade para criar o futuro dos negócios, hoje.</p>
+        <a href="manifesto.html" class="block-link" aria-label="Leia nosso manifesto, Ser 5.0">Saiba mais →</a>
+      </article>
+
+      <article class="info-block">
+        <h2 class="block-title">Vamos</h2>
+        <p class="block-description">Inteligência de mercado e execução 360º para projetos de live marketing e produção com escala e operação multi-praça.</p>
+        <a href="vamos.html" class="block-link" aria-label="Descubra como podemos ajudar">Saiba mais →</a>
+      </article>
+
+      <article class="info-block">
+        <h2 class="block-title">Marcas</h2>
+        <p class="block-description">Curadoria e desenvolvimento de projetos B2B que conectam sua marca a novos mercados e oportunidades estratégicas.</p>
+        <a href="marcas.html" class="block-link" aria-label="Veja os projetos para marcas">Saiba mais →</a>
+      </article>
+
+      <article class="info-block">
+        <h2 class="block-title">Artistas</h2>
+        <p class="block-description">Uma nova ponte entre o mercado corporativo e artistas, criando projetos autênticos que geram valor para todos.</p>
+        <a href="artistas.html" class="block-link" aria-label="Conheça nossa frente para artistas">Saiba mais →</a>
+      </article>
+
+    </div>
   </main>
 
-  <!-- CTA fixo de WhatsApp -->
-  <a
-    class="whatsapp-float"
-    href="https://wa.me/5571993081072?text=Ol%C3%A1!%20Seja%20bem-vindo%20%C3%A0%20B2B%20Partners%20BRZL.%0ASomos%20especialistas%20em%20apoiar%20ag%C3%AAncias%20e%20marcas%20na%20execu%C3%A7%C3%B5es,%20live%20marketing%20e%20produ%C3%A7%C3%A3o%20360%20com%20escala%20e%20opera%C3%A7%C3%A3o%20multi-pra%C3%A7a.%0A%0AComo%20podemos%20ajudar%20sua%20opera%C3%A7%C3%A3o%20hoje%3F"
-    target="_blank"
-    rel="noopener"
-    aria-label="Abrir WhatsApp da B2B Partners BRZL">
+  <a class="whatsapp-float" href="https://wa.me/5571993081072?text=Ol%C3%A1!%20Seja%20bem-vindo%20%C3%A0%20B2B%20Partners%20BRZL." target="_blank" rel="noopener" aria-label="Abrir WhatsApp da B2B Partners BRZL">
     <img src="images/cta-whatsapp.svg" alt="WhatsApp" class="whatsapp-icon" />
   </a>
 
   <footer class="footer" aria-label="Rodapé">
     2025 © B2B Partners BRZL
   </footer>
+
+  <script>
+    (function(){
+      const btn = document.querySelector('.menu-toggle');
+      const menuOverlay = document.getElementById('mobile-menu');
+      if (!btn || !menuOverlay) return;
+
+      const toggleMenu = (open) => {
+        const show = (open === undefined) ? !menuOverlay.classList.contains('show') : open;
+        
+        btn.setAttribute('aria-expanded', show);
+        menuOverlay.setAttribute('aria-hidden', !show);
+        document.body.style.overflow = show ? 'hidden' : '';
+        menuOverlay.classList.toggle('show', show);
+      };
+
+      btn.addEventListener('click', () => toggleMenu());
+      window.addEventListener('keydown', (e) => { if (e.key === 'Escape') toggleMenu(false); });
+    })();
+  </script>
 </body>
 </html>

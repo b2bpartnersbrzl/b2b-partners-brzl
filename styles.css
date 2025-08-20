@@ -1,194 +1,261 @@
-/* Base */
-body{
+/* ARQUIVO ATUALIZADO: styles.css */
+
+/* --- Design System (Variáveis) --- */
+:root {
+  --color-background: #0a0a0a;
+  --color-text: #e0e0e0;
+  --color-text-muted: #888;
+  --color-accent: #FFE069;
+  --color-block-bg: rgba(255, 255, 255, 0.03);
+  --color-block-border: rgba(255, 255, 255, 0.1);
+  --color-header-bg: rgba(10, 10, 10, 0.6);
+
+  --font-family-base: 'IBM Plex Sans', sans-serif;
+  --header-height: 70px;
+  --border-radius: 12px;
+  --transition-speed: 0.3s;
+}
+
+/* --- Reset e Globais --- */
+* {
   margin: 0;
-  font-family: 'IBM Plex Sans', sans-serif;
-  background: #000;
-  color: #fff;
-  overflow: hidden; /* sem rolagem */
+  padding: 0;
+  box-sizing: border-box;
 }
 
-:root{ --footer-muted:#ccc; }
-
-/* SVG fullscreen */
-.stage{ position: fixed; inset: 0; }
-.stage-svg{ width: 100vw; height: 100vh; display: block; }
-
-/* Hotspot transparente */
-.hotspot{
-  fill: transparent;
-  cursor: pointer;
-  pointer-events: auto;
+body {
+  font-family: var(--font-family-base);
+  background-color: var(--color-background);
+  color: var(--color-text);
 }
 
-/* (debug opcional)
-.hotspot.hotspot--debug{
-  fill: rgba(255,255,255,.08);
-  stroke: rgba(255,255,255,.5);
-  stroke-width: 1;
-}
-*/
-
-/* CTA WhatsApp */
-.whatsapp-float{
+/* --- Header Fixo --- */
+.main-header {
   position: fixed;
-  bottom: calc(60px + env(safe-area-inset-bottom, 0px));
-  right: calc(27px + env(safe-area-inset-right, 0px));
-  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  padding: 0 24px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  background-color: var(--color-header-bg);
+  -webkit-backdrop-filter: saturate(120%) blur(10px);
+  backdrop-filter: saturate(120%) blur(10px);
+  
+  border-bottom: 1px solid var(--color-block-border);
+  z-index: 1000;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 28px; /* Ajuste a altura do seu logo conforme necessário */
+  display: block;
+}
+
+/* --- Menu Desktop --- */
+.top-menu {
+  display: none; /* Escondido por padrão, aparece em telas maiores */
+  gap: 28px;
+}
+
+.top-menu a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 8px 0;
+  position: relative;
+  transition: color var(--transition-speed) ease;
+}
+
+.top-menu a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform var(--transition-speed) ease-out;
+}
+
+.top-menu a:hover,
+.top-menu a[aria-current="page"] {
+  color: var(--color-accent);
+}
+
+.top-menu a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* --- Menu Mobile (Botão e Overlay) --- */
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1010;
+}
+
+.hamburger-line {
+  width: 30px;
+  height: 3px;
+  background: var(--color-text);
+  border-radius: 10px;
+  transition: all var(--transition-speed) linear;
+}
+
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  
   display: flex;
   align-items: center;
   justify-content: center;
+  
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-speed) ease-in-out;
+}
+
+.mobile-menu-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-menu-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.mobile-menu-nav a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 28px;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.mobile-menu-overlay.show .mobile-menu-nav a {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animação Staggered para os links */
+.mobile-menu-overlay.show .mobile-menu-nav a:nth-child(1) { transition-delay: 0.2s; }
+.mobile-menu-overlay.show .mobile-menu-nav a:nth-child(2) { transition-delay: 0.3s; }
+.mobile-menu-overlay.show .mobile-menu-nav a:nth-child(3) { transition-delay: 0.4s; }
+.mobile-menu-overlay.show .mobile-menu-nav a:nth-child(4) { transition-delay: 0.5s; }
+
+
+/* --- Conteúdo Principal (Grid e Blocos) --- */
+.content-area {
+  padding-top: var(--header-height); /* Evita que o conteúdo comece sob o header */
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 80px; /* Espaço para o rodapé */
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 40px auto 0;
+}
+
+.info-block {
+  background: var(--color-block-bg);
+  border: 1px solid var(--color-block-border);
+  border-radius: var(--border-radius);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.info-block:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.block-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 12px;
+}
+
+.block-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  flex-grow: 1; /* Faz a descrição ocupar o espaço disponível */
+  margin-bottom: 20px;
+}
+
+.block-link {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: 600;
+  align-self: flex-start; /* Alinha o link no início do eixo cruzado */
+}
+
+
+/* --- Elementos Flutuantes (WhatsApp e Footer) --- */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 990;
   width: 64px; height: 64px;
 }
-.whatsapp-icon{
-  width: 64px; height: 64px; display: block;
-
-  /* micro pulso suave */
+.whatsapp-icon {
+  width: 64px; height: 64px;
   animation: pulse 2.4s ease-in-out infinite;
   will-change: transform;
-  transform-origin: center center;
 }
-/* animação */
-@keyframes pulse{
+@keyframes pulse {
   0%, 100% { transform: scale(1); }
-  50%      { transform: scale(1.06); } /* micro pulso */
-}
-/* acessibilidade: respeita usuários que preferem menos movimento */
-@media (prefers-reduced-motion: reduce){
-  .whatsapp-icon{ animation: none; }
+  50% { transform: scale(1.06); }
 }
 
-/* Rodapé fixo */
-.footer{
+.footer {
   position: fixed;
   left: 0; right: 0; bottom: 10px;
   text-align: center;
   font-size: 12px;
-  color: var(--footer-muted);
+  color: var(--color-text-muted);
   pointer-events: none;
 }
 
-/* ===== Overlay Manifesto (texto indexável) ===== */
-.overlay{
-  position: fixed;
-  inset: 0;
-  display: flex;
-  align-items: center;       /* centraliza vertical */
-  justify-content: center;   /* centraliza horizontal */
-  pointer-events: none;
-}
-.overlay--manifesto{
-  padding: 20px;
-}
-
-/* Overlay container aplicado ao texto do manifesto */
-.overlay-box{
-  max-width: 720px;
-  pointer-events: auto;
-  background: rgba(0,0,0,.30);      /* fundo translúcido mais leve */
-  border-radius: 16px;
-  padding: 16px 20px;
-  box-shadow: 0 8px 24px rgba(0,0,0,.25);
-}
-
-.overlay .line{
-  margin: 0 0 6px 0;
-  font-size: 17px;
-  font-weight: 400;
-  text-align: left;
-  letter-spacing: 0.2px;
-  line-height: 1.6;          /* mais respiro entre linhas */
-}
-.overlay .line.white{ color: #FFFFFF; }
-.overlay .line.accent{ color: #FFE069; font-weight: 700; }
-.overlay .line.strong-line{ font-weight: 700; }
-.overlay .line em{ font-style: italic; }
-.overlay .line strong{ font-weight: 700; }
-
-/* ===== Menu hambúrguer (mobile) ===== */
-.menu-toggle{
-  position: fixed;
-  top: 16px; right: 16px;
-  width: 40px; height: 40px;
-  border-radius: 8px;
-  border: 2px solid #fff;
-  background: rgba(0,0,0,.35);
-  color: #fff;
-  font-size: 22px;
-  line-height: 1;
-  cursor: pointer;
-  z-index: 12000; /* acima do overlay e demais elementos */
-}
-.menu-toggle:focus{ outline: 3px solid #FFE069; outline-offset: 2px; }
-
-.dropdown-menu{
-  position: fixed;
-  top: 64px; right: 16px;
-  display: none;
-  flex-direction: column;
-  gap: 10px;
-  background: rgba(0,0,0,.9);
-  border: 1px solid rgba(255,255,255,.2);
-  border-radius: 10px;
-  padding: 12px;
-  z-index: 11999;
-}
-.dropdown-menu.show{ display: flex; }
-
-.dropdown-menu a{
-  color: #fff;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 600;
-  padding: 10px 12px;
-  border-radius: 6px;
-  width: 220px;            /* área confortável de toque */
-}
-.dropdown-menu a:hover,
-.dropdown-menu a[aria-current="page"]{
-  background: rgba(255,255,255,.16);
-  color: #FFE069;
-}
-
-/* ===== Menu desktop (barra superior) ===== */
-.top-menu{
-  position: fixed;
-  top: 16px; left: 50%;
-  transform: translateX(-50%);
-  display: none;            /* aparece só no desktop */
-  gap: 22px;
-  background: rgba(0,0,0,.35);
-  border: 1px solid rgba(255,255,255,.25);
-  border-radius: 999px;
-  padding: 10px 16px;
-  z-index: 12000;
-  -webkit-backdrop-filter: saturate(120%) blur(6px);
-  backdrop-filter: saturate(120%) blur(6px);
-}
-.top-menu a{
-  color: #fff;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 600;
-  padding: 6px 10px;
-  border-radius: 6px;
-}
-.top-menu a:hover,
-.top-menu a[aria-current="page"]{
-  background: rgba(255,255,255,.16);
-  color: #FFE069;
-}
-
-/* ===== Responsividade ===== */
-@media (max-width: 640px){
-  .overlay-box{
-    padding: 16px 16px;
-    transform: translateY(-6vh); /* mantém alinhamento vertical igual ao desktop */
-  }
-}
-
-/* Breakpoint: exibe barra no desktop e esconde hambúrguer */
-@media (min-width: 768px){
-  .menu-toggle,
-  .dropdown-menu{ display: none !important; }
-  .top-menu{ display: flex; }
+/* --- Responsividade --- */
+@media (min-width: 768px) {
+  .menu-toggle { display: none; }
+  .top-menu { display: flex; }
 }
