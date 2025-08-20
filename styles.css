@@ -1,35 +1,45 @@
 /* ---------- Design System ---------- */
 :root{
-  --header-height: 72px;
+  /* Header e footer */
+  --header-height: 92px;           /* AUMENTADA para comportar logo + subline + respiros */
   --footer-height: 42px;
 
+  /* Carrossel */
   --carousel-bg: #FFE069;
   --logo-gap: 48px;
   --marquee-duration: 20s;
 
+  /* Trilho (alturas internas) */
   --marquee-pad-top: 28px;
   --marquee-pad-bot: 12px;
-  --clients-caption-h: 26px;
+  --clients-caption-h: 28px;       /* faixa um pouco mais alta */
 
+  /* Espaçamentos globais */
+  --gap-after-carousel: 24px;      /* respiro extra entre trilho e primeiro hero */
+  --section-gap: 40px;             /* respiro padrão entre seções (heros/grades) */
+
+  /* Tipografia e cores */
   --font-base: 'Noto Sans', sans-serif;
   --text: #1a1a1a;
   --text-muted: #555;
   --accent: #669999;
 
+  /* Blocos */
   --block-border: #e5e5e5;
   --surface: #ffffff;
 
+  /* Misc */
   --radius: 12px;
   --blur-bg: rgba(253,253,253,0.7);
   --transition: 0.3s;
 }
 
-/* Reset */
+/* ---------- Reset ---------- */
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:var(--font-base);color:var(--text);background:#fdfdfd;line-height:1.4}
 
-/* Header */
+/* ---------- Header fixo ---------- */
 .main-header{
   position:fixed; top:0; left:0; right:0;
   height:var(--header-height);
@@ -38,7 +48,7 @@ body{font-family:var(--font-base);color:var(--text);background:#fdfdfd;line-heig
   backdrop-filter:saturate(120%) blur(10px);
   border-bottom:1px solid var(--block-border);
   display:flex; align-items:center; justify-content:space-between;
-  padding:8px 24px;
+  padding:10px 24px;
   z-index:1200;
 }
 
@@ -47,13 +57,14 @@ body{font-family:var(--font-base);color:var(--text);background:#fdfdfd;line-heig
 
 .logo-subline{
   font-size:14px; color:#666666;
-  margin-top:6px; margin-bottom:6px;
+  margin-top:8px;          /* respiro acima (entre logo e subline) */
+  margin-bottom:10px;      /* respiro abaixo (antes do menu) */
   font-weight:700; line-height:1.4;
   white-space:nowrap;
 }
 .logo-subline em{font-style:italic;}
 
-/* Menu */
+/* Menu desktop */
 .top-menu{display:none; gap:28px; align-items:center; flex-shrink:0}
 .top-menu a{
   text-decoration:none; color:var(--text);
@@ -62,6 +73,7 @@ body{font-family:var(--font-base);color:var(--text);background:#fdfdfd;line-heig
 }
 .top-menu a:hover, .top-menu a:focus-visible{color:var(--accent)}
 
+/* Menu mobile */
 .menu-toggle{display:flex; flex-direction:column; justify-content:space-between; width:30px; height:22px; background:transparent; border:none; cursor:pointer}
 .hamburger-line{width:30px; height:3px; background:var(--text); border-radius:10px}
 @media(min-width:768px){ .menu-toggle{display:none} .top-menu{display:flex} }
@@ -77,7 +89,7 @@ body{font-family:var(--font-base);color:var(--text);background:#fdfdfd;line-heig
 .mobile-menu-nav a{text-decoration:none; color:var(--text); font-size:28px; font-weight:600}
 .mobile-menu-nav a:hover{color:var(--accent)}
 
-/* Carrossel */
+/* ---------- Carrossel colado ao header ---------- */
 .clients-fixed{
   position:fixed; left:0; right:0; top:var(--header-height);
   background:var(--carousel-bg);
@@ -90,51 +102,84 @@ body{font-family:var(--font-base);color:var(--text);background:#fdfdfd;line-heig
 .logo-item{display:flex; align-items:center}
 .logo-img-brand{display:block; height:auto; width:auto; object-fit:contain}
 
+/* Tamanhos proporcionais por marca */
 .logo-xs{height:28px}
 .logo-sm{height:34px}
 .logo-md{height:40px}
 .logo-lg{height:46px}
 
-/* Faixa */
+/* Faixa do rodapé do trilho (sempre visível) */
 .clients-caption{
   background:#666666;
-  color:#FFE069;
+  color:#FFFFFF;                 /* texto branco */
   font-weight:700;
   font-size:12px;
-  letter-spacing:.06em;
+  letter-spacing:.12em;          /* mais respiro entre caracteres */
   text-transform:uppercase;
   line-height:var(--clients-caption-h);
   height:var(--clients-caption-h);
   display:block;
   width:100%;
-  margin-top:10px;
+  margin-top:12px;               /* MAIS respiro entre logos e faixa */
 }
 
-/* Animação */
+/* Animação do carrossel */
 @keyframes marquee{ from{transform:translate3d(0,0,0)} to{transform:translate3d(-50%,0,0)} }
 
-/* Conteúdo */
+/* ---------- Conteúdo ---------- */
+/* header + trilho (pads + altura média das logos) + faixa + respiro adicional */
 .content-area{
-  padding-top: calc(var(--header-height) + (var(--marquee-pad-top) + var(--marquee-pad-bot) + 40px) + var(--clients-caption-h));
+  padding-top: calc(
+    var(--header-height) +
+    (var(--marquee-pad-top) + var(--marquee-pad-bot) + 40px) +
+    var(--clients-caption-h) +
+    var(--gap-after-carousel)     /* descola o primeiro hero do trilho */
+  );
   padding-left:24px; padding-right:24px;
   padding-bottom: calc(var(--footer-height) + 40px);
 }
 
-.hero{background:var(--surface); border:1px solid var(--block-border); border-radius:var(--radius); max-width:1200px; margin:0 auto; padding:24px; box-shadow:0 4px 12px rgba(0,0,0,.05)}
+/* HERO (e respiros padronizados entre seções) */
+.hero{
+  background:var(--surface);
+  border:1px solid var(--block-border);
+  border-radius:var(--radius);
+  max-width:1200px; margin: var(--section-gap) auto 0; /* respiro padronizado */
+  padding:24px;
+  box-shadow:0 4px 12px rgba(0,0,0,.05);
+}
 .hero-content{text-align:center}
 .hero-title{font-size:22px; margin-bottom:8px}
 .hero-subtitle{font-size:15px; color:var(--text-muted)}
 
-.content-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px; max-width:1200px; margin:40px auto 0}
-.info-block{background:var(--surface); border:1px solid var(--block-border); border-radius:var(--radius); padding:24px; transition:transform .3s ease, box-shadow .3s ease; box-shadow:0 4px 12px rgba(0,0,0,.05)}
+/* Grid genérico (usa o mesmo gap padronizado) */
+.content-grid{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:20px; max-width:1200px; margin: var(--section-gap) auto 0; /* respiro padronizado */
+}
+.info-block{
+  background:var(--surface); border:1px solid var(--block-border);
+  border-radius:var(--radius); padding:24px;
+  transition:transform .3s ease, box-shadow .3s ease;
+  box-shadow:0 4px 12px rgba(0,0,0,.05);
+}
 .info-block:hover{transform:translateY(-5px); box-shadow:0 8px 30px rgba(0,0,0,.1)}
 .block-title{font-size:20px; font-weight:600; margin-bottom:10px}
 .block-description{font-size:15px; color:var(--text-muted); line-height:1.6}
 
-/* WhatsApp */
+/* WhatsApp (recorte sobre a barra do rodapé) */
 .whatsapp-float{position:fixed; right:20px; bottom: calc(var(--footer-height) - 16px); z-index:1400}
 .whatsapp-icon{width:64px; height:64px; filter:drop-shadow(0 6px 12px rgba(0,0,0,.25))}
 
-/* Rodapé */
-.footer-bar{position:fixed; left:0; right:0; bottom:0; height:var(--footer-height); background:var(--blur-bg); -webkit-backdrop-filter:saturate(120%) blur(10px); backdrop-filter:saturate(120%) blur(10px); border-top:1px solid var(--block-border); display:flex; align-items:center; justify-content:center; z-index:1150}
+/* Rodapé fixo */
+.footer-bar{
+  position:fixed; left:0; right:0; bottom:0;
+  height:var(--footer-height);
+  background:var(--blur-bg);
+  -webkit-backdrop-filter:saturate(120%) blur(10px);
+  backdrop-filter:saturate(120%) blur(10px);
+  border-top:1px solid var(--block-border);
+  display:flex; align-items:center; justify-content:center;
+  z-index:1150;
+}
 .footer-bar p{font-size:12px; color:var(--text-muted)}
