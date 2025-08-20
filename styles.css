@@ -110,12 +110,32 @@ body {
 .mobile-menu-overlay.show .mobile-menu-nav a:nth-child(4) { transition-delay: 0.45s; }
 .mobile-menu-overlay.show .mobile-menu-nav a:nth-child(5) { transition-delay: 0.55s; }
 
-/* --- Conteúdo Principal (Grid e Blocos) --- */
+/* --- Carrossel fixo logo abaixo do menu --- */
+.clients-fixed {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  width: 100%;
+  background: var(--color-block-bg);
+  border-bottom: 1px solid var(--color-block-border);
+  z-index: 950;
+  padding: 8px 0 4px;
+  text-align: center;
+}
+.clients-caption {
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  margin-top: 4px;
+  font-weight: bold; /* negrito */
+}
+
+/* --- Conteúdo Principal --- */
 .content-area {
-  padding-top: calc(var(--header-height) + 20px);
+  padding-top: calc(var(--header-height) + 120px); /* compensa header + carrossel */
   padding-left: 24px; padding-right: 24px; padding-bottom: 100px;
 }
-.section { scroll-margin-top: calc(var(--header-height) + 16px); }
+.section { scroll-margin-top: calc(var(--header-height) + 120px); }
 
 /* HERO */
 .hero {
@@ -132,7 +152,6 @@ body {
 .hero-content { text-align: center; max-width: 900px; padding: 0 16px; }
 .hero-title { font-size: clamp(28px, 4.2vw, 44px); line-height: 1.15; margin-bottom: 14px; }
 .hero-subtitle { font-size: clamp(16px, 2.2vw, 18px); color: var(--color-text-muted); margin-bottom: 24px; }
-.hero-ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
 /* Botões */
 .btn-primary, .btn-secondary {
@@ -165,12 +184,12 @@ body {
 .list-steps { padding-left: 18px; }
 .list-steps li { margin-bottom: 8px; }
 
-/* --- SEÇÃO: Marcas que Confiam em Nós (marquee contínuo) --- */
-.clients { max-width: 1200px; margin: 40px auto 0; }
+/* --- Marquee de Logos --- */
 .logo-marquee {
   position: relative; overflow: hidden;
-  padding: 14px 0; border: 1px solid var(--color-block-border);
-  border-radius: var(--border-radius); background: var(--color-block-bg);
+  padding: 14px 0;
+  border-radius: var(--border-radius);
+  background: var(--color-block-bg);
   -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
   mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
 }
@@ -179,7 +198,6 @@ body {
   width: max-content; will-change: transform; contain: content;
   animation: marquee var(--marquee-duration) linear infinite;
 }
-/* (PAUSE NO HOVER REMOVIDO) */
 .logo-list {
   display: flex; gap: var(--logo-gap);
   align-items: center; list-style: none; margin: 0; padding: 0;
@@ -189,23 +207,12 @@ body {
   height: var(--logo-height); width: auto; object-fit: contain; display: block;
   image-rendering: auto;
 }
-
-/* Loop contínuo */
 @keyframes marquee {
   from { transform: translate3d(0,0,0); }
   to   { transform: translate3d(-50%,0,0); }
 }
-
-/* Acessibilidade */
 @media (prefers-reduced-motion: reduce) {
   .logo-marquee__track { animation: none; flex-wrap: wrap; justify-content: center; }
-}
-
-/* Rodapé da seção */
-.clients-caption {
-  text-align: center; color: var(--color-text-muted);
-  font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;
-  margin-top: 10px;
 }
 
 /* --- Formulário --- */
