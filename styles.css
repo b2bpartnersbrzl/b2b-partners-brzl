@@ -2,28 +2,23 @@
 
 /* --- Design System (Variáveis) --- */
 :root {
-  /* TEMA BRANCO */
   --color-background: #fdfdfd;
   --color-text: #1a1a1a;
   --color-text-muted: #555555;
-  --color-accent: #007aff; /* Exemplo: um azul vibrante para o tema claro */
+  --color-accent: #007aff;
   --color-block-bg: #ffffff;
   --color-block-border: #e5e5e5;
   --color-header-bg: rgba(253, 253, 253, 0.7);
 
   --font-family-base: 'IBM Plex Sans', sans-serif;
-  --header-height: 80px; /* Aumentado para acomodar o logo maior */
+  --font-family-tagline: 'Noto Sans', sans-serif;
+  --header-height: 90px; /* Aumentado ligeiramente para o texto */
   --border-radius: 12px;
   --transition-speed: 0.3s;
 }
 
 /* --- Reset e Globais --- */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+* { margin: 0; padding: 0; box-sizing: border-box; }
 body {
   font-family: var(--font-family-base);
   background-color: var(--color-background);
@@ -36,19 +31,23 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: var(--header-height);
-  padding: 0 24px;
-  
+  min-height: var(--header-height);
+  padding: 10px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  
   background-color: var(--color-header-bg);
   -webkit-backdrop-filter: saturate(120%) blur(10px);
   backdrop-filter: saturate(120%) blur(10px);
-  
   border-bottom: 1px solid var(--color-block-border);
   z-index: 1000;
+}
+
+/* NOVA ÁREA DO LOGO */
+.logo-area {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .logo-link {
@@ -57,16 +56,25 @@ body {
 }
 
 .logo-img {
-  height: 56px; /* DOBRO DO TAMANHO ANTERIOR */
+  height: 56px;
   display: block;
 }
 
-/* --- Menu Desktop --- */
-.top-menu {
-  display: none;
-  gap: 28px;
+/* NOVO TEXTO ABAIXO DO LOGO */
+.logo-tagline {
+  font-family: var(--font-family-tagline);
+  color: #666666;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+  white-space: nowrap; /* Evita quebra de linha */
+}
+.logo-tagline em {
+  font-style: italic;
 }
 
+/* --- Menu Desktop --- */
+.top-menu { display: none; gap: 28px; }
 .top-menu a {
   color: var(--color-text);
   text-decoration: none;
@@ -76,7 +84,6 @@ body {
   position: relative;
   transition: color var(--transition-speed) ease;
 }
-
 .top-menu a::after {
   content: '';
   position: absolute;
@@ -89,16 +96,8 @@ body {
   transform-origin: bottom right;
   transition: transform var(--transition-speed) ease-out;
 }
-
-.top-menu a:hover,
-.top-menu a[aria-current="page"] {
-  color: var(--color-accent);
-}
-
-.top-menu a:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
+.top-menu a:hover, .top-menu a[aria-current="page"] { color: var(--color-accent); }
+.top-menu a:hover::after { transform: scaleX(1); transform-origin: bottom left; }
 
 /* --- Menu Mobile (Botão e Overlay) --- */
 .menu-toggle {
@@ -113,7 +112,6 @@ body {
   padding: 0;
   z-index: 1010;
 }
-
 .hamburger-line {
   width: 30px;
   height: 3px;
@@ -121,36 +119,26 @@ body {
   border-radius: 10px;
   transition: all var(--transition-speed) linear;
 }
-
 .mobile-menu-overlay {
-  position: fixed;
-  inset: 0;
+  position: fixed; inset: 0;
   background: rgba(255, 255, 255, 0.9);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  
   display: flex;
   align-items: center;
   justify-content: center;
-  
   z-index: 999;
   opacity: 0;
   pointer-events: none;
   transition: opacity var(--transition-speed) ease-in-out;
 }
-
-.mobile-menu-overlay.show {
-  opacity: 1;
-  pointer-events: auto;
-}
-
+.mobile-menu-overlay.show { opacity: 1; pointer-events: auto; }
 .mobile-menu-nav {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 32px;
 }
-
 .mobile-menu-nav a {
   color: var(--color-text);
   text-decoration: none;
@@ -160,27 +148,19 @@ body {
   transform: translateY(20px);
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
-
-.mobile-menu-overlay.show .mobile-menu-nav a {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Animação Staggered para os links */
+.mobile-menu-overlay.show .mobile-menu-nav a { opacity: 1; transform: translateY(0); }
 .mobile-menu-overlay.show .mobile-menu-nav a:nth-child(1) { transition-delay: 0.2s; }
 .mobile-menu-overlay.show .mobile-menu-nav a:nth-child(2) { transition-delay: 0.3s; }
 .mobile-menu-overlay.show .mobile-menu-nav a:nth-child(3) { transition-delay: 0.4s; }
 .mobile-menu-overlay.show .mobile-menu-nav a:nth-child(4) { transition-delay: 0.5s; }
 
-
 /* --- Conteúdo Principal (Grid e Blocos) --- */
 .content-area {
-  padding-top: var(--header-height);
+  padding-top: calc(var(--header-height) + 20px); /* Espaço extra para o conteúdo não colar no header */
   padding-left: 24px;
   padding-right: 24px;
   padding-bottom: 80px;
 }
-
 .content-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -188,7 +168,6 @@ body {
   max-width: 1200px;
   margin: 40px auto 0;
 }
-
 .info-block {
   background: var(--color-block-bg);
   border: 1px solid var(--color-block-border);
@@ -199,62 +178,20 @@ body {
   transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
-
 .info-block:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
   border-color: #d0d0d0;
 }
-
-.block-title {
-  font-size: 22px;
-  font-weight: 600;
-  color: var(--color-text);
-  margin-bottom: 12px;
-}
-
-.block-description {
-  font-size: 16px;
-  line-height: 1.6;
-  color: var(--color-text-muted);
-  flex-grow: 1;
-  margin-bottom: 20px;
-}
-
-.block-link {
-  color: var(--color-accent);
-  text-decoration: none;
-  font-weight: 600;
-  align-self: flex-start;
-}
-
+.block-title { font-size: 22px; font-weight: 600; color: var(--color-text); margin-bottom: 12px; }
+.block-description { font-size: 16px; line-height: 1.6; color: var(--color-text-muted); flex-grow: 1; margin-bottom: 20px; }
+.block-link { color: var(--color-accent); text-decoration: none; font-weight: 600; align-self: flex-start; }
 
 /* --- Elementos Flutuantes (WhatsApp e Footer) --- */
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 990;
-  width: 64px; height: 64px;
-}
-.whatsapp-icon {
-  width: 64px; height: 64px;
-  animation: pulse 2.4s ease-in-out infinite;
-  will-change: transform;
-}
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.06); }
-}
-
-.footer {
-  position: fixed;
-  left: 0; right: 0; bottom: 10px;
-  text-align: center;
-  font-size: 12px;
-  color: var(--color-text-muted);
-  pointer-events: none;
-}
+.whatsapp-float { position: fixed; bottom: 20px; right: 20px; z-index: 990; width: 64px; height: 64px; }
+.whatsapp-icon { width: 64px; height: 64px; animation: pulse 2.4s ease-in-out infinite; will-change: transform; }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+.footer { position: fixed; left: 0; right: 0; bottom: 10px; text-align: center; font-size: 12px; color: var(--color-text-muted); pointer-events: none; }
 
 /* --- Responsividade --- */
 @media (min-width: 768px) {
