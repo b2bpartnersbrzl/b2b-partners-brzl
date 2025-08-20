@@ -5,7 +5,7 @@
   --color-background: #fdfdfd;
   --color-text: #1a1a1a;
   --color-text-muted: #555555;
-  --color-accent: #007aff;
+  --color-accent: #007aff;            /* permanece para botões, não mais para hover do menu */
   --color-block-bg: #ffffff;
   --color-block-border: #e5e5e5;
   --color-header-bg: rgba(253, 253, 253, 0.7);
@@ -15,10 +15,14 @@
   --border-radius: 12px;
   --transition-speed: 0.3s;
 
-  /* Logo marquee */
+  /* Carrossel */
   --logo-gap: 48px;
   --logo-height: 40px;
   --marquee-duration: 38s;
+
+  /* Ajustes de espaçamento visual */
+  --gap-header-carousel: 18px;        /* distância entre o header e o carrossel */
+  --carousel-block-height: 96px;       /* altura aproximada do bloco do carrossel (marquee + legenda) */
 }
 
 /* --- Reset e Globais --- */
@@ -29,6 +33,14 @@ body {
   background-color: var(--color-background);
   color: var(--color-text);
   line-height: 1.4;
+}
+
+/* utilitário: apenas para leitores de tela */
+.u-sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
 }
 
 /* --- Header Fixo --- */
@@ -56,23 +68,14 @@ body {
 .top-menu { display: none; gap: 28px; align-items: center; }
 .top-menu a {
   color: var(--color-text); text-decoration: none; font-size: 15px; font-weight: 600; padding: 8px 0;
-  position: relative; transition: color var(--transition-speed) ease;
+  transition: color var(--transition-speed) ease;
 }
-.top-menu a::after {
-  content: ''; position: absolute; width: 100%; height: 2px; bottom: 0; left: 0;
-  background-color: var(--color-accent); transform: scaleX(0); transform-origin: bottom right;
-  transition: transform var(--transition-speed) ease-out;
+/* Removemos o efeito underline ::after e mantemos apenas mudança de cor */
+.top-menu a:hover,
+.top-menu a:focus-visible {
+  color: #669999;
+  text-decoration: none;
 }
-.top-menu a:hover, .top-menu a[aria-current="page"] { color: var(--color-accent); }
-.top-menu a:hover::after { transform: scaleX(1); transform-origin: bottom left; }
-
-/* Botão estilo link no menu */
-.btn-link {
-  padding: 10px 16px;
-  border: 1px solid var(--color-accent);
-  border-radius: 999px;
-}
-.top-menu .btn-link:hover { color: #fff; background: var(--color-accent); }
 
 /* --- Menu Mobile (Botão e Overlay) --- */
 .menu-toggle {
@@ -92,20 +95,17 @@ body {
 .mobile-menu-nav { display: flex; flex-direction: column; align-items: center; gap: 32px; }
 .mobile-menu-nav a {
   color: var(--color-text); text-decoration: none; font-size: 28px; font-weight: 600;
-  opacity: 0; transform: translateY(20px); transition: opacity 0.4s ease, transform 0.4s ease;
+  opacity: 0; transform: translateY(20px); transition: opacity 0.4s ease, transform 0.4s ease, color var(--transition-speed);
   min-height: 48px; display: flex; align-items: center;
 }
 .mobile-menu-overlay.show .mobile-menu-nav a { opacity: 1; transform: translateY(0); }
-.mobile-menu-overlay.show .mobile-menu-nav a:nth-child(1) { transition-delay: 0.15s; }
-.mobile-menu-overlay.show .mobile-menu-nav a:nth-child(2) { transition-delay: 0.25s; }
-.mobile-menu-overlay.show .mobile-menu-nav a:nth-child(3) { transition-delay: 0.35s; }
-.mobile-menu-overlay.show .mobile-menu-nav a:nth-child(4) { transition-delay: 0.45s; }
-.mobile-menu-overlay.show .mobile-menu-nav a:nth-child(5) { transition-delay: 0.55s; }
+.mobile-menu-nav a:hover,
+.mobile-menu-nav a:focus-visible { color: #669999; }
 
 /* --- Carrossel fixo logo abaixo do menu --- */
 .clients-fixed {
   position: fixed;
-  top: var(--header-height);
+  top: calc(var(--header-height) + var(--gap-header-carousel)); /* descola do header */
   left: 0;
   width: 100%;
   background: var(--color-block-bg);
@@ -113,23 +113,26 @@ body {
   z-index: 950;
   padding: 8px 0 0;
   text-align: center;
+  /* separação visual extra */
+  box-shadow: 0 8px 18px rgba(0,0,0,0.05);
 }
 .clients-caption {
-  color: #669999; /* texto na cor pedida */
+  color: #669999;                 /* texto na cor pedida */
   text-align: center;
   font-size: 12px;
   letter-spacing: 0.06em;
   margin-top: 4px;
   font-weight: bold;
-  padding: 4px 0;
+  padding: 4px 0 6px;
 }
 
 /* --- Conteúdo Principal --- */
 .content-area {
-  padding-top: calc(var(--header-height) + 140px); /* compensa header + carrossel */
+  /* compensa header + gap + bloco do carrossel */
+  padding-top: calc(var(--header-height) + var(--gap-header-carousel) + var(--carousel-block-height));
   padding-left: 24px; padding-right: 24px; padding-bottom: 100px;
 }
-.section { scroll-margin-top: calc(var(--header-height) + 140px); }
+.section { scroll-margin-top: calc(var(--header-height) + var(--gap-header-carousel) + 16px); }
 
 /* HERO (compacto e proporcional) */
 .hero {
@@ -137,14 +140,14 @@ body {
   border: 1px solid var(--color-block-border);
   border-radius: var(--border-radius);
   max-width: 1200px;
-  margin: 30px auto 0; /* espaço em relação ao carrossel fixo */
+  margin: 30px auto 0; /* espaço generoso após o carrossel */
   padding: 24px;
 }
 .hero-content { text-align: center; }
 .hero-title { font-size: 22px; margin-bottom: 10px; }
 .hero-subtitle { font-size: 15px; color: var(--color-text-muted); }
 
-/* Botões */
+/* Botões (mantêm o azul do sistema apenas nos botões, não no menu) */
 .btn-primary, .btn-secondary {
   display: inline-flex; align-items: center; justify-content: center;
   padding: 12px 20px; border-radius: var(--border-radius);
@@ -206,6 +209,11 @@ body {
   flex-direction: column;
   gap: 12px;
   margin-top: 8px;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
 }
 .lead-form input,
 .lead-form textarea {
