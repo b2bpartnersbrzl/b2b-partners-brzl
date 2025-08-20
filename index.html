@@ -10,7 +10,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&family=Noto+Sans:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
   
   <link rel="stylesheet" href="styles.css" />
 
@@ -39,9 +39,11 @@
       <a href="index.html" class="logo-link" aria-label="Página inicial B2B Partners BRZL">
         <img src="images/logo-b2b.svg" alt="Logo B2B Partners BRZL" class="logo-img">
       </a>
-      <p class="logo-tagline">
-        MARKETING - <em>EVENTOS</em> - TECNOLOGIA
-      </p>
+      <div class="logo-tagline">
+        <span>MARKETING</span>
+        <span>- <em>EVENTOS</em> -</span>
+        <span>TECNOLOGIA</span>
+      </div>
     </div>
 
     <nav class="top-menu" aria-label="Menu principal (desktop)">
@@ -57,7 +59,7 @@
       <span class="hamburger-line"></span>
     </button>
   </header>
-
+  
   <div id="mobile-menu" class="mobile-menu-overlay" aria-hidden="true">
     <nav class="mobile-menu-nav" aria-label="Menu principal (mobile)">
       <a href="manifesto.html">Ser 5.0</a>
@@ -66,60 +68,28 @@
       <a href="artistas.html">Artistas</a>
     </nav>
   </div>
-
   <main class="content-area">
     <div class="content-grid">
-      
-      <article class="info-block">
-        <h2 class="block-title">Ser 5.0</h2>
-        <p class="block-description">Nossa filosofia. A integração entre criatividade, tecnologia e humanidade para criar o futuro dos negócios, hoje.</p>
-        <a href="manifesto.html" class="block-link" aria-label="Leia nosso manifesto, Ser 5.0">Saiba mais →</a>
-      </article>
-
-      <article class="info-block">
-        <h2 class="block-title">Vamos</h2>
-        <p class="block-description">Inteligência de mercado e execução 360º para projetos de live marketing e produção com escala e operação multi-praça.</p>
-        <a href="vamos.html" class="block-link" aria-label="Descubra como podemos ajudar">Saiba mais →</a>
-      </article>
-
-      <article class="info-block">
-        <h2 class="block-title">Marcas</h2>
-        <p class="block-description">Curadoria e desenvolvimento de projetos B2B que conectam sua marca a novos mercados e oportunidades estratégicas.</p>
-        <a href="marcas.html" class="block-link" aria-label="Veja os projetos para marcas">Saiba mais →</a>
-      </article>
-
-      <article class="info-block">
-        <h2 class="block-title">Artistas</h2>
-        <p class="block-description">Uma nova ponte entre o mercado corporativo e artistas, criando projetos autênticos que geram valor para todos.</p>
-        <a href="artistas.html" class="block-link" aria-label="Conheça nossa frente para artistas">Saiba mais →</a>
-      </article>
-
+      <article class="info-block"><h2 class="block-title">Ser 5.0</h2><p class="block-description">Nossa filosofia. A integração entre criatividade, tecnologia e humanidade para criar o futuro dos negócios, hoje.</p><a href="manifesto.html" class="block-link" aria-label="Leia nosso manifesto, Ser 5.0">Saiba mais →</a></article>
+      <article class="info-block"><h2 class="block-title">Vamos</h2><p class="block-description">Inteligência de mercado e execução 360º para projetos de live marketing e produção com escala e operação multi-praça.</p><a href="vamos.html" class="block-link" aria-label="Descubra como podemos ajudar">Saiba mais →</a></article>
+      <article class="info-block"><h2 class="block-title">Marcas</h2><p class="block-description">Curadoria e desenvolvimento de projetos B2B que conectam sua marca a novos mercados e oportunidades estratégicas.</p><a href="marcas.html" class="block-link" aria-label="Veja os projetos para marcas">Saiba mais →</a></article>
+      <article class="info-block"><h2 class="block-title">Artistas</h2><p class="block-description">Uma nova ponte entre o mercado corporativo e artistas, criando projetos autênticos que geram valor para todos.</p><a href="artistas.html" class="block-link" aria-label="Conheça nossa frente para artistas">Saiba mais →</a></article>
     </div>
   </main>
-
-  <a class="whatsapp-float" href="https://wa.me/5571993081072?text=Ol%C3%A1!%20Seja%20bem-vindo%20%C3%A0%20B2B%20Partners%20BRZL." target="_blank" rel="noopener" aria-label="Abrir WhatsApp da B2B Partners BRZL">
-    <img src="images/cta-whatsapp.svg" alt="WhatsApp" class="whatsapp-icon" />
-  </a>
-
-  <footer class="footer" aria-label="Rodapé">
-    2025 © B2B Partners BRZL
-  </footer>
-
+  <a class="whatsapp-float" href="https://wa.me/5571993081072?text=Ol%C3%A1!%20Seja%20bem-vindo%20%C3%A0%20B2B%20Partners%20BRZL." target="_blank" rel="noopener" aria-label="Abrir WhatsApp da B2B Partners BRZL"><img src="images/cta-whatsapp.svg" alt="WhatsApp" class="whatsapp-icon" /></a>
+  <footer class="footer" aria-label="Rodapé">2025 © B2B Partners BRZL</footer>
   <script>
     (function(){
       const btn = document.querySelector('.menu-toggle');
       const menuOverlay = document.getElementById('mobile-menu');
       if (!btn || !menuOverlay) return;
-
       const toggleMenu = (open) => {
         const show = (open === undefined) ? !menuOverlay.classList.contains('show') : open;
-        
         btn.setAttribute('aria-expanded', show);
         menuOverlay.setAttribute('aria-hidden', !show);
         document.body.style.overflow = show ? 'hidden' : '';
         menuOverlay.classList.toggle('show', show);
       };
-
       btn.addEventListener('click', () => toggleMenu());
       window.addEventListener('keydown', (e) => { if (e.key === 'Escape') toggleMenu(false); });
     })();

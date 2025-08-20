@@ -12,7 +12,7 @@
 
   --font-family-base: 'IBM Plex Sans', sans-serif;
   --font-family-tagline: 'Noto Sans', sans-serif;
-  --header-height: 90px; /* Aumentado ligeiramente para o texto */
+  --header-height: 90px;
   --border-radius: 12px;
   --transition-speed: 0.3s;
 }
@@ -43,35 +43,31 @@ body {
   z-index: 1000;
 }
 
-/* NOVA ÁREA DO LOGO */
 .logo-area {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center; /* Centraliza o texto caso seja menor que o logo */
 }
 
-.logo-link {
-  display: flex;
-  align-items: center;
-}
+.logo-link { display: flex; align-items: center; }
 
-.logo-img {
-  height: 56px;
-  display: block;
-}
+.logo-img { height: 56px; display: block; }
 
-/* NOVO TEXTO ABAIXO DO LOGO */
+/* ATUALIZADO: Tagline com Flexbox para justificar e negrito */
 .logo-tagline {
   font-family: var(--font-family-tagline);
   color: #666666;
-  font-size: 11px;
-  letter-spacing: 0.5px;
-  margin-top: 4px;
-  white-space: nowrap; /* Evita quebra de linha */
+  font-size: 10px; /* Ajustado para caber melhor */
+  font-weight: 700; /* Adiciona o negrito */
+  letter-spacing: 0.2px;
+  margin-top: 6px;
+  width: 100%; /* Faz o container do texto ter a largura do logo */
+  
+  /* Mágica do alinhamento */
+  display: flex;
+  justify-content: space-between;
 }
-.logo-tagline em {
-  font-style: italic;
-}
+.logo-tagline em { font-style: italic; }
 
 /* --- Menu Desktop --- */
 .top-menu { display: none; gap: 28px; }
@@ -156,7 +152,7 @@ body {
 
 /* --- Conteúdo Principal (Grid e Blocos) --- */
 .content-area {
-  padding-top: calc(var(--header-height) + 20px); /* Espaço extra para o conteúdo não colar no header */
+  padding-top: calc(var(--header-height) + 20px);
   padding-left: 24px;
   padding-right: 24px;
   padding-bottom: 80px;
