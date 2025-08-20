@@ -44,17 +44,18 @@ body {
 }
 
 .logo-area {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
-  width: 220px; /* Largura exata do logo */
+  align-items: center;
 }
 
-.logo-link { display: flex; align-items: center; }
+.logo-link { display: inline-block; }
 
 .logo-img {
-  width: 100%;
-  height: auto;
   display: block;
+  height: auto;
+  width: auto;
+  max-width: 220px; /* controle de tamanho */
 }
 
 .logo-tagline {
@@ -66,6 +67,8 @@ body {
   margin-top: 6px;
   text-align: center;
   white-space: nowrap;
+  width: 100%;   /* ocupa exatamente a largura da logo */
+  display: block;
 }
 .logo-tagline em { font-style: italic; }
 
