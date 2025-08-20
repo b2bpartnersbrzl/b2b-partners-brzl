@@ -136,10 +136,9 @@ body {
   width: max-content; will-change: transform; contain: content;
   animation: marquee var(--marquee-duration) linear infinite;
 }
-/* Pausa no hover (desktop) */
-.logo-marquee:hover .logo-marquee__track { animation-play-state: paused; }
+/* (PAUSE NO HOVER REMOVIDO) */
 
-/* Listas: SEM padding lateral para não criar “vão” na junção do loop */
+/* Listas: SEM padding lateral */
 .logo-list {
   display: flex; gap: var(--logo-gap);
   align-items: center; list-style: none; margin: 0; padding: 0;
@@ -147,16 +146,16 @@ body {
 .logo-item { display: flex; align-items: center; }
 .logo-img-brand {
   height: var(--logo-height); width: auto; object-fit: contain; display: block;
-  image-rendering: auto; /* anti serrilhado em alguns navegadores */
+  image-rendering: auto;
 }
 
-/* Loop contínuo: mover exatamente metade do conteúdo (duas listas) */
+/* Loop contínuo */
 @keyframes marquee {
   from { transform: translate3d(0,0,0); }
   to   { transform: translate3d(-50%,0,0); }
 }
 
-/* Acessibilidade: redução de movimento */
+/* Acessibilidade */
 @media (prefers-reduced-motion: reduce) {
   .logo-marquee__track { animation: none; flex-wrap: wrap; justify-content: center; }
 }
