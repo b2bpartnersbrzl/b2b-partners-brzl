@@ -3,16 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-
-  <title>B2B Partners BRZL: Conexões Estratégicas para Marcas e Artistas</title>
-  <meta name="description" content="Somos um hub de inteligência e execução para o mercado B2B. Conectamos marcas, agências e artistas em projetos de alto impacto com escala nacional.">
-  <meta name="theme-color" content="#fdfdfd">
-
-  <!-- Fonte: Noto Sans -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
-
+  <title>B2B Partners BRZL</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -20,22 +11,18 @@
   <!-- HEADER FIXO -->
   <header class="main-header">
     <div class="logo-area">
-      <a href="#hero" class="logo-link" aria-label="Página inicial B2B Partners BRZL">
+      <a href="#hero" class="logo-link">
         <img src="images/logo-b2b.svg" alt="Logo B2B Partners BRZL" class="logo-img">
       </a>
     </div>
-
-    <!-- MENU DESKTOP -->
-    <nav class="top-menu" aria-label="Menu principal (desktop)">
+    <nav class="top-menu">
       <a href="#servicos">Serviços</a>
       <a href="#quem-somos">Quem Somos</a>
       <a href="#processo">O Processo</a>
       <a href="#clientes">Clientes</a>
       <a href="#seu-projeto">Seu Projeto</a>
     </nav>
-
-    <!-- BOTÃO HAMBÚRGUER -->
-    <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu" type="button">
+    <button class="menu-toggle" aria-label="Abrir menu">
       <span class="hamburger-line"></span>
       <span class="hamburger-line"></span>
       <span class="hamburger-line"></span>
@@ -43,8 +30,8 @@
   </header>
 
   <!-- MENU MOBILE -->
-  <div id="mobile-menu" class="mobile-menu-overlay" aria-hidden="true">
-    <nav class="mobile-menu-nav" aria-label="Menu principal (mobile)">
+  <div id="mobile-menu" class="mobile-menu-overlay">
+    <nav class="mobile-menu-nav">
       <a href="#servicos">Serviços</a>
       <a href="#quem-somos">Quem Somos</a>
       <a href="#processo">O Processo</a>
@@ -53,11 +40,10 @@
     </nav>
   </div>
 
-  <!-- CARROSSEL FIXO (colado ao menu) -->
-  <section id="clientes" class="clients-fixed" aria-label="Marcas que confiam em nós">
-    <div class="logo-marquee" role="region" aria-roledescription="carrossel automático" aria-label="Logos de clientes">
+  <!-- CARROSSEL COLADO NO MENU -->
+  <section id="clientes" class="clients-bar">
+    <div class="logo-marquee">
       <div class="logo-marquee__track">
-        <!-- Lista 1 -->
         <ul class="logo-list">
           <li class="logo-item"><img src="images/logos/logo_aneel.svg" alt="ANEEL" class="logo-img-brand"></li>
           <li class="logo-item"><img src="images/logos/logo_vivo.svg" alt="Vivo" class="logo-img-brand"></li>
@@ -70,7 +56,6 @@
           <li class="logo-item"><img src="images/logos/logo_citi.svg" alt="Citi" class="logo-img-brand"></li>
           <li class="logo-item"><img src="images/logos/logo_chilli_beans.svg" alt="Chilli Beans" class="logo-img-brand"></li>
         </ul>
-        <!-- Lista 2 duplicada -->
         <ul class="logo-list" aria-hidden="true">
           <li class="logo-item"><img src="images/logos/logo_aneel.svg" alt="" class="logo-img-brand"></li>
           <li class="logo-item"><img src="images/logos/logo_vivo.svg" alt="" class="logo-img-brand"></li>
@@ -98,35 +83,24 @@
     </section>
   </main>
 
-  <!-- CTA WhatsApp -->
+  <!-- WHATSAPP -->
   <a class="whatsapp-float" href="https://wa.me/557193081072" target="_blank" rel="noopener">
     <img src="images/cta-whatsapp.svg" alt="WhatsApp" class="whatsapp-icon" />
   </a>
 
-  <!-- RODAPÉ FIXO -->
+  <!-- RODAPÉ -->
   <footer class="footer-bar">
     <p>2025 © B2B Partners BRZL</p>
   </footer>
 
   <script>
-    (function(){
-      const btn = document.querySelector('.menu-toggle');
-      const menuOverlay = document.getElementById('mobile-menu');
-      const links = menuOverlay ? menuOverlay.querySelectorAll('a[href^="#"]') : [];
-      if (btn && menuOverlay) {
-        const toggleMenu = (open) => {
-          const show = (open === undefined) ? !menuOverlay.classList.contains('show') : open;
-          btn.setAttribute('aria-expanded', show);
-          menuOverlay.setAttribute('aria-hidden', !show);
-          document.body.style.overflow = show ? 'hidden' : '';
-          menuOverlay.classList.toggle('show', show);
-        };
-        btn.addEventListener('click', () => toggleMenu());
-        window.addEventListener('keydown', (e) => { if (e.key === 'Escape') toggleMenu(false); });
-        links.forEach(a => a.addEventListener('click', () => toggleMenu(false)));
-      }
-    })();
+    const btn = document.querySelector('.menu-toggle');
+    const overlay = document.getElementById('mobile-menu');
+    if(btn && overlay){
+      btn.addEventListener('click', ()=>{
+        overlay.classList.toggle('show');
+      });
+    }
   </script>
-
 </body>
 </html>
