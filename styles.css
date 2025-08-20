@@ -23,10 +23,12 @@
 
 /* --- Reset e Globais --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
   font-family: var(--font-family-base);
   background-color: var(--color-background);
   color: var(--color-text);
+  line-height: 1.4;
 }
 
 /* utilitário: apenas para leitores de tela */
@@ -59,7 +61,7 @@ body {
 .logo-img { display: block; height: auto; width: auto; max-width: 220px; }
 
 /* --- Menu Desktop --- */
-.top-menu { display: none; gap: 28px; }
+.top-menu { display: none; gap: 28px; align-items: center; }
 .top-menu a {
   color: var(--color-text); text-decoration: none; font-size: 15px; font-weight: 600; padding: 8px 0;
   position: relative; transition: color var(--transition-speed) ease;
@@ -71,6 +73,14 @@ body {
 }
 .top-menu a:hover, .top-menu a[aria-current="page"] { color: var(--color-accent); }
 .top-menu a:hover::after { transform: scaleX(1); transform-origin: bottom left; }
+
+/* Botão estilo link no menu */
+.btn-link {
+  padding: 10px 16px;
+  border: 1px solid var(--color-accent);
+  border-radius: 999px;
+}
+.top-menu .btn-link:hover { color: #fff; background: var(--color-accent); }
 
 /* --- Menu Mobile (Botão e Overlay) --- */
 .menu-toggle {
@@ -103,8 +113,40 @@ body {
 /* --- Conteúdo Principal (Grid e Blocos) --- */
 .content-area {
   padding-top: calc(var(--header-height) + 20px);
-  padding-left: 24px; padding-right: 24px; padding-bottom: 80px;
+  padding-left: 24px; padding-right: 24px; padding-bottom: 100px;
 }
+.section { scroll-margin-top: calc(var(--header-height) + 16px); }
+
+/* HERO */
+.hero {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: clamp(520px, 60vh, 720px);
+  padding: 56px 0 32px;
+  background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
+  border: 1px solid var(--color-block-border);
+  border-radius: var(--border-radius);
+  max-width: 1200px; margin: 0 auto;
+}
+.hero-content { text-align: center; max-width: 900px; padding: 0 16px; }
+.hero-title { font-size: clamp(28px, 4.2vw, 44px); line-height: 1.15; margin-bottom: 14px; }
+.hero-subtitle { font-size: clamp(16px, 2.2vw, 18px); color: var(--color-text-muted); margin-bottom: 24px; }
+.hero-ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+/* Botões */
+.btn-primary, .btn-secondary {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 14px 24px; border-radius: var(--border-radius);
+  font-weight: 700; text-decoration: none; cursor: pointer; border: none;
+  transition: background var(--transition-speed), color var(--transition-speed), border-color var(--transition-speed);
+}
+.btn-primary { background: var(--color-accent); color: #fff; }
+.btn-primary:hover { background: #005bb5; }
+.btn-secondary { background: #eef5ff; color: var(--color-accent); border: 1px solid #cfe2ff; }
+.btn-secondary:hover { background: #e1ecff; }
+
+/* Grids */
 .content-grid {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px; max-width: 1200px; margin: 40px auto 0;
@@ -117,28 +159,27 @@ body {
 }
 .info-block:hover { transform: translateY(-5px); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); border-color: #d0d0d0; }
 .block-title { font-size: 22px; font-weight: 600; color: var(--color-text); margin-bottom: 12px; }
-.block-description { font-size: 16px; line-height: 1.6; color: var(--color-text-muted); flex-grow: 1; margin-bottom: 20px; }
-.block-link { color: var(--color-accent); text-decoration: none; font-weight: 600; align-self: flex-start; }
+.block-description { font-size: 16px; line-height: 1.6; color: var(--color-text-muted); flex-grow: 1; margin-bottom: 16px; }
+
+/* Listas */
+.list-steps { padding-left: 18px; }
+.list-steps li { margin-bottom: 8px; }
 
 /* --- SEÇÃO: Marcas que Confiam em Nós (marquee contínuo) --- */
-.clients { max-width: 1200px; margin: 24px auto 0; }
+.clients { max-width: 1200px; margin: 40px auto 0; }
 .logo-marquee {
   position: relative; overflow: hidden;
   padding: 14px 0; border: 1px solid var(--color-block-border);
   border-radius: var(--border-radius); background: var(--color-block-bg);
-  /* fade nas bordas (fallback: ignora se não suportar) */
   -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
   mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
 }
-/* Track com duas listas idênticas; gap garante o mesmo espaçamento em TODAS as junções */
 .logo-marquee__track {
   display: flex; gap: var(--logo-gap);
   width: max-content; will-change: transform; contain: content;
   animation: marquee var(--marquee-duration) linear infinite;
 }
 /* (PAUSE NO HOVER REMOVIDO) */
-
-/* Listas: SEM padding lateral */
 .logo-list {
   display: flex; gap: var(--logo-gap);
   align-items: center; list-style: none; margin: 0; padding: 0;
@@ -165,6 +206,34 @@ body {
   text-align: center; color: var(--color-text-muted);
   font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;
   margin-top: 10px;
+}
+
+/* --- Formulário --- */
+.lead-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+.lead-form input,
+.lead-form textarea {
+  padding: 12px;
+  border: 1px solid var(--color-block-border);
+  border-radius: var(--border-radius);
+  font-size: 15px;
+  font-family: var(--font-family-base);
+  background: #fff;
+}
+.lead-form input:focus,
+.lead-form textarea:focus {
+  outline: none;
+  border-color: #b6d4fe;
+  box-shadow: 0 0 0 3px #e7f1ff;
 }
 
 /* --- Elementos Flutuantes (WhatsApp e Footer) --- */

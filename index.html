@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  
+
   <title>B2B Partners BRZL: Conexões Estratégicas para Marcas e Artistas</title>
   <meta name="description" content="Somos um hub de inteligência e execução para o mercado B2B. Conectamos marcas, agências e artistas em projetos de alto impacto com escala nacional.">
   <meta name="theme-color" content="#fdfdfd">
@@ -15,6 +15,7 @@
 
   <link rel="stylesheet" href="styles.css" />
 
+  <!-- SEO estruturado -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -37,15 +38,18 @@
 
   <header class="main-header">
     <div class="logo-area">
-      <a href="index.html" class="logo-link" aria-label="Página inicial B2B Partners BRZL">
-        <!-- CORRIGIDO -->
+      <a href="#hero" class="logo-link" aria-label="Página inicial B2B Partners BRZL">
         <img src="images/logo-b2b.svg" alt="Logo B2B Partners BRZL" class="logo-img">
       </a>
     </div>
 
     <!-- MENU DESKTOP -->
-    <nav class="top-menu" aria-label="Menu principal (desktop )">
-      <a href="#" aria-current="page">teste</a>
+    <nav class="top-menu" aria-label="Menu principal (desktop)">
+      <a href="#servicos">Serviços</a>
+      <a href="#quem-somos">Quem Somos</a>
+      <a href="#processo">O Processo</a>
+      <a href="#clientes">Clientes</a>
+      <a href="#seu-projeto" class="btn-link">Seu Projeto</a>
     </nav>
 
     <!-- BOTÃO HAMBÚRGUER -->
@@ -55,26 +59,81 @@
       <span class="hamburger-line"></span>
     </button>
   </header>
-  
+
   <!-- MENU MOBILE -->
   <div id="mobile-menu" class="mobile-menu-overlay" aria-hidden="true">
     <nav class="mobile-menu-nav" aria-label="Menu principal (mobile)">
-      <a href="#">teste</a>
-      <a href="#">teste A</a>
-      <a href="#">teste B</a>
-      <a href="#">teste C</a>
-      <a href="#">teste D</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#quem-somos">Quem Somos</a>
+      <a href="#processo">O Processo</a>
+      <a href="#clientes">Clientes</a>
+      <a href="#seu-projeto">Seu Projeto</a>
     </nav>
   </div>
 
   <main class="content-area">
-    <!-- CARROSSEL DE LOGOS -->
-    <section id="clientes" class="clients" aria-label="Marcas que confiam em nós">
+
+    <!-- HERO -->
+    <section id="hero" class="hero" aria-label="Abertura">
+      <div class="hero-content">
+        <h1 class="hero-title">Execução B2B em Escala Nacional</h1>
+        <p class="hero-subtitle">Apoio operacional para agências e marcas em ativações, live marketing, operação multi-praça e produção 360.</p>
+        <div class="hero-ctas">
+          <a href="#seu-projeto" class="btn-primary">Inicie seu Projeto</a>
+          <a href="#servicos" class="btn-secondary">Ver Serviços</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section id="servicos" class="content-grid section" aria-label="Serviços">
+      <article class="info-block">
+        <h2 class="block-title">Ativações</h2>
+        <p class="block-description">Estruturamos ativações criativas e de impacto em múltiplas praças, com controle de qualidade centralizado.</p>
+      </article>
+      <article class="info-block">
+        <h2 class="block-title">Live Marketing</h2>
+        <p class="block-description">Produção e operação de eventos para conectar marcas e pessoas com precisão logística e prazos rigorosos.</p>
+      </article>
+      <article class="info-block">
+        <h2 class="block-title">Operação Multi-Praça</h2>
+        <p class="block-description">Planejamento, alocação de equipes e execução simultânea em diversas cidades, mantendo padrão e consistência.</p>
+      </article>
+      <article class="info-block">
+        <h2 class="block-title">Produção 360</h2>
+        <p class="block-description">Do conceito à entrega final. Integramos fornecedores, cronogramas e indicadores para resultado de negócio.</p>
+      </article>
+    </section>
+
+    <!-- QUEM SOMOS -->
+    <section id="quem-somos" class="content-grid section" aria-label="Quem Somos">
+      <article class="info-block">
+        <h2 class="block-title">Quem Somos</h2>
+        <p class="block-description">
+          A B2B Partners BRZL nasceu para apoiar agências e marcas na execução de projetos que exigem escala, velocidade e qualidade.
+          Atuamos como parceiros estratégicos, transformando ideias em realidade com criatividade, tecnologia e humanidade.
+        </p>
+      </article>
+    </section>
+
+    <!-- O PROCESSO -->
+    <section id="processo" class="content-grid section" aria-label="Nosso Processo">
+      <article class="info-block">
+        <h2 class="block-title">Nosso Processo</h2>
+        <ol class="block-description list-steps">
+          <li><strong>Briefing:</strong> entendemos objetivos, contexto e métricas de sucesso.</li>
+          <li><strong>Execução:</strong> mobilizamos equipes, logística e fornecedores com governança.</li>
+          <li><strong>Entrega:</strong> resultado em escala com qualidade, relatórios e aprendizados.</li>
+        </ol>
+      </article>
+    </section>
+
+    <!-- PROVA SOCIAL (logos em loop contínuo) -->
+    <section id="clientes" class="clients section" aria-label="Marcas que confiam em nós">
       <div class="logo-marquee" role="region" aria-roledescription="carrossel automático" aria-label="Logos de clientes">
         <div class="logo-marquee__track">
           <!-- Lista 1 -->
           <ul class="logo-list">
-            <!-- CORRIGIDO -->
             <li class="logo-item"><img src="images/logos/logo_aneel.svg" alt="ANEEL" class="logo-img-brand" loading="lazy" decoding="async"></li>
             <li class="logo-item"><img src="images/logos/logo_vivo.svg" alt="Vivo" class="logo-img-brand" loading="lazy" decoding="async"></li>
             <li class="logo-item"><img src="images/logos/logo_dell.svg" alt="Dell" class="logo-img-brand" loading="lazy" decoding="async"></li>
@@ -88,7 +147,6 @@
           </ul>
           <!-- Lista 2 (duplicata para loop perfeito) -->
           <ul class="logo-list" aria-hidden="true">
-            <!-- CORRIGIDO -->
             <li class="logo-item"><img src="images/logos/logo_aneel.svg" alt="" class="logo-img-brand" loading="lazy" decoding="async"></li>
             <li class="logo-item"><img src="images/logos/logo_vivo.svg" alt="" class="logo-img-brand" loading="lazy" decoding="async"></li>
             <li class="logo-item"><img src="images/logos/logo_dell.svg" alt="" class="logo-img-brand" loading="lazy" decoding="async"></li>
@@ -105,39 +163,69 @@
       <p class="clients-caption">Marcas que Confiam em Nós</p>
     </section>
 
-    <!-- BLOCO DEMO (sem link) -->
-    <div class="content-grid">
+    <!-- SEU PROJETO (FORMULÁRIO) -->
+    <section id="seu-projeto" class="content-grid section" aria-label="Formulário de projeto">
       <article class="info-block">
-        <h2 class="block-title">Ser 5.0</h2>
+        <h2 class="block-title">Seu Projeto</h2>
         <p class="block-description">
-          Nossa filosofia. A integração entre criatividade, tecnologia e humanidade para criar o futuro dos negócios, hoje.
+          Pronto para dar o próximo passo? Envie seu briefing e vamos juntos construir algo extraordinário.
         </p>
+
+        <!-- Observação: para envio via e-mail sem backend, substitua SEU_EMAIL pelo seu endereço. 
+             Ex.: action="https://formsubmit.co/contato@seudominio.com" -->
+        <form class="lead-form"
+              name="contato"
+              method="POST"
+              action="https://formsubmit.co/SEU_EMAIL"
+              data-netlify="true">
+          <!-- Necessário para alguns serviços preservarem o nome do form -->
+          <input type="hidden" name="form-name" value="contato">
+          <!-- Redirecionamento após envio (opcional) -->
+          <input type="hidden" name="_next" value="https://b2bpartners.marketing/">
+          <!-- Desativa captcha do FormSubmit (opcional) -->
+          <input type="hidden" name="_captcha" value="false">
+
+          <div class="form-grid">
+            <input type="text" name="nome" placeholder="Seu Nome" aria-label="Seu Nome" required>
+            <input type="email" name="email" placeholder="Seu E-mail" aria-label="Seu E-mail" required>
+            <input type="text" name="empresa" placeholder="Empresa" aria-label="Empresa">
+            <input type="tel" name="telefone" placeholder="Telefone" aria-label="Telefone">
+          </div>
+
+          <textarea name="mensagem" placeholder="Descreva seu projeto" rows="6" aria-label="Mensagem"></textarea>
+
+          <button type="submit" class="btn-primary">Enviar Projeto</button>
+        </form>
       </article>
-    </div>
+    </section>
+
   </main>
 
   <!-- CTA WhatsApp -->
   <a class="whatsapp-float" href="https://wa.me/557193081072?text=Ol%C3%A1!%20Seja%20bem-vindo%20%C3%A0%20B2B%20Partners%20BRZL." target="_blank" rel="noopener">
-    <!-- CORRIGIDO -->
     <img src="images/cta-whatsapp.svg" alt="WhatsApp" class="whatsapp-icon" />
   </a>
 
   <footer class="footer">2025 © B2B Partners BRZL</footer>
 
   <script>
-    (function( ){
+    (function(){
       const btn = document.querySelector('.menu-toggle');
       const menuOverlay = document.getElementById('mobile-menu');
-      if (!btn || !menuOverlay) return;
-      const toggleMenu = (open) => {
-        const show = (open === undefined) ? !menuOverlay.classList.contains('show') : open;
-        btn.setAttribute('aria-expanded', show);
-        menuOverlay.setAttribute('aria-hidden', !show);
-        document.body.style.overflow = show ? 'hidden' : '';
-        menuOverlay.classList.toggle('show', show);
-      };
-      btn.addEventListener('click', () => toggleMenu());
-      window.addEventListener('keydown', (e) => { if (e.key === 'Escape') toggleMenu(false); });
+      const links = menuOverlay ? menuOverlay.querySelectorAll('a[href^="#"]') : [];
+
+      if (btn && menuOverlay) {
+        const toggleMenu = (open) => {
+          const show = (open === undefined) ? !menuOverlay.classList.contains('show') : open;
+          btn.setAttribute('aria-expanded', show);
+          menuOverlay.setAttribute('aria-hidden', !show);
+          document.body.style.overflow = show ? 'hidden' : '';
+          menuOverlay.classList.toggle('show', show);
+        };
+        btn.addEventListener('click', () => toggleMenu());
+        window.addEventListener('keydown', (e) => { if (e.key === 'Escape') toggleMenu(false); });
+        links.forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+      }
     })();
   </script>
 
