@@ -30,7 +30,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <!-- força recarregar CSS no mobile -->
-  <link rel="stylesheet" href="styles.css?v=mobile3" />
+  <link rel="stylesheet" href="styles.css?v=services-cards1" />
 </head>
 <body>
 
@@ -45,7 +45,7 @@
       </p>
     </div>
 
-    <!-- MENU DESKTOP (nova ordem + renomeado) -->
+    <!-- MENU DESKTOP (ordem definida) -->
     <nav class="top-menu" aria-label="Menu principal">
       <a href="#quem-somos">Quem somos</a>
       <a href="#servicos">O que fazemos</a>
@@ -127,24 +127,50 @@
       </div>
     </section>
 
-    <!-- SERVIÇOS -->
-    <section id="servicos" class="hero" aria-label="Serviços">
+    <!-- O QUE FAZEMOS (cartões) -->
+    <section id="servicos" class="hero" aria-label="O que fazemos">
       <div class="hero-content">
-        <h2 class="hero-title">Serviços</h2>
-        <p class="hero-subtitle">Escolha um serviço para ver a descrição completa.</p>
+        <h2 class="hero-title">O que fazemos</h2>
+        <p class="hero-subtitle">Selecione um serviço para ver o escopo.</p>
 
-        <div class="content-grid" role="list">
-          <article class="info-block" role="listitem">
-            <h3 class="block-title"><a class="service-btn" href="#servicos-ativacoes">Ativações</a></h3>
+        <div class="services-grid" role="list">
+          <!-- Ativações + Live Marketing (consolidado) -->
+          <article class="service-card" role="listitem">
+            <div class="card-body">
+              <h3 class="card-title">Ativações &amp; Live Marketing</h3>
+              <p class="card-desc">Experiências de marca em PDV, rua e eventos — do conceito à entrega.</p>
+              <a class="card-link" href="#servicos-ativacoes" aria-label="Ver escopo de Ativações e Live Marketing">Ver escopo →</a>
+            </div>
           </article>
-          <article class="info-block" role="listitem">
-            <h3 class="block-title"><a class="service-btn" href="#servicos-live">Live Marketing</a></h3>
+
+          <!-- Eventos corporativos -->
+          <article class="service-card" role="listitem">
+            <div class="card-body">
+              <h3 class="card-title">Eventos corporativos</h3>
+              <p class="card-desc">Treinamentos, convenções e vivências com logística precisa e governança.</p>
+              <a class="card-link" href="#servicos-corporativos" aria-label="Ver escopo de Eventos corporativos">Ver escopo →</a>
+            </div>
           </article>
-          <article class="info-block" role="listitem">
-            <h3 class="block-title"><a class="service-btn" href="#servicos-multi">Operação Multi-Praça</a></h3>
+
+          <!-- Shows e espetáculos -->
+          <article class="service-card" role="listitem">
+            <div class="card-body">
+              <h3 class="card-title">Shows e espetáculos</h3>
+              <p class="card-desc">Produções de shows, turnês e espetáculos; artistas e equipes em sincronia.</p>
+              <a class="card-link" href="#servicos-shows" aria-label="Ver escopo de Shows e espetáculos">Ver escopo →</a>
+            </div>
           </article>
-          <article class="info-block" role="listitem">
-            <h3 class="block-title"><a class="service-btn" href="#servicos-360">Produção 360</a></h3>
+
+          <!-- UX para eventos (novo) -->
+          <article class="service-card" role="listitem">
+            <div class="card-body">
+              <div class="card-line">
+                <h3 class="card-title">UX para eventos</h3>
+                <span class="badge-new" aria-label="Serviço novo">NOVO</span>
+              </div>
+              <p class="card-desc">Jornada do participante, sinalização, fluxos e dados para melhorar a experiência.</p>
+              <a class="card-link" href="#servicos-ux" aria-label="Ver escopo de UX para eventos">Ver escopo →</a>
+            </div>
           </article>
         </div>
       </div>
@@ -170,17 +196,16 @@
       </div>
     </section>
 
-    <!-- COMO FAZEMOS (era “O Processo”) -->
+    <!-- COMO FAZEMOS -->
     <section id="processo" class="hero" aria-label="Como fazemos">
       <div class="hero-content">
         <h2 class="hero-title">Como fazemos</h2>
-        <p class="hero-subtitle">Execução com método, previsibilidade e tecnologia integrada.</p>
+        <p class="hero-subtitle">Nossa filosofia é <strong>Produção 360</strong>: planejamento, operação e validação com tecnologia.</p>
 
-        <p>Nosso processo foi desenhado para reduzir riscos e aumentar a transparência.</p>
         <h3>1) Alinhamento</h3><p>Briefing claro que vira roteiro de execução.</p>
         <h3>2) Planejamento</h3><p>Distribuição de recursos e cidades com gestão centralizada.</p>
         <h3>3) Operação em campo</h3><p>Registros em tempo real e pontos focais locais.</p>
-        <h3>4) Validação e relatório</h3><p>Dashboards e relatório final com documentação.</p>
+        <h3>4) Validação e relatório</h3><p>Dashboards e relatório final com evidências.</p>
 
         <p class="micro-trust">
           Quer ver esse processo aplicado ao seu caso? Vá até <a href="#seu-projeto">Seu Projeto</a> e envie o briefing.
@@ -188,41 +213,41 @@
       </div>
     </section>
 
-    <!-- DETALHES DE SERVIÇOS -->
-    <section id="detalhes-servicos" class="hero" aria-label="Detalhes dos Serviços">
+    <!-- DETALHES DOS SERVIÇOS (âncoras) -->
+    <section id="detalhes-servicos" class="hero" aria-label="Detalhes dos serviços">
       <div class="hero-content">
-        <h2 class="hero-title">Detalhes dos Serviços</h2>
-        <p class="hero-subtitle">Entenda o escopo completo de cada serviço.</p>
+        <h2 class="hero-title">Detalhes dos serviços</h2>
+        <p class="hero-subtitle">Escopos resumidos. Itens completos sob demanda.</p>
 
-        <section id="servicos-ativacoes" class="hero" aria-label="Ativações">
+        <section id="servicos-ativacoes" class="hero" aria-label="Ativações & Live Marketing">
           <div class="hero-content">
-            <h3>Ativações</h3>
-            <p>Transformamos ideias em ativações de impacto.</p>
-            <p class="micro-trust"><a href="#servicos">Voltar aos serviços</a></p>
+            <h3>Ativações &amp; Live Marketing</h3>
+            <p>Do conceito à entrega: criação, produção, equipes, equipamentos, logística, licenças e prestação de contas. Execução multi-praça com trilhas de aprovação claras.</p>
+            <p class="micro-trust"><a href="#servicos">Voltar para O que fazemos</a></p>
           </div>
         </section>
 
-        <section id="servicos-live" class="hero" aria-label="Live Marketing">
+        <section id="servicos-corporativos" class="hero" aria-label="Eventos corporativos">
           <div class="hero-content">
-            <h3>Live Marketing</h3>
-            <p>Conectamos marcas e pessoas por meio de experiências ao vivo.</p>
-            <p class="micro-trust"><a href="#servicos">Voltar aos serviços</a></p>
+            <h3>Eventos corporativos</h3>
+            <p>Treinamentos, convenções e vivências: curadoria de conteúdo, cenografia, A&amp;B, credenciamento, streaming, suporte ao palestrante e relatórios pós-evento.</p>
+            <p class="micro-trust"><a href="#servicos">Voltar para O que fazemos</a></p>
           </div>
         </section>
 
-        <section id="servicos-multi" class="hero" aria-label="Operação Multi-Praça">
+        <section id="servicos-shows" class="hero" aria-label="Shows e espetáculos">
           <div class="hero-content">
-            <h3>Operação Multi-Praça</h3>
-            <p>Execuções simultâneas em diversas cidades.</p>
-            <p class="micro-trust"><a href="#servicos">Voltar aos serviços</a></p>
+            <h3>Shows e espetáculos</h3>
+            <p>Produção técnica e artística, rider, backline, road crews, camarins, segurança, contratos e rota logística. Integração com booking e comunicação.</p>
+            <p class="micro-trust"><a href="#servicos">Voltar para O que fazemos</a></p>
           </div>
         </section>
 
-        <section id="servicos-360" class="hero" aria-label="Produção 360">
+        <section id="servicos-ux" class="hero" aria-label="UX para eventos">
           <div class="hero-content">
-            <h3>Produção 360</h3>
-            <p>Ciclo completo do conceito à entrega.</p>
-            <p class="micro-trust"><a href="#servicos">Voltar aos serviços</a></p>
+            <h3>UX para eventos <span class="badge-new" style="vertical-align:middle">NOVO</span></h3>
+            <p>Pesquisa com público, blueprint de jornada, fluxo de pessoas, wayfinding, microinterações (check-in, fila, sinalização), mensuração de NPS e insights acionáveis.</p>
+            <p class="micro-trust"><a href="#servicos">Voltar para O que fazemos</a></p>
           </div>
         </section>
       </div>
@@ -266,10 +291,10 @@
               <label for="servico">Serviço</label>
               <select id="servico" name="servico">
                 <option value="">Selecione…</option>
-                <option>Ativações</option>
-                <option>Live Marketing</option>
-                <option>Operação Multi-Praça</option>
-                <option>Produção 360</option>
+                <option>Ativações & Live Marketing</option>
+                <option>Eventos corporativos</option>
+                <option>Shows e espetáculos</option>
+                <option>UX para eventos</option>
                 <option>Outro</option>
               </select>
             </div>
@@ -285,7 +310,7 @@
             </div>
           </div>
 
-          <!-- Consentimento LGPD (checkbox alinhado ao 'A' de Autorizo) -->
+          <!-- Consentimento LGPD -->
           <div class="form-field form-field--full">
             <label for="lgpd" class="consent-label">
               <input type="checkbox" id="lgpd" name="lgpd" required />

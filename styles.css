@@ -3,8 +3,8 @@
   --header-height: 96px;
   --footer-height: 42px;
 
-  /* Espaçamentos gerais (padroniza entre todos os heros) */
-  --section-gap: 24px;           /* reduzido e usado em TODOS os heros */
+  /* Espaçamentos gerais (padronizado) */
+  --section-gap: 24px;
   --gap-after-carousel: var(--section-gap);
   --anchor-offset-extra: 12px;
 
@@ -12,8 +12,8 @@
   --carousel-bg: #FFFFFF; 
   --logo-gap: 48px;
   --marquee-duration: 20s;
-  --marquee-pad-top: 14px;       /* redistribuído para centralizar */
-  --marquee-pad-bot: 14px;       /* mesma soma de antes (altura do trilho intacta) */
+  --marquee-pad-top: 14px;
+  --marquee-pad-bot: 14px;
   --clients-caption-h: 28px;
 
   /* Tipografia e cores (padrão) */
@@ -78,10 +78,10 @@ a:hover, a:focus{ text-decoration: underline; text-decoration-thickness:1px; tex
 .mobile-menu-nav{display:flex; flex-direction:column; gap:28px; align-items:center}
 .mobile-menu-nav a{font-size:28px; font-weight:600}
 
-/* CARROSSEL (no fluxo, sem respiros extras) */
+/* CARROSSEL (no fluxo) */
 .clients-fixed{
   position:relative;
-  margin-top: var(--header-height); /* alinha com o menu quando volta ao topo */
+  margin-top: var(--header-height);
   background:var(--carousel-bg);
   border-top:1px solid #669999;
   border-bottom:1px solid var(--block-border);
@@ -99,7 +99,7 @@ a:hover, a:focus{ text-decoration: underline; text-decoration-thickness:1px; tex
   letter-spacing:.14em; text-transform:uppercase;
   line-height:var(--clients-caption-h); height:var(--clients-caption-h);
   display:block; width:100%;
-  margin-top:0; margin-bottom:0; /* faixa encosta no trilho e no conteúdo */
+  margin:0; /* cola no trilho e no conteúdo */
 }
 
 /* ANIMAÇÃO */
@@ -107,15 +107,15 @@ a:hover, a:focus{ text-decoration: underline; text-decoration-thickness:1px; tex
 
 /* ÁREA DE CONTEÚDO */
 .content-area{
-  padding-top: 0; /* carrossel já cuida do afastamento superior */
+  padding-top: 0;
   padding-left:24px; padding-right:24px;
   padding-bottom: calc(var(--footer-height) + 40px);
 }
 
-/* Compensação para âncoras (só o header fixo) */
+/* Compensação para âncoras */
 section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-extra)); }
 
-/* BLOCOS (Heros/cards) – espaçamento padronizado */
+/* BLOCOS (Heros/cards) */
 .hero{
   background:var(--surface);
   border:1px solid var(--block-border);
@@ -147,20 +147,46 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
 .desktop-only { display: inline-block; }
 .mobile-only  { display: none; }
 
-/* -------- SEÇÃO SERVIÇOS -------- */
-#servicos{ background:#ffffff; color:#666666; border-color:#e5e5e5; }
-#servicos .hero-title, #servicos .hero-subtitle{ color:#666666; }
-#servicos .hero-content > * + *{ margin-top: 4px; }
-#servicos .content-grid{ display:flex; flex-wrap:nowrap; gap:16px; justify-content:space-between; margin-top:0; }
-#servicos .info-block{ flex:1 1 23%; min-width:0; padding:12px; background:transparent; border:none; box-shadow:none; }
-.service-btn{
-  display:block; width:100%; background:#fff; color:#666; font-weight:700;
-  font-size:18px; line-height:1.2; padding:12px 14px; border-radius:10px; text-align:center;
-  border:1px solid #dddddd; transition:transform .18s, box-shadow .18s, background .18s, border-color .18s;
-  box-shadow:0 3px 8px rgba(0,0,0,.06);
+/* -------- O QUE FAZEMOS – CARTÕES -------- */
+#servicos{
+  background:#ffffff; color:#666666; border-color:#e5e5e5;
 }
-.service-btn:hover, .service-btn:focus{ text-decoration:none; background:#f7f7f7; border-color:#d0d0d0; box-shadow:0 6px 16px rgba(0,0,0,.10); transform:translateY(-1px); }
-.service-btn:active{ transform:translateY(0); box-shadow:0 3px 8px rgba(0,0,0,.06); }
+#servicos .hero-title, #servicos .hero-subtitle{ color:#666666; }
+
+.services-grid{
+  display:grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap:16px;
+  margin-top: 4px;        /* respira igual aos demais */
+}
+.service-card{
+  border:1px solid #e5e5e5;
+  border-radius:12px;
+  background:#fff;
+  box-shadow:0 2px 8px rgba(0,0,0,.04);
+  transition:box-shadow .18s ease, transform .18s ease;
+}
+.service-card:hover,
+.service-card:focus-within{
+  box-shadow:0 8px 24px rgba(0,0,0,.12);
+  transform: translateY(-1px);
+}
+.card-body{ padding:16px 16px 14px; display:flex; flex-direction:column; gap:8px; }
+.card-title{ font-size:18px; font-weight:700; line-height:1.25; color:#444; }
+.card-line{ display:flex; align-items:center; gap:8px; }
+.card-desc{ font-size:15px; line-height:1.5; color:#666; }
+.card-link{
+  align-self:flex-start;
+  font-weight:700; font-size:14px;
+  text-decoration:none; color:var(--accent);
+  padding-top:2px;
+}
+.card-link:hover, .card-link:focus{ text-decoration:underline; }
+.badge-new{
+  display:inline-block; font-weight:700; font-size:11px; letter-spacing:.06em;
+  padding:2px 6px; border-radius:999px; line-height:1;
+  background: var(--hero-yellow); color:#444;
+}
 
 /* -------- FORM "SEU PROJETO" -------- */
 .form{ margin-top:10px; }
@@ -212,10 +238,12 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
 .footer-bar p{font-size:12px; color:var(--text)}
 
 /* -------- RESPONSIVO -------- */
-@media (max-width:1024px){
-  #servicos .service-btn{ font-size:17px; }
+@media (max-width:1200px){
+  .services-grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
-
+@media (max-width:900px){
+  .services-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 @media (max-width:768px){
   .logo-subline{white-space:normal}
   .hero{padding:24px}
@@ -229,13 +257,10 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
     margin-left: 0; margin-right: 0;
   }
 
-  /* Serviços (mobile) */
-  #servicos .hero-content > * + *{ margin-top: 2px; }
-  #servicos .content-grid{ flex-direction: column; gap: 0; margin-top: 0; }
-  #servicos .info-block{ padding: 0; }
-  .service-btn{ padding: 6px 10px; font-size: 15px; line-height:1.15; border-radius:8px; }
-
   /* Form */
   .form-grid{ grid-template-columns: 1fr; gap: 10px; }
   .form-actions{ flex-direction:column; align-items:flex-start; gap:8px; }
+}
+@media (max-width:520px){
+  .services-grid{ grid-template-columns: 1fr; }
 }
