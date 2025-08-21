@@ -42,7 +42,7 @@ body{
   line-height:1.5;
 }
 
-/* Links (padrão solicitado) */
+/* Links */
 a{
   color: var(--accent);
   text-decoration: none;
@@ -50,8 +50,8 @@ a{
 a:hover,
 a:focus{
   text-decoration: underline;
-  text-decoration-thickness: 1px;  /* linha discreta */
-  text-underline-offset: 3px;      /* afastada do texto */
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
 }
 
 /* HEADER */
@@ -138,7 +138,7 @@ a:focus{
   padding-bottom: calc(var(--footer-height) + 40px);
 }
 
-/* Compensação para âncoras: para abaixo do carrossel com respiro */
+/* Compensação para âncoras */
 section[id]{
   scroll-margin-top: calc(
     var(--header-height) +
@@ -161,15 +161,16 @@ section[id]{
   box-shadow:0 4px 12px rgba(0,0,0,.05);
 }
 .hero + .hero{margin-top: var(--section-gap);}
-.hero .hero-content > * + *{ margin-top: 14px; } /* respiro vertical */
+.hero .hero-content > * + *{ margin-top: 14px; }
 .hero h3{ margin-top: 18px; }
 
-/* HERO: título/subtítulo e statement de abertura */
+/* HERO: título/subtítulo */
 .hero-title{
   font-weight:700;
   letter-spacing:.01em;
   line-height:1.25;
-  max-width: 42ch;        /* largura-alvo do hero */
+  max-width: 42ch;          /* mantém mesma largura de leitura */
+  overflow: hidden;         /* nunca deixa “sair” do bloco */
 }
 .hero-subtitle{
   color:var(--text-muted);
@@ -177,39 +178,37 @@ section[id]{
   max-width: 60ch;
 }
 
-/* UTILIDADES de ênfase do hero */
+/* Ênfases do hero */
 .h-bold{ font-weight:700; }
 .h-italic{ font-style:italic; }
 .h-yellow{ color:#FFCC00; }
 
-/* Statement do hero inicial
-   - Desktop: 1 linha dentro de 42ch (JS ajusta a fonte se necessário)
-   - Mobile: quebras controladas via .mobile-only */
+/* Hero desktop: 1 linha; tamanho será ajustado via JS se precisar */
 #hero .hero-title{
   margin-top: 2px;
-  font-size: clamp(18px, 2.2vw, 38px); /* valor inicial; JS ajusta fino */
-  white-space: nowrap;                 /* sem quebra no desktop */
+  font-size: 38px;          /* ponto de partida */
+  white-space: nowrap;      /* sem quebra no desktop */
 }
 
 /* Versões desktop/mobile do texto do hero */
 .desktop-only { display: inline; }
 .mobile-only  { display: none; }
 
-/* HERO de abertura com fundo colorido e texto branco */
+/* HERO: fundo e cor do texto */
 #hero{
   background: #669999;
   color: #ffffff;
 }
 #hero .hero-title{ color:#ffffff; }
 
-/* Texto confortável */
+/* Texto */
 .hero p{
   font-size:15px;
   line-height:1.7;
 }
 .hero strong{font-weight:600}
 
-/* GRID (padrão geral, usado em outras seções se necessário) */
+/* GRID (padrão geral) */
 .content-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
@@ -218,20 +217,20 @@ section[id]{
   margin-top: 16px;
 }
 
-/* PERSONALIZAÇÃO: Serviços (4 cards em linha no desktop, sem quebra) */
+/* PERSONALIZAÇÃO: Serviços (4 cards no desktop) */
 #servicos .content-grid{
-  display:flex;              /* substitui o grid por flex só nesta seção */
-  flex-wrap: nowrap;         /* não quebrar linha */
+  display:flex;
+  flex-wrap: nowrap;
   gap: 20px;
   justify-content: space-between;
 }
 #servicos .info-block{
-  flex: 1 1 23%;             /* quatro colunas proporcionais */
-  min-width: 0;              /* evita overflow interno */
-  padding:20px;              /* mais enxuto para caber com conforto */
+  flex: 1 1 23%;
+  min-width: 0;
+  padding:20px;
 }
 #servicos .block-title{
-  font-size:18px;            /* leve redução para caber melhor lado a lado */
+  font-size:18px;
   line-height:1.3;
 }
 
@@ -274,21 +273,23 @@ section[id]{
   .logo-subline{white-space:normal}
   .hero{padding:24px}
 
-  /* Hero: alternar versão mobile e permitir quebras */
+  /* Mobile: alterna spans e permite quebras */
   .desktop-only { display: none; }
   .mobile-only  { display: inline; }
+
   #hero .hero-title{
-    white-space: normal;               /* permite quebra no mobile */
+    white-space: normal;               /* quebra no mobile */
     font-size: clamp(18px, 5.5vw, 30px);
+    overflow: visible;                 /* sem corte no mobile */
   }
 
-  /* Serviços: empilhar no mobile */
+  /* Serviços empilhados */
   #servicos .content-grid{
     flex-direction: column;
   }
   #servicos .info-block{
     flex: 1 1 100%;
-    padding:24px;            /* conforto na leitura */
+    padding:24px;
   }
 
   .whatsapp-icon{width:56px; height:56px}
