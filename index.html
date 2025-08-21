@@ -34,8 +34,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
 
-  <!-- CSS (com versão para evitar cache antigo) -->
-  <link rel="stylesheet" href="styles.css?v=mobile1" />
+  <!-- CSS (versão atualizada) -->
+  <link rel="stylesheet" href="styles.css?v=mobile2" />
 </head>
 <body>
 
@@ -76,7 +76,7 @@
     </nav>
   </div>
 
-  <!-- CARROSSEL FIXO (prova social) -->
+  <!-- CARROSSEL (agora no fluxo, não fixo) -->
   <section id="clientes" class="clients-fixed" aria-label="Marcas que confiam em nós">
     <div class="logo-marquee" role="region" aria-roledescription="carrossel automático" aria-label="Logos de clientes">
       <div class="logo-marquee__track">
@@ -181,21 +181,11 @@
         <h2 class="hero-title">O Processo</h2>
         <p class="hero-subtitle">Execução com método, previsibilidade e tecnologia integrada.</p>
 
-        <p>
-          Nosso processo foi desenhado para reduzir riscos e aumentar a transparência. Mais que logística, aplicamos tecnologia para transformar execução em dados, controle e confiança.
-        </p>
-
-        <h3>1) Alinhamento</h3>
-        <p>Cada projeto começa com um briefing claro que vira um roteiro de execução.</p>
-
-        <h3>2) Planejamento</h3>
-        <p>Distribuímos recursos, equipes e cidades com apoio de softwares de gestão e planilhas integradas.</p>
-
-        <h3>3) Operação em campo</h3>
-        <p>Pontos focais locais conduzem montagem, execução e desmontagem, com registros em tempo real.</p>
-
-        <h3>4) Validação e relatório</h3>
-        <p>Consolidamos os dados em dashboards e entregamos relatório final com documentação fotográfica.</p>
+        <p>Nosso processo foi desenhado para reduzir riscos e aumentar a transparência.</p>
+        <h3>1) Alinhamento</h3><p>Briefing claro que vira roteiro de execução.</p>
+        <h3>2) Planejamento</h3><p>Distribuição de recursos e cidades com gestão centralizada.</p>
+        <h3>3) Operação em campo</h3><p>Registros em tempo real e pontos focais locais.</p>
+        <h3>4) Validação e relatório</h3><p>Dashboards e relatório final com documentação.</p>
 
         <p class="micro-trust">
           Quer ver esse processo aplicado ao seu caso? Vá até <a href="#seu-projeto">Seu Projeto</a> e envie o briefing.
@@ -212,7 +202,7 @@
         <section id="servicos-ativacoes" class="hero" aria-label="Ativações">
           <div class="hero-content">
             <h3>Ativações</h3>
-            <p>Transformamos ideias em ativações de impacto, adequadas a diferentes praças e públicos.</p>
+            <p>Transformamos ideias em ativações de impacto.</p>
             <p class="micro-trust"><a href="#servicos">Voltar aos serviços</a></p>
           </div>
         </section>
@@ -228,7 +218,7 @@
         <section id="servicos-multi" class="hero" aria-label="Operação Multi-Praça">
           <div class="hero-content">
             <h3>Operação Multi-Praça</h3>
-            <p>Coordenamos execuções simultâneas em diversas cidades.</p>
+            <p>Execuções simultâneas em diversas cidades.</p>
             <p class="micro-trust"><a href="#servicos">Voltar aos serviços</a></p>
           </div>
         </section>
@@ -236,7 +226,7 @@
         <section id="servicos-360" class="hero" aria-label="Produção 360">
           <div class="hero-content">
             <h3>Produção 360</h3>
-            <p>Cobrimos todo o ciclo de produção, do conceito à entrega final.</p>
+            <p>Ciclo completo do conceito à entrega.</p>
             <p class="micro-trust"><a href="#servicos">Voltar aos serviços</a></p>
           </div>
         </section>
@@ -300,9 +290,9 @@
             </div>
           </div>
 
-          <!-- Consentimento LGPD -->
+          <!-- Consentimento LGPD (checkbox alinhado ao 'A' de Autorizo) -->
           <div class="form-field form-field--full">
-            <label for="lgpd" style="display:flex; gap:10px; align-items:flex-start;">
+            <label for="lgpd" class="consent-label">
               <input type="checkbox" id="lgpd" name="lgpd" required />
               <span>Autorizo o uso dos dados enviados para contato e envio de proposta, conforme a LGPD.</span>
             </label>
@@ -392,7 +382,7 @@
       if (document.fonts && document.fonts.ready) { document.fonts.ready.then(fitHero).catch(()=>{}); }
       if (window.ResizeObserver && hero){ const ro = new ResizeObserver(fitHero); ro.observe(hero); }
 
-      // ===== FORM: submissão com fetch, LGPD obrigatório =====
+      // FORM: submissão com fetch + LGPD obrigatório
       const form = document.getElementById('briefing-form');
       const statusEl = document.getElementById('form-status');
       if(form){

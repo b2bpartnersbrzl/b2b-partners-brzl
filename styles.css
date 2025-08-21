@@ -3,6 +3,11 @@
   --header-height: 96px;
   --footer-height: 42px;
 
+  /* Espaçamentos gerais */
+  --section-gap: 40px;
+  --gap-after-carousel: var(--section-gap); /* distância do carrossel para o conteúdo */
+  --anchor-offset-extra: 12px;
+
   /* Carrossel */
   --carousel-bg: #FFFFFF; /* branco */
   --logo-gap: 48px;
@@ -11,16 +16,11 @@
   --marquee-pad-bot: 12px;
   --clients-caption-h: 28px;
 
-  /* Espaçamentos gerais */
-  --gap-after-carousel: 24px;
-  --anchor-offset-extra: 12px;
-  --section-gap: 40px;
-
   /* Tipografia e cores (padrão) */
   --font-base: 'Noto Sans', sans-serif;
-  --text: #666666;        /* padrão */
+  --text: #666666;
   --text-muted: #666666;
-  --accent: #669999;      /* links e botões */
+  --accent: #669999;
   --hero-yellow: #FFE069;
 
   /* Superfície e contornos */
@@ -88,13 +88,15 @@ a:hover, a:focus{
 .mobile-menu-nav{display:flex; flex-direction:column; gap:28px; align-items:center}
 .mobile-menu-nav a{font-size:28px; font-weight:600}
 
-/* CARROSSEL FIXO */
+/* CARROSSEL (AGORA NO FLUXO, NÃO FIXO) */
 .clients-fixed{
-  position:fixed; left:0; right:0; top:var(--header-height);
+  position:relative;
+  margin-top: var(--header-height); /* encosta no menu ao voltar ao topo */
   background:var(--carousel-bg);
-  border-top:1px solid #669999;   /* linha topo */
+  border-top:1px solid #669999;   /* linha no encontro com o menu */
   border-bottom:1px solid var(--block-border);
-  z-index:1100; text-align:center;
+  text-align:center;
+  z-index:1;
 }
 .logo-marquee{overflow:hidden; padding:var(--marquee-pad-top) 0 var(--marquee-pad-bot)}
 .logo-marquee__track{display:flex; gap:var(--logo-gap); width:max-content; animation:marquee var(--marquee-duration) linear infinite}
@@ -107,6 +109,7 @@ a:hover, a:focus{
   letter-spacing:.14em; text-transform:uppercase;
   line-height:var(--clients-caption-h); height:var(--clients-caption-h);
   display:block; width:100%; margin-top:12px;
+  margin-bottom: var(--gap-after-carousel); /* distância até o conteúdo (Serviços) */
 }
 
 /* ANIMAÇÃO */
@@ -114,26 +117,14 @@ a:hover, a:focus{
 
 /* ÁREA DE CONTEÚDO */
 .content-area{
-  padding-top: calc(
-    var(--header-height) +
-    (var(--marquee-pad-top) + var(--marquee-pad-bot) + 40px) +
-    var(--clients-caption-h) +
-    var(--gap-after-carousel)
-  );
+  padding-top: 0;                   /* carrossel já cria o afastamento superior */
   padding-left:24px; padding-right:24px;
   padding-bottom: calc(var(--footer-height) + 40px);
 }
 
-/* Compensação para âncoras */
+/* Compensação para âncoras (só o header fixo agora) */
 section[id]{
-  scroll-margin-top: calc(
-    var(--header-height) +
-    var(--marquee-pad-top) +
-    var(--marquee-pad-bot) +
-    var(--clients-caption-h) +
-    var(--gap-after-carousel) +
-    var(--anchor-offset-extra)
-  );
+  scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-extra));
 }
 
 /* BLOCOS (Heros/cards) */
@@ -172,15 +163,14 @@ section[id]{
 .h-yellow{ color:#FFE069; }
 
 /* HERO de abertura */
-#hero{ background:#669999; color:#ffffff; margin-top: 12px; }
+#hero{ background:#669999; color:#ffffff; }
 #hero .hero-title{ color:#ffffff; font-size: 38px; text-align:center; margin-left:auto; margin-right:auto; }
-#hero + .hero{ margin-top: 20px; }
 
-/* Versões desktop/mobile do texto do hero */
+/* Desktop/Mobile texto hero */
 .desktop-only { display: inline-block; }
 .mobile-only  { display: none; }
 
-/* -------- SEÇÃO SERVIÇOS (branco + texto #666) -------- */
+/* -------- SEÇÃO SERVIÇOS -------- */
 #servicos{
   background: #ffffff;
   color: #666666;
@@ -188,86 +178,51 @@ section[id]{
 }
 #servicos .hero-title,
 #servicos .hero-subtitle{ color: #666666; }
-#servicos .hero-content > * + *{ margin-top: 4px; }  /* aproxima no desktop */
+#servicos .hero-content > * + *{ margin-top: 4px; }
 #servicos .content-grid{
-  display:flex;
-  flex-wrap: nowrap;
-  gap: 16px;
-  justify-content: space-between;
-  margin-top: 0;
+  display:flex; flex-wrap: nowrap; gap: 16px;
+  justify-content: space-between; margin-top: 0;
 }
-
-/* Cartão do serviço */
 #servicos .info-block{
-  flex: 1 1 23%;
-  min-width: 0;
-  padding: 12px;
-  background: transparent;
-  border: none;
-  box-shadow: none;
+  flex: 1 1 23%; min-width: 0; padding: 12px;
+  background: transparent; border: none; box-shadow: none;
 }
-
-/* Botão do serviço — branco com texto #666 */
 .service-btn{
-  display:block;
-  width:100%;
-  background: #ffffff;
-  color: #666666;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 1.2;
-  padding: 12px 14px;
-  border-radius: 10px;
-  text-align: center;
-  text-decoration: none;
-  border: 1px solid #dddddd;
-  transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
-  box-shadow: 0 3px 8px rgba(0,0,0,.06);
+  display:block; width:100%;
+  background:#fff; color:#666; font-weight:700;
+  font-size:18px; line-height:1.2;
+  padding:12px 14px; border-radius:10px; text-align:center;
+  border:1px solid #dddddd;
+  transition: transform .18s, box-shadow .18s, background .18s, border-color .18s;
+  box-shadow:0 3px 8px rgba(0,0,0,.06);
 }
-.service-btn:hover,
-.service-btn:focus{
-  text-decoration: none;
-  background: #f7f7f7;
-  border-color: #d0d0d0;
-  box-shadow: 0 6px 16px rgba(0,0,0,.10);
-  transform: translateY(-1px);
+.service-btn:hover, .service-btn:focus{
+  text-decoration:none; background:#f7f7f7; border-color:#d0d0d0;
+  box-shadow:0 6px 16px rgba(0,0,0,.10); transform:translateY(-1px);
 }
-.service-btn:active{
-  transform: translateY(0);
-  box-shadow: 0 3px 8px rgba(0,0,0,.06);
-}
+.service-btn:active{ transform:translateY(0); box-shadow:0 3px 8px rgba(0,0,0,.06) }
 
 /* -------- FORM "SEU PROJETO" -------- */
 .form{ margin-top: 10px; }
-.form-grid{
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0,1fr));
-  gap: 14px;
-}
+.form-grid{ display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:14px; }
 .form-field{ display:flex; flex-direction:column; gap:8px; }
 .form-field--full{ grid-column: 1 / -1; }
-
-.form label{ font-weight:600; font-size:14px; color:#666666; }
+.form label{ font-weight:600; font-size:14px; color:#666; }
 .form input, .form select, .form textarea{
-  width:100%;
-  padding:12px 12px;
-  border:1px solid #dcdcdc;
-  border-radius:10px;
-  background:#fff;
-  color:#666666;
-  outline:none;
+  width:100%; padding:12px 12px; border:1px solid #dcdcdc; border-radius:10px;
+  background:#fff; color:#666; outline:none;
   transition:border-color .18s ease, box-shadow .18s ease;
 }
 .form input:focus, .form select:focus, .form textarea:focus{
-  border-color:#669999;
-  box-shadow:0 0 0 3px rgba(102,153,153,.18);
+  border-color:#669999; box-shadow:0 0 0 3px rgba(102,153,153,.18);
 }
 .form textarea{ resize: vertical; }
 
-.form-actions{
-  display:flex; align-items:center; gap:14px;
-  margin-top: 10px;
-}
+/* LGPD – checkbox colado ao 'A' de Autorizo */
+.consent-label{ display:inline-flex; align-items:baseline; gap:8px; line-height:1.4; }
+.consent-label input[type="checkbox"]{ margin:0; vertical-align:baseline; }
+
+.form-actions{ display:flex; align-items:center; gap:14px; margin-top: 10px; }
 .btn-primary{
   appearance:none; border:none; cursor:pointer;
   background:#669999; color:#fff; font-weight:700;
@@ -275,13 +230,10 @@ section[id]{
   box-shadow:0 6px 14px rgba(0,0,0,.12);
   transition:transform .18s ease, box-shadow .18s ease, opacity .18s ease;
 }
-.btn-primary:hover, .btn-primary:focus{
-  transform:translateY(-1px);
-  box-shadow:0 10px 22px rgba(0,0,0,.16);
-}
+.btn-primary:hover, .btn-primary:focus{ transform:translateY(-1px); box-shadow:0 10px 22px rgba(0,0,0,.16); }
 .btn-primary:disabled{ opacity:.6; cursor:not-allowed; }
 
-.form-legal{ font-size:12px; color:#666666; }
+.form-legal{ font-size:12px; color:#666; }
 .form-status{ font-size:14px; margin-top:8px; min-height:1.2em; }
 
 .visually-hidden{
@@ -321,13 +273,10 @@ section[id]{
   .desktop-only { display: none; }
   .mobile-only  { display: inline; }
   #hero .hero-title{
-    white-space: normal;
-    overflow: visible;
+    white-space: normal; overflow: visible;
     font-size: clamp(18px, 5.5vw, 30px);
-    max-width: 60ch;
-    text-align: left;
-    margin-left: 0;
-    margin-right: 0;
+    max-width: 60ch; text-align: left;
+    margin-left: 0; margin-right: 0;
   }
 
   /* Serviços (mobile) – já compactos */
