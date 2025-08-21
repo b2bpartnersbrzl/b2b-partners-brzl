@@ -1,239 +1,90 @@
-<!doctype html>
-<html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>B2B Partners BRZL</title>
-
-  <!-- Fonte -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
-
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- HEADER FIXO -->
-  <header class="main-header" role="banner">
-    <div class="logo-area">
-      <a href="#hero" class="logo-link" aria-label="Ir para o início">
-        <img src="images/logo-b2b.svg" alt="B2B Partners BRZL" class="logo-img" />
-      </a>
-      <p class="logo-subline">
+  <!-- Header -->
+  <header class="site-header">
+    <div class="logo">
+      <img src="assets/logo.svg" alt="B2B Partners BRZL">
+      <div class="subline">
         <strong>Marketing. Eventos. <em>Com tecnologia.</em></strong>
-      </p>
+      </div>
     </div>
-
-    <!-- MENU DESKTOP -->
-    <nav class="top-menu" aria-label="Menu principal">
-      <a href="#servicos">Serviços</a>
-      <a href="#quem-somos">Quem Somos</a>
-      <a href="#processo">O Processo</a>
-      <a href="#seu-projeto">Seu Projeto</a>
+    <nav class="site-nav" role="navigation" aria-label="Menu principal">
+      <button class="menu-toggle" aria-expanded="false" aria-controls="menu-list" aria-label="Abrir menu">☰</button>
+      <ul id="menu-list" class="menu-list" aria-hidden="true">
+        <li><a href="#quem-somos">Quem somos</a></li>
+        <li><a href="#processo">O processo</a></li>
+        <li><a href="#seu-projeto">Seu projeto</a></li>
+      </ul>
     </nav>
-
-    <!-- HAMBÚRGUER -->
-    <button class="menu-toggle" aria-label="Abrir menu" aria-controls="mobile-menu" aria-expanded="false" type="button">
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
-    </button>
   </header>
 
-  <!-- MENU MOBILE -->
-  <div id="mobile-menu" class="mobile-menu-overlay" aria-hidden="true">
-    <nav class="mobile-menu-nav" aria-label="Menu principal (mobile)">
-      <a href="#servicos">Serviços</a>
-      <a href="#quem-somos">Quem Somos</a>
-      <a href="#processo">O Processo</a>
-      <a href="#seu-projeto">Seu Projeto</a>
-    </nav>
-  </div>
-
-  <!-- CARROSSEL FIXO (prova social) -->
-  <section id="clientes" class="clients-fixed" aria-label="Marcas que confiam em nós">
-    <div class="logo-marquee" role="region" aria-roledescription="carrossel automático" aria-label="Logos de clientes">
-      <div class="logo-marquee__track">
-        <ul class="logo-list">
-          <li class="logo-item"><img src="images/logos/logo_aneel.svg" alt="ANEEL" class="logo-img-brand logo-sm"></li>
-          <li class="logo-item"><img src="images/logos/logo_vivo.svg" alt="Vivo" class="logo-img-brand logo-md"></li>
-          <li class="logo-item"><img src="images/logos/logo_dell.svg" alt="Dell" class="logo-img-brand logo-md"></li>
-          <li class="logo-item"><img src="images/logos/logo_natura.svg" alt="Natura" class="logo-img-brand logo-lg"></li>
-          <li class="logo-item"><img src="images/logos/logo_itau.svg" alt="Itaú" class="logo-img-brand logo-lg"></li>
-          <li class="logo-item"><img src="images/logos/logo_jeep.svg" alt="Jeep" class="logo-img-brand logo-md"></li>
-          <li class="logo-item"><img src="images/logos/logo_bb.svg" alt="Banco do Brasil" class="logo-img-brand logo-lg"></li>
-          <li class="logo-item"><img src="images/logos/logo_fiat.svg" alt="Fiat" class="logo-img-brand logo-md"></li>
-          <li class="logo-item"><img src="images/logos/logo_citi.svg" alt="Citi" class="logo-img-brand logo-md"></li>
-          <li class="logo-item"><img src="images/logos/logo_chilli_beans.svg" alt="Chilli Beans" class="logo-img-brand logo-md"></li>
-        </ul>
-        <ul class="logo-list" aria-hidden="true">
-          <li class="logo-item"><img src="images/logos/logo_aneel.svg" alt="" class="logo-img-brand logo-sm"></li>
-          <li class="logo-item"><img src="images/logos/logo_vivo.svg" alt="" class="logo-img-brand logo-md"></li>
-          <li class="logo-item"><img src="images/logos/logo_dell.svg" alt="" class="logo-img-brand logo-md"></li>
-          <li class="logo-item"><img src="images/logos/logo_natura.svg" alt="" class="logo-img-brand logo-lg"></li>
-          <li class="logo-item"><img src="images/logos/logo_itau.svg" alt="" class="logo-img-brand logo-lg"></li>
-          <li class="logo-item"><img src="images/logos/logo_jeep.svg" alt="" class="logo-img-brand logo-md"></li>
-          <li class="logo-item"><img src="images/logos/logo_bb.svg" alt="" class="logo-img-brand logo-lg"></li>
-          <li class="logo-item"><img src="images/logos/logo_fiat.svg" alt="" class="logo-img-brand logo-md"></li>
-          <li class="logo-item"><img src="images/logos/logo_citi.svg" alt="" class="logo-img-brand logo-md"></li>
-          <li class="logo-item"><img src="images/logos/logo_chilli_beans.svg" alt="" class="logo-img-brand logo-md"></li>
-        </ul>
-      </div>
+  <!-- Carrossel de Marcas -->
+  <section class="carousel-section">
+    <div class="carousel-track">
+      <img src="assets/logo1.png" alt="Marca 1" class="logo-md">
+      <img src="assets/logo2.png" alt="Marca 2" class="logo-sm">
+      <img src="assets/logo3.png" alt="Marca 3" class="logo-lg">
+      <img src="assets/logo4.png" alt="Marca 4" class="logo-md">
+      <!-- Repita conforme necessário -->
     </div>
-    <p class="clients-caption"><strong>MARCAS QUE CONFIAM EM NÓS</strong></p>
+    <div class="carousel-footer">
+      <p>MARCAS QUE CONFIAM EM NÓS</p>
+    </div>
   </section>
 
-  <!-- CONTEÚDO -->
-  <main class="content-area">
-    <!-- HERO -->
-    <section id="hero" class="hero" aria-label="Abertura">
-      <div class="hero-content">
-        <h1 class="hero-title">Execução B2B em Escala Nacional</h1>
-        <p class="hero-subtitle">Apoio operacional para agências e marcas em ativações, live marketing, operação multi-praça e produção 360.</p>
-      </div>
-    </section>
+  <!-- Quem Somos -->
+  <section id="quem-somos" class="hero">
+    <div class="info-block">
+      <h2>Quem somos</h2>
+      <p>Somos a B2B Partners BRZL, especialistas em dar vida a projetos de marketing e eventos com precisão e segurança. Atuamos como a força operacional de agências e marcas que precisam de execução em múltiplas praças ou em grande escala.</p>
+      <p>Nosso compromisso é unir criatividade, tecnologia e eficiência para que cada ação seja entregue com impacto e qualidade. Do planejamento à execução, trabalhamos lado a lado com nossos parceiros para transformar ideias em experiências memoráveis.</p>
+      <p>O que não fazemos: não negociamos a segurança na execução. Para nós, a excelência operacional inclui o respeito absoluto a normas, prazos e processos.</p>
+    </div>
+  </section>
 
-    <!-- SERVIÇOS -->
-    <section id="servicos" class="content-grid section" aria-label="Serviços">
-      <article class="info-block">
-        <h2 class="block-title">Ativações</h2>
-        <p class="block-description">Estruturamos ativações de impacto em múltiplas praças, com controle de qualidade centralizado.</p>
-      </article>
-      <article class="info-block">
-        <h2 class="block-title">Live Marketing</h2>
-        <p class="block-description">Produção e operação de eventos, conectando marcas e pessoas com precisão logística.</p>
-      </article>
-      <article class="info-block">
-        <h2 class="block-title">Operação Multi-Praça</h2>
-        <p class="block-description">Execução simultânea em diversas cidades, mantendo padrão e consistência.</p>
-      </article>
-      <article class="info-block">
-        <h2 class="block-title">Produção 360</h2>
-        <p class="block-description">Do conceito à entrega final, com governança e indicadores de negócio.</p>
-      </article>
-    </section>
+  <!-- O Processo -->
+  <section id="processo" class="hero">
+    <div class="info-block">
+      <h2>O processo</h2>
+      <p>Cada projeto começa com a compreensão detalhada da demanda. Centralizamos todas as informações em um dossiê digital, onde prazos, responsabilidades e detalhes ficam claros desde o início.</p>
+      <p>Com tecnologia, garantimos transparência: planilhas compartilhadas, checklists acessíveis pelo celular e registros de execução em tempo real. Cada ação pode ser acompanhada em painéis que mostram status, etapas concluídas e próximos passos.</p>
+      <p>Assim, nossos clientes têm segurança para focar no que importa — a estratégia e a experiência — sabendo que a operação está sob controle.</p>
+    </div>
+  </section>
 
-    <!-- QUEM SOMOS -->
-    <section id="quem-somos" class="hero" aria-label="Quem Somos">
-      <div class="hero-content">
-        <h2 class="hero-title">Quem Somos</h2>
-        <p class="hero-subtitle">
-          Operação de execução para quem precisa entregar com escala, padrão e previsibilidade.
-        </p>
+  <!-- Seu Projeto -->
+  <section id="seu-projeto" class="hero">
+    <div class="info-block">
+      <h2>Seu projeto</h2>
+      <p>Conte com a B2B Partners BRZL para transformar sua ideia em realidade. Do conceito à execução, nossa equipe está pronta para entregar com qualidade, segurança e inovação.</p>
+      <p>Fale conosco e vamos construir juntos o próximo grande projeto.</p>
+    </div>
+  </section>
 
-        <p>
-          Nascemos para resolver o mesmo desafio em contextos diferentes: fazer acontecer com qualidade, onde e quando for preciso.
-          Para marcas, somos o braço que viabiliza ativações e eventos com logística precisa. Para agências, somos o parceiro de escala
-          que garante consistência em múltiplas praças, mantendo prazos, padrão e governança operacional.
-        </p>
-
-        <h3>Como trabalhamos</h3>
-        <p>
-          Nosso processo segue quatro etapas simples. Começamos pelo alinhamento e pelo roteiro de execução. Em seguida, planejamos recursos e cidades.
-          Depois, conduzimos a operação em campo com pontos focais locais. Por fim, validamos cada entrega e apresentamos um relatório claro de resultados.
-        </p>
-        <p>
-          Mantemos um padrão único em todas as praças, com playbooks de montagem, comunicação unificada e checklists em cada fase.
-          Também prezamos pela transparência: trabalhamos com marcos de status (D‑7, D‑1, D+1) e registramos a entrega com documentação fotográfica.
-        </p>
-
-        <h3>Por que confiam em nós</h3>
-        <p><strong>Consistência.</strong> Entregas padronizadas, mesmo em contextos diferentes.</p>
-        <p><strong>Velocidade.</strong> Resposta ágil e tomada de decisão objetiva.</p>
-        <p><strong>Controle.</strong> Indicadores de execução e relatórios claros para gestão.</p>
-
-        <h3>Alcance e segurança</h3>
-        <p>
-          Atendemos em todo o território nacional com rede homologada e gestão central. Cada operação segue protocolos de segurança,
-          normas locais e medidas de mitigação de risco, do pré‑planejamento à desmontagem.
-        </p>
-
-        <h3>O que não fazemos</h3>
-        <p>
-          Não negociamos <strong>segurança</strong>, <strong>conformidade</strong> e <strong>padrão de qualidade</strong>.
-          Se uma execução comprometer a integridade de pessoas, a integridade da marca ou o atendimento a normas técnicas e legais,
-          replanejamos ou não executamos.
-        </p>
-
-        <h3>Criatividade e colaboração</h3>
-        <p>
-          Quando a criação vier para nós, assumimos com satisfação e responsabilidade, respeitando objetivos de negócio e integrando execução e conceito para maximizar resultados.
-        </p>
-
-        <p class="micro-trust">
-          Pronto para viabilizar sua operação? Acesse <a href="#seu-projeto">Seu Projeto</a> e envie o briefing.
-        </p>
-      </div>
-    </section>
-
-    <!-- O PROCESSO (justificando "Com tecnologia.") -->
-    <section id="processo" class="hero" aria-label="O Processo">
-      <div class="hero-content">
-        <h2 class="hero-title">O Processo</h2>
-        <p class="hero-subtitle">Execução com método, previsibilidade e tecnologia integrada.</p>
-
-        <p>
-          Nosso processo foi desenhado para reduzir riscos e aumentar a transparência. Mais que logística, aplicamos tecnologia para transformar execução em dados, controle e confiança.
-        </p>
-
-        <h3>1) Alinhamento</h3>
-        <p>
-          Cada projeto começa com um briefing claro que vira um roteiro de execução. Desde esse momento, abrimos um dossiê digital do projeto para registrar decisões, arquivos e responsáveis.
-        </p>
-
-        <h3>2) Planejamento</h3>
-        <p>
-          Distribuímos recursos, equipes e cidades com apoio de softwares de gestão e planilhas integradas. Cronogramas e checklists são centralizados, e prazos ficam visíveis para todas as partes.
-        </p>
-
-        <h3>3) Operação em campo</h3>
-        <p>
-          Pontos focais locais conduzem montagem, execução e desmontagem. Os registros são digitais e em tempo real: checklists móveis, fotos de evidência e ocorrências documentadas, tudo com carimbo de data e, quando aplicável, geolocalização.
-        </p>
-
-        <h3>4) Validação e relatório</h3>
-        <p>
-          Consolidamos os dados em dashboards e entregamos um relatório final com documentação fotográfica e indicadores de desempenho. O cliente sabe exatamente o que foi feito, quando e por quem — justificando o nosso <strong>Com tecnologia.</strong>
-        </p>
-
-        <p class="micro-trust">
-          Quer ver esse processo aplicado ao seu caso? Vá até <a href="#seu-projeto">Seu Projeto</a> e envie o briefing.
-        </p>
-      </div>
-    </section>
-  </main>
-
-  <!-- CTA WhatsApp -->
-  <a class="whatsapp-float" href="https://wa.me/557193081072" target="_blank" rel="noopener">
-    <img src="images/cta-whatsapp.svg" alt="WhatsApp" class="whatsapp-icon" />
-  </a>
-
-  <!-- FOOTER -->
-  <footer class="footer-bar" role="contentinfo">
+  <!-- Footer -->
+  <footer class="site-footer">
     <p>2025 © B2B Partners BRZL</p>
   </footer>
 
-  <!-- JS: menu mobile -->
-  <script>
-    (function(){
-      const btn = document.querySelector('.menu-toggle');
-      const menu = document.getElementById('mobile-menu');
-      const links = menu.querySelectorAll('a[href^="#"]');
-      function toggleMenu(force){
-        const show = (force !== undefined) ? force : !menu.classList.contains('show');
-        menu.classList.toggle('show', show);
-        document.body.style.overflow = show ? 'hidden' : '';
-        btn.setAttribute('aria-expanded', show);
-        menu.setAttribute('aria-hidden', !show);
-      }
-      if(btn && menu){
-        btn.addEventListener('click', ()=> toggleMenu());
-        window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') toggleMenu(false); });
-        links.forEach(a => a.addEventListener('click', ()=> toggleMenu(false)));
-      }
-    })();
-  </script>
+  <!-- Botão WhatsApp -->
+  <a class="whatsapp-float" 
+     href="https://wa.me/557193081072?text=Ol%C3%A1,%20acabei%20de%20visitar%20o%20site%20da%20B2B%20Partners%20BRZL%20e%20gostaria%20de%20falar%20sobre%20um%20projeto." 
+     target="_blank" 
+     rel="noopener" 
+     aria-label="Conversar no WhatsApp">
+    <img src="assets/whatsapp.svg" alt="WhatsApp">
+  </a>
 
 </body>
 </html>
