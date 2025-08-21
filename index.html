@@ -30,7 +30,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <!-- força recarregar CSS no mobile -->
-  <link rel="stylesheet" href="styles.css?v=services-cards1" />
+  <link rel="stylesheet" href="styles.css?v=services-cards2" />
 </head>
 <body>
 
@@ -45,10 +45,10 @@
       </p>
     </div>
 
-    <!-- MENU DESKTOP (ordem definida) -->
+    <!-- MENU DESKTOP (ordem ajustada) -->
     <nav class="top-menu" aria-label="Menu principal">
-      <a href="#quem-somos">Quem somos</a>
       <a href="#servicos">O que fazemos</a>
+      <a href="#quem-somos">Quem somos</a>
       <a href="#processo">Como fazemos</a>
       <a href="#seu-projeto">Seu Projeto</a>
     </nav>
@@ -64,8 +64,8 @@
   <!-- MENU MOBILE (mesma ordem do desktop) -->
   <div id="mobile-menu" class="mobile-menu-overlay" aria-hidden="true">
     <nav class="mobile-menu-nav" aria-label="Menu principal (mobile)">
-      <a href="#quem-somos">Quem somos</a>
       <a href="#servicos">O que fazemos</a>
+      <a href="#quem-somos">Quem somos</a>
       <a href="#processo">Como fazemos</a>
       <a href="#seu-projeto">Seu Projeto</a>
     </nav>
@@ -134,34 +134,30 @@
         <p class="hero-subtitle">Selecione um serviço para ver o escopo.</p>
 
         <div class="services-grid" role="list">
-          <!-- Ativações + Live Marketing (consolidado) -->
           <article class="service-card" role="listitem">
             <div class="card-body">
               <h3 class="card-title">Ativações &amp; Live Marketing</h3>
               <p class="card-desc">Experiências de marca em PDV, rua e eventos — do conceito à entrega.</p>
-              <a class="card-link" href="#servicos-ativacoes" aria-label="Ver escopo de Ativações e Live Marketing">Ver escopo →</a>
+              <a class="card-link" href="#servicos-ativacoes">Ver escopo →</a>
             </div>
           </article>
 
-          <!-- Eventos corporativos -->
           <article class="service-card" role="listitem">
             <div class="card-body">
               <h3 class="card-title">Eventos corporativos</h3>
               <p class="card-desc">Treinamentos, convenções e vivências com logística precisa e governança.</p>
-              <a class="card-link" href="#servicos-corporativos" aria-label="Ver escopo de Eventos corporativos">Ver escopo →</a>
+              <a class="card-link" href="#servicos-corporativos">Ver escopo →</a>
             </div>
           </article>
 
-          <!-- Shows e espetáculos -->
           <article class="service-card" role="listitem">
             <div class="card-body">
               <h3 class="card-title">Shows e espetáculos</h3>
               <p class="card-desc">Produções de shows, turnês e espetáculos; artistas e equipes em sincronia.</p>
-              <a class="card-link" href="#servicos-shows" aria-label="Ver escopo de Shows e espetáculos">Ver escopo →</a>
+              <a class="card-link" href="#servicos-shows">Ver escopo →</a>
             </div>
           </article>
 
-          <!-- UX para eventos (novo) -->
           <article class="service-card" role="listitem">
             <div class="card-body">
               <div class="card-line">
@@ -169,7 +165,7 @@
                 <span class="badge-new" aria-label="Serviço novo">NOVO</span>
               </div>
               <p class="card-desc">Jornada do participante, sinalização, fluxos e dados para melhorar a experiência.</p>
-              <a class="card-link" href="#servicos-ux" aria-label="Ver escopo de UX para eventos">Ver escopo →</a>
+              <a class="card-link" href="#servicos-ux">Ver escopo →</a>
             </div>
           </article>
         </div>
@@ -213,7 +209,7 @@
       </div>
     </section>
 
-    <!-- DETALHES DOS SERVIÇOS (âncoras) -->
+    <!-- DETALHES DOS SERVIÇOS -->
     <section id="detalhes-servicos" class="hero" aria-label="Detalhes dos serviços">
       <div class="hero-content">
         <h2 class="hero-title">Detalhes dos serviços</h2>
@@ -260,7 +256,6 @@
         <p class="hero-subtitle">Envie um briefing rápido. Respondemos com prazo e próximos passos.</p>
 
         <form id="briefing-form" class="form" method="POST" action="YOUR_GAS_WEB_APP_URL" novalidate>
-          <!-- Honeypot anti-spam -->
           <div class="visually-hidden" aria-hidden="true" hidden>
             <label for="website">Não preencha este campo</label>
             <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
@@ -339,10 +334,9 @@
     <p>2025 © B2B Partners BRZL</p>
   </footer>
 
-  <!-- JS -->
+  <!-- JS (igual) -->
   <script>
     (function(){
-      // Menu mobile
       const btn = document.querySelector('.menu-toggle');
       const menu = document.getElementById('mobile-menu');
       const links = menu.querySelectorAll('a[href^="#"]');
@@ -359,7 +353,6 @@
         links.forEach(a => a.addEventListener('click', ()=> toggleMenu(false)));
       }
 
-      // Fit do hero no desktop
       const h1 = document.querySelector('#hero .hero-title');
       const spanDesktop = document.querySelector('#hero .desktop-only');
       const hero = document.getElementById('hero');
@@ -402,7 +395,6 @@
       if (document.fonts && document.fonts.ready) { document.fonts.ready.then(fitHero).catch(()=>{}); }
       if (window.ResizeObserver && hero){ const ro = new ResizeObserver(fitHero); ro.observe(hero); }
 
-      // FORM: submissão com fetch + LGPD obrigatório
       const form = document.getElementById('briefing-form');
       const statusEl = document.getElementById('form-status');
       if(form){
@@ -410,27 +402,17 @@
           e.preventDefault();
           const btn = form.querySelector('button[type="submit"]');
           const data = new FormData(form);
-
-          // Honeypot
           if ((data.get('website') || '').trim() !== '') return;
-
-          // LGPD
           const consent = form.querySelector('#lgpd');
           if(!consent || !consent.checked){
             statusEl.textContent = 'Para enviar, marque o consentimento LGPD.';
             return;
           }
-
-          // Regras mínimas
           if(!data.get('nome') || !data.get('email') || !data.get('mensagem')){
             statusEl.textContent = 'Preencha nome, e-mail e mensagem.';
             return;
           }
-
-          // Timestamp
           data.append('timestamp', new Date().toISOString());
-
-          // Envio
           btn.disabled = true; const prev = btn.textContent; btn.textContent = 'Enviando…';
           statusEl.textContent = '';
           try{
