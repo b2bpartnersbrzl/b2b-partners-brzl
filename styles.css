@@ -152,9 +152,12 @@ section[id]{
   letter-spacing:.01em;
   line-height:1.25;
   max-width: 42ch;     /* leitura no desktop (será “travado” em px via JS) */
-  overflow: hidden;     /* evita vazamento caso o JS ainda não rode */
+  overflow: hidden;     /* evita vazamento antes do JS */
   white-space: nowrap;  /* 1 linha no desktop */
   font-size: 38px;      /* ponto de partida; o JS diminui se necessário */
+  text-align: center;   /* CENTRALIZADO no desktop */
+  margin-left: auto;    /* centralização via caixa */
+  margin-right: auto;
 }
 .hero-subtitle{
   color:var(--text-muted);
@@ -231,7 +234,7 @@ section[id]{
   .logo-subline{white-space:normal}
   .hero{padding:24px}
 
-  /* Mobile: alterna spans e permite quebras naturais */
+  /* Mobile: alterna spans, permite quebras e ALINHA À ESQUERDA */
   .desktop-only { display: none; }
   .mobile-only  { display: inline; }
 
@@ -240,6 +243,9 @@ section[id]{
     overflow: visible;
     font-size: clamp(18px, 5.5vw, 30px);
     max-width: 60ch;
+    text-align: left;       /* esquerda no mobile */
+    margin-left: 0;         /* remove centralização */
+    margin-right: 0;
   }
 
   /* Serviços empilhados */
