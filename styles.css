@@ -4,7 +4,7 @@
   --footer-height: 42px;
 
   /* Carrossel */
-  --carousel-bg: #FFFFFF; /* alterado de #FFE069 para branco */
+  --carousel-bg: #FFFFFF; /* branco */
   --logo-gap: 48px;
   --marquee-duration: 20s;
   --marquee-pad-top: 28px;
@@ -19,7 +19,7 @@
   /* Tipografia e cores (padrão) */
   --font-base: 'Noto Sans', sans-serif;
   --text: #666666;        /* PADRÃO: todo texto sem personalização específica */
-  --text-muted: #666666;  /* mantém coerência visual do subtítulo */
+  --text-muted: #666666;
   --accent: #669999;      /* links e elementos de ação */
   --hero-yellow: #FFE069;
 
@@ -38,7 +38,7 @@
 html{scroll-behavior:smooth}
 body{
   font-family:var(--font-base);
-  color:var(--text);         /* <- tudo herda #666666 por padrão */
+  color:var(--text);
   background:#fdfdfd;
   line-height:1.5;
 }
@@ -91,7 +91,8 @@ a:hover, a:focus{
 /* CARROSSEL FIXO */
 .clients-fixed{
   position:fixed; left:0; right:0; top:var(--header-height);
-  background:var(--carousel-bg); /* agora branco */
+  background:var(--carousel-bg);
+  border-top:1px solid #669999;   /* NOVO: linha no topo (encontro com o menu) */
   border-bottom:1px solid var(--block-border);
   z-index:1100; text-align:center;
 }
@@ -157,10 +158,10 @@ section[id]{
   max-width: 42ch;
   overflow: hidden;
   white-space: nowrap;
-  color: inherit; /* herda #666666 por padrão */
+  color: inherit;
 }
 .hero-subtitle{
-  color:var(--text-muted); /* #666666 */
+  color:var(--text-muted);
   line-height:1.6;
   max-width: 60ch;
 }
@@ -171,7 +172,7 @@ section[id]{
 .h-yellow{ color:#FFE069; }
 
 /* HERO de abertura */
-#hero{ background:#669999; color:#ffffff; margin-top: 12px; } /* texto branco é personalização específica */
+#hero{ background:#669999; color:#ffffff; margin-top: 12px; }
 #hero .hero-title{ color:#ffffff; font-size: 38px; text-align:center; margin-left:auto; margin-right:auto; }
 #hero + .hero{ margin-top: 20px; }
 
@@ -179,26 +180,23 @@ section[id]{
 .desktop-only { display: inline-block; }
 .mobile-only  { display: none; }
 
-/* -------- SEÇÃO SERVIÇOS (BRANCO + TEXTO #666) -------- */
+/* -------- SEÇÃO SERVIÇOS (branco + texto #666) -------- */
 #servicos{
-  background: #ffffff;       /* hero branco */
-  color: #666666;            /* texto padrão da seção */
+  background: #ffffff;
+  color: #666666;
   border-color: #e5e5e5;
 }
 #servicos .hero-title,
-#servicos .hero-subtitle{
-  color: #666666;            /* título e subtítulo */
-}
-#servicos .hero-content > * + *{
-  margin-top: 8px;           /* distância entre título/sub e os botões */
-}
+#servicos .hero-subtitle{ color: #666666; }
 
+/* Aproximar botões do texto no desktop */
+#servicos .hero-content > * + *{ margin-top: 4px; } /* antes: 8px */
 #servicos .content-grid{
   display:flex;
   flex-wrap: nowrap;
-  gap: 16px;                 /* desktop: distância lateral ok */
+  gap: 16px;                /* distância lateral no desktop mantida */
   justify-content: space-between;
-  margin-top: 4px;           /* aproxima os botões do texto */
+  margin-top: 0;            /* antes: 4px – agora colado ao subtítulo */
 }
 
 /* Cartão do serviço (container do botão) */
@@ -268,7 +266,7 @@ section[id]{
   display:flex; align-items:center; justify-content:center;
   z-index:1150;
 }
-.footer-bar p{font-size:12px; color:var(--text);} /* herda #666666 */
+.footer-bar p{font-size:12px; color:var(--text)}
 
 /* -------- RESPONSIVO -------- */
 @media (max-width:1024px){
@@ -292,19 +290,21 @@ section[id]{
     margin-right: 0;
   }
 
-  /* Serviços (mobile): APROXIMAÇÃO DOBRADA NA ALTURA */
+  /* SERVIÇOS (mobile): aproximar MUITO os botões na vertical */
+  #servicos .hero-content > * + *{ margin-top: 2px; } /* cola título/sub/grid */
   #servicos .content-grid{
-    flex-direction: column; /* empilha */
-    gap: 2px;               /* era 4px; agora metade (mais próximo) */
-    margin-top: 1px;        /* era 2px; aproxima ainda mais do subtítulo */
+    flex-direction: column;
+    gap: 0;           /* sem espaço entre botões */
+    margin-top: 0;    /* cola no subtítulo */
   }
   #servicos .info-block{
-    padding: 2px 0;         /* era 4px 0; reduz altura do container */
+    padding: 0;       /* remove "ar" do container */
   }
   .service-btn{
-    padding: 8px 10px;      /* era 9px 10px; reduz altura do botão */
+    padding: 6px 10px;     /* altura mínima funcional */
     font-size: 15px;
+    line-height: 1.15;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,.08);
+    box-shadow: 0 3px 8px rgba(0,0,0,.06);
   }
 }
