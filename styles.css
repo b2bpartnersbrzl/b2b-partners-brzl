@@ -12,15 +12,15 @@
   --clients-caption-h: 28px;
 
   /* Espaçamentos gerais */
-  --gap-after-carousel: 24px;   /* respiro abaixo do carrossel */
-  --anchor-offset-extra: 12px;  /* respiro extra ao rolar por âncora */
+  --gap-after-carousel: 24px;
+  --anchor-offset-extra: 12px;
   --section-gap: 40px;
 
   /* Tipografia e cores */
   --font-base: 'Noto Sans', sans-serif;
   --text: #1a1a1a;
   --text-muted: #555;
-  --accent: #669999;            /* cor de links e foco */
+  --accent: #669999;
 
   /* Superfície e contornos */
   --block-border: #e5e5e5;
@@ -43,12 +43,8 @@ body{
 }
 
 /* Links */
-a{
-  color: var(--accent);
-  text-decoration: none;
-}
-a:hover,
-a:focus{
+a{ color: var(--accent); text-decoration: none; }
+a:hover, a:focus{
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
@@ -66,7 +62,6 @@ a:focus{
   padding:14px 24px 10px;
   z-index:1200;
 }
-
 .logo-area{display:flex; flex-direction:column; align-items:flex-start; min-width:0}
 .logo-img{max-height:52px;height:auto;width:auto;display:block}
 .logo-subline{
@@ -74,18 +69,10 @@ a:focus{
   font-weight:700; line-height:1.5; letter-spacing:.02em; white-space:nowrap;
 }
 .logo-subline em{font-style:italic;}
-
 .top-menu{display:none; gap:28px; align-items:center; flex-shrink:0}
-.top-menu a{
-  font-weight:600; font-size:15px; padding:8px 0;
-  transition:color var(--transition) ease;
-}
+.top-menu a{font-weight:600; font-size:15px; padding:8px 0; transition:color var(--transition) ease;}
 .top-menu a:hover, .top-menu a:focus-visible{color:var(--accent)}
-
-.menu-toggle{
-  display:flex; flex-direction:column; justify-content:space-between;
-  width:30px; height:22px; background:transparent; border:none; cursor:pointer
-}
+.menu-toggle{display:flex; flex-direction:column; justify-content:space-between; width:30px; height:22px; background:transparent; border:none; cursor:pointer}
 .hamburger-line{width:30px; height:3px; background:var(--text); border-radius:10px}
 @media(min-width:768px){ .menu-toggle{display:none} .top-menu{display:flex} }
 
@@ -108,22 +95,17 @@ a:focus{
   z-index:1100; text-align:center;
 }
 .logo-marquee{overflow:hidden; padding:var(--marquee-pad-top) 0 var(--marquee-pad-bot)}
-.logo-marquee__track{
-  display:flex; gap:var(--logo-gap); width:max-content;
-  animation:marquee var(--marquee-duration) linear infinite
-}
+.logo-marquee__track{display:flex; gap:var(--logo-gap); width:max-content; animation:marquee var(--marquee-duration) linear infinite}
 .logo-list{display:flex; gap:var(--logo-gap); list-style:none}
 .logo-item{display:flex; align-items:center}
 .logo-img-brand{display:block; height:auto; width:auto; object-fit:contain}
 .logo-xs{height:28px} .logo-sm{height:34px} .logo-md{height:40px} .logo-lg{height:46px}
-
 .clients-caption{
   background:#666; color:#fff; font-weight:700; font-size:12px;
   letter-spacing:.14em; text-transform:uppercase;
   line-height:var(--clients-caption-h); height:var(--clients-caption-h);
   display:block; width:100%; margin-top:12px;
 }
-
 @keyframes marquee{ from{transform:translate3d(0,0,0)} to{transform:translate3d(-50%,0,0)} }
 
 /* ÁREA DE CONTEÚDO */
@@ -150,7 +132,7 @@ section[id]{
   );
 }
 
-/* BLOCOS (Heros/cards) */
+/* BLOCOS */
 .hero{
   background:var(--surface);
   border:1px solid var(--block-border);
@@ -164,13 +146,14 @@ section[id]{
 .hero .hero-content > * + *{ margin-top: 14px; }
 .hero h3{ margin-top: 18px; }
 
-/* HERO: título/subtítulo */
+/* Títulos/Subtítulos */
 .hero-title{
   font-weight:700;
   letter-spacing:.01em;
   line-height:1.25;
-  max-width: 42ch;          /* mantém mesma largura de leitura */
-  overflow: hidden;         /* nunca deixa “sair” do bloco */
+  max-width: 42ch;   /* largura "de leitura" padrão */
+  overflow: hidden;  /* garante que nada vaze visualmente */
+  white-space: nowrap;
 }
 .hero-subtitle{
   color:var(--text-muted);
@@ -178,37 +161,30 @@ section[id]{
   max-width: 60ch;
 }
 
-/* Ênfases do hero */
+/* Ênfases do HERO */
 .h-bold{ font-weight:700; }
 .h-italic{ font-style:italic; }
 .h-yellow{ color:#FFCC00; }
 
-/* Hero desktop: 1 linha; tamanho será ajustado via JS se precisar */
-#hero .hero-title{
-  margin-top: 2px;
-  font-size: 38px;          /* ponto de partida */
-  white-space: nowrap;      /* sem quebra no desktop */
-}
-
-/* Versões desktop/mobile do texto do hero */
-.desktop-only { display: inline; }
-.mobile-only  { display: none; }
-
-/* HERO: fundo e cor do texto */
+/* HERO inicial: fundo/cores */
 #hero{
   background: #669999;
   color: #ffffff;
 }
 #hero .hero-title{ color:#ffffff; }
 
+/* Desktop: ponto de partida de fonte (o JS ajusta para caber se necessário) */
+#hero .hero-title{ font-size: 38px; }
+
+/* Versões desktop/mobile do texto do hero */
+.desktop-only { display: inline; }
+.mobile-only  { display: none; }
+
 /* Texto */
-.hero p{
-  font-size:15px;
-  line-height:1.7;
-}
+.hero p{ font-size:15px; line-height:1.7; }
 .hero strong{font-weight:600}
 
-/* GRID (padrão geral) */
+/* GRID geral */
 .content-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
@@ -217,22 +193,12 @@ section[id]{
   margin-top: 16px;
 }
 
-/* PERSONALIZAÇÃO: Serviços (4 cards no desktop) */
+/* Serviços (4 cartões no desktop) */
 #servicos .content-grid{
-  display:flex;
-  flex-wrap: nowrap;
-  gap: 20px;
-  justify-content: space-between;
+  display:flex; flex-wrap: nowrap; gap: 20px; justify-content: space-between;
 }
-#servicos .info-block{
-  flex: 1 1 23%;
-  min-width: 0;
-  padding:20px;
-}
-#servicos .block-title{
-  font-size:18px;
-  line-height:1.3;
-}
+#servicos .info-block{ flex: 1 1 23%; min-width: 0; padding:20px; }
+#servicos .block-title{ font-size:18px; line-height:1.3; }
 
 /* Cartões */
 .info-block{
@@ -246,10 +212,7 @@ section[id]{
 .block-title a{display:inline-block}
 
 /* CTA WhatsApp */
-.whatsapp-float{
-  position:fixed; right:20px; bottom: calc(var(--footer-height) - 16px);
-  z-index:1400;
-}
+.whatsapp-float{ position:fixed; right:20px; bottom: calc(var(--footer-height) - 16px); z-index:1400; }
 .whatsapp-icon{width:64px; height:64px; filter:drop-shadow(0 6px 12px rgba(0,0,0,.25))}
 
 /* FOOTER fixo */
@@ -273,24 +236,20 @@ section[id]{
   .logo-subline{white-space:normal}
   .hero{padding:24px}
 
-  /* Mobile: alterna spans e permite quebras */
+  /* Mobile: alterna spans e permite quebras naturais */
   .desktop-only { display: none; }
   .mobile-only  { display: inline; }
 
   #hero .hero-title{
-    white-space: normal;               /* quebra no mobile */
+    white-space: normal;
+    overflow: visible;
     font-size: clamp(18px, 5.5vw, 30px);
-    overflow: visible;                 /* sem corte no mobile */
+    max-width: 60ch; /* leitura confortável no mobile */
   }
 
   /* Serviços empilhados */
-  #servicos .content-grid{
-    flex-direction: column;
-  }
-  #servicos .info-block{
-    flex: 1 1 100%;
-    padding:24px;
-  }
+  #servicos .content-grid{ flex-direction: column; }
+  #servicos .info-block{ flex: 1 1 100%; padding:24px; }
 
   .whatsapp-icon{width:56px; height:56px}
 }

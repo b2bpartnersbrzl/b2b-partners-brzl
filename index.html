@@ -253,7 +253,6 @@
         <h2 class="hero-title">Detalhes dos Serviços</h2>
         <p class="hero-subtitle">Entenda o escopo completo de cada serviço.</p>
 
-        <!-- Cada detalhe é uma SECTION com ID próprio para âncora confortável -->
         <section id="servicos-ativacoes" class="hero" aria-label="Ativações">
           <div class="hero-content">
             <h3>Ativações</h3>
@@ -317,7 +316,7 @@
     </section>
   </main>
 
-  <!-- CTA WhatsApp (com mensagem automática) -->
+  <!-- CTA WhatsApp -->
   <a class="whatsapp-float" href="https://wa.me/557193081072?text=Ol%C3%A1,%20acabei%20de%20visitar%20o%20site%20da%20B2B%20Partners%20BRZL%20e%20gostaria%20de%20falar%20sobre%20um%20projeto." target="_blank" rel="noopener">
     <img src="images/cta-whatsapp.svg" alt="WhatsApp" class="whatsapp-icon" />
   </a>
@@ -347,7 +346,7 @@
         links.forEach(a => a.addEventListener('click', ()=> toggleMenu(false)));
       }
 
-      // === Ajuste fino do HERO no desktop (mantém largura atual e diminui a fonte se necessário) ===
+      // ========= FIT DO HERO (desktop): mede a largura atual, fixa em px e ajusta a fonte =========
       const h1 = document.querySelector('#hero .hero-title');
       const spanDesktop = document.querySelector('#hero .desktop-only');
 
@@ -355,67 +354,65 @@
         return spanDesktop && getComputedStyle(spanDesktop).display !== 'none';
       }
 
+      function measureAndLockWidth(){
+        // Volta ao estado "CSS puro" para medir a largura atual (42ch)
+        h1.style.width = '';
+        h1.style.maxWidth = '';
+        h1.style.fontSize = ''; // usa o maior tamanho do CSS
+        // força reflow e mede a largura ocupada agora
+        const target = h1.clientWidth; // largura real ocupada no layout
+        if (target > 0){
+          // fixa em pixels para que a largura NÃO mude quando a fonte mudar
+          h1.style.width = target + 'px';
+          h1.style.maxWidth = 'none';
+          return target;
+        }
+        return null;
+      }
+
       function fitHero(){
         if(!h1 || !spanDesktop) return;
-
-        // No mobile, não ajusta (usa quebras)
         if(!isDesktop()){
+          // Mobile: volta ao padrão (quebras automáticas)
+          h1.style.width = '';
+          h1.style.maxWidth = '';
           h1.style.fontSize = '';
           return;
         }
 
-        // Medidas
-        const available = Math.floor(h1.clientWidth); // largura disponível (42ch)
-        if (!available) return;
+        // 1) mede e fixa a largura atual em px
+        const target = measureAndLockWidth();
+        if(!target) return;
 
-        // Limites de tamanho (px)
-        let min = 14;     // mínimo seguro
-        let max = 44;     // teto absoluto
-        let eps = 0.4;
+        // 2) diminui a fonte até o conteúdo caber nessa largura
+        const computed = parseFloat(getComputedStyle(h1).fontSize) || 38;
+        let min = 12;              // piso
+        let max = Math.min(44, computed); // teto
+        let eps = 0.5;
 
-        // Começa no máximo e verifica
         h1.style.fontSize = max + 'px';
-        // Força reflow para medir
-        void h1.offsetWidth;
+        // mede a largura do conteúdo real (independente do corte visual)
+        const contentWidth = () => spanDesktop.scrollWidth;
 
-        // Mede largura real do conteúdo do span desktop
-        function contentWidth(){
-          const r = spanDesktop.getBoundingClientRect();
-          return r.width;
-        }
+        if (contentWidth() <= target) return;
 
-        if (contentWidth() <= available){
-          return; // já coube
-        }
-
-        // Busca binária até caber exatamente no espaço disponível
         while ((max - min) > eps){
           const mid = (min + max) / 2;
           h1.style.fontSize = mid + 'px';
-          void h1.offsetWidth;
-          if (contentWidth() <= available){
-            min = mid; // pode crescer
+          if (contentWidth() <= target){
+            min = mid;
           } else {
-            max = mid; // precisa diminuir
+            max = mid;
           }
         }
-
-        // Aplica tamanho final arredondado para baixo
         h1.style.fontSize = Math.floor(min) + 'px';
       }
 
-      // Observadores e eventos
+      // Eventos
       window.addEventListener('load', fitHero);
       window.addEventListener('resize', fitHero);
-      window.addEventListener('orientationchange', fitHero);
       if (document.fonts && document.fonts.ready) {
         document.fonts.ready.then(fitHero).catch(()=>{});
-      }
-
-      // Reajusta quando o carrossel/header afetarem o layout (mudança de scrollbars, etc.)
-      if (window.ResizeObserver) {
-        const ro = new ResizeObserver(fitHero);
-        ro.observe(h1);
       }
     })();
   </script>
