@@ -177,33 +177,6 @@
           Nosso processo segue quatro etapas simples. Começamos pelo alinhamento e pelo roteiro de execução. Em seguida, planejamos recursos e cidades.
           Depois, conduzimos a operação em campo com pontos focais locais. Por fim, validamos cada entrega e apresentamos um relatório claro de resultados.
         </p>
-        <p>
-          Mantemos um padrão único em todas as praças, com playbooks de montagem, comunicação unificada e checklists em cada fase.
-          Também prezamos pela transparência: trabalhamos com marcos de status (D-7, D-1, D+1) e registramos a entrega com documentação fotográfica.
-        </p>
-
-        <h3>Por que confiam em nós</h3>
-        <p><strong>Consistência.</strong> Entregas padronizadas, mesmo em contextos diferentes.</p>
-        <p><strong>Velocidade.</strong> Resposta ágil e tomada de decisão objetiva.</p>
-        <p><strong>Controle.</strong> Indicadores de execução e relatórios claros para gestão.</p>
-
-        <h3>Alcance e segurança</h3>
-        <p>
-          Atendemos em todo o território nacional com rede homologada e gestão central. Cada operação segue protocolos de segurança,
-          normas locais e medidas de mitigação de risco, do pré-planejamento à desmontagem.
-        </p>
-
-        <h3>O que não fazemos</h3>
-        <p>
-          Não negociamos <strong>segurança</strong>, <strong>conformidade</strong> e <strong>padrão de qualidade</strong>.
-          Se uma execução comprometer a integridade de pessoas, a integridade da marca ou o atendimento a normas técnicas e legais,
-          replanejamos ou não executamos.
-        </p>
-
-        <h3>Criatividade e colaboração</h3>
-        <p>
-          Quando a criação vier para nós, assumimos com satisfação e responsabilidade, respeitando objetivos de negócio e integrando execução e conceito para maximizar resultados.
-        </p>
 
         <p class="micro-trust">
           Pronto para viabilizar sua operação? Acesse <a href="#seu-projeto">Seu Projeto</a> e envie o briefing.
@@ -258,8 +231,6 @@
             <h3>Ativações</h3>
             <p>
               Transformamos ideias em ativações de impacto, adequadas a diferentes praças e públicos.
-              Do planejamento logístico à execução em campo, garantimos padronização, registro em tempo real
-              e relatórios finais claros para orientar as próximas decisões.
             </p>
             <p class="micro-trust"><a href="#servicos">Voltar aos serviços</a></p>
           </div>
@@ -270,8 +241,6 @@
             <h3>Live Marketing</h3>
             <p>
               Conectamos marcas e pessoas por meio de experiências ao vivo.
-              A produção e a operação contam com checklists digitais, pontos focais locais e acompanhamento centralizado,
-              reduzindo riscos e ampliando o alcance com previsibilidade.
             </p>
             <p class="micro-trust"><a href="#servicos">Voltar aos serviços</a></p>
           </div>
@@ -282,8 +251,6 @@
             <h3>Operação Multi-Praça</h3>
             <p>
               Coordenamos execuções simultâneas em diversas cidades.
-              Ferramentas integradas distribuem recursos, monitoram equipes e consolidam resultados,
-              assegurando a mesma qualidade em cada praça, do início ao fim.
             </p>
             <p class="micro-trust"><a href="#servicos">Voltar aos serviços</a></p>
           </div>
@@ -294,12 +261,77 @@
             <h3>Produção 360</h3>
             <p>
               Cobrimos todo o ciclo de produção, do conceito à entrega final.
-              Com governança, tecnologia e indicadores, você tem controle completo e transparência em cada etapa,
-              tornando o processo replicável e mensurável.
             </p>
             <p class="micro-trust"><a href="#servicos">Voltar aos serviços</a></p>
           </div>
         </section>
+      </div>
+    </section>
+
+    <!-- SEU PROJETO (FORM) -->
+    <section id="seu-projeto" class="hero" aria-label="Seu Projeto">
+      <div class="hero-content">
+        <h2 class="hero-title">Seu Projeto</h2>
+        <p class="hero-subtitle">Envie um briefing rápido. Respondemos com prazo e próximos passos.</p>
+
+        <form id="briefing-form" class="form" method="POST" action="YOUR_GAS_WEB_APP_URL" novalidate>
+          <!-- Honeypot anti-spam -->
+          <div class="visually-hidden" aria-hidden="true">
+            <label for="website">Não preencha este campo</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="nome">Nome *</label>
+              <input type="text" id="nome" name="nome" required autocomplete="name" />
+            </div>
+
+            <div class="form-field">
+              <label for="email">E-mail *</label>
+              <input type="email" id="email" name="email" required autocomplete="email" />
+            </div>
+
+            <div class="form-field">
+              <label for="telefone">Telefone</label>
+              <input type="tel" id="telefone" name="telefone" autocomplete="tel" />
+            </div>
+
+            <div class="form-field">
+              <label for="empresa">Empresa</label>
+              <input type="text" id="empresa" name="empresa" autocomplete="organization" />
+            </div>
+
+            <div class="form-field">
+              <label for="servico">Serviço</label>
+              <select id="servico" name="servico">
+                <option value="">Selecione…</option>
+                <option>Ativações</option>
+                <option>Live Marketing</option>
+                <option>Operação Multi-Praça</option>
+                <option>Produção 360</option>
+                <option>Outro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="prazo">Prazo desejado</label>
+              <input type="date" id="prazo" name="prazo" />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label for="mensagem">Mensagem *</label>
+              <textarea id="mensagem" name="mensagem" rows="5" required placeholder="Escopo, cidades, datas, metas…"></textarea>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-primary">Enviar briefing</button>
+            <p class="form-legal">Ao enviar, você concorda em ser contatado para prosseguirmos com seu projeto.</p>
+          </div>
+
+          <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+        </form>
       </div>
     </section>
   </main>
@@ -334,19 +366,14 @@
         links.forEach(a => a.addEventListener('click', ()=> toggleMenu(false)));
       }
 
-      // ===== FIT DO HERO NO DESKTOP =====
+      // Fit do hero no desktop (já existente)
       const h1 = document.querySelector('#hero .hero-title');
       const spanDesktop = document.querySelector('#hero .desktop-only');
       const hero = document.getElementById('hero');
-
-      function isDesktop(){
-        return spanDesktop && getComputedStyle(spanDesktop).display !== 'none';
-      }
-
+      function isDesktop(){ return spanDesktop && getComputedStyle(spanDesktop).display !== 'none'; }
       function lockWidthToCurrent(){
-        h1.style.width = '';
-        h1.style.maxWidth = '';
-        h1.style.fontSize = '';
+        if(!h1) return null;
+        h1.style.width = ''; h1.style.maxWidth = ''; h1.style.fontSize = '';
         const available = Math.round(h1.getBoundingClientRect().width);
         if (available > 0){
           h1.style.width = available + 'px';
@@ -357,33 +384,18 @@
         }
         return null;
       }
-
-      function contentWidth(){
-        return Math.round(spanDesktop.getBoundingClientRect().width);
-      }
-
+      function contentWidth(){ return Math.round(spanDesktop.getBoundingClientRect().width); }
       function fitHero(){
         if(!h1 || !spanDesktop) return;
-
         if(!isDesktop()){
-          // Mobile: reseta
-          h1.style.width = '';
-          h1.style.maxWidth = '';
-          h1.style.fontSize = '';
-          h1.style.marginLeft = '';
-          h1.style.marginRight = '';
+          h1.style.width = ''; h1.style.maxWidth = ''; h1.style.fontSize = '';
+          h1.style.marginLeft = ''; h1.style.marginRight = '';
           return;
         }
-
-        const target = lockWidthToCurrent();
-        if(!target) return;
-
-        let min = 12; // px
-        let max = Math.min(48, parseFloat(getComputedStyle(h1).fontSize) || 38);
+        const target = lockWidthToCurrent(); if(!target) return;
+        let min = 12, max = Math.min(48, parseFloat(getComputedStyle(h1).fontSize) || 38);
         let cw = contentWidth();
-
         if (cw <= target) return;
-
         while ((max - min) > 0.5){
           const mid = (min + max) / 2;
           h1.style.fontSize = mid + 'px';
@@ -392,15 +404,44 @@
         }
         h1.style.fontSize = Math.floor(min) + 'px';
       }
-
       window.addEventListener('load', fitHero);
       window.addEventListener('resize', fitHero);
-      if (document.fonts && document.fonts.ready) {
-        document.fonts.ready.then(fitHero).catch(()=>{});
-      }
-      if (window.ResizeObserver && hero){
-        const ro = new ResizeObserver(fitHero);
-        ro.observe(hero);
+      if (document.fonts && document.fonts.ready) { document.fonts.ready.then(fitHero).catch(()=>{}); }
+      if (window.ResizeObserver && hero){ const ro = new ResizeObserver(fitHero); ro.observe(hero); }
+
+      // ===== FORM: submissão com fetch, sem expor e-mail =====
+      const form = document.getElementById('briefing-form');
+      const statusEl = document.getElementById('form-status');
+      if(form){
+        form.addEventListener('submit', async (e)=>{
+          e.preventDefault();
+          const btn = form.querySelector('button[type="submit"]');
+          const data = new FormData(form);
+
+          // Honeypot
+          if ((data.get('website') || '').trim() !== '') return;
+
+          // Regras mínimas
+          if(!data.get('nome') || !data.get('email') || !data.get('mensagem')){
+            statusEl.textContent = 'Preencha nome, e-mail e mensagem.'; return;
+          }
+
+          // Timestamp
+          data.append('timestamp', new Date().toISOString());
+
+          // Envio
+          btn.disabled = true; const prev = btn.textContent; btn.textContent = 'Enviando…';
+          statusEl.textContent = '';
+          try{
+            await fetch(form.action, { method: 'POST', body: data, mode: 'no-cors' });
+            statusEl.textContent = 'Recebido. Entraremos em contato em breve.';
+            form.reset();
+          }catch(err){
+            statusEl.textContent = 'Não foi possível enviar agora. Tente novamente.';
+          }finally{
+            btn.disabled = false; btn.textContent = prev;
+          }
+        });
       }
     })();
   </script>

@@ -18,9 +18,9 @@
 
   /* Tipografia e cores (padrão) */
   --font-base: 'Noto Sans', sans-serif;
-  --text: #666666;        /* PADRÃO: todo texto sem personalização específica */
+  --text: #666666;        /* padrão */
   --text-muted: #666666;
-  --accent: #669999;      /* links e elementos de ação */
+  --accent: #669999;      /* links e botões */
   --hero-yellow: #FFE069;
 
   /* Superfície e contornos */
@@ -92,7 +92,7 @@ a:hover, a:focus{
 .clients-fixed{
   position:fixed; left:0; right:0; top:var(--header-height);
   background:var(--carousel-bg);
-  border-top:1px solid #669999;   /* NOVO: linha no topo (encontro com o menu) */
+  border-top:1px solid #669999;   /* linha topo */
   border-bottom:1px solid var(--block-border);
   z-index:1100; text-align:center;
 }
@@ -188,18 +188,16 @@ section[id]{
 }
 #servicos .hero-title,
 #servicos .hero-subtitle{ color: #666666; }
-
-/* Aproximar botões do texto no desktop */
-#servicos .hero-content > * + *{ margin-top: 4px; } /* antes: 8px */
+#servicos .hero-content > * + *{ margin-top: 4px; }  /* aproxima no desktop */
 #servicos .content-grid{
   display:flex;
   flex-wrap: nowrap;
-  gap: 16px;                /* distância lateral no desktop mantida */
+  gap: 16px;
   justify-content: space-between;
-  margin-top: 0;            /* antes: 4px – agora colado ao subtítulo */
+  margin-top: 0;
 }
 
-/* Cartão do serviço (container do botão) */
+/* Cartão do serviço */
 #servicos .info-block{
   flex: 1 1 23%;
   min-width: 0;
@@ -239,13 +237,56 @@ section[id]{
   box-shadow: 0 3px 8px rgba(0,0,0,.06);
 }
 
-/* GRID genérico (usado em outras áreas) */
-.content-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:24px;
-  max-width:1200px;
-  margin-top:16px;
+/* -------- FORM "SEU PROJETO" -------- */
+.form{ margin-top: 10px; }
+.form-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 14px;
+}
+.form-field{ display:flex; flex-direction:column; gap:8px; }
+.form-field--full{ grid-column: 1 / -1; }
+
+.form label{ font-weight:600; font-size:14px; color:#666666; }
+.form input, .form select, .form textarea{
+  width:100%;
+  padding:12px 12px;
+  border:1px solid #dcdcdc;
+  border-radius:10px;
+  background:#fff;
+  color:#666666;
+  outline:none;
+  transition:border-color .18s ease, box-shadow .18s ease;
+}
+.form input:focus, .form select:focus, .form textarea:focus{
+  border-color:#669999;
+  box-shadow:0 0 0 3px rgba(102,153,153,.18);
+}
+.form textarea{ resize: vertical; }
+
+.form-actions{
+  display:flex; align-items:center; gap:14px;
+  margin-top: 10px;
+}
+.btn-primary{
+  appearance:none; border:none; cursor:pointer;
+  background:#669999; color:#fff; font-weight:700;
+  padding:12px 18px; border-radius:10px;
+  box-shadow:0 6px 14px rgba(0,0,0,.12);
+  transition:transform .18s ease, box-shadow .18s ease, opacity .18s ease;
+}
+.btn-primary:hover, .btn-primary:focus{
+  transform:translateY(-1px);
+  box-shadow:0 10px 22px rgba(0,0,0,.16);
+}
+.btn-primary:disabled{ opacity:.6; cursor:not-allowed; }
+
+.form-legal{ font-size:12px; color:#666666; }
+.form-status{ font-size:14px; margin-top:8px; min-height:1.2em; }
+
+.visually-hidden{
+  position:absolute !important; height:1px; width:1px; overflow:hidden;
+  clip:rect(1px,1px,1px,1px); white-space:nowrap; clip-path:inset(50%);
 }
 
 /* CTA WhatsApp */
@@ -277,7 +318,6 @@ section[id]{
   .logo-subline{white-space:normal}
   .hero{padding:24px}
 
-  /* Mobile: texto do hero em 4 linhas, alinhado à esquerda */
   .desktop-only { display: none; }
   .mobile-only  { display: inline; }
   #hero .hero-title{
@@ -290,21 +330,13 @@ section[id]{
     margin-right: 0;
   }
 
-  /* SERVIÇOS (mobile): aproximar MUITO os botões na vertical */
-  #servicos .hero-content > * + *{ margin-top: 2px; } /* cola título/sub/grid */
-  #servicos .content-grid{
-    flex-direction: column;
-    gap: 0;           /* sem espaço entre botões */
-    margin-top: 0;    /* cola no subtítulo */
-  }
-  #servicos .info-block{
-    padding: 0;       /* remove "ar" do container */
-  }
-  .service-btn{
-    padding: 6px 10px;     /* altura mínima funcional */
-    font-size: 15px;
-    line-height: 1.15;
-    border-radius: 8px;
-    box-shadow: 0 3px 8px rgba(0,0,0,.06);
-  }
+  /* Serviços (mobile) – já compactos */
+  #servicos .hero-content > * + *{ margin-top: 2px; }
+  #servicos .content-grid{ flex-direction: column; gap: 0; margin-top: 0; }
+  #servicos .info-block{ padding: 0; }
+  .service-btn{ padding: 6px 10px; font-size: 15px; line-height:1.15; border-radius:8px; }
+
+  /* Form: empilhar */
+  .form-grid{ grid-template-columns: 1fr; gap: 10px; }
+  .form-actions{ flex-direction:column; align-items:flex-start; gap:8px; }
 }
