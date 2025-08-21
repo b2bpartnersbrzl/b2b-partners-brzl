@@ -136,7 +136,7 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
   margin: 0;
   white-space: nowrap;                          /* tudo em linha no desktop */
 }
-#hero .seg-normal{ font-weight:400; }          /* normal explícito */
+#hero .seg-normal{ font-weight:400; }
 #hero .seg-bold{ font-weight:700; }
 #hero .seg-italic{ font-style: italic; }
 #hero .seg-yellow{ color: var(--hero-yellow); }
@@ -211,13 +211,53 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
 .btn-primary:hover, .btn-primary:focus{ transform:translateY(-1px); box-shadow:0 10px 22px rgba(0,0,0,.16); }
 .btn-primary:disabled{ opacity:.6; cursor:not-allowed; }
 
-.form-legal{ font-size:12px; color:#666; }
-.form-status{ font-size:14px; margin-top:8px; min-height:1.2em; }
-
-.visually-hidden{
-  position:absolute !important; height:1px; width:1px; overflow:hidden;
-  clip:rect(1px,1px,1px,1px); white-space:nowrap; clip-path:inset(50%);
+/* Botões secundários do modal */
+.btn-secondary{
+  appearance:none; cursor:pointer; background:#ffffff; color:var(--accent); font-weight:700;
+  padding:12px 18px; border-radius:10px; border:1px solid var(--accent);
+  transition:background .18s ease, color .18s ease, border-color .18s ease;
 }
+.btn-secondary:hover, .btn-secondary:focus{ background:#f2f7f7; }
+.btn-tertiary{
+  appearance:none; cursor:pointer; background:transparent; color:#444; font-weight:700;
+  padding:10px 14px; border-radius:10px; border:1px solid #dcdcdc;
+}
+.btn-tertiary:hover, .btn-tertiary:focus{ background:#fafafa; }
+
+/* AVISO DESKTOP (modal + scrim) */
+.overlay{
+  position:fixed; inset:0; z-index:3000;
+  display:none;
+}
+.overlay.show{ display:block; }
+.overlay__scrim{
+  position:absolute; inset:0; background:rgba(0,0,0,.4);
+}
+.overlay__card{
+  position:absolute; left:50%; top:50%; transform:translate(-50%, -50%);
+  width:min(640px, calc(100% - 48px));
+  background:#fff; border:1px solid var(--block-border); border-radius:var(--radius);
+  padding:24px 24px 18px;
+  box-shadow:0 16px 48px rgba(0,0,0,.20);
+}
+.overlay__close{
+  position:absolute; right:10px; top:8px;
+  background:transparent; border:none; font-size:28px; line-height:1; color:#999; cursor:pointer;
+}
+.overlay__close:hover{ color:#666; }
+.overlay__card h2{ font-size:20px; line-height:1.3; margin:0 28px 8px 0; color:#333; }
+.overlay__card p{ color:#666; margin:8px 0; }
+.overlay__actions{ display:flex; gap:12px; margin-top:12px; flex-wrap:wrap; }
+.overlay__hint{ margin-top:12px; border-top:1px dashed #e5e5e5; padding-top:12px; }
+.overlay__copy{ display:flex; gap:8px; align-items:center; }
+.overlay__copy input{
+  flex:1; min-width:0; padding:10px 12px; border:1px solid #dcdcdc; border-radius:10px; color:#666; background:#fff;
+}
+.overlay__mini{ font-size:12px; color:#888; }
+
+/* Enquanto o overlay estiver aberto: pausa carrossel e trava scroll */
+body.overlay-open{ overflow:hidden; }
+body.overlay-open .logo-marquee__track{ animation-play-state: paused; }
 
 /* CTA WhatsApp */
 .whatsapp-float{ position:fixed; right:20px; bottom: calc(var(--footer-height) - 16px); z-index:1400; }
@@ -240,6 +280,10 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
 }
 @media (max-width:900px){
   .services-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width:1023.98px){
+  /* Nunca exibir o aviso no mobile/tablets estreitos */
+  #desktop-advice{ display:none !important; }
 }
 @media (max-width:768px){
   .logo-subline{white-space:normal}

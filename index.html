@@ -30,7 +30,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <!-- força recarregar CSS -->
-  <link rel="stylesheet" href="styles.css?v=hero-arial-4" />
+  <link rel="stylesheet" href="styles.css?v=desktop-modal-1" />
 </head>
 <body>
 
@@ -316,6 +316,30 @@
     </section>
   </main>
 
+  <!-- AVISO DESKTOP (modal centralizado + scrim sem blur) -->
+  <div id="desktop-advice" class="overlay" role="dialog" aria-modal="true" aria-labelledby="desktop-advice-title" aria-describedby="desktop-advice-desc" hidden>
+    <div class="overlay__scrim" data-close aria-hidden="true"></div>
+    <div class="overlay__card" role="document">
+      <button class="overlay__close" type="button" aria-label="Fechar aviso" title="Fechar" data-close>&times;</button>
+      <h2 id="desktop-advice-title">Experiência otimizada para celular</h2>
+      <p id="desktop-advice-desc">Você está acessando no desktop. A versão mobile oferece a melhor visualização.</p>
+
+      <div class="overlay__actions">
+        <button type="button" class="btn-primary" id="desktop-continue">Continuar no desktop</button>
+        <button type="button" class="btn-secondary" id="desktop-open-mobile">Ver no celular</button>
+      </div>
+
+      <div class="overlay__hint" id="desktop-hint" hidden>
+        <p>Abra esta mesma página no seu celular. Se preferir, copie o link:</p>
+        <div class="overlay__copy">
+          <input type="text" id="desktop-share-url" readonly>
+          <button type="button" id="desktop-copy-url" class="btn-tertiary">Copiar link</button>
+        </div>
+        <p class="overlay__mini">Dica: envie o link para você mesmo pelo WhatsApp Web.</p>
+      </div>
+    </div>
+  </div>
+
   <!-- CTA WhatsApp -->
   <a class="whatsapp-float" href="https://wa.me/557193081072?text=Ol%C3%A1,%20acabei%20de%20visitar%20o%20site%20da%20B2B%20Partners%20BRZL%20e%20gostaria%20de%20falar%20sobre%20um%20projeto." target="_blank" rel="noopener">
     <img src="images/cta-whatsapp.svg" alt="WhatsApp" class="whatsapp-icon" />
@@ -326,18 +350,19 @@
     <p>2025 © B2B Partners BRZL</p>
   </footer>
 
-  <!-- JS (menu + formulário) -->
+  <!-- JS -->
   <script>
     (function(){
-      // Menu mobile
+      /* MENU MOBILE */
       const btn = document.querySelector('.menu-toggle');
       const menu = document.getElementById('mobile-menu');
-      const links = menu.querySelectorAll('a[href^="#"]');
+      const links = menu ? menu.querySelectorAll('a[href^="#"]') : [];
       function toggleMenu(force){
+        if(!menu) return;
         const show = (force !== undefined) ? force : !menu.classList.contains('show');
         menu.classList.toggle('show', show);
         document.body.style.overflow = show ? 'hidden' : '';
-        btn.setAttribute('aria-expanded', show);
+        if(btn) btn.setAttribute('aria-expanded', show);
         menu.setAttribute('aria-hidden', !show);
       }
       if(btn && menu){
@@ -346,13 +371,13 @@
         links.forEach(a => a.addEventListener('click', ()=> toggleMenu(false)));
       }
 
-      // FORM
+      /* FORM */
       const form = document.getElementById('briefing-form');
       const statusEl = document.getElementById('form-status');
       if(form){
         form.addEventListener('submit', async (e)=>{
           e.preventDefault();
-          const btn = form.querySelector('button[type="submit"]');
+          const sbtn = form.querySelector('button[type="submit"]');
           const data = new FormData(form);
           if ((data.get('website') || '').trim() !== '') return;
 
@@ -361,15 +386,13 @@
             statusEl.textContent = 'Para enviar, marque o consentimento LGPD.';
             return;
           }
-
           if(!data.get('nome') || !data.get('email') || !data.get('mensagem')){
             statusEl.textContent = 'Preencha nome, e-mail e mensagem.';
             return;
           }
 
           data.append('timestamp', new Date().toISOString());
-
-          btn.disabled = true; const prev = btn.textContent; btn.textContent = 'Enviando…';
+          sbtn.disabled = true; const prev = sbtn.textContent; sbtn.textContent = 'Enviando…';
           statusEl.textContent = '';
           try{
             await fetch(form.action, { method: 'POST', body: data, mode: 'no-cors' });
@@ -378,10 +401,94 @@
           }catch(err){
             statusEl.textContent = 'Não foi possível enviar agora. Tente novamente.';
           }finally{
-            btn.disabled = false; btn.textContent = prev;
+            sbtn.disabled = false; sbtn.textContent = prev;
           }
         });
       }
+
+      /* AVISO DESKTOP (modal centralizado + scrim sem blur) */
+      const OVERLAY_ID = 'desktop-advice';
+      const KEY_TS = 'b2b_desktop_notice_ack_ts';
+      const TTL_DAYS = 30;
+      const overlay = document.getElementById(OVERLAY_ID);
+      const btnContinue = document.getElementById('desktop-continue');
+      const btnOpenMobile = document.getElementById('desktop-open-mobile');
+      const hint = document.getElementById('desktop-hint');
+      const shareInput = document.getElementById('desktop-share-url');
+      const copyBtn = document.getElementById('desktop-copy-url');
+
+      function daysToMs(d){ return d*24*60*60*1000; }
+      function isAckValid(){
+        try{
+          const ts = parseInt(localStorage.getItem(KEY_TS) || '0', 10);
+          return ts && (Date.now() - ts) < daysToMs(TTL_DAYS);
+        }catch(_){ return false; }
+      }
+      function setAck(){
+        try{ localStorage.setItem(KEY_TS, String(Date.now())); }catch(_){}
+      }
+
+      function openOverlay(){
+        if(!overlay) return;
+        shareInput && (shareInput.value = window.location.href);
+        overlay.hidden = false;
+        overlay.classList.add('show');
+        document.body.classList.add('overlay-open');
+        // foco inicial
+        setTimeout(()=>{ (btnContinue || btnOpenMobile || overlay).focus?.(); }, 0);
+        // Esc para fechar (sem gravar preferência)
+        window.addEventListener('keydown', onEsc, { once:false });
+      }
+      function closeOverlay(persist){
+        if(!overlay) return;
+        if(persist) setAck();
+        overlay.classList.remove('show');
+        overlay.hidden = true;
+        document.body.classList.remove('overlay-open');
+        window.removeEventListener('keydown', onEsc);
+      }
+      function onEsc(e){ if(e.key === 'Escape') closeOverlay(false); }
+
+      function maybeShowOverlay(){
+        const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
+        if(!isDesktop) return;           // mobile/tablet: nunca mostra
+        if(isAckValid()) return;         // já aceitou: não mostra
+        openOverlay();
+      }
+
+      // Eventos dos botões
+      btnContinue && btnContinue.addEventListener('click', ()=> closeOverlay(true));
+      btnOpenMobile && btnOpenMobile.addEventListener('click', ()=>{
+        if(hint) hint.hidden = !hint.hidden;
+        if(hint && !hint.hidden && shareInput){
+          shareInput.value = window.location.href;
+          shareInput.select();
+        }
+      });
+      copyBtn && copyBtn.addEventListener('click', async ()=>{
+        try{
+          await navigator.clipboard.writeText(shareInput.value);
+          const txt = copyBtn.textContent;
+          copyBtn.textContent = 'Copiado!';
+          setTimeout(()=> copyBtn.textContent = txt, 1200);
+        }catch(_){}
+      });
+
+      // Fechamento por clique fora / X
+      overlay && overlay.addEventListener('click', (e)=>{
+        if(e.target.hasAttribute('data-close') || e.target.classList.contains('overlay__close')){
+          closeOverlay(false);
+        }
+      });
+
+      // Mostra somente após carregar
+      window.addEventListener('load', maybeShowOverlay);
+      // Reage a mudanças de largura (ex.: redimensionar janela)
+      window.addEventListener('resize', ()=>{
+        if(!overlay || overlay.hidden) return;
+        const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
+        if(!isDesktop) closeOverlay(false);
+      });
     })();
   </script>
 
