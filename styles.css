@@ -20,8 +20,8 @@
   --font-base: 'Noto Sans', sans-serif;
   --text: #1a1a1a;
   --text-muted: #555;
-  --accent: #669999;      /* cor institucional / botões */
-  --hero-yellow: #FFE069; /* disponível para chamadas futuras */
+  --accent: #669999;      /* cor institucional */
+  --hero-yellow: #FFE069;
 
   /* Superfície e contornos */
   --block-border: #e5e5e5;
@@ -170,26 +170,26 @@ section[id]{
 .h-yellow{ color:#FFE069; }
 
 /* HERO de abertura */
-#hero{ background:#669999; color:#ffffff; margin-top: 12px; } /* MAIS PRÓXIMO do carrossel */
+#hero{ background:#669999; color:#ffffff; margin-top: 12px; } /* mais próximo do carrossel */
 #hero .hero-title{ color:#ffffff; font-size: 38px; text-align:center; margin-left:auto; margin-right:auto; }
-#hero + .hero{ margin-top: 20px; }  /* MENOR distância entre o hero principal e o hero de Serviços */
+#hero + .hero{ margin-top: 20px; }  /* aproxima do hero de Serviços */
 
 /* Versões desktop/mobile do texto do hero */
 .desktop-only { display: inline-block; }
 .mobile-only  { display: none; }
 
-/* -------- SEÇÃO SERVIÇOS (cores, botões e espaçamentos) -------- */
+/* -------- SEÇÃO SERVIÇOS (BRANCO + TEXTO #666) -------- */
 #servicos{
-  background: var(--accent);  /* #669999 */
-  color: #ffffff;             /* textos brancos */
-  border-color: #5b8c8c;
+  background: #ffffff;        /* hero branco */
+  color: #666666;             /* texto do bloco */
+  border-color: #e5e5e5;
 }
 #servicos .hero-title,
 #servicos .hero-subtitle{
-  color: #ffffff;             /* título e subtítulo brancos */
+  color: #666666;             /* título e subtítulo em #666666 */
 }
 #servicos .hero-content > * + *{
-  margin-top: 8px;            /* distância MENOR entre título/sub e os botões */
+  margin-top: 8px;            /* menor distância entre título/sub e os botões */
 }
 
 #servicos .content-grid{
@@ -210,12 +210,12 @@ section[id]{
   box-shadow: none;
 }
 
-/* Botão do serviço */
+/* Botão do serviço — branco com texto #666 */
 .service-btn{
   display:block;
   width:100%;
-  background: var(--accent);  /* #669999 */
-  color: #fff;                /* texto branco */
+  background: #ffffff;        /* botão branco */
+  color: #666666;             /* texto #666 */
   font-weight: 700;
   font-size: 18px;
   line-height: 1.2;
@@ -223,18 +223,21 @@ section[id]{
   border-radius: 10px;
   text-align: center;
   text-decoration: none;
-  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
-  box-shadow: 0 6px 14px rgba(0,0,0,.12);
+  border: 1px solid #dddddd;  /* define contorno para legibilidade */
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+  box-shadow: 0 3px 8px rgba(0,0,0,.06);
 }
 .service-btn:hover,
 .service-btn:focus{
   text-decoration: none;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 22px rgba(0,0,0,.16);
+  background: #f7f7f7;        /* leve realce no hover */
+  border-color: #d0d0d0;
+  box-shadow: 0 6px 16px rgba(0,0,0,.10);
+  transform: translateY(-1px);
 }
 .service-btn:active{
   transform: translateY(0);
-  box-shadow: 0 6px 14px rgba(0,0,0,.12);
+  box-shadow: 0 3px 8px rgba(0,0,0,.06);
 }
 
 /* GRID genérico (usado em outras áreas) */
@@ -288,7 +291,7 @@ section[id]{
     margin-right: 0;
   }
 
-  /* Serviços (mobile): botões AINDA MAIS PRÓXIMOS NA ALTURA */
+  /* Serviços (mobile): botões mais próximos na ALTURA */
   #servicos .content-grid{
     flex-direction: column; /* empilha */
     gap: 4px;               /* menos espaço entre os botões */
@@ -298,9 +301,9 @@ section[id]{
     padding: 4px 0;         /* reduz altura do container */
   }
   .service-btn{
-    padding: 9px 10px;      /* reduz a altura do botão */
-    font-size: 15px;        /* compacto */
+    padding: 9px 10px;      /* altura do botão reduzida */
+    font-size: 15px;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,.12);
+    box-shadow: 0 4px 10px rgba(0,0,0,.08);
   }
 }
