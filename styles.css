@@ -12,7 +12,7 @@
   --clients-caption-h: 28px;
 
   /* Espaçamentos gerais */
-  --gap-after-carousel: 24px;
+  --gap-after-carousel: 24px;      /* espaço após o carrossel */
   --anchor-offset-extra: 12px;
   --section-gap: 40px;
 
@@ -21,7 +21,7 @@
   --text: #1a1a1a;
   --text-muted: #555;
   --accent: #669999;      /* cor institucional / botões */
-  --hero-yellow: #FFE069; /* pode ser usado em futuras chamadas */
+  --hero-yellow: #FFE069; /* disponível para chamadas futuras */
 
   /* Superfície e contornos */
   --block-border: #e5e5e5;
@@ -170,8 +170,9 @@ section[id]{
 .h-yellow{ color:#FFE069; }
 
 /* HERO de abertura */
-#hero{ background:#669999; color:#ffffff; }
+#hero{ background:#669999; color:#ffffff; margin-top: 12px; } /* MAIS PRÓXIMO do carrossel */
 #hero .hero-title{ color:#ffffff; font-size: 38px; text-align:center; margin-left:auto; margin-right:auto; }
+#hero + .hero{ margin-top: 20px; }  /* MENOR distância entre o hero principal e o hero de Serviços */
 
 /* Versões desktop/mobile do texto do hero */
 .desktop-only { display: inline-block; }
@@ -188,22 +189,22 @@ section[id]{
   color: #ffffff;             /* título e subtítulo brancos */
 }
 #servicos .hero-content > * + *{
-  margin-top: 10px;           /* MENOR distância entre título/sub e os botões */
+  margin-top: 8px;            /* distância MENOR entre título/sub e os botões */
 }
 
 #servicos .content-grid{
   display:flex;
   flex-wrap: nowrap;
-  gap: 16px;                  /* botões um pouco mais próximos no desktop */
+  gap: 16px;                  /* desktop: distância lateral dos botões mantida */
   justify-content: space-between;
-  margin-top: 6px;            /* aproxima ainda mais do texto */
+  margin-top: 4px;            /* aproxima os botões do texto */
 }
 
 /* Cartão do serviço (container do botão) */
 #servicos .info-block{
   flex: 1 1 23%;
   min-width: 0;
-  padding: 12px;              /* compacto para aproximar */
+  padding: 12px;
   background: transparent;
   border: none;
   box-shadow: none;
@@ -213,12 +214,12 @@ section[id]{
 .service-btn{
   display:block;
   width:100%;
-  background: var(--accent);  /* #669999 (mantido) */
+  background: var(--accent);  /* #669999 */
   color: #fff;                /* texto branco */
   font-weight: 700;
   font-size: 18px;
   line-height: 1.2;
-  padding: 12px 14px;         /* altura levemente menor */
+  padding: 12px 14px;
   border-radius: 10px;
   text-align: center;
   text-decoration: none;
@@ -287,21 +288,19 @@ section[id]{
     margin-right: 0;
   }
 
-  /* Serviços (mobile): botões AINDA MAIS PRÓXIMOS */
+  /* Serviços (mobile): botões AINDA MAIS PRÓXIMOS NA ALTURA */
   #servicos .content-grid{
     flex-direction: column; /* empilha */
-    gap: 8px;               /* aproxima os botões */
-    margin-top: 4px;        /* aproxima do subtítulo */
+    gap: 4px;               /* menos espaço entre os botões */
+    margin-top: 2px;        /* mais próximo do subtítulo */
   }
   #servicos .info-block{
-    padding: 6px 0;         /* remove excesso de espaço vertical */
+    padding: 4px 0;         /* reduz altura do container */
   }
   .service-btn{
-    padding: 11px 12px;     /* altura menor */
-    font-size: 16px;        /* levemente menor */
+    padding: 9px 10px;      /* reduz a altura do botão */
+    font-size: 15px;        /* compacto */
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,.12);
   }
-
-  .whatsapp-icon{width:56px; height:56px}
 }
