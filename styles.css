@@ -121,26 +121,26 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
 .hero .hero-content > * + *{ margin-top: 14px; }
 .hero h3{ margin-top: 18px; }
 
-/* Títulos/Subtítulos padrão (usados nas demais seções) */
+/* Títulos/Subtítulos padrão */
 .hero-title{ font-weight:700; letter-spacing:.01em; line-height:1.25; max-width:42ch; overflow:hidden; white-space:nowrap; color:inherit; }
 .hero-subtitle{ color:var(--text-muted); line-height:1.6; max-width:60ch; }
 
 /* HERO de abertura com nova tipografia */
 #hero{ background:#669999; color:#ffffff; }
+#hero .hero-content{ text-align: center; }      /* desktop: centralizado */
 #hero .hero-text{
-  font-family: Arial, sans-serif;   /* conforme solicitado */
+  font-family: Arial, sans-serif;
   color:#FFFFFF;
-  font-size: 24px;                  /* base do snippet */
+  font-size: 24px;
   line-height: 1.25;
   margin: 0;
-  white-space: nowrap;              /* desktop: tudo em linha */
+  white-space: nowrap;                          /* tudo em linha no desktop */
 }
-#hero .seg-normal{ font-weight:400; }
+#hero .seg-normal{ font-weight:400; }          /* normal explícito */
 #hero .seg-bold{ font-weight:700; }
 #hero .seg-italic{ font-style: italic; }
 #hero .seg-yellow{ color: var(--hero-yellow); }
-/* quebras só no mobile */
-.mbr{ display: none; }
+.mbr{ display: none; }                          /* quebras ocultas no desktop */
 
 /* -------- O QUE FAZEMOS – CARTÕES -------- */
 #servicos{ background:#ffffff; color:#666666; border-color:#e5e5e5; }
@@ -245,12 +245,13 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
   .logo-subline{white-space:normal}
   .hero{padding:24px}
 
-  /* Hero: mobile em 4 linhas */
+  /* Hero: mobile em 4 linhas à esquerda */
+  #hero .hero-content{ text-align: left; }
   #hero .hero-text{
-    white-space: normal;          /* permite quebrar */
-    font-size: 22px;              /* leve redução para telas menores */
+    white-space: normal;      /* permite quebrar */
+    font-size: 22px;
   }
-  .mbr{ display: inline; }        /* ativa as quebras <br> só no mobile */
+  .mbr{ display: inline; }    /* ativa as quebras */
 
   /* Form */
   .form-grid{ grid-template-columns: 1fr; gap: 10px; }
