@@ -20,8 +20,8 @@
   --font-base: 'Noto Sans', sans-serif;
   --text: #1a1a1a;
   --text-muted: #555;
-  --accent: #669999;        /* cor institucional / botões */
-  --hero-yellow: #FFE069;   /* destaque e fundo da seção Serviços */
+  --accent: #669999;      /* cor institucional / botões */
+  --hero-yellow: #FFE069; /* pode ser usado em futuras chamadas */
 
   /* Superfície e contornos */
   --block-border: #e5e5e5;
@@ -107,6 +107,8 @@ a:hover, a:focus{
   line-height:var(--clients-caption-h); height:var(--clients-caption-h);
   display:block; width:100%; margin-top:12px;
 }
+
+/* ANIMAÇÃO */
 @keyframes marquee{ from{transform:translate3d(0,0,0)} to{transform:translate3d(-50%,0,0)} }
 
 /* ÁREA DE CONTEÚDO */
@@ -147,7 +149,7 @@ section[id]{
 .hero .hero-content > * + *{ margin-top: 14px; }
 .hero h3{ margin-top: 18px; }
 
-/* HERO: título/subtítulo (global) */
+/* Títulos/Subtítulos (globais) */
 .hero-title{
   font-weight:700;
   letter-spacing:.01em;
@@ -165,7 +167,7 @@ section[id]{
 /* Ênfases do hero principal */
 .h-bold{ font-weight:700; }
 .h-italic{ font-style:italic; }
-.h-yellow{ color: var(--hero-yellow); }
+.h-yellow{ color:#FFE069; }
 
 /* HERO de abertura */
 #hero{ background:#669999; color:#ffffff; }
@@ -175,28 +177,34 @@ section[id]{
 .desktop-only { display: inline-block; }
 .mobile-only  { display: none; }
 
-/* -------- SEÇÃO SERVIÇOS (cores e botões) -------- */
+/* -------- SEÇÃO SERVIÇOS (cores, botões e espaçamentos) -------- */
 #servicos{
-  background: var(--hero-yellow);   /* fundo #FFE069 */
-  color: var(--accent);             /* texto #669999 */
-  border-color: #e0cf6a;            /* sutil, harmônico ao amarelo */
+  background: var(--accent);  /* #669999 */
+  color: #ffffff;             /* textos brancos */
+  border-color: #5b8c8c;
 }
 #servicos .hero-title,
-#servicos .hero-subtitle{ color: var(--accent); }
+#servicos .hero-subtitle{
+  color: #ffffff;             /* título e subtítulo brancos */
+}
+#servicos .hero-content > * + *{
+  margin-top: 10px;           /* MENOR distância entre título/sub e os botões */
+}
 
 #servicos .content-grid{
   display:flex;
   flex-wrap: nowrap;
-  gap: 20px;                 /* espaçamento desktop */
+  gap: 16px;                  /* botões um pouco mais próximos no desktop */
   justify-content: space-between;
+  margin-top: 6px;            /* aproxima ainda mais do texto */
 }
 
-/* Cartão do serviço */
+/* Cartão do serviço (container do botão) */
 #servicos .info-block{
   flex: 1 1 23%;
   min-width: 0;
-  padding: 16px;            /* um pouco mais compacto */
-  background: transparent;  /* deixa o botão “brilhar” */
+  padding: 12px;              /* compacto para aproximar */
+  background: transparent;
   border: none;
   box-shadow: none;
 }
@@ -205,12 +213,12 @@ section[id]{
 .service-btn{
   display:block;
   width:100%;
-  background: var(--accent);     /* #669999 */
-  color: #fff;                   /* texto branco */
+  background: var(--accent);  /* #669999 (mantido) */
+  color: #fff;                /* texto branco */
   font-weight: 700;
   font-size: 18px;
   line-height: 1.2;
-  padding: 14px 16px;            /* altura confortável no desktop */
+  padding: 12px 14px;         /* altura levemente menor */
   border-radius: 10px;
   text-align: center;
   text-decoration: none;
@@ -228,13 +236,7 @@ section[id]{
   box-shadow: 0 6px 14px rgba(0,0,0,.12);
 }
 
-/* Demais seções (cores padrão) */
-#processo .hero-title,
-#processo .hero-subtitle,
-#quem-somos .hero-title,
-#quem-somos .hero-subtitle{ color: inherit; }
-
-/* GRID genérico (usado em outras áreas, se necessário) */
+/* GRID genérico (usado em outras áreas) */
 .content-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
@@ -285,17 +287,18 @@ section[id]{
     margin-right: 0;
   }
 
-  /* Serviços: botões mais conectados (menor altura e gaps) */
+  /* Serviços (mobile): botões AINDA MAIS PRÓXIMOS */
   #servicos .content-grid{
-    flex-direction: column;   /* empilha */
-    gap: 10px;                /* menos espaço entre eles */
+    flex-direction: column; /* empilha */
+    gap: 8px;               /* aproxima os botões */
+    margin-top: 4px;        /* aproxima do subtítulo */
   }
   #servicos .info-block{
-    padding: 8px 0;           /* remove enchimento lateral do cartão */
+    padding: 6px 0;         /* remove excesso de espaço vertical */
   }
   .service-btn{
-    padding: 12px 14px;       /* diminui a altura */
-    font-size: 16px;          /* um pouco menor para caber mais */
+    padding: 11px 12px;     /* altura menor */
+    font-size: 16px;        /* levemente menor */
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,.12);
   }
