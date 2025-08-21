@@ -5,7 +5,7 @@
 
   /* Espaçamentos gerais */
   --section-gap: 40px;
-  --gap-after-carousel: var(--section-gap); /* distância do carrossel para o conteúdo */
+  --gap-after-carousel: var(--section-gap);
   --anchor-offset-extra: 12px;
 
   /* Carrossel */
@@ -13,7 +13,7 @@
   --logo-gap: 48px;
   --marquee-duration: 20s;
   --marquee-pad-top: 28px;
-  --marquee-pad-bot: 12px;
+  --marquee-pad-bot: 0;    /* zera para colar no topo da faixa cinza */
   --clients-caption-h: 28px;
 
   /* Tipografia e cores (padrão) */
@@ -29,7 +29,6 @@
 
   /* UI */
   --radius: 12px;
-  --blur-bg: rgba(253,253,253,0.7);
   --transition: 0.3s;
 }
 
@@ -51,13 +50,11 @@ a:hover, a:focus{
   text-underline-offset: 3px;
 }
 
-/* HEADER */
+/* HEADER (agora sólido, sem transparência) */
 .main-header{
   position:fixed; top:0; left:0; right:0;
   height:var(--header-height);
-  background:var(--blur-bg);
-  -webkit-backdrop-filter:saturate(120%) blur(10px);
-  backdrop-filter:saturate(120%) blur(10px);
+  background:#ffffff;                      /* sólido */
   border-bottom:1px solid var(--block-border);
   display:flex; align-items:center; justify-content:space-between;
   padding:14px 24px 10px;
@@ -88,7 +85,7 @@ a:hover, a:focus{
 .mobile-menu-nav{display:flex; flex-direction:column; gap:28px; align-items:center}
 .mobile-menu-nav a{font-size:28px; font-weight:600}
 
-/* CARROSSEL (AGORA NO FLUXO, NÃO FIXO) */
+/* CARROSSEL (no fluxo, sem espaço extra) */
 .clients-fixed{
   position:relative;
   margin-top: var(--header-height); /* encosta no menu ao voltar ao topo */
@@ -108,8 +105,9 @@ a:hover, a:focus{
   background:#666; color:#fff; font-weight:700; font-size:12px;
   letter-spacing:.14em; text-transform:uppercase;
   line-height:var(--clients-caption-h); height:var(--clients-caption-h);
-  display:block; width:100%; margin-top:12px;
-  margin-bottom: var(--gap-after-carousel); /* distância até o conteúdo (Serviços) */
+  display:block; width:100%;
+  margin-top:0;                 /* cola no trilho */
+  margin-bottom:0;              /* elimina respiro abaixo da faixa cinza */
 }
 
 /* ANIMAÇÃO */
@@ -117,15 +115,13 @@ a:hover, a:focus{
 
 /* ÁREA DE CONTEÚDO */
 .content-area{
-  padding-top: 0;                   /* carrossel já cria o afastamento superior */
+  padding-top: 0; /* carrossel já cria o afastamento superior */
   padding-left:24px; padding-right:24px;
   padding-bottom: calc(var(--footer-height) + 40px);
 }
 
 /* Compensação para âncoras (só o header fixo agora) */
-section[id]{
-  scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-extra));
-}
+section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-extra)); }
 
 /* BLOCOS (Heros/cards) */
 .hero{
@@ -252,9 +248,7 @@ section[id]{
 .footer-bar{
   position:fixed; left:0; right:0; bottom:0;
   height:var(--footer-height);
-  background:var(--blur-bg);
-  -webkit-backdrop-filter:saturate(120%) blur(10px);
-  backdrop-filter:saturate(120%) blur(10px);
+  background:#ffffff; /* sólido para combinar com o header */
   border-top:1px solid var(--block-border);
   display:flex; align-items:center; justify-content:center;
   z-index:1150;
@@ -279,13 +273,13 @@ section[id]{
     margin-left: 0; margin-right: 0;
   }
 
-  /* Serviços (mobile) – já compactos */
+  /* Serviços (mobile) */
   #servicos .hero-content > * + *{ margin-top: 2px; }
   #servicos .content-grid{ flex-direction: column; gap: 0; margin-top: 0; }
   #servicos .info-block{ padding: 0; }
   .service-btn{ padding: 6px 10px; font-size: 15px; line-height:1.15; border-radius:8px; }
 
-  /* Form: empilhar */
+  /* Form */
   .form-grid{ grid-template-columns: 1fr; gap: 10px; }
   .form-actions{ flex-direction:column; align-items:flex-start; gap:8px; }
 }
