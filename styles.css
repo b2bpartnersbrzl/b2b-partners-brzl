@@ -20,10 +20,8 @@
   --font-base: 'Noto Sans', sans-serif;
   --text: #1a1a1a;
   --text-muted: #555;
-  --accent: #669999;
-
-  /* Cores de destaque */
-  --hero-yellow: #FFE069;
+  --accent: #669999;        /* cor institucional / botões */
+  --hero-yellow: #FFE069;   /* destaque e fundo da seção Serviços */
 
   /* Superfície e contornos */
   --block-border: #e5e5e5;
@@ -45,7 +43,7 @@ body{
   line-height:1.5;
 }
 
-/* Links (padrão) */
+/* Links */
 a{ color: var(--accent); text-decoration: none; }
 a:hover, a:focus{
   text-decoration: underline;
@@ -135,7 +133,7 @@ section[id]{
   );
 }
 
-/* BLOCOS */
+/* BLOCOS (Heros/cards) */
 .hero{
   background:var(--surface);
   border:1px solid var(--block-border);
@@ -149,18 +147,14 @@ section[id]{
 .hero .hero-content > * + *{ margin-top: 14px; }
 .hero h3{ margin-top: 18px; }
 
-/* Títulos/Subtítulos */
+/* HERO: título/subtítulo (global) */
 .hero-title{
   font-weight:700;
   letter-spacing:.01em;
   line-height:1.25;
-  max-width: 42ch;     /* leitura no desktop (travado em px via JS) */
-  overflow: hidden;     /* evita vazamento antes do JS */
-  white-space: nowrap;  /* 1 linha no desktop */
-  font-size: 38px;      /* ponto de partida; o JS diminui se necessário */
-  text-align: center;   /* centralizado no desktop */
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 42ch;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .hero-subtitle{
   color:var(--text-muted);
@@ -168,52 +162,92 @@ section[id]{
   max-width: 60ch;
 }
 
-/* Ênfases do HERO (iguais às do exemplo fornecido) */
+/* Ênfases do hero principal */
 .h-bold{ font-weight:700; }
 .h-italic{ font-style:italic; }
 .h-yellow{ color: var(--hero-yellow); }
 
-/* HERO: fundo e texto */
+/* HERO de abertura */
 #hero{ background:#669999; color:#ffffff; }
-#hero .hero-title{ color:#ffffff; }
+#hero .hero-title{ color:#ffffff; font-size: 38px; text-align:center; margin-left:auto; margin-right:auto; }
 
 /* Versões desktop/mobile do texto do hero */
-.desktop-only { display: inline-block; }  /* mensurável para o JS */
+.desktop-only { display: inline-block; }
 .mobile-only  { display: none; }
 
-/* Texto */
-.hero p{ font-size:15px; line-height:1.7; }
-.hero strong{font-weight:600}
+/* -------- SEÇÃO SERVIÇOS (cores e botões) -------- */
+#servicos{
+  background: var(--hero-yellow);   /* fundo #FFE069 */
+  color: var(--accent);             /* texto #669999 */
+  border-color: #e0cf6a;            /* sutil, harmônico ao amarelo */
+}
+#servicos .hero-title,
+#servicos .hero-subtitle{ color: var(--accent); }
 
-/* GRID geral */
+#servicos .content-grid{
+  display:flex;
+  flex-wrap: nowrap;
+  gap: 20px;                 /* espaçamento desktop */
+  justify-content: space-between;
+}
+
+/* Cartão do serviço */
+#servicos .info-block{
+  flex: 1 1 23%;
+  min-width: 0;
+  padding: 16px;            /* um pouco mais compacto */
+  background: transparent;  /* deixa o botão “brilhar” */
+  border: none;
+  box-shadow: none;
+}
+
+/* Botão do serviço */
+.service-btn{
+  display:block;
+  width:100%;
+  background: var(--accent);     /* #669999 */
+  color: #fff;                   /* texto branco */
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.2;
+  padding: 14px 16px;            /* altura confortável no desktop */
+  border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+  box-shadow: 0 6px 14px rgba(0,0,0,.12);
+}
+.service-btn:hover,
+.service-btn:focus{
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0,0,0,.16);
+}
+.service-btn:active{
+  transform: translateY(0);
+  box-shadow: 0 6px 14px rgba(0,0,0,.12);
+}
+
+/* Demais seções (cores padrão) */
+#processo .hero-title,
+#processo .hero-subtitle,
+#quem-somos .hero-title,
+#quem-somos .hero-subtitle{ color: inherit; }
+
+/* GRID genérico (usado em outras áreas, se necessário) */
 .content-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
   gap:24px;
   max-width:1200px;
-  margin-top: 16px;
+  margin-top:16px;
 }
-
-/* Serviços (4 cartões no desktop) */
-#servicos .content-grid{
-  display:flex; flex-wrap: nowrap; gap: 20px; justify-content: space-between;
-}
-#servicos .info-block{ flex: 1 1 23%; min-width: 0; padding:20px; }
-#servicos .block-title{ font-size:18px; line-height:1.3; }
-
-/* Cartões */
-.info-block{
-  background:var(--surface); border:1px solid var(--block-border);
-  border-radius:var(--radius); padding:24px;
-  transition:transform .3s ease, box-shadow .3s ease;
-  box-shadow:0 4px 12px rgba(0,0,0,.05);
-}
-.info-block:hover{transform:translateY(-5px); box-shadow:0 8px 30px rgba(0,0,0,.1)}
-.block-title{font-size:20px; font-weight:600;}
-.block-title a{display:inline-block}
 
 /* CTA WhatsApp */
-.whatsapp-float{ position:fixed; right:20px; bottom: calc(var(--footer-height) - 16px); z-index:1400; }
+.whatsapp-float{
+  position:fixed; right:20px; bottom: calc(var(--footer-height) - 16px);
+  z-index:1400;
+}
 .whatsapp-icon{width:64px; height:64px; filter:drop-shadow(0 6px 12px rgba(0,0,0,.25))}
 
 /* FOOTER fixo */
@@ -229,18 +263,18 @@ section[id]{
 }
 .footer-bar p{font-size:12px; color:var(--text-muted)}
 
-/* Responsivo */
+/* -------- RESPONSIVO -------- */
 @media (max-width:1024px){
-  #servicos .block-title{font-size:17px}
+  #servicos .service-btn{ font-size:17px; }
 }
+
 @media (max-width:768px){
   .logo-subline{white-space:normal}
   .hero{padding:24px}
 
-  /* Mobile: quatro linhas, alinhado à esquerda */
+  /* Mobile: texto do hero em 4 linhas, alinhado à esquerda */
   .desktop-only { display: none; }
   .mobile-only  { display: inline; }
-
   #hero .hero-title{
     white-space: normal;
     overflow: visible;
@@ -251,9 +285,20 @@ section[id]{
     margin-right: 0;
   }
 
-  /* Serviços empilhados */
-  #servicos .content-grid{ flex-direction: column; }
-  #servicos .info-block{ flex: 1 1 100%; padding:24px; }
+  /* Serviços: botões mais conectados (menor altura e gaps) */
+  #servicos .content-grid{
+    flex-direction: column;   /* empilha */
+    gap: 10px;                /* menos espaço entre eles */
+  }
+  #servicos .info-block{
+    padding: 8px 0;           /* remove enchimento lateral do cartão */
+  }
+  .service-btn{
+    padding: 12px 14px;       /* diminui a altura */
+    font-size: 16px;          /* um pouco menor para caber mais */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,.12);
+  }
 
   .whatsapp-icon{width:56px; height:56px}
 }
