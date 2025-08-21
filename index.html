@@ -94,40 +94,27 @@
       </div>
     </section>
 
-    <!-- SERVIÇOS -->
-    <section id="servicos" class="content-grid section" aria-label="Serviços">
-      <article class="info-block">
-        <h2 class="block-title">Ativações</h2>
-        <p class="block-description">
-          Transformamos ideias em ativações de impacto, adequadas a diferentes praças e públicos.
-          Do planejamento logístico à execução em campo, garantimos padronização, registro em tempo real
-          e relatórios finais claros para orientar as próximas decisões.
-        </p>
-      </article>
-      <article class="info-block">
-        <h2 class="block-title">Live Marketing</h2>
-        <p class="block-description">
-          Conectamos marcas e pessoas por meio de experiências ao vivo.
-          A produção e a operação contam com checklists digitais, pontos focais locais e acompanhamento centralizado,
-          reduzindo riscos e ampliando o alcance com previsibilidade.
-        </p>
-      </article>
-      <article class="info-block">
-        <h2 class="block-title">Operação Multi-Praça</h2>
-        <p class="block-description">
-          Coordenamos execuções simultâneas em diversas cidades.
-          Ferramentas integradas distribuem recursos, monitoram equipes e consolidam resultados,
-          assegurando a mesma qualidade em cada praça, do início ao fim.
-        </p>
-      </article>
-      <article class="info-block">
-        <h2 class="block-title">Produção 360</h2>
-        <p class="block-description">
-          Cobrimos todo o ciclo de produção, do conceito à entrega final.
-          Com governança, tecnologia e indicadores, você tem controle completo e transparência em cada etapa,
-          tornando o processo replicável e mensurável.
-        </p>
-      </article>
+    <!-- SERVIÇOS (apenas títulos) -->
+    <section id="servicos" class="hero" aria-label="Serviços">
+      <div class="hero-content">
+        <h2 class="hero-title">Serviços</h2>
+        <p class="hero-subtitle">Escolha um serviço para ver a descrição completa.</p>
+
+        <div class="content-grid" role="list">
+          <article class="info-block" role="listitem">
+            <h3 class="block-title"><a href="#servicos-ativacoes">Ativações</a></h3>
+          </article>
+          <article class="info-block" role="listitem">
+            <h3 class="block-title"><a href="#servicos-live">Live Marketing</a></h3>
+          </article>
+          <article class="info-block" role="listitem">
+            <h3 class="block-title"><a href="#servicos-multi">Operação Multi-Praça</a></h3>
+          </article>
+          <article class="info-block" role="listitem">
+            <h3 class="block-title"><a href="#servicos-360">Produção 360</a></h3>
+          </article>
+        </div>
+      </div>
     </section>
 
     <!-- QUEM SOMOS -->
@@ -183,7 +170,7 @@
       </div>
     </section>
 
-    <!-- O PROCESSO (justificando "Com tecnologia.") -->
+    <!-- O PROCESSO -->
     <section id="processo" class="hero" aria-label="O Processo">
       <div class="hero-content">
         <h2 class="hero-title">O Processo</h2>
@@ -215,6 +202,75 @@
 
         <p class="micro-trust">
           Quer ver esse processo aplicado ao seu caso? Vá até <a href="#seu-projeto">Seu Projeto</a> e envie o briefing.
+        </p>
+      </div>
+    </section>
+
+    <!-- DETALHES DE SERVIÇOS (único lugar com as descrições completas) -->
+    <section id="detalhes-servicos" class="hero" aria-label="Detalhes dos Serviços">
+      <div class="hero-content">
+        <h2 class="hero-title">Detalhes dos Serviços</h2>
+        <p class="hero-subtitle">Entenda o escopo completo de cada serviço.</p>
+
+        <!-- Cada detalhe é uma SECTION com ID próprio para âncora confortável -->
+        <section id="servicos-ativacoes" class="hero" aria-label="Ativações">
+          <div class="hero-content">
+            <h3>Ativações</h3>
+            <p>
+              Transformamos ideias em ativações de impacto, adequadas a diferentes praças e públicos.
+              Do planejamento logístico à execução em campo, garantimos padronização, registro em tempo real
+              e relatórios finais claros para orientar as próximas decisões.
+            </p>
+            <p class="micro-trust"><a href="#servicos">Voltar aos serviços</a></p>
+          </div>
+        </section>
+
+        <section id="servicos-live" class="hero" aria-label="Live Marketing">
+          <div class="hero-content">
+            <h3>Live Marketing</h3>
+            <p>
+              Conectamos marcas e pessoas por meio de experiências ao vivo.
+              A produção e a operação contam com checklists digitais, pontos focais locais e acompanhamento centralizado,
+              reduzindo riscos e ampliando o alcance com previsibilidade.
+            </p>
+            <p class="micro-trust"><a href="#servicos">Voltar aos serviços</a></p>
+          </div>
+        </section>
+
+        <section id="servicos-multi" class="hero" aria-label="Operação Multi-Praça">
+          <div class="hero-content">
+            <h3>Operação Multi-Praça</h3>
+            <p>
+              Coordenamos execuções simultâneas em diversas cidades.
+              Ferramentas integradas distribuem recursos, monitoram equipes e consolidam resultados,
+              assegurando a mesma qualidade em cada praça, do início ao fim.
+            </p>
+            <p class="micro-trust"><a href="#servicos">Voltar aos serviços</a></p>
+          </div>
+        </section>
+
+        <section id="servicos-360" class="hero" aria-label="Produção 360">
+          <div class="hero-content">
+            <h3>Produção 360</h3>
+            <p>
+              Cobrimos todo o ciclo de produção, do conceito à entrega final.
+              Com governança, tecnologia e indicadores, você tem controle completo e transparência em cada etapa,
+              tornando o processo replicável e mensurável.
+            </p>
+            <p class="micro-trust"><a href="#servicos">Voltar aos serviços</a></p>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- SEU PROJETO (CTA; formulário será feito depois) -->
+    <section id="seu-projeto" class="hero" aria-label="Seu Projeto">
+      <div class="hero-content">
+        <h2 class="hero-title">Seu Projeto</h2>
+        <p class="hero-subtitle">Conte com a B2B Partners BRZL para transformar sua ideia em realidade.</p>
+        <p>
+          Quando estiver pronto, enviaremos o formulário gratuito aqui. Por enquanto, fale conosco pelo WhatsApp
+          ou siga explorando os serviços e processos.
         </p>
       </div>
     </section>
