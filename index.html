@@ -29,8 +29,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
 
-  <!-- força recarregar CSS no mobile -->
-  <link rel="stylesheet" href="styles.css?v=services-cards2" />
+  <!-- força recarregar CSS -->
+  <link rel="stylesheet" href="styles.css?v=hero-arial-1" />
 </head>
 <body>
 
@@ -61,7 +61,7 @@
     </button>
   </header>
 
-  <!-- MENU MOBILE (mesma ordem do desktop) -->
+  <!-- MENU MOBILE -->
   <div id="mobile-menu" class="mobile-menu-overlay" aria-hidden="true">
     <nav class="mobile-menu-nav" aria-label="Menu principal (mobile)">
       <a href="#servicos">O que fazemos</a>
@@ -71,7 +71,7 @@
     </nav>
   </div>
 
-  <!-- CARROSSEL (no fluxo) -->
+  <!-- CARROSSEL -->
   <section id="clientes" class="clients-fixed" aria-label="Marcas que confiam em nós">
     <div class="logo-marquee" role="region" aria-roledescription="carrossel automático" aria-label="Logos de clientes">
       <div class="logo-marquee__track">
@@ -106,24 +106,16 @@
 
   <!-- CONTEÚDO -->
   <main class="content-area">
-    <!-- HERO (statement único) -->
+    <!-- HERO (texto em Arial; desktop 1 linha, mobile 4 linhas) -->
     <section id="hero" class="hero" aria-label="Abertura">
       <div class="hero-content">
-        <h1 class="hero-title">
-          <span class="desktop-only">
-            <span class="h-bold">Da ideia à entrega:</span>
-            <span class="h-bold h-italic">Execução multi-praça.</span>
-            <span class="h-bold h-yellow">Precisão.</span>
-            <span class="h-bold h-italic">Tecnologia.</span>
-            <span class="h-bold h-yellow">Isso é B2B.</span>
-          </span>
-          <span class="mobile-only">
-            <span class="h-bold">Da ideia à entrega:</span><br>
-            <span class="h-bold h-italic">Execução multi-praça.</span><br>
-            <span class="h-bold h-yellow">Precisão.</span> <span class="h-bold h-italic">Tecnologia.</span><br>
-            <span class="h-bold h-yellow">Isso é B2B.</span>
-          </span>
-        </h1>
+        <p class="hero-text">
+          <span class="seg-normal">Da ideia à entrega:</span><br class="mbr">
+          <span class="seg-bold"> Execução multi-praça.</span><br class="mbr">
+          <span class="seg-bold seg-yellow"> Precisão.</span>
+          <span class="seg-italic"> Tecnologia.</span><br class="mbr">
+          <span class="seg-bold seg-yellow"> Isso é B2B.</span>
+        </p>
       </div>
     </section>
 
@@ -334,9 +326,10 @@
     <p>2025 © B2B Partners BRZL</p>
   </footer>
 
-  <!-- JS (igual) -->
+  <!-- JS (sem o script de “fit” do título, não é mais necessário) -->
   <script>
     (function(){
+      // Menu mobile
       const btn = document.querySelector('.menu-toggle');
       const menu = document.getElementById('mobile-menu');
       const links = menu.querySelectorAll('a[href^="#"]');
@@ -353,48 +346,7 @@
         links.forEach(a => a.addEventListener('click', ()=> toggleMenu(false)));
       }
 
-      const h1 = document.querySelector('#hero .hero-title');
-      const spanDesktop = document.querySelector('#hero .desktop-only');
-      const hero = document.getElementById('hero');
-      function isDesktop(){ return spanDesktop && getComputedStyle(spanDesktop).display !== 'none'; }
-      function lockWidthToCurrent(){
-        if(!h1) return null;
-        h1.style.width = ''; h1.style.maxWidth = ''; h1.style.fontSize = '';
-        const available = Math.round(h1.getBoundingClientRect().width);
-        if (available > 0){
-          h1.style.width = available + 'px';
-          h1.style.maxWidth = 'none';
-          h1.style.marginLeft = 'auto';
-          h1.style.marginRight = 'auto';
-          return available;
-        }
-        return null;
-      }
-      function contentWidth(){ return Math.round(spanDesktop.getBoundingClientRect().width); }
-      function fitHero(){
-        if(!h1 || !spanDesktop) return;
-        if(!isDesktop()){
-          h1.style.width = ''; h1.style.maxWidth = ''; h1.style.fontSize = '';
-          h1.style.marginLeft = ''; h1.style.marginRight = '';
-          return;
-        }
-        const target = lockWidthToCurrent(); if(!target) return;
-        let min = 12, max = Math.min(48, parseFloat(getComputedStyle(h1).fontSize) || 38);
-        let cw = contentWidth();
-        if (cw <= target) return;
-        while ((max - min) > 0.5){
-          const mid = (min + max) / 2;
-          h1.style.fontSize = mid + 'px';
-          cw = contentWidth();
-          if (cw <= target){ min = mid; } else { max = mid; }
-        }
-        h1.style.fontSize = Math.floor(min) + 'px';
-      }
-      window.addEventListener('load', fitHero);
-      window.addEventListener('resize', fitHero);
-      if (document.fonts && document.fonts.ready) { document.fonts.ready.then(fitHero).catch(()=>{}); }
-      if (window.ResizeObserver && hero){ const ro = new ResizeObserver(fitHero); ro.observe(hero); }
-
+      // FORM
       const form = document.getElementById('briefing-form');
       const statusEl = document.getElementById('form-status');
       if(form){
@@ -403,16 +355,20 @@
           const btn = form.querySelector('button[type="submit"]');
           const data = new FormData(form);
           if ((data.get('website') || '').trim() !== '') return;
+
           const consent = form.querySelector('#lgpd');
           if(!consent || !consent.checked){
             statusEl.textContent = 'Para enviar, marque o consentimento LGPD.';
             return;
           }
+
           if(!data.get('nome') || !data.get('email') || !data.get('mensagem')){
             statusEl.textContent = 'Preencha nome, e-mail e mensagem.';
             return;
           }
+
           data.append('timestamp', new Date().toISOString());
+
           btn.disabled = true; const prev = btn.textContent; btn.textContent = 'Enviando…';
           statusEl.textContent = '';
           try{
