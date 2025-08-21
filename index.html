@@ -115,7 +115,7 @@
     <section id="hero" class="hero" aria-label="Abertura">
       <div class="hero-content">
         <h1 class="hero-title">
-          <!-- Desktop: em linha, com ênfases e amarelos -->
+          <!-- Desktop: uma linha com as mesmas ênfases -->
           <span class="desktop-only">
             <span class="h-bold">Da ideia à entrega:</span>
             <span class="h-bold h-italic">Execução multi-praça.</span>
@@ -124,7 +124,7 @@
             <span class="h-bold h-yellow">Isso é B2B.</span>
           </span>
 
-          <!-- Mobile: com quebras, mantendo a mesma formatação -->
+          <!-- Mobile: quatro linhas, mantendo a mesma formatação -->
           <span class="mobile-only">
             <span class="h-bold">Da ideia à entrega:</span><br>
             <span class="h-bold h-italic">Execução multi-praça.</span><br>
@@ -346,7 +346,7 @@
         links.forEach(a => a.addEventListener('click', ()=> toggleMenu(false)));
       }
 
-      // ===== FIT DO HERO NO DESKTOP (mantém a largura atual, centraliza e reduz fonte se necessário) =====
+      // ===== FIT DO HERO NO DESKTOP (mantém largura atual, centraliza e reduz a fonte se precisar) =====
       const h1 = document.querySelector('#hero .hero-title');
       const spanDesktop = document.querySelector('#hero .desktop-only');
       const hero = document.getElementById('hero');
@@ -356,16 +356,13 @@
       }
 
       function lockWidthToCurrent(){
-        // desbloqueia para medir a largura atual (42ch do CSS)
         h1.style.width = '';
         h1.style.maxWidth = '';
-        h1.style.fontSize = ''; // volta ao maior tamanho definido no CSS
-        // força reflow e mede
+        h1.style.fontSize = '';
         const available = Math.round(h1.getBoundingClientRect().width);
         if (available > 0){
           h1.style.width = available + 'px';
           h1.style.maxWidth = 'none';
-          // centraliza no desktop
           h1.style.marginLeft = 'auto';
           h1.style.marginRight = 'auto';
           return available;
@@ -374,7 +371,6 @@
       }
 
       function contentWidth(){
-        // como é inline-block, a medição é confiável
         return Math.round(spanDesktop.getBoundingClientRect().width);
       }
 
@@ -382,7 +378,7 @@
         if(!h1 || !spanDesktop) return;
 
         if(!isDesktop()){
-          // Mobile: reseta tudo (alinhado à esquerda pelo CSS)
+          // Mobile: reseta
           h1.style.width = '';
           h1.style.maxWidth = '';
           h1.style.fontSize = '';
@@ -400,21 +396,15 @@
 
         if (cw <= target) return;
 
-        // busca binária até caber
         while ((max - min) > 0.5){
           const mid = (min + max) / 2;
           h1.style.fontSize = mid + 'px';
           cw = contentWidth();
-          if (cw <= target){
-            min = mid;
-          } else {
-            max = mid;
-          }
+          if (cw <= target){ min = mid; } else { max = mid; }
         }
         h1.style.fontSize = Math.floor(min) + 'px';
       }
 
-      // Eventos
       window.addEventListener('load', fitHero);
       window.addEventListener('resize', fitHero);
       if (document.fonts && document.fonts.ready) {
