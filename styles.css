@@ -169,7 +169,7 @@ section[id]{
   font-weight:700;
   letter-spacing:.01em;
   line-height:1.25;
-  max-width: 42ch;        /* conforto de leitura e largura-alvo do hero */
+  max-width: 42ch;        /* largura-alvo do hero */
 }
 .hero-subtitle{
   color:var(--text-muted);
@@ -183,26 +183,24 @@ section[id]{
 .h-yellow{ color:#FFCC00; }
 
 /* Statement do hero inicial
-   - Desktop: 1 linha dentro de 42ch (ajuste automático do tamanho)
+   - Desktop: 1 linha dentro de 42ch (JS ajusta a fonte se necessário)
    - Mobile: quebras controladas via .mobile-only */
 #hero .hero-title{
   margin-top: 2px;
-  font-size: clamp(18px, 2.2vw, 38px); /* ajusta para caber em 42ch */
-  white-space: nowrap;                 /* impede quebras no desktop */
+  font-size: clamp(18px, 2.2vw, 38px); /* valor inicial; JS ajusta fino */
+  white-space: nowrap;                 /* sem quebra no desktop */
 }
 
 /* Versões desktop/mobile do texto do hero */
 .desktop-only { display: inline; }
-.mobile-only { display: none; }
+.mobile-only  { display: none; }
 
 /* HERO de abertura com fundo colorido e texto branco */
 #hero{
   background: #669999;
   color: #ffffff;
 }
-#hero .hero-title{
-  color:#ffffff; /* base branca para todos os spans, com exceção do amarelo */
-}
+#hero .hero-title{ color:#ffffff; }
 
 /* Texto confortável */
 .hero p{
@@ -281,7 +279,7 @@ section[id]{
   .mobile-only  { display: inline; }
   #hero .hero-title{
     white-space: normal;               /* permite quebra no mobile */
-    font-size: clamp(18px, 5.5vw, 30px); /* tamanho confortável no mobile */
+    font-size: clamp(18px, 5.5vw, 30px);
   }
 
   /* Serviços: empilhar no mobile */

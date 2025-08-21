@@ -179,7 +179,7 @@
         </p>
         <p>
           Mantemos um padrão único em todas as praças, com playbooks de montagem, comunicação unificada e checklists em cada fase.
-          Também prezamos pela transparência: trabalhamos com marcos de status (D‑7, D‑1, D+1) e registramos a entrega com documentação fotográfica.
+          Também prezamos pela transparência: trabalhamos com marcos de status (D-7, D-1, D+1) e registramos a entrega com documentação fotográfica.
         </p>
 
         <h3>Por que confiam em nós</h3>
@@ -190,7 +190,7 @@
         <h3>Alcance e segurança</h3>
         <p>
           Atendemos em todo o território nacional com rede homologada e gestão central. Cada operação segue protocolos de segurança,
-          normas locais e medidas de mitigação de risco, do pré‑planejamento à desmontagem.
+          normas locais e medidas de mitigação de risco, do pré-planejamento à desmontagem.
         </p>
 
         <h3>O que não fazemos</h3>
@@ -327,9 +327,10 @@
     <p>2025 © B2B Partners BRZL</p>
   </footer>
 
-  <!-- JS: menu mobile -->
+  <!-- JS: menu mobile + ajuste automático do hero -->
   <script>
     (function(){
+      // Menu mobile
       const btn = document.querySelector('.menu-toggle');
       const menu = document.getElementById('mobile-menu');
       const links = menu.querySelectorAll('a[href^="#"]');
@@ -344,6 +345,50 @@
         btn.addEventListener('click', ()=> toggleMenu());
         window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') toggleMenu(false); });
         links.forEach(a => a.addEventListener('click', ()=> toggleMenu(false)));
+      }
+
+      // Ajuste de fonte do hero (desktop) para caber na largura atual (42ch)
+      function fitHero(){
+        const h1 = document.querySelector('#hero .hero-title');
+        if(!h1) return;
+
+        // Detecta se estamos mostrando a versão desktop
+        const desktopSpan = document.querySelector('#hero .desktop-only');
+        const isDesktop = desktopSpan && getComputedStyle(desktopSpan).display !== 'none';
+        if(!isDesktop){
+          // Mobile usa quebras, então não forçamos ajuste
+          h1.style.fontSize = '';
+          return;
+        }
+
+        // Faixa de tamanhos permitidos
+        let min = 16;    // px
+        let max = 38;    // px (coerente com CSS)
+        let eps = 0.5;   // precisão
+
+        // Começa no máximo e ajusta por busca binária até caber no clientWidth (42ch)
+        h1.style.fontSize = max + 'px';
+
+        // Se já couber, não mexe
+        if (h1.scrollWidth <= h1.clientWidth) return;
+
+        while (max - min > eps){
+          const mid = (min + max) / 2;
+          h1.style.fontSize = mid + 'px';
+          if (h1.scrollWidth <= h1.clientWidth){
+            min = mid;   // pode crescer
+          } else {
+            max = mid;   // precisa diminuir
+          }
+        }
+        h1.style.fontSize = Math.floor(min) + 'px';
+      }
+
+      window.addEventListener('load', fitHero);
+      window.addEventListener('resize', fitHero);
+      // Ajuste adicional após fontes web carregarem
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(fitHero).catch(()=>{});
       }
     })();
   </script>
