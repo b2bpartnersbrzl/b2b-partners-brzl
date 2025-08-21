@@ -30,7 +30,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <!-- força recarregar CSS -->
-  <link rel="stylesheet" href="styles.css?v=desktop-modal-1" />
+  <link rel="stylesheet" href="styles.css?v=form-status-1" />
 </head>
 <body>
 
@@ -106,7 +106,7 @@
 
   <!-- CONTEÚDO -->
   <main class="content-area">
-    <!-- HERO (Arial; desktop 1 linha centralizada, mobile 4 linhas à esquerda) -->
+    <!-- HERO -->
     <section id="hero" class="hero" aria-label="Abertura">
       <div class="hero-content">
         <p class="hero-text">
@@ -119,7 +119,7 @@
       </div>
     </section>
 
-    <!-- O QUE FAZEMOS (cartões) -->
+    <!-- O QUE FAZEMOS -->
     <section id="servicos" class="hero" aria-label="O que fazemos">
       <div class="hero-content">
         <h2 class="hero-title">O que fazemos</h2>
@@ -247,7 +247,7 @@
         <h2 class="hero-title">Seu Projeto</h2>
         <p class="hero-subtitle">Envie um briefing rápido. Respondemos com prazo e próximos passos.</p>
 
-        <!-- action ATUALIZADO para a URL /exec do seu Web App -->
+        <!-- action já aponta para o seu Web App (/exec) -->
         <form id="briefing-form" class="form" method="POST" action="https://script.google.com/macros/s/AKfycbwV4pGGADw0Q2i5KV80w3VAVBoLoThFB0OF8p376GU6IIIwZhdiMFtRHR6-t4ks5cxw/exec" novalidate>
           <div class="visually-hidden" aria-hidden="true" hidden>
             <label for="website">Não preencha este campo</label>
@@ -317,7 +317,7 @@
     </section>
   </main>
 
-  <!-- AVISO DESKTOP (modal centralizado + scrim sem blur) -->
+  <!-- AVISO DESKTOP (modal centralizado + scrim) -->
   <div id="desktop-advice" class="overlay" role="dialog" aria-modal="true" aria-labelledby="desktop-advice-title" aria-describedby="desktop-advice-desc" hidden>
     <div class="overlay__scrim" data-close aria-hidden="true"></div>
     <div class="overlay__card" role="document">
@@ -372,7 +372,7 @@
         links.forEach(a => a.addEventListener('click', ()=> toggleMenu(false)));
       }
 
-      /* FORM */
+      /* FORM – status destacado */
       const form = document.getElementById('briefing-form');
       const statusEl = document.getElementById('form-status');
       if(form){
@@ -380,27 +380,41 @@
           e.preventDefault();
           const sbtn = form.querySelector('button[type="submit"]');
           const data = new FormData(form);
+          const resetStatus = () => {
+            statusEl.textContent = '';
+            statusEl.className = 'form-status';
+          };
+          resetStatus();
+
           if ((data.get('website') || '').trim() !== '') return;
 
           const consent = form.querySelector('#lgpd');
           if(!consent || !consent.checked){
             statusEl.textContent = 'Para enviar, marque o consentimento LGPD.';
+            statusEl.classList.add('form-status--error');
+            statusEl.scrollIntoView({behavior:'smooth', block:'nearest'});
             return;
           }
           if(!data.get('nome') || !data.get('email') || !data.get('mensagem')){
             statusEl.textContent = 'Preencha nome, e-mail e mensagem.';
+            statusEl.classList.add('form-status--error');
+            statusEl.scrollIntoView({behavior:'smooth', block:'nearest'});
             return;
           }
 
           data.append('timestamp', new Date().toISOString());
+
           sbtn.disabled = true; const prev = sbtn.textContent; sbtn.textContent = 'Enviando…';
-          statusEl.textContent = '';
           try{
             await fetch(form.action, { method: 'POST', body: data, mode: 'no-cors' });
             statusEl.textContent = 'Recebido. Entraremos em contato em breve.';
+            statusEl.classList.add('form-status--success');
+            statusEl.scrollIntoView({behavior:'smooth', block:'nearest'});
             form.reset();
           }catch(err){
             statusEl.textContent = 'Não foi possível enviar agora. Tente novamente.';
+            statusEl.classList.add('form-status--error');
+            statusEl.scrollIntoView({behavior:'smooth', block:'nearest'});
           }finally{
             sbtn.disabled = false; sbtn.textContent = prev;
           }
@@ -435,9 +449,7 @@
         overlay.hidden = false;
         overlay.classList.add('show');
         document.body.classList.add('overlay-open');
-        // foco inicial
         setTimeout(()=>{ (btnContinue || btnOpenMobile || overlay).focus?.(); }, 0);
-        // Esc para fechar (sem gravar preferência)
         window.addEventListener('keydown', onEsc, { once:false });
       }
       function closeOverlay(persist){
@@ -452,12 +464,11 @@
 
       function maybeShowOverlay(){
         const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
-        if(!isDesktop) return;           // mobile/tablet: nunca mostra
-        if(isAckValid()) return;         // já aceitou: não mostra
+        if(!isDesktop) return;
+        if(isAckValid()) return;
         openOverlay();
       }
 
-      // Eventos dos botões
       btnContinue && btnContinue.addEventListener('click', ()=> closeOverlay(true));
       btnOpenMobile && btnOpenMobile.addEventListener('click', ()=>{
         if(hint) hint.hidden = !hint.hidden;
@@ -475,16 +486,13 @@
         }catch(_){}
       });
 
-      // Fechamento por clique fora / X
       overlay && overlay.addEventListener('click', (e)=>{
         if(e.target.hasAttribute('data-close') || e.target.classList.contains('overlay__close')){
           closeOverlay(false);
         }
       });
 
-      // Mostra somente após carregar
       window.addEventListener('load', maybeShowOverlay);
-      // Reage a mudanças de largura (ex.: redimensionar janela)
       window.addEventListener('resize', ()=>{
         if(!overlay || overlay.hidden) return;
         const isDesktop = window.matchMedia('(min-width: 1024px)').matches;

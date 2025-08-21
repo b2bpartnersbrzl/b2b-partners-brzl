@@ -127,7 +127,7 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
 
 /* HERO de abertura com nova tipografia */
 #hero{ background:#669999; color:#ffffff; }
-#hero .hero-content{ text-align: center; }      /* desktop: centralizado */
+#hero .hero-content{ text-align: center; }
 #hero .hero-text{
   font-family: Arial, sans-serif;
   color:#FFFFFF;
@@ -202,6 +202,7 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
   margin-top: 0.15em; /* ajuste fino */
 }
 
+/* Ações do formulário */
 .form-actions{ display:flex; align-items:center; gap:14px; margin-top:10px; }
 .btn-primary{
   appearance:none; border:none; cursor:pointer; background:#669999; color:#fff; font-weight:700;
@@ -211,18 +212,50 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
 .btn-primary:hover, .btn-primary:focus{ transform:translateY(-1px); box-shadow:0 10px 22px rgba(0,0,0,.16); }
 .btn-primary:disabled{ opacity:.6; cursor:not-allowed; }
 
-/* Botões secundários do modal */
-.btn-secondary{
-  appearance:none; cursor:pointer; background:#ffffff; color:var(--accent); font-weight:700;
-  padding:12px 18px; border-radius:10px; border:1px solid var(--accent);
-  transition:background .18s ease, color .18s ease, border-color .18s ease;
+.form-legal{ font-size:12px; color:#666; }
+
+/* Mensagem de status (DESTAQUE) */
+.form-status{
+  font-size:14px;
+  margin-top:10px;
+  min-height:1.2em;
+  padding:10px 12px;
+  border-radius:10px;
+  border:1px solid transparent;
+  font-weight:600;
 }
-.btn-secondary:hover, .btn-secondary:focus{ background:#f2f7f7; }
-.btn-tertiary{
-  appearance:none; cursor:pointer; background:transparent; color:#444; font-weight:700;
-  padding:10px 14px; border-radius:10px; border:1px solid #dcdcdc;
+.form-status:empty{ padding:0; border:none; }        /* sem caixa quando vazia */
+.form-status--success{
+  color:#2e5e5e;
+  background:rgba(102,153,153,.12);
+  border-color:#669999;
 }
-.btn-tertiary:hover, .btn-tertiary:focus{ background:#fafafa; }
+.form-status--error{
+  color:#8a1f11;
+  background:#fdecea;
+  border-color:#f5c2c7;
+}
+
+/* Acessibilidade utilitária */
+.visually-hidden{
+  position:absolute !important; height:1px; width:1px; overflow:hidden;
+  clip:rect(1px,1px,1px,1px); white-space:nowrap; clip-path:inset(50%);
+}
+
+/* CTA WhatsApp */
+.whatsapp-float{ position:fixed; right:20px; bottom: calc(var(--footer-height) - 16px); z-index:1400; }
+.whatsapp-icon{ width:64px; height:64px; filter:drop-shadow(0 6px 12px rgba(0,0,0,.25)); }
+
+/* FOOTER fixo */
+.footer-bar{
+  position:fixed; left:0; right:0; bottom:0;
+  height:var(--footer-height);
+  background:#ffffff;
+  border-top:1px solid var(--block-border);
+  display:flex; align-items:center; justify-content:center;
+  z-index:1150;
+}
+.footer-bar p{font-size:12px; color:var(--text)}
 
 /* AVISO DESKTOP (modal + scrim) */
 .overlay{
@@ -258,21 +291,6 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
 /* Enquanto o overlay estiver aberto: pausa carrossel e trava scroll */
 body.overlay-open{ overflow:hidden; }
 body.overlay-open .logo-marquee__track{ animation-play-state: paused; }
-
-/* CTA WhatsApp */
-.whatsapp-float{ position:fixed; right:20px; bottom: calc(var(--footer-height) - 16px); z-index:1400; }
-.whatsapp-icon{ width:64px; height:64px; filter:drop-shadow(0 6px 12px rgba(0,0,0,.25)); }
-
-/* FOOTER fixo */
-.footer-bar{
-  position:fixed; left:0; right:0; bottom:0;
-  height:var(--footer-height);
-  background:#ffffff;
-  border-top:1px solid var(--block-border);
-  display:flex; align-items:center; justify-content:center;
-  z-index:1150;
-}
-.footer-bar p{font-size:12px; color:var(--text)}
 
 /* RESPONSIVO */
 @media (max-width:1200px){
