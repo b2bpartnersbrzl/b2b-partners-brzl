@@ -34,8 +34,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="styles.css" />
+  <!-- CSS (com versão para evitar cache antigo) -->
+  <link rel="stylesheet" href="styles.css?v=mobile1" />
 </head>
 <body>
 
@@ -115,7 +115,6 @@
     <section id="hero" class="hero" aria-label="Abertura">
       <div class="hero-content">
         <h1 class="hero-title">
-          <!-- Desktop: uma linha com as mesmas ênfases -->
           <span class="desktop-only">
             <span class="h-bold">Da ideia à entrega:</span>
             <span class="h-bold h-italic">Execução multi-praça.</span>
@@ -123,8 +122,6 @@
             <span class="h-bold h-italic">Tecnologia.</span>
             <span class="h-bold h-yellow">Isso é B2B.</span>
           </span>
-
-          <!-- Mobile: quatro linhas, mantendo a mesma formatação -->
           <span class="mobile-only">
             <span class="h-bold">Da ideia à entrega:</span><br>
             <span class="h-bold h-italic">Execução multi-praça.</span><br>
@@ -172,12 +169,6 @@
           que garante consistência em múltiplas praças, mantendo prazos, padrão e governança operacional.
         </p>
 
-        <h3>Como trabalhamos</h3>
-        <p>
-          Nosso processo segue quatro etapas simples. Começamos pelo alinhamento e pelo roteiro de execução. Em seguida, planejamos recursos e cidades.
-          Depois, conduzimos a operação em campo com pontos focais locais. Por fim, validamos cada entrega e apresentamos um relatório claro de resultados.
-        </p>
-
         <p class="micro-trust">
           Pronto para viabilizar sua operação? Acesse <a href="#seu-projeto">Seu Projeto</a> e envie o briefing.
         </p>
@@ -195,24 +186,16 @@
         </p>
 
         <h3>1) Alinhamento</h3>
-        <p>
-          Cada projeto começa com um briefing claro que vira um roteiro de execução. Desde esse momento, abrimos um dossiê digital do projeto para registrar decisões, arquivos e responsáveis.
-        </p>
+        <p>Cada projeto começa com um briefing claro que vira um roteiro de execução.</p>
 
         <h3>2) Planejamento</h3>
-        <p>
-          Distribuímos recursos, equipes e cidades com apoio de softwares de gestão e planilhas integradas. Cronogramas e checklists são centralizados, e prazos ficam visíveis para todas as partes.
-        </p>
+        <p>Distribuímos recursos, equipes e cidades com apoio de softwares de gestão e planilhas integradas.</p>
 
         <h3>3) Operação em campo</h3>
-        <p>
-          Pontos focais locais conduzem montagem, execução e desmontagem. Os registros são digitais e em tempo real: checklists móveis, fotos de evidência e ocorrências documentadas, tudo com carimbo de data e, quando aplicável, geolocalização.
-        </p>
+        <p>Pontos focais locais conduzem montagem, execução e desmontagem, com registros em tempo real.</p>
 
         <h3>4) Validação e relatório</h3>
-        <p>
-          Consolidamos os dados em dashboards e entregamos um relatório final com documentação fotográfica e indicadores de desempenho. O cliente sabe exatamente o que foi feito, quando e por quem — justificando o nosso <strong>Com tecnologia.</strong>
-        </p>
+        <p>Consolidamos os dados em dashboards e entregamos relatório final com documentação fotográfica.</p>
 
         <p class="micro-trust">
           Quer ver esse processo aplicado ao seu caso? Vá até <a href="#seu-projeto">Seu Projeto</a> e envie o briefing.
@@ -229,9 +212,7 @@
         <section id="servicos-ativacoes" class="hero" aria-label="Ativações">
           <div class="hero-content">
             <h3>Ativações</h3>
-            <p>
-              Transformamos ideias em ativações de impacto, adequadas a diferentes praças e públicos.
-            </p>
+            <p>Transformamos ideias em ativações de impacto, adequadas a diferentes praças e públicos.</p>
             <p class="micro-trust"><a href="#servicos">Voltar aos serviços</a></p>
           </div>
         </section>
@@ -239,9 +220,7 @@
         <section id="servicos-live" class="hero" aria-label="Live Marketing">
           <div class="hero-content">
             <h3>Live Marketing</h3>
-            <p>
-              Conectamos marcas e pessoas por meio de experiências ao vivo.
-            </p>
+            <p>Conectamos marcas e pessoas por meio de experiências ao vivo.</p>
             <p class="micro-trust"><a href="#servicos">Voltar aos serviços</a></p>
           </div>
         </section>
@@ -249,9 +228,7 @@
         <section id="servicos-multi" class="hero" aria-label="Operação Multi-Praça">
           <div class="hero-content">
             <h3>Operação Multi-Praça</h3>
-            <p>
-              Coordenamos execuções simultâneas em diversas cidades.
-            </p>
+            <p>Coordenamos execuções simultâneas em diversas cidades.</p>
             <p class="micro-trust"><a href="#servicos">Voltar aos serviços</a></p>
           </div>
         </section>
@@ -259,9 +236,7 @@
         <section id="servicos-360" class="hero" aria-label="Produção 360">
           <div class="hero-content">
             <h3>Produção 360</h3>
-            <p>
-              Cobrimos todo o ciclo de produção, do conceito à entrega final.
-            </p>
+            <p>Cobrimos todo o ciclo de produção, do conceito à entrega final.</p>
             <p class="micro-trust"><a href="#servicos">Voltar aos serviços</a></p>
           </div>
         </section>
@@ -276,7 +251,7 @@
 
         <form id="briefing-form" class="form" method="POST" action="YOUR_GAS_WEB_APP_URL" novalidate>
           <!-- Honeypot anti-spam -->
-          <div class="visually-hidden" aria-hidden="true">
+          <div class="visually-hidden" aria-hidden="true" hidden>
             <label for="website">Não preencha este campo</label>
             <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
           </div>
@@ -321,8 +296,16 @@
 
             <div class="form-field form-field--full">
               <label for="mensagem">Mensagem *</label>
-              <textarea id="mensagem" name="mensagem" rows="5" required placeholder="Escopo, cidades, datas, metas…"></textarea>
+              <textarea id="mensagem" name="mensagem" rows="5" required placeholder="Escopo, cidades, datas, metas, links (Drive/WeTransfer)…"></textarea>
             </div>
+          </div>
+
+          <!-- Consentimento LGPD -->
+          <div class="form-field form-field--full">
+            <label for="lgpd" style="display:flex; gap:10px; align-items:flex-start;">
+              <input type="checkbox" id="lgpd" name="lgpd" required />
+              <span>Autorizo o uso dos dados enviados para contato e envio de proposta, conforme a LGPD.</span>
+            </label>
           </div>
 
           <div class="form-actions">
@@ -366,7 +349,7 @@
         links.forEach(a => a.addEventListener('click', ()=> toggleMenu(false)));
       }
 
-      // Fit do hero no desktop (já existente)
+      // Fit do hero no desktop
       const h1 = document.querySelector('#hero .hero-title');
       const spanDesktop = document.querySelector('#hero .desktop-only');
       const hero = document.getElementById('hero');
@@ -409,7 +392,7 @@
       if (document.fonts && document.fonts.ready) { document.fonts.ready.then(fitHero).catch(()=>{}); }
       if (window.ResizeObserver && hero){ const ro = new ResizeObserver(fitHero); ro.observe(hero); }
 
-      // ===== FORM: submissão com fetch, sem expor e-mail =====
+      // ===== FORM: submissão com fetch, LGPD obrigatório =====
       const form = document.getElementById('briefing-form');
       const statusEl = document.getElementById('form-status');
       if(form){
@@ -421,9 +404,17 @@
           // Honeypot
           if ((data.get('website') || '').trim() !== '') return;
 
+          // LGPD
+          const consent = form.querySelector('#lgpd');
+          if(!consent || !consent.checked){
+            statusEl.textContent = 'Para enviar, marque o consentimento LGPD.';
+            return;
+          }
+
           // Regras mínimas
           if(!data.get('nome') || !data.get('email') || !data.get('mensagem')){
-            statusEl.textContent = 'Preencha nome, e-mail e mensagem.'; return;
+            statusEl.textContent = 'Preencha nome, e-mail e mensagem.';
+            return;
           }
 
           // Timestamp
