@@ -169,7 +169,7 @@ section[id]{
   font-weight:700;
   letter-spacing:.01em;
   line-height:1.25;
-  max-width: 42ch;        /* conforto de leitura */
+  max-width: 42ch;        /* conforto de leitura e largura-alvo do hero */
 }
 .hero-subtitle{
   color:var(--text-muted);
@@ -177,13 +177,28 @@ section[id]{
   max-width: 60ch;
 }
 
-/* Statement do hero inicial (uma frase forte) */
+/* Statement do hero inicial
+   - Desktop: 1 linha dentro de 42ch (ajuste automático do tamanho)
+   - Mobile: quebras controladas via .mobile-only */
 #hero .hero-title{
-  font-size: clamp(22px, 4.4vw, 42px);
   margin-top: 2px;
+  font-size: clamp(18px, 2.2vw, 38px); /* ajusta para caber em 42ch */
+  white-space: nowrap;                 /* impede quebras no desktop */
 }
-@media (min-width: 1024px){
-  #hero .hero-title{ font-size: 44px; }
+
+/* Versões desktop/mobile do texto do hero */
+.desktop-only { display: inline; }
+.mobile-only { display: none; }
+
+/* HERO de abertura com fundo colorido e texto branco */
+#hero{
+  background: #669999;
+  color: #ffffff;
+}
+#hero .hero-title,
+#hero .hero-title em{
+  color: #ffffff;
+  font-style: italic;
 }
 
 /* Texto confortável */
@@ -212,7 +227,7 @@ section[id]{
 #servicos .info-block{
   flex: 1 1 23%;             /* quatro colunas proporcionais */
   min-width: 0;              /* evita overflow interno */
-  padding:20px;              /* um pouco mais enxuto para caber com conforto */
+  padding:20px;              /* mais enxuto para caber com conforto */
 }
 #servicos .block-title{
   font-size:18px;            /* leve redução para caber melhor lado a lado */
@@ -252,12 +267,19 @@ section[id]{
 
 /* Responsivo */
 @media (max-width:1024px){
-  /* se faltar espaço em telas médias, permita redução controlada */
   #servicos .block-title{font-size:17px}
 }
 @media (max-width:768px){
   .logo-subline{white-space:normal}
   .hero{padding:24px}
+
+  /* Hero: alternar versão mobile e permitir quebras */
+  .desktop-only { display: none; }
+  .mobile-only  { display: inline; }
+  #hero .hero-title{
+    white-space: normal;               /* permite quebra no mobile */
+    font-size: clamp(18px, 5.5vw, 30px); /* tamanho confortável no mobile */
+  }
 
   /* Serviços: empilhar no mobile */
   #servicos .content-grid{
@@ -265,7 +287,7 @@ section[id]{
   }
   #servicos .info-block{
     flex: 1 1 100%;
-    padding:24px;            /* volta ao padding padrão para conforto na leitura */
+    padding:24px;            /* conforto na leitura */
   }
 
   .whatsapp-icon{width:56px; height:56px}
