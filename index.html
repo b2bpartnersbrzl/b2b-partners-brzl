@@ -247,7 +247,7 @@
       </div>
     </section>
 
-    <!-- DETALHES DE SERVIÇOS (único lugar com as descrições completas) -->
+    <!-- DETALHES DE SERVIÇOS -->
     <section id="detalhes-servicos" class="hero" aria-label="Detalhes dos Serviços">
       <div class="hero-content">
         <h2 class="hero-title">Detalhes dos Serviços</h2>
@@ -303,7 +303,7 @@
       </div>
     </section>
 
-    <!-- SEU PROJETO (CTA; formulário será feito depois) -->
+    <!-- SEU PROJETO (CTA) -->
     <section id="seu-projeto" class="hero" aria-label="Seu Projeto">
       <div class="hero-content">
         <h2 class="hero-title">Seu Projeto</h2>
@@ -346,60 +346,67 @@
         links.forEach(a => a.addEventListener('click', ()=> toggleMenu(false)));
       }
 
-      // ========= FIT DO HERO (desktop): mede a largura atual, fixa em px e ajusta a fonte =========
+      // ===== FIT DO HERO NO DESKTOP =====
       const h1 = document.querySelector('#hero .hero-title');
       const spanDesktop = document.querySelector('#hero .desktop-only');
+      const hero = document.getElementById('hero');
 
       function isDesktop(){
         return spanDesktop && getComputedStyle(spanDesktop).display !== 'none';
       }
 
-      function measureAndLockWidth(){
-        // Volta ao estado "CSS puro" para medir a largura atual (42ch)
+      function lockWidthToCurrent(){
+        // desbloqueia para medir a largura atual (42ch do CSS)
         h1.style.width = '';
         h1.style.maxWidth = '';
-        h1.style.fontSize = ''; // usa o maior tamanho do CSS
-        // força reflow e mede a largura ocupada agora
-        const target = h1.clientWidth; // largura real ocupada no layout
-        if (target > 0){
-          // fixa em pixels para que a largura NÃO mude quando a fonte mudar
-          h1.style.width = target + 'px';
+        h1.style.fontSize = ''; // volta ao maior tamanho definido no CSS
+        // força reflow e mede
+        const available = Math.round(h1.getBoundingClientRect().width);
+        if (available > 0){
+          h1.style.width = available + 'px';
           h1.style.maxWidth = 'none';
-          return target;
+          return available;
         }
         return null;
       }
 
+      function contentWidth(){
+        // garante elemento mensurável
+        const prev = spanDesktop.style.display;
+        if (getComputedStyle(spanDesktop).display === 'inline') {
+          spanDesktop.style.display = 'inline-block';
+        }
+        const w = spanDesktop.getBoundingClientRect().width;
+        spanDesktop.style.display = prev; // restaura
+        return Math.round(w);
+      }
+
       function fitHero(){
         if(!h1 || !spanDesktop) return;
+
         if(!isDesktop()){
-          // Mobile: volta ao padrão (quebras automáticas)
+          // Mobile: reseta tudo
           h1.style.width = '';
           h1.style.maxWidth = '';
           h1.style.fontSize = '';
           return;
         }
 
-        // 1) mede e fixa a largura atual em px
-        const target = measureAndLockWidth();
+        const target = lockWidthToCurrent();
         if(!target) return;
 
-        // 2) diminui a fonte até o conteúdo caber nessa largura
-        const computed = parseFloat(getComputedStyle(h1).fontSize) || 38;
-        let min = 12;              // piso
-        let max = Math.min(44, computed); // teto
-        let eps = 0.5;
+        let min = 12; // px
+        let max = Math.min(48, parseFloat(getComputedStyle(h1).fontSize) || 38);
+        let cw = contentWidth();
 
-        h1.style.fontSize = max + 'px';
-        // mede a largura do conteúdo real (independente do corte visual)
-        const contentWidth = () => spanDesktop.scrollWidth;
+        if (cw <= target) return;
 
-        if (contentWidth() <= target) return;
-
-        while ((max - min) > eps){
+        // busca binária até caber
+        while ((max - min) > 0.5){
           const mid = (min + max) / 2;
           h1.style.fontSize = mid + 'px';
-          if (contentWidth() <= target){
+          cw = contentWidth();
+          if (cw <= target){
             min = mid;
           } else {
             max = mid;
@@ -413,6 +420,10 @@
       window.addEventListener('resize', fitHero);
       if (document.fonts && document.fonts.ready) {
         document.fonts.ready.then(fitHero).catch(()=>{});
+      }
+      if (window.ResizeObserver && hero){
+        const ro = new ResizeObserver(fitHero);
+        ro.observe(hero);
       }
     })();
   </script>

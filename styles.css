@@ -42,7 +42,7 @@ body{
   line-height:1.5;
 }
 
-/* Links */
+/* Links (padrão) */
 a{ color: var(--accent); text-decoration: none; }
 a:hover, a:focus{
   text-decoration: underline;
@@ -151,9 +151,10 @@ section[id]{
   font-weight:700;
   letter-spacing:.01em;
   line-height:1.25;
-  max-width: 42ch;   /* largura "de leitura" padrão */
-  overflow: hidden;  /* garante que nada vaze visualmente */
-  white-space: nowrap;
+  max-width: 42ch;     /* leitura no desktop (será “travado” em px via JS) */
+  overflow: hidden;     /* evita vazamento caso o JS ainda não rode */
+  white-space: nowrap;  /* 1 linha no desktop */
+  font-size: 38px;      /* ponto de partida; o JS diminui se necessário */
 }
 .hero-subtitle{
   color:var(--text-muted);
@@ -166,18 +167,12 @@ section[id]{
 .h-italic{ font-style:italic; }
 .h-yellow{ color:#FFCC00; }
 
-/* HERO inicial: fundo/cores */
-#hero{
-  background: #669999;
-  color: #ffffff;
-}
+/* HERO: fundo e texto */
+#hero{ background:#669999; color:#ffffff; }
 #hero .hero-title{ color:#ffffff; }
 
-/* Desktop: ponto de partida de fonte (o JS ajusta para caber se necessário) */
-#hero .hero-title{ font-size: 38px; }
-
 /* Versões desktop/mobile do texto do hero */
-.desktop-only { display: inline; }
+.desktop-only { display: inline-block; }  /* mensurável para o JS */
 .mobile-only  { display: none; }
 
 /* Texto */
@@ -244,7 +239,7 @@ section[id]{
     white-space: normal;
     overflow: visible;
     font-size: clamp(18px, 5.5vw, 30px);
-    max-width: 60ch; /* leitura confortável no mobile */
+    max-width: 60ch;
   }
 
   /* Serviços empilhados */
