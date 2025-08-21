@@ -177,6 +177,11 @@ section[id]{
   max-width: 60ch;
 }
 
+/* UTILIDADES de ênfase do hero */
+.h-bold{ font-weight:700; }
+.h-italic{ font-style:italic; }
+.h-yellow{ color:#FFCC00; }
+
 /* Statement do hero inicial
    - Desktop: 1 linha dentro de 42ch (ajuste automático do tamanho)
    - Mobile: quebras controladas via .mobile-only */
@@ -195,10 +200,8 @@ section[id]{
   background: #669999;
   color: #ffffff;
 }
-#hero .hero-title,
-#hero .hero-title em{
-  color: #ffffff;
-  font-style: italic;
+#hero .hero-title{
+  color:#ffffff; /* base branca para todos os spans, com exceção do amarelo */
 }
 
 /* Texto confortável */

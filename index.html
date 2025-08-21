@@ -114,7 +114,24 @@
     <!-- HERO (statement único) -->
     <section id="hero" class="hero" aria-label="Abertura">
       <div class="hero-content">
-        <h1 class="hero-title">Da ideia à entrega: execução multi-praça com precisão e tecnologia.</h1>
+        <h1 class="hero-title">
+          <!-- Desktop: em linha, com ênfases e amarelos -->
+          <span class="desktop-only">
+            <span class="h-bold">Da ideia à entrega:</span>
+            <span class="h-bold h-italic">Execução multi-praça.</span>
+            <span class="h-bold h-yellow">Precisão.</span>
+            <span class="h-bold h-italic">Tecnologia.</span>
+            <span class="h-bold h-yellow">Isso é B2B.</span>
+          </span>
+
+          <!-- Mobile: com quebras, mantendo a mesma formatação -->
+          <span class="mobile-only">
+            <span class="h-bold">Da ideia à entrega:</span><br>
+            <span class="h-bold h-italic">Execução multi-praça.</span><br>
+            <span class="h-bold h-yellow">Precisão.</span> <span class="h-bold h-italic">Tecnologia.</span><br>
+            <span class="h-bold h-yellow">Isso é B2B.</span>
+          </span>
+        </h1>
       </div>
     </section>
 
