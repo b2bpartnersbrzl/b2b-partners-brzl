@@ -37,7 +37,7 @@ body{ font-family:var(--font-base); color:var(--text); background:#fdfdfd; line-
 a{ color: var(--accent); text-decoration: none; }
 a:hover, a:focus{ text-decoration: underline; text-decoration-thickness:1px; text-underline-offset:3px; }
 
-/* HEADER (sólido) com clip de overflow */
+/* HEADER (sólido) com clip de overflow) */
 .main-header{
   position:fixed; top:0; left:0; right:0;
   height:var(--header-height);
@@ -320,7 +320,7 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
   display:flex; align-items:center; justify-content:center;
   z-index:1150;
 }
-.footer-bar p{font-size:12px; color:var(--text)}
+.footer-bar p{font-size:12px; color:#666}
 
 /* AVISO DESKTOP (modal + scrim) */
 .overlay{
@@ -357,24 +357,30 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
 body.overlay-open{ overflow:hidden; }
 body.overlay-open .logo-marquee__track{ animation-play-state: paused; }
 
-/* ========= SEPARADOR (pontinhos) — compacto ========= */
+/* ========= SEPARADOR (pontinhos) — MAIS FECHADO ========= */
 .separator-dots{
   width:100%;
-  height:36px;           /* desktop */
-  margin:16px 0;         /* desktop: respiro compacto e simétrico */
+  height:32px;           /* desktop */
+  margin:12px 0;         /* respiro superior = inferior (simétrico) */
   display:block;
 }
 .separator-dots svg{ display:block; width:100%; height:100%; }
-.separator-dots .dot{ fill: var(--accent); opacity:.22; transform-box: fill-box; transform-origin: center; }
+.separator-dots .dot{
+  fill: var(--accent);
+  opacity:.26;
+  r: 2.25;               /* base pequena para desktop; mobile aumenta via transform */
+  transform-box: fill-box;
+  transform-origin: center;
+}
 
 @media (max-width:768px){
   .separator-dots{
-    height:28px;        /* mobile */
-    margin:12px 0;      /* mobile: ainda menor */
+    height:22px;        /* mobile mais compacto */
+    margin:10px 0;      /* simétrico e ainda menor */
   }
   .separator-dots .dot{
-    opacity:.30;        /* mais visíveis */
-    transform: scale(1.35); /* “aumenta” o raio no mobile */
+    opacity:.38;        /* mais visível no mobile */
+    transform: scale(1.6); /* “aumenta” o raio no mobile sem alterar o SVG */
   }
 }
 
