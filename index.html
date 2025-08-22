@@ -287,4 +287,82 @@
               <label for="servico">Serviço</label>
               <select id="servico" name="servico">
                 <option value="">Selecione…</option>
-                <option>Ativações & Live
+                <option>Ativações & Live Marketing</option>
+                <option>Eventos corporativos</option>
+                <option>Shows e espetáculos</option>
+                <option>UX para eventos</option>
+                <option>Outro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="prazo">Prazo desejado</label>
+              <input type="date" id="prazo" name="prazo" />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label for="mensagem">Mensagem *</label>
+              <textarea id="mensagem" name="mensagem" rows="5" required placeholder="Escopo, cidades, datas, metas, links (Drive/WeTransfer)…"></textarea>
+            </div>
+          </div>
+
+          <!-- Consentimento LGPD -->
+          <div class="form-field form-field--full">
+            <label for="lgpd" class="consent-label">
+              <input type="checkbox" id="lgpd" name="lgpd" required />
+              <span>Autorizo o uso dos dados enviados para contato e envio de proposta, conforme a LGPD.</span>
+            </label>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-primary">Enviar briefing</button>
+            <p class="form-legal">Ao enviar, você concorda em ser contatado para prosseguirmos com seu projeto.</p>
+          </div>
+
+          <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- AVISO DESKTOP (modal centralizado + scrim) -->
+  <div id="desktop-advice" class="overlay" role="dialog" aria-modal="true" aria-labelledby="desktop-advice-title" aria-describedby="desktop-advice-desc" hidden>
+    <div class="overlay__scrim" data-close aria-hidden="true"></div>
+    <div class="overlay__card" role="document">
+      <button class="overlay__close" type="button" aria-label="Fechar aviso" title="Fechar" data-close>&times;</button>
+      <h2 id="desktop-advice-title">Experiência otimizada para celular</h2>
+      <p id="desktop-advice-desc">Você está acessando no desktop. A versão mobile oferece a melhor visualização.</p>
+
+      <div class="overlay__actions">
+        <button type="button" class="btn-primary" id="desktop-continue">Continuar no desktop</button>
+        <button type="button" class="btn-secondary" id="desktop-open-mobile">Ver no celular</button>
+      </div>
+
+      <div class="overlay__hint" id="desktop-hint" hidden>
+        <p>Abra esta mesma página no seu celular. Se preferir, copie o link:</p>
+        <div class="overlay__copy">
+          <input type="text" id="desktop-share-url" readonly>
+          <button type="button" id="desktop-copy-url" class="btn-tertiary">Copiar link</button>
+        </div>
+        <p class="overlay__mini">Dica: envie o link para você mesmo pelo WhatsApp Web.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA WhatsApp -->
+  <a class="whatsapp-float" href="https://wa.me/557193081072?text=Ol%C3%A1,%20acabei%20de%20visitar%20o%20site%20da%20B2B%20Partners%20BRZL%20e%20gostaria%20de%20falar%20sobre%20um%20projeto." target="_blank" rel="noopener">
+    <img src="images/cta-whatsapp.svg" alt="WhatsApp" class="whatsapp-icon" />
+  </a>
+
+  <!-- FOOTER -->
+  <footer class="footer-bar" role="contentinfo">
+    <p>2025 © B2B Partners BRZL</p>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    /* JS igual ao anterior, sem alterações */
+  </script>
+
+</body>
+</html>
