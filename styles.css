@@ -1,5 +1,5 @@
 :root{
-  --header-height: 96px;     /* cabeçalho permanece fixo */
+  --header-height: 96px;     /* cabeçalho fixo */
   --footer-height: 42px;
 
   --section-gap: 24px;
@@ -44,10 +44,11 @@ a:hover, a:focus{ text-decoration: underline; text-decoration-thickness:1px; tex
   background:#ffffff;
   border-bottom:1px solid var(--block-border);
   display:flex; align-items:center; justify-content:space-between;
-  padding:8px 24px;               /* ↓ respira menos para caber tudo sem cortar */
+  padding:8px 12px 8px 24px; /* ↑ reduzimos padding-right para encostar o botão à direita */
   z-index:1200;
+  overflow:hidden; /* evita qualquer efeito visual extrapolar o header */
 }
-.logo-area{display:flex; flex-direction:column; align-items:flex-start; min-width:0}
+.logo-area{display:flex; flex-direction:column; align-items:flex-start; min-width:0; flex:1;}
 .logo-img{max-height:50px;height:auto;width:auto;display:block}
 .logo-subline{
   font-size:15px; color:#666666;
@@ -60,28 +61,26 @@ a:hover, a:focus{ text-decoration: underline; text-decoration-thickness:1px; tex
 .top-menu a{font-weight:600; font-size:15px; padding:8px 0; transition:color var(--transition) ease;}
 .top-menu a:hover, .top-menu a:focus-visible{color:var(--accent)}
 
-/* BOTÃO MENU (MOBILE) — sem cápsula */
+/* BOTÃO MENU (MOBILE) — sem cápsula, encostado à direita */
 .menu-toggle{
   display:flex; align-items:center; gap:8px;
   min-width:44px; min-height:44px;
-  padding:0;                      /* sem cápsula */
-  border:none; background:transparent;
+  padding:0; border:none; background:transparent;
   color:var(--accent);
-  font-weight:700;
-  cursor:pointer;
+  font-weight:700; cursor:pointer;
+  margin-left:12px;
 }
 .menu-toggle:hover, .menu-toggle:focus-visible{
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  text-decoration: underline; text-underline-offset: 3px;
 }
 .menu-toggle.is-open{ color:#333; }
 .menu-icon{font-size:18px; line-height:1;}
 .menu-label{font-size:15px;}
 
-/* Pulso suave contínuo (pausa quando aberto) */
+/* Pulso suave CONTIDO (raio menor) */
 @keyframes pulseRing{
   0%{ box-shadow:0 0 0 0 rgba(102,153,153,.45); }
-  100%{ box-shadow:0 0 0 14px rgba(102,153,153,0); }
+  100%{ box-shadow:0 0 0 8px rgba(102,153,153,0); } /* was 14px */
 }
 .menu-pulse{ animation: pulseRing 1.6s ease-out infinite; border-radius:12px; }
 @media (prefers-reduced-motion: reduce){
@@ -353,7 +352,7 @@ body.overlay-open .logo-marquee__track{ animation-play-state: paused; }
   .services-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width:768px){
-  /* Manter o slogan SEM quebra também no mobile */
+  /* manter a frase sem quebra também no mobile */
   .logo-subline{ white-space:nowrap; }
 
   .hero{padding:24px}

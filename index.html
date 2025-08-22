@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="styles.css?v=menu-fix-2" />
+  <link rel="stylesheet" href="styles.css?v=menu-fix-3" />
 </head>
 <body>
 
@@ -67,10 +67,10 @@
         <button class="mobile-menu-close" type="button" aria-label="Fechar menu">✕</button>
       </div>
       <nav class="mobile-menu-nav" aria-label="Menu principal (mobile)">
-        <a href="#servicos">O que fazemos</a>
-        <a href="#quem-somos">Quem somos</a>
-        <a href="#processo">Como fazemos</a>
-        <a href="#seu-projeto">Seu Projeto</a>
+        <a href="#servicos" data-menu-link>O que fazemos</a>
+        <a href="#quem-somos" data-menu-link>Quem somos</a>
+        <a href="#processo" data-menu-link>Como fazemos</a>
+        <a href="#seu-projeto" data-menu-link>Seu Projeto</a>
       </nav>
     </div>
   </div>
@@ -362,8 +362,8 @@
       const menuOverlay = document.getElementById('mobile-menu');
       const panel = menuOverlay?.querySelector('.mobile-menu-panel');
       const closeInside = menuOverlay?.querySelector('.mobile-menu-close');
-      const links = menuOverlay ? menuOverlay.querySelectorAll('a[href^="#"]') : [];
-      const firstLink = links?.[0] || null;
+      const linkNodes = menuOverlay ? menuOverlay.querySelectorAll('[data-menu-link]') : [];
+      const firstLink = linkNodes?.[0] || null;
 
       function setBtn(open){
         if(!btn) return;
@@ -374,7 +374,6 @@
         const label = btn.querySelector('.menu-label');
         if(icon) icon.textContent = open ? '✕' : '☰';
         if(label) label.textContent = open ? 'Fechar' : 'Menu';
-        // Pulso pausa quando aberto
         if(open){ btn.classList.remove('menu-pulse'); } else { btn.classList.add('menu-pulse'); }
       }
 
@@ -393,10 +392,10 @@
         menuOverlay.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
         setBtn(false);
-        if(!fromHistory && location.hash === '#menu'){
-          try{ history.back(); }catch(_){}
+        // não mexe no histórico aqui; evitamos conflito com âncoras
+        if(fromHistory){
+          setTimeout(()=> btn?.focus?.(), 0);
         }
-        setTimeout(()=> btn?.focus?.(), 0);
       }
       function toggleMenu(force){
         const open = menuOverlay?.classList.contains('show');
@@ -406,7 +405,22 @@
 
       btn?.addEventListener('click', ()=> toggleMenu());
       closeInside?.addEventListener('click', ()=> closeMenu());
-      links.forEach(a => a.addEventListener('click', ()=> closeMenu()));
+
+      // Navegação confiável: previne padrão, fecha e faz scroll programático
+      linkNodes.forEach(a => {
+        a.addEventListener('click', (e)=>{
+          e.preventDefault();
+          const href = a.getAttribute('href') || '';
+          const id = href.replace(/^#/, '');
+          const target = document.getElementById(id);
+          closeMenu(true);
+          if(target){
+            target.scrollIntoView({behavior:'smooth', block:'start'});
+          }
+          try{ history.replaceState({}, '', '#'+id); }catch(_){}
+        });
+      });
+
       // clique fora do painel fecha
       menuOverlay?.addEventListener('click', (e)=>{
         if(!panel) return;
