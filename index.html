@@ -30,7 +30,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <!-- força recarregar CSS -->
-  <link rel="stylesheet" href="styles.css?v=form-status-1" />
+  <link rel="stylesheet" href="styles.css?v=menu-label-chips-1" />
 </head>
 <body>
 
@@ -53,13 +53,22 @@
       <a href="#seu-projeto">Seu Projeto</a>
     </nav>
 
-    <!-- HAMBÚRGUER -->
+    <!-- BOTÃO MENU (MOBILE) -->
     <button class="menu-toggle" aria-label="Abrir menu" aria-controls="mobile-menu" aria-expanded="false" type="button">
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
+      <span class="menu-icon" aria-hidden="true">☰</span>
+      <span class="menu-label">Menu</span>
     </button>
   </header>
+
+  <!-- BARRA DE ATALHOS (só no mobile) -->
+  <nav class="quick-nav" aria-label="Atalhos de navegação (mobile)">
+    <div class="quick-nav__scroll">
+      <a class="chip" href="#servicos">O que fazemos</a>
+      <a class="chip" href="#quem-somos">Quem somos</a>
+      <a class="chip" href="#processo">Como fazemos</a>
+      <a class="chip" href="#seu-projeto">Seu Projeto</a>
+    </div>
+  </nav>
 
   <!-- MENU MOBILE -->
   <div id="mobile-menu" class="mobile-menu-overlay" aria-hidden="true">
@@ -358,19 +367,39 @@
       const btn = document.querySelector('.menu-toggle');
       const menu = document.getElementById('mobile-menu');
       const links = menu ? menu.querySelectorAll('a[href^="#"]') : [];
+      const menuIcon = btn?.querySelector('.menu-icon');
+      const menuLabel = btn?.querySelector('.menu-label');
+
+      function setBtn(open){
+        if(!btn) return;
+        btn.classList.toggle('is-open', open);
+        btn.setAttribute('aria-expanded', open);
+        btn.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+        if(menuIcon) menuIcon.textContent = open ? '✕' : '☰';
+        if(menuLabel) menuLabel.textContent = open ? 'Fechar' : 'Menu';
+      }
       function toggleMenu(force){
-        if(!menu) return;
+        if(!menu || !btn) return;
         const show = (force !== undefined) ? force : !menu.classList.contains('show');
         menu.classList.toggle('show', show);
         document.body.style.overflow = show ? 'hidden' : '';
-        if(btn) btn.setAttribute('aria-expanded', show);
-        menu.setAttribute('aria-hidden', !show);
+        setBtn(show);
       }
       if(btn && menu){
         btn.addEventListener('click', ()=> toggleMenu());
         window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') toggleMenu(false); });
         links.forEach(a => a.addEventListener('click', ()=> toggleMenu(false)));
       }
+
+      /* Pulsação inicial do botão (1x por sessão) */
+      try{
+        const KEY = 'b2b_menu_hint_seen';
+        if(!sessionStorage.getItem(KEY) && btn){
+          btn.classList.add('menu-pulse');
+          setTimeout(()=> btn.classList.remove('menu-pulse'), 2200);
+          sessionStorage.setItem(KEY, '1');
+        }
+      }catch(_){}
 
       /* FORM – status destacado */
       const form = document.getElementById('briefing-form');
@@ -421,7 +450,7 @@
         });
       }
 
-      /* AVISO DESKTOP (modal centralizado + scrim sem blur) */
+      /* AVISO DESKTOP (modal centralizado + scrim) */
       const OVERLAY_ID = 'desktop-advice';
       const KEY_TS = 'b2b_desktop_notice_ack_ts';
       const TTL_DAYS = 30;
@@ -461,7 +490,6 @@
         window.removeEventListener('keydown', onEsc);
       }
       function onEsc(e){ if(e.key === 'Escape') closeOverlay(false); }
-
       function maybeShowOverlay(){
         const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
         if(!isDesktop) return;
