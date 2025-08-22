@@ -7,10 +7,10 @@
   <title>B2B Partners BRZL – Marketing. Eventos. Com tecnologia.</title>
   <meta name="description" content="Execução nacional para marcas e agências: ativações, eventos, operação multi-praça e produção 360. Da ideia à entrega, com tecnologia." />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png" />
-  <link rel="apple-touch-icon" href="images/favicon.png" />
+  <!-- Canonical -->
+  <link rel="canonical" href="https://b2bpartners.marketing/" />
 
+  <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="B2B Partners BRZL" />
   <meta property="og:title" content="B2B Partners BRZL – Marketing. Eventos. Com tecnologia." />
@@ -19,25 +19,45 @@
   <meta property="og:image" content="https://b2bpartners.marketing/images/thumb.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="1200" />
-
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="B2B Partners BRZL – Marketing. Eventos. Com tecnologia." />
   <meta name="twitter:description" content="Execução nacional para marcas e agências: ativações, eventos, operação multi-praça e produção 360. Da ideia à entrega, com tecnologia." />
   <meta name="twitter:image" content="https://b2bpartners.marketing/images/thumb.png" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <!-- Ícones -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png" />
+  <link rel="apple-touch-icon" href="images/favicon.png" />
 
-  <link rel="stylesheet" href="styles.css?v=sep-tight-4" />
+  <!-- Fontes: preconnect + preload (não altera layout) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css?v=seo-split-1" />
+
+  <!-- Dados estruturados (Organization) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "B2B Partners BRZL",
+    "url": "https://b2bpartners.marketing/",
+    "logo": "https://b2bpartners.marketing/images/logo-b2b.svg",
+    "sameAs": []
+  }
+  </script>
 </head>
-<body>
+<body id="top">
 
   <!-- HEADER FIXO -->
   <header class="main-header" role="banner">
     <div class="logo-area">
       <a href="#top" class="logo-link top-link" aria-label="Ir para o topo">
-        <img src="images/logo-b2b.svg" alt="B2B Partners BRZL" class="logo-img" />
+        <!-- Logo acima da dobra: sem lazy -->
+        <img src="images/logo-b2b.svg" alt="B2B Partners BRZL" class="logo-img" width="140" height="50" decoding="async">
       </a>
       <p class="logo-subline">
         <strong>Marketing. Eventos. <em>Com tecnologia.</em></strong>
@@ -53,7 +73,7 @@
       <a href="#seu-projeto">Seu Projeto</a>
     </nav>
 
-    <!-- BOTÃO MENU (MOBILE) sem cápsula -->
+    <!-- BOTÃO MENU (MOBILE) -->
     <button class="menu-toggle menu-pulse" aria-label="Abrir menu" aria-controls="mobile-menu" aria-expanded="false" type="button">
       <span class="menu-toggle-inner">
         <span class="menu-icon" aria-hidden="true">☰</span>
@@ -79,33 +99,35 @@
     </div>
   </div>
 
-  <!-- CARROSSEL (travado ao header) -->
+  <!-- CARROSSEL DE MARCAS (travado ao header) -->
   <section id="clientes" class="clients-fixed" aria-label="Marcas que confiam em nós">
     <div class="logo-marquee" role="region" aria-roledescription="carrossel automático" aria-label="Logos de clientes">
       <div class="logo-marquee__track">
         <ul class="logo-list">
-          <li class="logo-item"><img src="images/logos/logo_aneel.svg" alt="ANEEL" class="logo-img-brand logo-sm"></li>
-          <li class="logo-item"><img src="images/logos/logo_vivo.svg" alt="Vivo" class="logo-img-brand logo-md"></li>
-          <li class="logo-item"><img src="images/logos/logo_dell.svg" alt="Dell" class="logo-img-brand logo-md"></li>
-          <li class="logo-item"><img src="images/logos/logo_natura.svg" alt="Natura" class="logo-img-brand logo-lg"></li>
-          <li class="logo-item"><img src="images/logos/logo_itau.svg" alt="Itaú" class="logo-img-brand logo-lg"></li>
-          <li class="logo-item"><img src="images/logos/logo_jeep.svg" alt="Jeep" class="logo-img-brand logo-md"></li>
-          <li class="logo-item"><img src="images/logos/logo_bb.svg" alt="Banco do Brasil" class="logo-img-brand logo-lg"></li>
-          <li class="logo-item"><img src="images/logos/logo_fiat.svg" alt="Fiat" class="logo-img-brand logo-md"></li>
-          <li class="logo-item"><img src="images/logos/logo_citi.svg" alt="Citi" class="logo-img-brand logo-md"></li>
-          <li class="logo-item"><img src="images/logos/logo_chilli_beans.svg" alt="Chilli Beans" class="logo-img-brand logo-md"></li>
+          <!-- Primeira trilha (acima da dobra): NÃO lazy -->
+          <li class="logo-item"><img src="images/logos/logo_aneel.svg" alt="ANEEL" class="logo-img-brand logo-sm" width="96" height="34" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_vivo.svg" alt="Vivo" class="logo-img-brand logo-md" width="120" height="40" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_dell.svg" alt="Dell" class="logo-img-brand logo-md" width="120" height="40" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_natura.svg" alt="Natura" class="logo-img-brand logo-lg" width="138" height="46" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_itau.svg" alt="Itaú" class="logo-img-brand logo-lg" width="138" height="46" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_jeep.svg" alt="Jeep" class="logo-img-brand logo-md" width="120" height="40" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_bb.svg" alt="Banco do Brasil" class="logo-img-brand logo-lg" width="138" height="46" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_fiat.svg" alt="Fiat" class="logo-img-brand logo-md" width="120" height="40" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_citi.svg" alt="Citi" class="logo-img-brand logo-md" width="120" height="40" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_chilli_beans.svg" alt="Chilli Beans" class="logo-img-brand logo-md" width="120" height="40" decoding="async"></li>
         </ul>
         <ul class="logo-list" aria-hidden="true">
-          <li class="logo-item"><img src="images/logos/logo_aneel.svg" alt="" class="logo-img-brand logo-sm"></li>
-          <li class="logo-item"><img src="images/logos/logo_vivo.svg" alt="" class="logo-img-brand logo-md"></li>
-          <li class="logo-item"><img src="images/logos/logo_dell.svg" alt="" class="logo-img-brand logo-md"></li>
-          <li class="logo-item"><img src="images/logos/logo_natura.svg" alt="" class="logo-img-brand logo-lg"></li>
-          <li class="logo-item"><img src="images/logos/logo_itau.svg" alt="" class="logo-img-brand logo-lg"></li>
-          <li class="logo-item"><img src="images/logos/logo_jeep.svg" alt="" class="logo-img-brand logo-md"></li>
-          <li class="logo-item"><img src="images/logos/logo_bb.svg" alt="" class="logo-img-brand logo-lg"></li>
-          <li class="logo-item"><img src="images/logos/logo_fiat.svg" alt="" class="logo-img-brand logo-md"></li>
-          <li class="logo-item"><img src="images/logos/logo_citi.svg" alt="" class="logo-img-brand logo-md"></li>
-          <li class="logo-item"><img src="images/logos/logo_chilli_beans.svg" alt="" class="logo-img-brand logo-md"></li>
+          <!-- Segunda trilha: LAZY -->
+          <li class="logo-item"><img src="images/logos/logo_aneel.svg" alt="" class="logo-img-brand logo-sm" width="96" height="34" loading="lazy" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_vivo.svg" alt="" class="logo-img-brand logo-md" width="120" height="40" loading="lazy" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_dell.svg" alt="" class="logo-img-brand logo-md" width="120" height="40" loading="lazy" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_natura.svg" alt="" class="logo-img-brand logo-lg" width="138" height="46" loading="lazy" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_itau.svg" alt="" class="logo-img-brand logo-lg" width="138" height="46" loading="lazy" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_jeep.svg" alt="" class="logo-img-brand logo-md" width="120" height="40" loading="lazy" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_bb.svg" alt="" class="logo-img-brand logo-lg" width="138" height="46" loading="lazy" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_fiat.svg" alt="" class="logo-img-brand logo-md" width="120" height="40" loading="lazy" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_citi.svg" alt="" class="logo-img-brand logo-md" width="120" height="40" loading="lazy" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_chilli_beans.svg" alt="" class="logo-img-brand logo-md" width="120" height="40" loading="lazy" decoding="async"></li>
         </ul>
       </div>
     </div>
@@ -114,16 +136,16 @@
 
   <!-- CONTEÚDO -->
   <main class="content-area">
-    <!-- HERO -->
+    <!-- HERO (abertura) com H1 -->
     <section id="hero" class="hero" aria-label="Abertura">
       <div class="hero-content">
-        <p class="hero-text">
+        <h1 class="hero-text">
           <span class="seg-bold">Da ideia à entrega.</span><br class="mbr">
           <span class="seg-normal"> Execução multi-praça.</span><br class="mbr">
           <span class="seg-yellow"> Precisão.</span>
           <span class="seg-italic"> Tecnologia.</span><br class="mbr">
           <span class="seg-bold seg-yellow"> Isso é B2B.</span>
-        </p>
+        </h1>
       </div>
     </section>
 
@@ -134,7 +156,7 @@
         <p class="hero-subtitle">Selecione um serviço para ver o escopo.</p>
 
         <div class="services-grid" role="list">
-          <!-- UX PARA EVENTOS EM PRIMEIRO + DESTAQUE + ESSENCIAL -->
+          <!-- UX PARA EVENTOS primeiro + ESSENCIAL -->
           <article class="service-card service-card--ux" role="listitem">
             <div class="card-body">
               <div class="card-line">
@@ -162,7 +184,6 @@
             </div>
           </article>
 
-          <!-- "Shows e espetáculos" substituído por "Marketing com tecnologia" -->
           <article class="service-card" role="listitem">
             <div class="card-body">
               <h3 class="card-title">Marketing com tecnologia</h3>
@@ -174,28 +195,28 @@
       </div>
     </section>
 
-    <!-- SEPARADOR (pontinhos densos e respiro 4px/4px) -->
+    <!-- SEPARADOR -->
     <div class="separator-dots" aria-hidden="true">
-      <svg viewBox="0 0 800 28" role="presentation">
+      <svg viewBox="0 0 800 28" role="presentation" width="800" height="28" preserveAspectRatio="none">
         <g transform="translate(0,9)">
-          <circle class="dot" cx="24"/><circle class="dot" cx="48"/><circle class="dot" cx="72"/><circle class="dot" cx="96"/>
-          <circle class="dot" cx="120"/><circle class="dot" cx="144"/><circle class="dot" cx="168"/><circle class="dot" cx="192"/>
-          <circle class="dot" cx="216"/><circle class="dot" cx="240"/><circle class="dot" cx="264"/><circle class="dot" cx="288"/>
-          <circle class="dot" cx="312"/><circle class="dot" cx="336"/><circle class="dot" cx="360"/><circle class="dot" cx="384"/>
-          <circle class="dot" cx="408"/><circle class="dot" cx="432"/><circle class="dot" cx="456"/><circle class="dot" cx="480"/>
-          <circle class="dot" cx="504"/><circle class="dot" cx="528"/><circle class="dot" cx="552"/><circle class="dot" cx="576"/>
-          <circle class="dot" cx="600"/><circle class="dot" cx="624"/><circle class="dot" cx="648"/><circle class="dot" cx="672"/>
-          <circle class="dot" cx="696"/><circle class="dot" cx="720"/><circle class="dot" cx="744"/><circle class="dot" cx="768"/><circle class="dot" cx="792"/>
+          <circle class="dot" cx="24" cy="0"/><circle class="dot" cx="48" cy="0"/><circle class="dot" cx="72" cy="0"/><circle class="dot" cx="96" cy="0"/>
+          <circle class="dot" cx="120" cy="0"/><circle class="dot" cx="144" cy="0"/><circle class="dot" cx="168" cy="0"/><circle class="dot" cx="192" cy="0"/>
+          <circle class="dot" cx="216" cy="0"/><circle class="dot" cx="240" cy="0"/><circle class="dot" cx="264" cy="0"/><circle class="dot" cx="288" cy="0"/>
+          <circle class="dot" cx="312" cy="0"/><circle class="dot" cx="336" cy="0"/><circle class="dot" cx="360" cy="0"/><circle class="dot" cx="384" cy="0"/>
+          <circle class="dot" cx="408" cy="0"/><circle class="dot" cx="432" cy="0"/><circle class="dot" cx="456" cy="0"/><circle class="dot" cx="480" cy="0"/>
+          <circle class="dot" cx="504" cy="0"/><circle class="dot" cx="528" cy="0"/><circle class="dot" cx="552" cy="0"/><circle class="dot" cx="576" cy="0"/>
+          <circle class="dot" cx="600" cy="0"/><circle class="dot" cx="624" cy="0"/><circle class="dot" cx="648" cy="0"/><circle class="dot" cx="672" cy="0"/>
+          <circle class="dot" cx="696" cy="0"/><circle class="dot" cx="720" cy="0"/><circle class="dot" cx="744" cy="0"/><circle class="dot" cx="768" cy="0"/><circle class="dot" cx="792" cy="0"/>
         </g>
         <g transform="translate(0,19)">
-          <circle class="dot" cx="12"/><circle class="dot" cx="36"/><circle class="dot" cx="60"/><circle class="dot" cx="84"/>
-          <circle class="dot" cx="108"/><circle class="dot" cx="132"/><circle class="dot" cx="156"/><circle class="dot" cx="180"/>
-          <circle class="dot" cx="204"/><circle class="dot" cx="228"/><circle class="dot" cx="252"/><circle class="dot" cx="276"/>
-          <circle class="dot" cx="300"/><circle class="dot" cx="324"/><circle class="dot" cx="348"/><circle class="dot" cx="372"/>
-          <circle class="dot" cx="396"/><circle class="dot" cx="420"/><circle class="dot" cx="444"/><circle class="dot" cx="468"/>
-          <circle class="dot" cx="492"/><circle class="dot" cx="516"/><circle class="dot" cx="540"/><circle class="dot" cx="564"/>
-          <circle class="dot" cx="588"/><circle class="dot" cx="612"/><circle class="dot" cx="636"/><circle class="dot" cx="660"/>
-          <circle class="dot" cx="684"/><circle class="dot" cx="708"/><circle class="dot" cx="732"/><circle class="dot" cx="756"/><circle class="dot" cx="780"/>
+          <circle class="dot" cx="12" cy="0"/><circle class="dot" cx="36" cy="0"/><circle class="dot" cx="60" cy="0"/><circle class="dot" cx="84" cy="0"/>
+          <circle class="dot" cx="108" cy="0"/><circle class="dot" cx="132" cy="0"/><circle class="dot" cx="156" cy="0"/><circle class="dot" cx="180" cy="0"/>
+          <circle class="dot" cx="204" cy="0"/><circle class="dot" cx="228" cy="0"/><circle class="dot" cx="252" cy="0"/><circle class="dot" cx="276" cy="0"/>
+          <circle class="dot" cx="300" cy="0"/><circle class="dot" cx="324" cy="0"/><circle class="dot" cx="348" cy="0"/><circle class="dot" cx="372" cy="0"/>
+          <circle class="dot" cx="396" cy="0"/><circle class="dot" cx="420" cy="0"/><circle class="dot" cx="444" cy="0"/><circle class="dot" cx="468" cy="0"/>
+          <circle class="dot" cx="492" cy="0"/><circle class="dot" cx="516" cy="0"/><circle class="dot" cx="540" cy="0"/><circle class="dot" cx="564" cy="0"/>
+          <circle class="dot" cx="588" cy="0"/><circle class="dot" cx="612" cy="0"/><circle class="dot" cx="636" cy="0"/><circle class="dot" cx="660" cy="0"/>
+          <circle class="dot" cx="684" cy="0"/><circle class="dot" cx="708" cy="0"/><circle class="dot" cx="732" cy="0"/><circle class="dot" cx="756" cy="0"/><circle class="dot" cx="780" cy="0"/>
         </g>
       </svg>
     </div>
@@ -207,13 +228,11 @@
         <p class="hero-subtitle">
           Operação de execução para quem precisa entregar com escala, padrão e previsibilidade.
         </p>
-
         <p>
           Nascemos para resolver o mesmo desafio em contextos diferentes: fazer acontecer com qualidade, onde e quando for preciso.
           Para marcas, somos o braço que viabiliza ativações e eventos com execução estruturada. Para agências, somos o parceiro de escala
           que garante consistência em múltiplas praças, mantendo prazos, padrão e governança operacional.
         </p>
-
         <p class="micro-trust">
           Pronto para viabilizar sua operação? Acesse <a href="#seu-projeto">Seu Projeto</a> e envie o briefing.
         </p>
@@ -222,26 +241,27 @@
 
     <!-- SEPARADOR -->
     <div class="separator-dots" aria-hidden="true">
-      <svg viewBox="0 0 800 28" role="presentation">
+      <svg viewBox="0 0 800 28" role="presentation" width="800" height="28" preserveAspectRatio="none">
+        <!-- (mesmo padrão de pontos) -->
         <g transform="translate(0,9)">
-          <circle class="dot" cx="24"/><circle class="dot" cx="48"/><circle class="dot" cx="72"/><circle class="dot" cx="96"/>
-          <circle class="dot" cx="120"/><circle class="dot" cx="144"/><circle class="dot" cx="168"/><circle class="dot" cx="192"/>
-          <circle class="dot" cx="216"/><circle class="dot" cx="240"/><circle class="dot" cx="264"/><circle class="dot" cx="288"/>
-          <circle class="dot" cx="312"/><circle class="dot" cx="336"/><circle class="dot" cx="360"/><circle class="dot" cx="384"/>
-          <circle class="dot" cx="408"/><circle class="dot" cx="432"/><circle class="dot" cx="456"/><circle class="dot" cx="480"/>
-          <circle class="dot" cx="504"/><circle class="dot" cx="528"/><circle class="dot" cx="552"/><circle class="dot" cx="576"/>
-          <circle class="dot" cx="600"/><circle class="dot" cx="624"/><circle class="dot" cx="648"/><circle class="dot" cx="672"/>
-          <circle class="dot" cx="696"/><circle class="dot" cx="720"/><circle class="dot" cx="744"/><circle class="dot" cx="768"/><circle class="dot" cx="792"/>
+          <circle class="dot" cx="24" cy="0"/><circle class="dot" cx="48" cy="0"/><circle class="dot" cx="72" cy="0"/><circle class="dot" cx="96" cy="0"/>
+          <circle class="dot" cx="120" cy="0"/><circle class="dot" cx="144" cy="0"/><circle class="dot" cx="168" cy="0"/><circle class="dot" cx="192" cy="0"/>
+          <circle class="dot" cx="216" cy="0"/><circle class="dot" cx="240" cy="0"/><circle class="dot" cx="264" cy="0"/><circle class="dot" cx="288" cy="0"/>
+          <circle class="dot" cx="312" cy="0"/><circle class="dot" cx="336" cy="0"/><circle class="dot" cx="360" cy="0"/><circle class="dot" cx="384" cy="0"/>
+          <circle class="dot" cx="408" cy="0"/><circle class="dot" cx="432" cy="0"/><circle class="dot" cx="456" cy="0"/><circle class="dot" cx="480" cy="0"/>
+          <circle class="dot" cx="504" cy="0"/><circle class="dot" cx="528" cy="0"/><circle class="dot" cx="552" cy="0"/><circle class="dot" cx="576" cy="0"/>
+          <circle class="dot" cx="600" cy="0"/><circle class="dot" cx="624" cy="0"/><circle class="dot" cx="648" cy="0"/><circle class="dot" cx="672" cy="0"/>
+          <circle class="dot" cx="696" cy="0"/><circle class="dot" cx="720" cy="0"/><circle class="dot" cx="744" cy="0"/><circle class="dot" cx="768" cy="0"/><circle class="dot" cx="792" cy="0"/>
         </g>
         <g transform="translate(0,19)">
-          <circle class="dot" cx="12"/><circle class="dot" cx="36"/><circle class="dot" cx="60"/><circle class="dot" cx="84"/>
-          <circle class="dot" cx="108"/><circle class="dot" cx="132"/><circle class="dot" cx="156"/><circle class="dot" cx="180"/>
-          <circle class="dot" cx="204"/><circle class="dot" cx="228"/><circle class="dot" cx="252"/><circle class="dot" cx="276"/>
-          <circle class="dot" cx="300"/><circle class="dot" cx="324"/><circle class="dot" cx="348"/><circle class="dot" cx="372"/>
-          <circle class="dot" cx="396"/><circle class="dot" cx="420"/><circle class="dot" cx="444"/><circle class="dot" cx="468"/>
-          <circle class="dot" cx="492"/><circle class="dot" cx="516"/><circle class="dot" cx="540"/><circle class="dot" cx="564"/>
-          <circle class="dot" cx="588"/><circle class="dot" cx="612"/><circle class="dot" cx="636"/><circle class="dot" cx="660"/>
-          <circle class="dot" cx="684"/><circle class="dot" cx="708"/><circle class="dot" cx="732"/><circle class="dot" cx="756"/><circle class="dot" cx="780"/>
+          <circle class="dot" cx="12" cy="0"/><circle class="dot" cx="36" cy="0"/><circle class="dot" cx="60" cy="0"/><circle class="dot" cx="84" cy="0"/>
+          <circle class="dot" cx="108" cy="0"/><circle class="dot" cx="132" cy="0"/><circle class="dot" cx="156" cy="0"/><circle class="dot" cx="180" cy="0"/>
+          <circle class="dot" cx="204" cy="0"/><circle class="dot" cx="228" cy="0"/><circle class="dot" cx="252" cy="0"/><circle class="dot" cx="276" cy="0"/>
+          <circle class="dot" cx="300" cy="0"/><circle class="dot" cx="324" cy="0"/><circle class="dot" cx="348" cy="0"/><circle class="dot" cx="372" cy="0"/>
+          <circle class="dot" cx="396" cy="0"/><circle class="dot" cx="420" cy="0"/><circle class="dot" cx="444" cy="0"/><circle class="dot" cx="468" cy="0"/>
+          <circle class="dot" cx="492" cy="0"/><circle class="dot" cx="516" cy="0"/><circle class="dot" cx="540" cy="0"/><circle class="dot" cx="564" cy="0"/>
+          <circle class="dot" cx="588" cy="0"/><circle class="dot" cx="612" cy="0"/><circle class="dot" cx="636" cy="0"/><circle class="dot" cx="660" cy="0"/>
+          <circle class="dot" cx="684" cy="0"/><circle class="dot" cx="708" cy="0"/><circle class="dot" cx="732" cy="0"/><circle class="dot" cx="756" cy="0"/><circle class="dot" cx="780" cy="0"/>
         </g>
       </svg>
     </div>
@@ -265,26 +285,27 @@
 
     <!-- SEPARADOR -->
     <div class="separator-dots" aria-hidden="true">
-      <svg viewBox="0 0 800 28" role="presentation">
+      <svg viewBox="0 0 800 28" role="presentation" width="800" height="28" preserveAspectRatio="none">
+        <!-- (mesmo padrão de pontos) -->
         <g transform="translate(0,9)">
-          <circle class="dot" cx="24"/><circle class="dot" cx="48"/><circle class="dot" cx="72"/><circle class="dot" cx="96"/>
-          <circle class="dot" cx="120"/><circle class="dot" cx="144"/><circle class="dot" cx="168"/><circle class="dot" cx="192"/>
-          <circle class="dot" cx="216"/><circle class="dot" cx="240"/><circle class="dot" cx="264"/><circle class="dot" cx="288"/>
-          <circle class="dot" cx="312"/><circle class="dot" cx="336"/><circle class="dot" cx="360"/><circle class="dot" cx="384"/>
-          <circle class="dot" cx="408"/><circle class="dot" cx="432"/><circle class="dot" cx="456"/><circle class="dot" cx="480"/>
-          <circle class="dot" cx="504"/><circle class="dot" cx="528"/><circle class="dot" cx="552"/><circle class="dot" cx="576"/>
-          <circle class="dot" cx="600"/><circle class="dot" cx="624"/><circle class="dot" cx="648"/><circle class="dot" cx="672"/>
-          <circle class="dot" cx="696"/><circle class="dot" cx="720"/><circle class="dot" cx="744"/><circle class="dot" cx="768"/><circle class="dot" cx="792"/>
+          <circle class="dot" cx="24" cy="0"/><circle class="dot" cx="48" cy="0"/><circle class="dot" cx="72" cy="0"/><circle class="dot" cx="96" cy="0"/>
+          <circle class="dot" cx="120" cy="0"/><circle class="dot" cx="144" cy="0"/><circle class="dot" cx="168" cy="0"/><circle class="dot" cx="192" cy="0"/>
+          <circle class="dot" cx="216" cy="0"/><circle class="dot" cx="240" cy="0"/><circle class="dot" cx="264" cy="0"/><circle class="dot" cx="288" cy="0"/>
+          <circle class="dot" cx="312" cy="0"/><circle class="dot" cx="336" cy="0"/><circle class="dot" cx="360" cy="0"/><circle class="dot" cx="384" cy="0"/>
+          <circle class="dot" cx="408" cy="0"/><circle class="dot" cx="432" cy="0"/><circle class="dot" cx="456" cy="0"/><circle class="dot" cx="480" cy="0"/>
+          <circle class="dot" cx="504" cy="0"/><circle class="dot" cx="528" cy="0"/><circle class="dot" cx="552" cy="0"/><circle class="dot" cx="576" cy="0"/>
+          <circle class="dot" cx="600" cy="0"/><circle class="dot" cx="624" cy="0"/><circle class="dot" cx="648" cy="0"/><circle class="dot" cx="672" cy="0"/>
+          <circle class="dot" cx="696" cy="0"/><circle class="dot" cx="720" cy="0"/><circle class="dot" cx="744" cy="0"/><circle class="dot" cx="768" cy="0"/><circle class="dot" cx="792" cy="0"/>
         </g>
         <g transform="translate(0,19)">
-          <circle class="dot" cx="12"/><circle class="dot" cx="36"/><circle class="dot" cx="60"/><circle class="dot" cx="84"/>
-          <circle class="dot" cx="108"/><circle class="dot" cx="132"/><circle class="dot" cx="156"/><circle class="dot" cx="180"/>
-          <circle class="dot" cx="204"/><circle class="dot" cx="228"/><circle class="dot" cx="252"/><circle class="dot" cx="276"/>
-          <circle class="dot" cx="300"/><circle class="dot" cx="324"/><circle class="dot" cx="348"/><circle class="dot" cx="372"/>
-          <circle class="dot" cx="396"/><circle class="dot" cx="420"/><circle class="dot" cx="444"/><circle class="dot" cx="468"/>
-          <circle class="dot" cx="492"/><circle class="dot" cx="516"/><circle class="dot" cx="540"/><circle class="dot" cx="564"/>
-          <circle class="dot" cx="588"/><circle class="dot" cx="612"/><circle class="dot" cx="636"/><circle class="dot" cx="660"/>
-          <circle class="dot" cx="684"/><circle class="dot" cx="708"/><circle class="dot" cx="732"/><circle class="dot" cx="756"/><circle class="dot" cx="780"/>
+          <circle class="dot" cx="12" cy="0"/><circle class="dot" cx="36" cy="0"/><circle class="dot" cx="60" cy="0"/><circle class="dot" cx="84" cy="0"/>
+          <circle class="dot" cx="108" cy="0"/><circle class="dot" cx="132" cy="0"/><circle class="dot" cx="156" cy="0"/><circle class="dot" cx="180" cy="0"/>
+          <circle class="dot" cx="204" cy="0"/><circle class="dot" cx="228" cy="0"/><circle class="dot" cx="252" cy="0"/><circle class="dot" cx="276" cy="0"/>
+          <circle class="dot" cx="300" cy="0"/><circle class="dot" cx="324" cy="0"/><circle class="dot" cx="348" cy="0"/><circle class="dot" cx="372" cy="0"/>
+          <circle class="dot" cx="396" cy="0"/><circle class="dot" cx="420" cy="0"/><circle class="dot" cx="444" cy="0"/><circle class="dot" cx="468" cy="0"/>
+          <circle class="dot" cx="492" cy="0"/><circle class="dot" cx="516" cy="0"/><circle class="dot" cx="540" cy="0"/><circle class="dot" cx="564" cy="0"/>
+          <circle class="dot" cx="588" cy="0"/><circle class="dot" cx="612" cy="0"/><circle class="dot" cx="636" cy="0"/><circle class="dot" cx="660" cy="0"/>
+          <circle class="dot" cx="684" cy="0"/><circle class="dot" cx="708" cy="0"/><circle class="dot" cx="732" cy="0"/><circle class="dot" cx="756" cy="0"/><circle class="dot" cx="780" cy="0"/>
         </g>
       </svg>
     </div>
@@ -303,32 +324,6 @@
           </div>
         </section>
 
-        <!-- SEPARADOR -->
-        <div class="separator-dots" aria-hidden="true">
-          <svg viewBox="0 0 800 28" role="presentation">
-            <g transform="translate(0,9)">
-              <circle class="dot" cx="24"/><circle class="dot" cx="48"/><circle class="dot" cx="72"/><circle class="dot" cx="96"/>
-              <circle class="dot" cx="120"/><circle class="dot" cx="144"/><circle class="dot" cx="168"/><circle class="dot" cx="192"/>
-              <circle class="dot" cx="216"/><circle class="dot" cx="240"/><circle class="dot" cx="264"/><circle class="dot" cx="288"/>
-              <circle class="dot" cx="312"/><circle class="dot" cx="336"/><circle class="dot" cx="360"/><circle class="dot" cx="384"/>
-              <circle class="dot" cx="408"/><circle class="dot" cx="432"/><circle class="dot" cx="456"/><circle class="dot" cx="480"/>
-              <circle class="dot" cx="504"/><circle class="dot" cx="528"/><circle class="dot" cx="552"/><circle class="dot" cx="576"/>
-              <circle class="dot" cx="600"/><circle class="dot" cx="624"/><circle class="dot" cx="648"/><circle class="dot" cx="672"/>
-              <circle class="dot" cx="696"/><circle class="dot" cx="720"/><circle class="dot" cx="744"/><circle class="dot" cx="768"/><circle class="dot" cx="792"/>
-            </g>
-            <g transform="translate(0,19)">
-              <circle class="dot" cx="12"/><circle class="dot" cx="36"/><circle class="dot" cx="60"/><circle class="dot" cx="84"/>
-              <circle class="dot" cx="108"/><circle class="dot" cx="132"/><circle class="dot" cx="156"/><circle class="dot" cx="180"/>
-              <circle class="dot" cx="204"/><circle class="dot" cx="228"/><circle class="dot" cx="252"/><circle class="dot" cx="276"/>
-              <circle class="dot" cx="300"/><circle class="dot" cx="324"/><circle class="dot" cx="348"/><circle class="dot" cx="372"/>
-              <circle class="dot" cx="396"/><circle class="dot" cx="420"/><circle class="dot" cx="444"/><circle class="dot" cx="468"/>
-              <circle class="dot" cx="492"/><circle class="dot" cx="516"/><circle class="dot" cx="540"/><circle class="dot" cx="564"/>
-              <circle class="dot" cx="588"/><circle class="dot" cx="612"/><circle class="dot" cx="636"/><circle class="dot" cx="660"/>
-              <circle class="dot" cx="684"/><circle class="dot" cx="708"/><circle class="dot" cx="732"/><circle class="dot" cx="756"/><circle class="dot" cx="780"/>
-            </g>
-          </svg>
-        </div>
-
         <section id="servicos-performance" class="hero" aria-label="Eventos para performance corporativa">
           <div class="hero-content">
             <h3>Eventos para performance corporativa</h3>
@@ -337,32 +332,6 @@
           </div>
         </section>
 
-        <!-- SEPARADOR -->
-        <div class="separator-dots" aria-hidden="true">
-          <svg viewBox="0 0 800 28" role="presentation">
-            <g transform="translate(0,9)">
-              <circle class="dot" cx="24"/><circle class="dot" cx="48"/><circle class="dot" cx="72"/><circle class="dot" cx="96"/>
-              <circle class="dot" cx="120"/><circle class="dot" cx="144"/><circle class="dot" cx="168"/><circle class="dot" cx="192"/>
-              <circle class="dot" cx="216"/><circle class="dot" cx="240"/><circle class="dot" cx="264"/><circle class="dot" cx="288"/>
-              <circle class="dot" cx="312"/><circle class="dot" cx="336"/><circle class="dot" cx="360"/><circle class="dot" cx="384"/>
-              <circle class="dot" cx="408"/><circle class="dot" cx="432"/><circle class="dot" cx="456"/><circle class="dot" cx="480"/>
-              <circle class="dot" cx="504"/><circle class="dot" cx="528"/><circle class="dot" cx="552"/><circle class="dot" cx="576"/>
-              <circle class="dot" cx="600"/><circle class="dot" cx="624"/><circle class="dot" cx="648"/><circle class="dot" cx="672"/>
-              <circle class="dot" cx="696"/><circle class="dot" cx="720"/><circle class="dot" cx="744"/><circle class="dot" cx="768"/><circle class="dot" cx="792"/>
-            </g>
-            <g transform="translate(0,19)">
-              <circle class="dot" cx="12"/><circle class="dot" cx="36"/><circle class="dot" cx="60"/><circle class="dot" cx="84"/>
-              <circle class="dot" cx="108"/><circle class="dot" cx="132"/><circle class="dot" cx="156"/><circle class="dot" cx="180"/>
-              <circle class="dot" cx="204"/><circle class="dot" cx="228"/><circle class="dot" cx="252"/><circle class="dot" cx="276"/>
-              <circle class="dot" cx="300"/><circle class="dot" cx="324"/><circle class="dot" cx="348"/><circle class="dot" cx="372"/>
-              <circle class="dot" cx="396"/><circle class="dot" cx="420"/><circle class="dot" cx="444"/><circle class="dot" cx="468"/>
-              <circle class="dot" cx="492"/><circle class="dot" cx="516"/><circle class="dot" cx="540"/><circle class="dot" cx="564"/>
-              <circle class="dot" cx="588"/><circle class="dot" cx="612"/><circle class="dot" cx="636"/><circle class="dot" cx="660"/>
-              <circle class="dot" cx="684"/><circle class="dot" cx="708"/><circle class="dot" cx="732"/><circle class="dot" cx="756"/><circle class="dot" cx="780"/>
-            </g>
-          </svg>
-        </div>
-
         <section id="servicos-mkttech" class="hero" aria-label="Marketing com tecnologia">
           <div class="hero-content">
             <h3>Marketing com tecnologia</h3>
@@ -370,32 +339,6 @@
             <p class="micro-trust"><a href="#servicos">← Voltar</a></p>
           </div>
         </section>
-
-        <!-- SEPARADOR -->
-        <div class="separator-dots" aria-hidden="true">
-          <svg viewBox="0 0 800 28" role="presentation">
-            <g transform="translate(0,9)">
-              <circle class="dot" cx="24"/><circle class="dot" cx="48"/><circle class="dot" cx="72"/><circle class="dot" cx="96"/>
-              <circle class="dot" cx="120"/><circle class="dot" cx="144"/><circle class="dot" cx="168"/><circle class="dot" cx="192"/>
-              <circle class="dot" cx="216"/><circle class="dot" cx="240"/><circle class="dot" cx="264"/><circle class="dot" cx="288"/>
-              <circle class="dot" cx="312"/><circle class="dot" cx="336"/><circle class="dot" cx="360"/><circle class="dot" cx="384"/>
-              <circle class="dot" cx="408"/><circle class="dot" cx="432"/><circle class="dot" cx="456"/><circle class="dot" cx="480"/>
-              <circle class="dot" cx="504"/><circle class="dot" cx="528"/><circle class="dot" cx="552"/><circle class="dot" cx="576"/>
-              <circle class="dot" cx="600"/><circle class="dot" cx="624"/><circle class="dot" cx="648"/><circle class="dot" cx="672"/>
-              <circle class="dot" cx="696"/><circle class="dot" cx="720"/><circle class="dot" cx="744"/><circle class="dot" cx="768"/><circle class="dot" cx="792"/>
-            </g>
-            <g transform="translate(0,19)">
-              <circle class="dot" cx="12"/><circle class="dot" cx="36"/><circle class="dot" cx="60"/><circle class="dot" cx="84"/>
-              <circle class="dot" cx="108"/><circle class="dot" cx="132"/><circle class="dot" cx="156"/><circle class="dot" cx="180"/>
-              <circle class="dot" cx="204"/><circle class="dot" cx="228"/><circle class="dot" cx="252"/><circle class="dot" cx="276"/>
-              <circle class="dot" cx="300"/><circle class="dot" cx="324"/><circle class="dot" cx="348"/><circle class="dot" cx="372"/>
-              <circle class="dot" cx="396"/><circle class="dot" cx="420"/><circle class="dot" cx="444"/><circle class="dot" cx="468"/>
-              <circle class="dot" cx="492"/><circle class="dot" cx="516"/><circle class="dot" cx="540"/><circle class="dot" cx="564"/>
-              <circle class="dot" cx="588"/><circle class="dot" cx="612"/><circle class="dot" cx="636"/><circle class="dot" cx="660"/>
-              <circle class="dot" cx="684"/><circle class="dot" cx="708"/><circle class="dot" cx="732"/><circle class="dot" cx="756"/><circle class="dot" cx="780"/>
-            </g>
-          </svg>
-        </div>
 
         <section id="servicos-ux" class="hero" aria-label="UX para eventos">
           <div class="hero-content">
@@ -407,28 +350,29 @@
       </div>
     </section>
 
-    <!-- SEPARADOR FINAL ANTES DO FORM -->
+    <!-- SEPARADOR -->
     <div class="separator-dots" aria-hidden="true">
-      <svg viewBox="0 0 800 28" role="presentation">
+      <svg viewBox="0 0 800 28" role="presentation" width="800" height="28" preserveAspectRatio="none">
+        <!-- (mesmo padrão de pontos) -->
         <g transform="translate(0,9)">
-          <circle class="dot" cx="24"/><circle class="dot" cx="48"/><circle class="dot" cx="72"/><circle class="dot" cx="96"/>
-          <circle class="dot" cx="120"/><circle class="dot" cx="144"/><circle class="dot" cx="168"/><circle class="dot" cx="192"/>
-          <circle class="dot" cx="216"/><circle class="dot" cx="240"/><circle class="dot" cx="264"/><circle class="dot" cx="288"/>
-          <circle class="dot" cx="312"/><circle class="dot" cx="336"/><circle class="dot" cx="360"/><circle class="dot" cx="384"/>
-          <circle class="dot" cx="408"/><circle class="dot" cx="432"/><circle class="dot" cx="456"/><circle class="dot" cx="480"/>
-          <circle class="dot" cx="504"/><circle class="dot" cx="528"/><circle class="dot" cx="552"/><circle class="dot" cx="576"/>
-          <circle class="dot" cx="600"/><circle class="dot" cx="624"/><circle class="dot" cx="648"/><circle class="dot" cx="672"/>
-          <circle class="dot" cx="696"/><circle class="dot" cx="720"/><circle class="dot" cx="744"/><circle class="dot" cx="768"/><circle class="dot" cx="792"/>
+          <circle class="dot" cx="24" cy="0"/><circle class="dot" cx="48" cy="0"/><circle class="dot" cx="72" cy="0"/><circle class="dot" cx="96" cy="0"/>
+          <circle class="dot" cx="120" cy="0"/><circle class="dot" cx="144" cy="0"/><circle class="dot" cx="168" cy="0"/><circle class="dot" cx="192" cy="0"/>
+          <circle class="dot" cx="216" cy="0"/><circle class="dot" cx="240" cy="0"/><circle class="dot" cx="264" cy="0"/><circle class="dot" cx="288" cy="0"/>
+          <circle class="dot" cx="312" cy="0"/><circle class="dot" cx="336" cy="0"/><circle class="dot" cx="360" cy="0"/><circle class="dot" cx="384" cy="0"/>
+          <circle class="dot" cx="408" cy="0"/><circle class="dot" cx="432" cy="0"/><circle class="dot" cx="456" cy="0"/><circle class="dot" cx="480" cy="0"/>
+          <circle class="dot" cx="504" cy="0"/><circle class="dot" cx="528" cy="0"/><circle class="dot" cx="552" cy="0"/><circle class="dot" cx="576" cy="0"/>
+          <circle class="dot" cx="600" cy="0"/><circle class="dot" cx="624" cy="0"/><circle class="dot" cx="648" cy="0"/><circle class="dot" cx="672" cy="0"/>
+          <circle class="dot" cx="696" cy="0"/><circle class="dot" cx="720" cy="0"/><circle class="dot" cx="744" cy="0"/><circle class="dot" cx="768" cy="0"/><circle class="dot" cx="792" cy="0"/>
         </g>
         <g transform="translate(0,19)">
-          <circle class="dot" cx="12"/><circle class="dot" cx="36"/><circle class="dot" cx="60"/><circle class="dot" cx="84"/>
-          <circle class="dot" cx="108"/><circle class="dot" cx="132"/><circle class="dot" cx="156"/><circle class="dot" cx="180"/>
-          <circle class="dot" cx="204"/><circle class="dot" cx="228"/><circle class="dot" cx="252"/><circle class="dot" cx="276"/>
-          <circle class="dot" cx="300"/><circle class="dot" cx="324"/><circle class="dot" cx="348"/><circle class="dot" cx="372"/>
-          <circle class="dot" cx="396"/><circle class="dot" cx="420"/><circle class="dot" cx="444"/><circle class="dot" cx="468"/>
-          <circle class="dot" cx="492"/><circle class="dot" cx="516"/><circle class="dot" cx="540"/><circle class="dot" cx="564"/>
-          <circle class="dot" cx="588"/><circle class="dot" cx="612"/><circle class="dot" cx="636"/><circle class="dot" cx="660"/>
-          <circle class="dot" cx="684"/><circle class="dot" cx="708"/><circle class="dot" cx="732"/><circle class="dot" cx="756"/><circle class="dot" cx="780"/>
+          <circle class="dot" cx="12" cy="0"/><circle class="dot" cx="36" cy="0"/><circle class="dot" cx="60" cy="0"/><circle class="dot" cx="84" cy="0"/>
+          <circle class="dot" cx="108" cy="0"/><circle class="dot" cx="132" cy="0"/><circle class="dot" cx="156" cy="0"/><circle class="dot" cx="180" cy="0"/>
+          <circle class="dot" cx="204" cy="0"/><circle class="dot" cx="228" cy="0"/><circle class="dot" cx="252" cy="0"/><circle class="dot" cx="276" cy="0"/>
+          <circle class="dot" cx="300" cy="0"/><circle class="dot" cx="324" cy="0"/><circle class="dot" cx="348" cy="0"/><circle class="dot" cx="372" cy="0"/>
+          <circle class="dot" cx="396" cy="0"/><circle class="dot" cx="420" cy="0"/><circle class="dot" cx="444" cy="0"/><circle class="dot" cx="468" cy="0"/>
+          <circle class="dot" cx="492" cy="0"/><circle class="dot" cx="516" cy="0"/><circle class="dot" cx="540" cy="0"/><circle class="dot" cx="564" cy="0"/>
+          <circle class="dot" cx="588" cy="0"/><circle class="dot" cx="612" cy="0"/><circle class="dot" cx="636" cy="0"/><circle class="dot" cx="660" cy="0"/>
+          <circle class="dot" cx="684" cy="0"/><circle class="dot" cx="708" cy="0"/><circle class="dot" cx="732" cy="0"/><circle class="dot" cx="756" cy="0"/><circle class="dot" cx="780" cy="0"/>
         </g>
       </svg>
     </div>
@@ -440,6 +384,7 @@
         <p class="hero-subtitle">Envie um briefing rápido. Respondemos com prazo e próximos passos.</p>
 
         <form id="briefing-form" class="form" method="POST" action="https://script.google.com/macros/s/AKfycbwV4pGGADw0Q2i5KV80w3VAVBoLoThFB0OF8p376GU6IIIwZhdiMFtRHR6-t4ks5cxw/exec" novalidate>
+          <!-- Honeypot -->
           <div class="visually-hidden" aria-hidden="true" hidden>
             <label for="website">Não preencha este campo</label>
             <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
@@ -489,7 +434,7 @@
             </div>
           </div>
 
-          <!-- Consentimento LGPD -->
+          <!-- LGPD -->
           <div class="form-field form-field--full">
             <label for="lgpd" class="consent-label">
               <input type="checkbox" id="lgpd" name="lgpd" required />
@@ -534,7 +479,7 @@
 
   <!-- CTA WhatsApp -->
   <a class="whatsapp-float" href="https://wa.me/557193081072?text=Ol%C3%A1,%20acabei%20de%20visitar%20o%20site%20da%20B2B%20Partners%20BRZL%20e%20gostaria%20de%20falar%20sobre%20um%20projeto." target="_blank" rel="noopener">
-    <img src="images/cta-whatsapp.svg" alt="WhatsApp" class="whatsapp-icon" />
+    <img src="images/cta-whatsapp.svg" alt="WhatsApp" class="whatsapp-icon" width="64" height="64" loading="lazy" decoding="async">
   </a>
 
   <!-- FOOTER -->
@@ -542,210 +487,7 @@
     <p>2025 © B2B Partners BRZL</p>
   </footer>
 
-  <!-- JS -->
-  <script>
-    (function(){
-      /* ===== MENU MOBILE ===== */
-      const btn = document.querySelector('.menu-toggle');
-      const menuOverlay = document.getElementById('mobile-menu');
-      const panel = menuOverlay?.querySelector('.mobile-menu-panel');
-      const closeInside = menuOverlay?.querySelector('.mobile-menu-close');
-      const linkNodes = menuOverlay ? menuOverlay.querySelectorAll('[data-menu-link]') : [];
-      const firstLink = linkNodes?.[0] || null;
-
-      function setBtn(open){
-        if(!btn) return;
-        btn.classList.toggle('is-open', open);
-        btn.setAttribute('aria-expanded', open);
-        btn.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
-        const icon = btn.querySelector('.menu-icon');
-        const label = btn.querySelector('.menu-label');
-        if(icon) icon.textContent = open ? '✕' : '☰';
-        if(label) label.textContent = open ? 'Fechar' : 'Menu';
-        if(open){ btn.classList.remove('menu-pulse'); } else { btn.classList.add('menu-pulse'); }
-      }
-
-      function openMenu(){
-        if(!menuOverlay) return;
-        menuOverlay.classList.add('show');
-        menuOverlay.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-        setBtn(true);
-        try{ history.pushState({menu:true}, '', '#menu'); }catch(_){}
-        setTimeout(()=> { (firstLink || closeInside || btn).focus?.(); }, 0);
-      }
-      function closeMenu(fromHistory=false){
-        if(!menuOverlay) return;
-        menuOverlay.classList.remove('show');
-        menuOverlay.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        setBtn(false);
-        if(fromHistory){ setTimeout(()=> btn?.focus?.(), 0); }
-      }
-      function toggleMenu(force){
-        const open = menuOverlay?.classList.contains('show');
-        const want = (force !== undefined) ? force : !open;
-        want ? openMenu() : closeMenu();
-      }
-
-      btn?.addEventListener('click', ()=> toggleMenu());
-      closeInside?.addEventListener('click', ()=> closeMenu());
-
-      // Navegação do menu mobile (fecha + rola)
-      linkNodes.forEach(a => {
-        a.addEventListener('click', (e)=>{
-          e.preventDefault();
-          const href = a.getAttribute('href') || '';
-          if(href === '#top'){
-            closeMenu(true);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            try{ history.replaceState({}, '', '#'); }catch(_){}
-            return;
-          }
-          const id = href.replace(/^#/, '');
-          const target = document.getElementById(id);
-          closeMenu(true);
-          if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
-          try{ history.replaceState({}, '', '#'+id); }catch(_){}
-        });
-      });
-
-      // Clique fora do painel fecha
-      menuOverlay?.addEventListener('click', (e)=>{
-        if(!panel) return;
-        if(!panel.contains(e.target)) closeMenu();
-      });
-      // Esc fecha
-      window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && menuOverlay?.classList.contains('show')) closeMenu(); });
-      // Back fecha
-      window.addEventListener('popstate', ()=> {
-        if(menuOverlay?.classList.contains('show')) closeMenu(true);
-      });
-
-      /* ===== LINKS "Início" (desktop e logo) ===== */
-      const topLinks = document.querySelectorAll('a.top-link');
-      topLinks.forEach(a=>{
-        a.addEventListener('click', (e)=>{
-          e.preventDefault();
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-          try{ history.replaceState({}, '', '#'); }catch(_){}
-        });
-      });
-
-      /* ===== FORM – status ===== */
-      const form = document.getElementById('briefing-form');
-      const statusEl = document.getElementById('form-status');
-      if(form){
-        form.addEventListener('submit', async (e)=>{
-          e.preventDefault();
-          const sbtn = form.querySelector('button[type="submit"]');
-          const data = new FormData(form);
-          const resetStatus = () => { statusEl.textContent=''; statusEl.className='form-status'; };
-          resetStatus();
-
-          if ((data.get('website') || '').trim() !== '') return;
-
-          const consent = form.querySelector('#lgpd');
-          if(!consent || !consent.checked){
-            statusEl.textContent = 'Para enviar, marque o consentimento LGPD.';
-            statusEl.classList.add('form-status--error');
-            statusEl.scrollIntoView({behavior:'smooth', block:'nearest'});
-            return;
-          }
-          if(!data.get('nome') || !data.get('email') || !data.get('mensagem')){
-            statusEl.textContent = 'Preencha nome, e-mail e mensagem.';
-            statusEl.classList.add('form-status--error');
-            statusEl.scrollIntoView({behavior:'smooth', block:'nearest'});
-            return;
-          }
-
-          data.append('timestamp', new Date().toISOString());
-
-          sbtn.disabled = true; const prev = sbtn.textContent; sbtn.textContent = 'Enviando…';
-          try{
-            await fetch(form.action, { method: 'POST', body: data, mode: 'no-cors' });
-            statusEl.textContent = 'Recebido. Entraremos em contato em breve.';
-            statusEl.classList.add('form-status--success');
-            statusEl.scrollIntoView({behavior:'smooth', block:'nearest'});
-            form.reset();
-          }catch(err){
-            statusEl.textContent = 'Não foi possível enviar agora. Tente novamente.';
-            statusEl.classList.add('form-status--error');
-            statusEl.scrollIntoView({behavior:'smooth', block:'nearest'});
-          }finally{
-            sbtn.disabled = false; sbtn.textContent = prev;
-          }
-        });
-      }
-
-      /* ===== AVISO DESKTOP ===== */
-      const OVERLAY_ID = 'desktop-advice';
-      const KEY_TS = 'b2b_desktop_notice_ack_ts';
-      const TTL_DAYS = 30;
-      const overlay = document.getElementById(OVERLAY_ID);
-      const shareInput = document.getElementById('desktop-share-url');
-
-      function daysToMs(d){ return d*24*60*60*1000; }
-      function isAckValid(){
-        try{
-          const ts = parseInt(localStorage.getItem(KEY_TS) || '0', 10);
-          return ts && (Date.now() - ts) < daysToMs(TTL_DAYS);
-        }catch(_){ return false; }
-      }
-      function setAck(){ try{ localStorage.setItem(KEY_TS, String(Date.now())); }catch(_){} }
-
-      function openOverlay(){
-        if(!overlay) return;
-        if(shareInput) shareInput.value = window.location.href;
-        overlay.hidden = false;
-        overlay.classList.add('show');
-        document.body.classList.add('overlay-open');
-      }
-      function closeOverlay(persist){
-        if(!overlay) return;
-        if(persist) setAck();
-        overlay.classList.remove('show');
-        overlay.hidden = true;
-        document.body.classList.remove('overlay-open');
-      }
-      function maybeShowOverlay(){
-        const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
-        if(!isDesktop) return;
-        if(isAckValid()) return;
-        openOverlay();
-      }
-
-      document.getElementById('desktop-continue')?.addEventListener('click', ()=> closeOverlay(true));
-      document.getElementById('desktop-open-mobile')?.addEventListener('click', ()=>{
-        const hint = document.getElementById('desktop-hint');
-        const input = document.getElementById('desktop-share-url');
-        hint.hidden = !hint.hidden;
-        if(!hint.hidden && input){ input.value = window.location.href; input.select(); }
-      });
-      document.getElementById('desktop-copy-url')?.addEventListener('click', async ()=>{
-        const input = document.getElementById('desktop-share-url');
-        try{
-          await navigator.clipboard.writeText(input.value);
-          const btn = document.getElementById('desktop-copy-url');
-          const txt = btn.textContent;
-          btn.textContent = 'Copiado!';
-          setTimeout(()=> btn.textContent = txt, 1200);
-        }catch(_){}
-      });
-      document.getElementById('desktop-advice')?.addEventListener('click', (e)=>{
-        if(e.target.hasAttribute('data-close') || e.target.classList.contains('overlay__close')){
-          closeOverlay(false);
-        }
-      });
-      window.addEventListener('load', maybeShowOverlay);
-      window.addEventListener('resize', ()=>{
-        const o = document.getElementById('desktop-advice');
-        if(!o || o.hidden) return;
-        const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
-        if(!isDesktop) closeOverlay(false);
-      });
-    })();
-  </script>
-
+  <!-- JS externo -->
+  <script src="script.js?v=ext-1" defer></script>
 </body>
 </html>
