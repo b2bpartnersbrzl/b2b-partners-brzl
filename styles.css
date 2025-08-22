@@ -37,7 +37,7 @@ body{ font-family:var(--font-base); color:var(--text); background:#fdfdfd; line-
 a{ color: var(--accent); text-decoration: none; }
 a:hover, a:focus{ text-decoration: underline; text-decoration-thickness:1px; text-underline-offset:3px; }
 
-/* HEADER (sólido) */
+/* HEADER (sólido) com clip de overflow */
 .main-header{
   position:fixed; top:0; left:0; right:0;
   height:var(--header-height);
@@ -46,7 +46,7 @@ a:hover, a:focus{ text-decoration: underline; text-decoration-thickness:1px; tex
   display:flex; align-items:center; justify-content:space-between;
   padding:8px 12px 8px 24px;
   z-index:1200;
-  overflow:hidden; /* impede a pulsação ultrapassar o cabeçalho */
+  overflow:hidden; /* corta qualquer halo que passe do header */
 }
 .logo-area{display:flex; flex-direction:column; align-items:flex-start; min-width:0; flex:1;}
 .logo-img{max-height:50px;height:auto;width:auto;display:block}
@@ -54,14 +54,14 @@ a:hover, a:focus{ text-decoration: underline; text-decoration-thickness:1px; tex
   font-size:15px; color:#666666;
   margin-top:6px; margin-bottom:0; font-weight:700; line-height:1.4;
   letter-spacing:.02em;
-  white-space:nowrap; /* nunca quebra */
+  white-space:nowrap;
 }
 .logo-subline em{font-style:italic;}
 .top-menu{display:none; gap:28px; align-items:center; flex-shrink:0}
 .top-menu a{font-weight:600; font-size:15px; padding:8px 0; transition:color var(--transition) ease;}
 .top-menu a:hover, .top-menu a:focus-visible{color:var(--accent)}
 
-/* BOTÃO MENU (MOBILE) — sem cápsula, à direita */
+/* BOTÃO MENU (MOBILE) — sem cápsula, pulsando o invólucro interno */
 .menu-toggle{
   display:flex; align-items:center; gap:8px;
   min-width:44px; min-height:44px;
@@ -77,14 +77,24 @@ a:hover, a:focus{ text-decoration: underline; text-decoration-thickness:1px; tex
 .menu-icon{font-size:18px; line-height:1;}
 .menu-label{font-size:15px;}
 
-/* PULSAÇÃO — mais translúcida, mais lenta e rente */
+/* Invólucro interno para garantir halo rente e simétrico */
+.menu-toggle-inner{
+  position:relative;
+  display:inline-flex; align-items:center; gap:8px;
+  line-height:1; padding:2px 2px; /* respiro mínimo e simétrico */
+  border-radius:10px;
+}
+
+/* PULSAÇÃO: aplicada ao invólucro, rente aos quatro lados */
 @keyframes pulseRing{
   0%{ box-shadow:0 0 0 0 rgba(102,153,153,.22); }
-  100%{ box-shadow:0 0 0 4px rgba(102,153,153,0); } /* anel curto (4px) */
+  100%{ box-shadow:0 0 0 4px rgba(102,153,153,0); }
 }
-.menu-pulse{ animation: pulseRing 2.2s ease-out infinite; border-radius:10px; }
-@media (prefers-reduced-motion: reduce){
-  .menu-pulse{ animation: none !important; }
+.menu-toggle.menu-pulse .menu-toggle-inner::after{
+  content:""; position:absolute; inset:0; border-radius:inherit;
+  box-shadow:0 0 0 0 rgba(102,153,153,.22);
+  animation:pulseRing 2.2s ease-out infinite;
+  pointer-events:none;
 }
 
 @media(min-width:768px){ .menu-toggle{display:none} .top-menu{display:flex} }
@@ -307,7 +317,7 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
   display:flex; align-items:center; justify-content:center;
   z-index:1150;
 }
-.footer-bar p{font-size:12px; color:#var(--text)}
+.footer-bar p{font-size:12px; color:var(--text)}
 
 /* AVISO DESKTOP (modal + scrim) */
 .overlay{
@@ -358,7 +368,7 @@ body.overlay-open .logo-marquee__track{ animation-play-state: paused; }
   #hero .hero-text{ white-space: normal; font-size: 22px; }
   .mbr{ display: inline; }
 
-  /* Manter a frase do subline sem quebra também no mobile */
+  /* Subline da logo sem quebra no mobile */
   .logo-subline{ white-space:nowrap; }
 
   /* Form */

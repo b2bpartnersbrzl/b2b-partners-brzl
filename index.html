@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="styles.css?v=pulse-toplink-1" />
+  <link rel="stylesheet" href="styles.css?v=pulse-inner-1" />
 </head>
 <body>
 
@@ -55,8 +55,10 @@
 
     <!-- BOTÃO MENU (MOBILE) sem cápsula -->
     <button class="menu-toggle menu-pulse" aria-label="Abrir menu" aria-controls="mobile-menu" aria-expanded="false" type="button">
-      <span class="menu-icon" aria-hidden="true">☰</span>
-      <span class="menu-label">Menu</span>
+      <span class="menu-toggle-inner">
+        <span class="menu-icon" aria-hidden="true">☰</span>
+        <span class="menu-label">Menu</span>
+      </span>
     </button>
   </header>
 
@@ -77,7 +79,7 @@
     </div>
   </div>
 
-  <!-- CARROSSEL (primeiro bloco da página) -->
+  <!-- CARROSSEL -->
   <section id="clientes" class="clients-fixed" aria-label="Marcas que confiam em nós">
     <div class="logo-marquee" role="region" aria-roledescription="carrossel automático" aria-label="Logos de clientes">
       <div class="logo-marquee__track">
@@ -376,6 +378,7 @@
         const label = btn.querySelector('.menu-label');
         if(icon) icon.textContent = open ? '✕' : '☰';
         if(label) label.textContent = open ? 'Fechar' : 'Menu';
+        // pausa o pulso quando aberto
         if(open){ btn.classList.remove('menu-pulse'); } else { btn.classList.add('menu-pulse'); }
       }
 
@@ -520,8 +523,6 @@
         overlay.hidden = false;
         overlay.classList.add('show');
         document.body.classList.add('overlay-open');
-        setTimeout(()=>{ (btnContinue || btnOpenMobile || overlay).focus?.(); }, 0);
-        window.addEventListener('keydown', onEsc, { once:false });
       }
       function closeOverlay(persist){
         if(!overlay) return;
@@ -529,9 +530,7 @@
         overlay.classList.remove('show');
         overlay.hidden = true;
         document.body.classList.remove('overlay-open');
-        window.removeEventListener('keydown', onEsc);
       }
-      function onEsc(e){ if(e.key === 'Escape') closeOverlay(false); }
       function maybeShowOverlay(){
         const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
         if(!isDesktop) return;
@@ -539,29 +538,34 @@
         openOverlay();
       }
 
-      btnContinue && btnContinue.addEventListener('click', ()=> closeOverlay(true));
-      btnOpenMobile && btnOpenMobile.addEventListener('click', ()=>{
-        if(hint) hint.hidden = !hint.hidden;
-        if(hint && !hint.hidden && shareInput){
+      document.getElementById('desktop-continue')?.addEventListener('click', ()=> closeOverlay(true));
+      document.getElementById('desktop-open-mobile')?.addEventListener('click', ()=>{
+        const hint = document.getElementById('desktop-hint');
+        const shareInput = document.getElementById('desktop-share-url');
+        hint.hidden = !hint.hidden;
+        if(!hint.hidden && shareInput){
           shareInput.value = window.location.href;
           shareInput.select();
         }
       });
-      copyBtn && copyBtn.addEventListener('click', async ()=>{
+      document.getElementById('desktop-copy-url')?.addEventListener('click', async ()=>{
+        const shareInput = document.getElementById('desktop-share-url');
         try{
           await navigator.clipboard.writeText(shareInput.value);
-          const txt = copyBtn.textContent;
-          copyBtn.textContent = 'Copiado!';
-          setTimeout(()=> copyBtn.textContent = txt, 1200);
+          const btn = document.getElementById('desktop-copy-url');
+          const txt = btn.textContent;
+          btn.textContent = 'Copiado!';
+          setTimeout(()=> btn.textContent = txt, 1200);
         }catch(_){}
       });
-      overlay && overlay.addEventListener('click', (e)=>{
+      document.getElementById('desktop-advice')?.addEventListener('click', (e)=>{
         if(e.target.hasAttribute('data-close') || e.target.classList.contains('overlay__close')){
           closeOverlay(false);
         }
       });
       window.addEventListener('load', maybeShowOverlay);
       window.addEventListener('resize', ()=>{
+        const overlay = document.getElementById('desktop-advice');
         if(!overlay || overlay.hidden) return;
         const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
         if(!isDesktop) closeOverlay(false);
