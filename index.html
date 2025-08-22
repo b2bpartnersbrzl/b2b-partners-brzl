@@ -30,7 +30,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <!-- força recarregar CSS -->
-  <link rel="stylesheet" href="styles.css?v=menu-label-chips-1" />
+  <link rel="stylesheet" href="styles.css?v=menu-final-1" />
 </head>
 <body>
 
@@ -54,30 +54,27 @@
     </nav>
 
     <!-- BOTÃO MENU (MOBILE) -->
-    <button class="menu-toggle" aria-label="Abrir menu" aria-controls="mobile-menu" aria-expanded="false" type="button">
+    <button class="menu-toggle menu-pulse" aria-label="Abrir menu" aria-controls="mobile-menu" aria-expanded="false" type="button">
       <span class="menu-icon" aria-hidden="true">☰</span>
       <span class="menu-label">Menu</span>
     </button>
   </header>
 
-  <!-- BARRA DE ATALHOS (só no mobile) -->
-  <nav class="quick-nav" aria-label="Atalhos de navegação (mobile)">
-    <div class="quick-nav__scroll">
-      <a class="chip" href="#servicos">O que fazemos</a>
-      <a class="chip" href="#quem-somos">Quem somos</a>
-      <a class="chip" href="#processo">Como fazemos</a>
-      <a class="chip" href="#seu-projeto">Seu Projeto</a>
-    </div>
-  </nav>
-
-  <!-- MENU MOBILE -->
+  <!-- MENU MOBILE (overlay + painel) -->
   <div id="mobile-menu" class="mobile-menu-overlay" aria-hidden="true">
-    <nav class="mobile-menu-nav" aria-label="Menu principal (mobile)">
-      <a href="#servicos">O que fazemos</a>
-      <a href="#quem-somos">Quem somos</a>
-      <a href="#processo">Como fazemos</a>
-      <a href="#seu-projeto">Seu Projeto</a>
-    </nav>
+    <div class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Menu">
+      <div class="mobile-menu-top">
+        <h2 class="mobile-menu-title">Menu</h2>
+        <button class="mobile-menu-close" type="button" aria-label="Fechar menu">✕</button>
+      </div>
+      <nav class="mobile-menu-nav" aria-label="Menu principal (mobile)">
+        <a href="#servicos">O que fazemos</a>
+        <a href="#quem-somos">Quem somos</a>
+        <a href="#processo">Como fazemos</a>
+        <a href="#seu-projeto">Seu Projeto</a>
+        <button type="button" class="mobile-menu-exit" aria-label="Fechar">Fechar</button>
+      </nav>
+    </div>
   </div>
 
   <!-- CARROSSEL -->
@@ -363,45 +360,76 @@
   <!-- JS -->
   <script>
     (function(){
-      /* MENU MOBILE */
+      /* ===== MENU MOBILE ===== */
       const btn = document.querySelector('.menu-toggle');
-      const menu = document.getElementById('mobile-menu');
-      const links = menu ? menu.querySelectorAll('a[href^="#"]') : [];
-      const menuIcon = btn?.querySelector('.menu-icon');
-      const menuLabel = btn?.querySelector('.menu-label');
+      const menuOverlay = document.getElementById('mobile-menu');
+      const panel = menuOverlay?.querySelector('.mobile-menu-panel');
+      const closeInside = menuOverlay?.querySelector('.mobile-menu-close');
+      const exitBtn = menuOverlay?.querySelector('.mobile-menu-exit');
+      const links = menuOverlay ? menuOverlay.querySelectorAll('a[href^="#"]') : [];
+      const firstLink = links?.[0] || null;
 
       function setBtn(open){
         if(!btn) return;
         btn.classList.toggle('is-open', open);
         btn.setAttribute('aria-expanded', open);
         btn.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
-        if(menuIcon) menuIcon.textContent = open ? '✕' : '☰';
-        if(menuLabel) menuLabel.textContent = open ? 'Fechar' : 'Menu';
+        const icon = btn.querySelector('.menu-icon');
+        const label = btn.querySelector('.menu-label');
+        if(icon) icon.textContent = open ? '✕' : '☰';
+        if(label) label.textContent = open ? 'Fechar' : 'Menu';
+        // Pulso pausa quando aberto
+        if(open){ btn.classList.remove('menu-pulse'); } else { btn.classList.add('menu-pulse'); }
+      }
+
+      function openMenu(){
+        if(!menuOverlay) return;
+        menuOverlay.classList.add('show');
+        menuOverlay.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        setBtn(true);
+        // empilha estado para fechar com botão "voltar" (Android)
+        try{ history.pushState({menu:true}, '', '#menu'); }catch(_){}
+        // foco
+        setTimeout(()=> { (firstLink || closeInside || btn).focus?.(); }, 0);
+      }
+      function closeMenu(fromHistory=false){
+        if(!menuOverlay) return;
+        menuOverlay.classList.remove('show');
+        menuOverlay.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        setBtn(false);
+        // se fechar por UI e houver hash #menu, tira via history.back()
+        if(!fromHistory && location.hash === '#menu'){
+          try{ history.back(); }catch(_){}
+        }
+        // devolve foco ao botão
+        setTimeout(()=> btn?.focus?.(), 0);
       }
       function toggleMenu(force){
-        if(!menu || !btn) return;
-        const show = (force !== undefined) ? force : !menu.classList.contains('show');
-        menu.classList.toggle('show', show);
-        document.body.style.overflow = show ? 'hidden' : '';
-        setBtn(show);
-      }
-      if(btn && menu){
-        btn.addEventListener('click', ()=> toggleMenu());
-        window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') toggleMenu(false); });
-        links.forEach(a => a.addEventListener('click', ()=> toggleMenu(false)));
+        const open = menuOverlay?.classList.contains('show');
+        const want = (force !== undefined) ? force : !open;
+        want ? openMenu() : closeMenu();
       }
 
-      /* Pulsação inicial do botão (1x por sessão) */
-      try{
-        const KEY = 'b2b_menu_hint_seen';
-        if(!sessionStorage.getItem(KEY) && btn){
-          btn.classList.add('menu-pulse');
-          setTimeout(()=> btn.classList.remove('menu-pulse'), 2200);
-          sessionStorage.setItem(KEY, '1');
-        }
-      }catch(_){}
+      // Eventos
+      btn?.addEventListener('click', ()=> toggleMenu());
+      closeInside?.addEventListener('click', ()=> closeMenu());
+      exitBtn?.addEventListener('click', ()=> closeMenu());
+      links.forEach(a => a.addEventListener('click', ()=> closeMenu()));
+      // click fora do painel fecha
+      menuOverlay?.addEventListener('click', (e)=>{
+        if(!panel) return;
+        if(!panel.contains(e.target)) closeMenu();
+      });
+      // Esc fecha
+      window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && menuOverlay?.classList.contains('show')) closeMenu(); });
+      // Back/Popstate fecha
+      window.addEventListener('popstate', ()=> {
+        if(menuOverlay?.classList.contains('show')) closeMenu(true);
+      });
 
-      /* FORM – status destacado */
+      /* ===== FORM – status destacado ===== */
       const form = document.getElementById('briefing-form');
       const statusEl = document.getElementById('form-status');
       if(form){
@@ -409,10 +437,7 @@
           e.preventDefault();
           const sbtn = form.querySelector('button[type="submit"]');
           const data = new FormData(form);
-          const resetStatus = () => {
-            statusEl.textContent = '';
-            statusEl.className = 'form-status';
-          };
+          const resetStatus = () => { statusEl.textContent=''; statusEl.className='form-status'; };
           resetStatus();
 
           if ((data.get('website') || '').trim() !== '') return;
@@ -450,7 +475,7 @@
         });
       }
 
-      /* AVISO DESKTOP (modal centralizado + scrim) */
+      /* ===== AVISO DESKTOP (modal centralizado + scrim) ===== */
       const OVERLAY_ID = 'desktop-advice';
       const KEY_TS = 'b2b_desktop_notice_ack_ts';
       const TTL_DAYS = 30;
@@ -468,9 +493,7 @@
           return ts && (Date.now() - ts) < daysToMs(TTL_DAYS);
         }catch(_){ return false; }
       }
-      function setAck(){
-        try{ localStorage.setItem(KEY_TS, String(Date.now())); }catch(_){}
-      }
+      function setAck(){ try{ localStorage.setItem(KEY_TS, String(Date.now())); }catch(_){} }
 
       function openOverlay(){
         if(!overlay) return;
@@ -513,13 +536,11 @@
           setTimeout(()=> copyBtn.textContent = txt, 1200);
         }catch(_){}
       });
-
       overlay && overlay.addEventListener('click', (e)=>{
         if(e.target.hasAttribute('data-close') || e.target.classList.contains('overlay__close')){
           closeOverlay(false);
         }
       });
-
       window.addEventListener('load', maybeShowOverlay);
       window.addEventListener('resize', ()=>{
         if(!overlay || overlay.hidden) return;
