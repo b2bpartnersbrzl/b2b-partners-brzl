@@ -2,7 +2,7 @@
   --header-height: 96px;
   --footer-height: 42px;
 
-  --section-gap: 24px;
+  --section-gap: 24px;            /* espaçamento vertical padrão entre heros */
   --anchor-offset-extra: 12px;
 
   /* Carrossel */
@@ -357,30 +357,40 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
 body.overlay-open{ overflow:hidden; }
 body.overlay-open .logo-marquee__track{ animation-play-state: paused; }
 
-/* ========= SEPARADOR (pontinhos) — DESLOCADO PARA BAIXO (heros intocados) ========= */
+/* ========= SEPARADOR (pontinhos) — CENTRALIZAÇÃO EXATA ENTRE HEROS ========= */
+/* Base do separador: sem margem própria */
 .separator-dots{
   width:100%;
-  height:28px;            /* altura compacta no desktop */
-  margin:12px 0;          /* respiro curto e IDÊNTICO (cima=baixo), mais abaixo que antes */
+  height:28px;                 /* altura compacta no desktop */
+  margin:0;                    /* sem margem vertical por padrão */
   display:block;
 }
 .separator-dots svg{ display:block; width:100%; height:100%; }
 .separator-dots .dot{
   fill: var(--accent);
   opacity:.28;
-  r: 2.4;                 /* raio base — reforçado no mobile via transform */
+  r: 2.4;                      /* raio base — reforçado no mobile via transform */
   transform-box: fill-box;
   transform-origin: center;
 }
 
+/* Regras contextuais para centralizar entre heros:
+   - Espaço do hero superior até os pontos = var(--section-gap)/2
+   - Espaço dos pontos até o hero inferior = var(--section-gap)/2
+*/
+.hero + .separator-dots{ margin-top: calc(var(--section-gap) / 2); }
+.separator-dots + .hero{ margin-top: calc(var(--section-gap) / 2); }
+
+/* Remover separadores "internos" do mesmo contexto (Detalhes dos serviços) */
+#detalhes-servicos .separator-dots{ display:none; }
+
 @media (max-width:768px){
   .separator-dots{
-    height:22px;          /* menor no mobile */
-    margin:10px 0;        /* respiro curto e IDÊNTICO no mobile */
+    height:22px;               /* menor no mobile */
   }
   .separator-dots .dot{
-    opacity:.42;          /* mais visíveis no mobile */
-    transform: scale(1.7);/* pontos maiores sem alterar layout */
+    opacity:.42;               /* mais visíveis no mobile */
+    transform: scale(1.7);     /* pontos maiores sem alterar layout */
   }
 }
 
