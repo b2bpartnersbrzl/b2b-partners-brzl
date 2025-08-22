@@ -1,5 +1,5 @@
 :root{
-  --header-height: 96px;     /* cabeçalho fixo */
+  --header-height: 96px;
   --footer-height: 42px;
 
   --section-gap: 24px;
@@ -44,9 +44,9 @@ a:hover, a:focus{ text-decoration: underline; text-decoration-thickness:1px; tex
   background:#ffffff;
   border-bottom:1px solid var(--block-border);
   display:flex; align-items:center; justify-content:space-between;
-  padding:8px 12px 8px 24px; /* ↑ reduzimos padding-right para encostar o botão à direita */
+  padding:8px 12px 8px 24px;
   z-index:1200;
-  overflow:hidden; /* evita qualquer efeito visual extrapolar o header */
+  overflow:hidden; /* impede a pulsação ultrapassar o cabeçalho */
 }
 .logo-area{display:flex; flex-direction:column; align-items:flex-start; min-width:0; flex:1;}
 .logo-img{max-height:50px;height:auto;width:auto;display:block}
@@ -54,14 +54,14 @@ a:hover, a:focus{ text-decoration: underline; text-decoration-thickness:1px; tex
   font-size:15px; color:#666666;
   margin-top:6px; margin-bottom:0; font-weight:700; line-height:1.4;
   letter-spacing:.02em;
-  white-space:nowrap;             /* nunca quebra */
+  white-space:nowrap; /* nunca quebra */
 }
 .logo-subline em{font-style:italic;}
 .top-menu{display:none; gap:28px; align-items:center; flex-shrink:0}
 .top-menu a{font-weight:600; font-size:15px; padding:8px 0; transition:color var(--transition) ease;}
 .top-menu a:hover, .top-menu a:focus-visible{color:var(--accent)}
 
-/* BOTÃO MENU (MOBILE) — sem cápsula, encostado à direita */
+/* BOTÃO MENU (MOBILE) — sem cápsula, à direita */
 .menu-toggle{
   display:flex; align-items:center; gap:8px;
   min-width:44px; min-height:44px;
@@ -77,12 +77,12 @@ a:hover, a:focus{ text-decoration: underline; text-decoration-thickness:1px; tex
 .menu-icon{font-size:18px; line-height:1;}
 .menu-label{font-size:15px;}
 
-/* Pulso suave CONTIDO (raio menor) */
+/* PULSAÇÃO — mais translúcida, mais lenta e rente */
 @keyframes pulseRing{
-  0%{ box-shadow:0 0 0 0 rgba(102,153,153,.45); }
-  100%{ box-shadow:0 0 0 8px rgba(102,153,153,0); } /* was 14px */
+  0%{ box-shadow:0 0 0 0 rgba(102,153,153,.22); }
+  100%{ box-shadow:0 0 0 4px rgba(102,153,153,0); } /* anel curto (4px) */
 }
-.menu-pulse{ animation: pulseRing 1.6s ease-out infinite; border-radius:12px; }
+.menu-pulse{ animation: pulseRing 2.2s ease-out infinite; border-radius:10px; }
 @media (prefers-reduced-motion: reduce){
   .menu-pulse{ animation: none !important; }
 }
@@ -241,7 +241,7 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
 .form input:focus, .form select:focus, .form textarea:focus{ border-color:#669999; box-shadow:0 0 0 3px rgba(102,153,153,.18); }
 .form textarea{ resize:vertical; }
 
-/* LGPD – checkbox colado ao “A” de Autorizo (topo da linha) */
+/* LGPD – checkbox colado ao “A” de Autorizo */
 .consent-label{
   display: grid;
   grid-template-columns: auto 1fr;
@@ -307,7 +307,7 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
   display:flex; align-items:center; justify-content:center;
   z-index:1150;
 }
-.footer-bar p{font-size:12px; color:var(--text)}
+.footer-bar p{font-size:12px; color:#var(--text)}
 
 /* AVISO DESKTOP (modal + scrim) */
 .overlay{
@@ -352,15 +352,14 @@ body.overlay-open .logo-marquee__track{ animation-play-state: paused; }
   .services-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width:768px){
-  /* manter a frase sem quebra também no mobile */
-  .logo-subline{ white-space:nowrap; }
-
   .hero{padding:24px}
-
   /* Hero: mobile em 4 linhas à esquerda */
   #hero .hero-content{ text-align: left; }
   #hero .hero-text{ white-space: normal; font-size: 22px; }
   .mbr{ display: inline; }
+
+  /* Manter a frase do subline sem quebra também no mobile */
+  .logo-subline{ white-space:nowrap; }
 
   /* Form */
   .form-grid{ grid-template-columns: 1fr; gap: 10px; }
