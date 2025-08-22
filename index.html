@@ -5,10 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
   <title>B2B Partners BRZL – Marketing. Eventos. Com tecnologia.</title>
-  <link rel="canonical" href="https://b2bpartners.marketing/" />
-
   <meta name="description" content="Execução nacional para marcas e agências: ativações, eventos, operação multi-praça e produção 360. Da ideia à entrega, com tecnologia." />
 
+  <!-- SEO adicionais -->
+  <link rel="canonical" href="https://b2bpartners.marketing/" />
+
+  <!-- Ícones -->
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png" />
   <link rel="apple-touch-icon" href="images/favicon.png" />
@@ -27,17 +29,26 @@
   <meta name="twitter:description" content="Execução nacional para marcas e agências: ativações, eventos, operação multi-praça e produção 360. Da ideia à entrega, com tecnologia." />
   <meta name="twitter:image" content="https://b2bpartners.marketing/images/thumb.png" />
 
-  <!-- Fontes -->
+  <!-- Fontes (preconnect + preload do CSS) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
 
-  <!-- CSS (mantém o seu styles.min.css se já estiver publicado; caso prefira, pode apontar para styles.css) -->
-  <link rel="stylesheet" href="styles.min.css?v=1" />
+  <!-- CSS (mantendo seu styles.css) -->
+  <link rel="stylesheet" href="styles.css?v=sep-tight-4" />
 
   <!-- Dados estruturados -->
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"B2B Partners BRZL","url":"https://b2bpartners.marketing/","logo":"https://b2bpartners.marketing/images/logo-b2b.svg","sameAs":[]}</script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"B2B Partners BRZL",
+    "url":"https://b2bpartners.marketing/",
+    "logo":"https://b2bpartners.marketing/images/logo-b2b.svg",
+    "sameAs":[]
+  }
+  </script>
 </head>
 <body>
 
@@ -61,7 +72,7 @@
       <a href="#seu-projeto">Seu Projeto</a>
     </nav>
 
-    <!-- BOTÃO MENU (MOBILE) -->
+    <!-- BOTÃO MENU (MOBILE) sem cápsula -->
     <button class="menu-toggle menu-pulse" aria-label="Abrir menu" aria-controls="mobile-menu" aria-expanded="false" type="button">
       <span class="menu-toggle-inner">
         <span class="menu-icon" aria-hidden="true">☰</span>
@@ -70,7 +81,7 @@
     </button>
   </header>
 
-  <!-- MENU MOBILE -->
+  <!-- MENU MOBILE (overlay + painel) -->
   <div id="mobile-menu" class="mobile-menu-overlay" aria-hidden="true">
     <div class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Menu">
       <div class="mobile-menu-top">
@@ -104,16 +115,16 @@
           <li class="logo-item"><img src="images/logos/logo_chilli_beans.svg" alt="Chilli Beans" class="logo-img-brand logo-md" decoding="async"></li>
         </ul>
         <ul class="logo-list" aria-hidden="true">
-          <li class="logo-item"><img decoding="async" loading="lazy" src="images/logos/logo_aneel.svg" alt="" class="logo-img-brand logo-sm"></li>
-          <li class="logo-item"><img decoding="async" loading="lazy" src="images/logos/logo_vivo.svg" alt="" class="logo-img-brand logo-md"></li>
-          <li class="logo-item"><img decoding="async" loading="lazy" src="images/logos/logo_dell.svg" alt="" class="logo-img-brand logo-md"></li>
-          <li class="logo-item"><img decoding="async" loading="lazy" src="images/logos/logo_natura.svg" alt="" class="logo-img-brand logo-lg"></li>
-          <li class="logo-item"><img decoding="async" loading="lazy" src="images/logos/logo_itau.svg" alt="" class="logo-img-brand logo-lg"></li>
-          <li class="logo-item"><img decoding="async" loading="lazy" src="images/logos/logo_jeep.svg" alt="" class="logo-img-brand logo-md"></li>
-          <li class="logo-item"><img decoding="async" loading="lazy" src="images/logos/logo_bb.svg" alt="" class="logo-img-brand logo-lg"></li>
-          <li class="logo-item"><img decoding="async" loading="lazy" src="images/logos/logo_fiat.svg" alt="" class="logo-img-brand logo-md"></li>
-          <li class="logo-item"><img decoding="async" loading="lazy" src="images/logos/logo_citi.svg" alt="" class="logo-img-brand logo-md"></li>
-          <li class="logo-item"><img decoding="async" loading="lazy" src="images/logos/logo_chilli_beans.svg" alt="" class="logo-img-brand logo-md"></li>
+          <li class="logo-item"><img src="images/logos/logo_aneel.svg" alt="" class="logo-img-brand logo-sm" loading="lazy" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_vivo.svg" alt="" class="logo-img-brand logo-md" loading="lazy" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_dell.svg" alt="" class="logo-img-brand logo-md" loading="lazy" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_natura.svg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_itau.svg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_jeep.svg" alt="" class="logo-img-brand logo-md" loading="lazy" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_bb.svg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_fiat.svg" alt="" class="logo-img-brand logo-md" loading="lazy" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_citi.svg" alt="" class="logo-img-brand logo-md" loading="lazy" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_chilli_beans.svg" alt="" class="logo-img-brand logo-md" loading="lazy" decoding="async"></li>
         </ul>
       </div>
     </div>
@@ -135,14 +146,14 @@
       </div>
     </section>
 
-    <!-- O que fazemos -->
+    <!-- O QUE FAZEMOS -->
     <section id="servicos" class="hero" aria-label="O que fazemos">
       <div class="hero-content">
         <h2 class="hero-title">O que fazemos</h2>
         <p class="hero-subtitle">Selecione um serviço para ver o escopo.</p>
 
         <div class="services-grid" role="list">
-          <!-- UX PARA EVENTOS EM PRIMEIRO + ESSENCIAL -->
+          <!-- UX PARA EVENTOS EM PRIMEIRO + DESTAQUE + ESSENCIAL -->
           <article class="service-card service-card--ux" role="listitem">
             <div class="card-body">
               <div class="card-line">
@@ -181,7 +192,264 @@
       </div>
     </section>
 
-    <!-- (demais seções, separadores, detalhes de serviços e formulário — mantidos exatamente como no seu arquivo base) -->
+    <!-- SEPARADOR -->
+    <div class="separator-dots" aria-hidden="true">
+      <svg viewBox="0 0 800 28" role="presentation">
+        <g transform="translate(0,9)">
+          <circle class="dot" cx="24"/><circle class="dot" cx="48"/><circle class="dot" cx="72"/><circle class="dot" cx="96"/>
+          <circle class="dot" cx="120"/><circle class="dot" cx="144"/><circle class="dot" cx="168"/><circle class="dot" cx="192"/>
+          <circle class="dot" cx="216"/><circle class="dot" cx="240"/><circle class="dot" cx="264"/><circle class="dot" cx="288"/>
+          <circle class="dot" cx="312"/><circle class="dot" cx="336"/><circle class="dot" cx="360"/><circle class="dot" cx="384"/>
+          <circle class="dot" cx="408"/><circle class="dot" cx="432"/><circle class="dot" cx="456"/><circle class="dot" cx="480"/>
+          <circle class="dot" cx="504"/><circle class="dot" cx="528"/><circle class="dot" cx="552"/><circle class="dot" cx="576"/>
+          <circle class="dot" cx="600"/><circle class="dot" cx="624"/><circle class="dot" cx="648"/><circle class="dot" cx="672"/>
+          <circle class="dot" cx="696"/><circle class="dot" cx="720"/><circle class="dot" cx="744"/><circle class="dot" cx="768"/><circle class="dot" cx="792"/>
+        </g>
+        <g transform="translate(0,19)">
+          <circle class="dot" cx="12"/><circle class="dot" cx="36"/><circle class="dot" cx="60"/><circle class="dot" cx="84"/>
+          <circle class="dot" cx="108"/><circle class="dot" cx="132"/><circle class="dot" cx="156"/><circle class="dot" cx="180"/>
+          <circle class="dot" cx="204"/><circle class="dot" cx="228"/><circle class="dot" cx="252"/><circle class="dot" cx="276"/>
+          <circle class="dot" cx="300"/><circle class="dot" cx="324"/><circle class="dot" cx="348"/><circle class="dot" cx="372"/>
+          <circle class="dot" cx="396"/><circle class="dot" cx="420"/><circle class="dot" cx="444"/><circle class="dot" cx="468"/>
+          <circle class="dot" cx="492"/><circle class="dot" cx="516"/><circle class="dot" cx="540"/><circle class="dot" cx="564"/>
+          <circle class="dot" cx="588"/><circle class="dot" cx="612"/><circle class="dot" cx="636"/><circle class="dot" cx="660"/>
+          <circle class="dot" cx="684"/><circle class="dot" cx="708"/><circle class="dot" cx="732"/><circle class="dot" cx="756"/><circle class="dot" cx="780"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- QUEM SOMOS -->
+    <section id="quem-somos" class="hero" aria-label="Quem somos">
+      <div class="hero-content">
+        <h2 class="hero-title">Quem somos</h2>
+        <p class="hero-subtitle">
+          Operação de execução para quem precisa entregar com escala, padrão e previsibilidade.
+        </p>
+
+        <p>
+          Nascemos para resolver o mesmo desafio em contextos diferentes: fazer acontecer com qualidade, onde e quando for preciso.
+          Para marcas, somos o braço que viabiliza ativações e eventos com execução estruturada. Para agências, somos o parceiro de escala
+          que garante consistência em múltiplas praças, mantendo prazos, padrão e governança operacional.
+        </p>
+
+        <p class="micro-trust">
+          Pronto para viabilizar sua operação? Acesse <a href="#seu-projeto">Seu Projeto</a> e envie o briefing.
+        </p>
+      </div>
+    </section>
+
+    <!-- SEPARADOR -->
+    <div class="separator-dots" aria-hidden="true">
+      <svg viewBox="0 0 800 28" role="presentation">
+        <g transform="translate(0,9)">
+          <circle class="dot" cx="24"/><circle class="dot" cx="48"/><circle class="dot" cx="72"/><circle class="dot" cx="96"/>
+          <circle class="dot" cx="120"/><circle class="dot" cx="144"/><circle class="dot" cx="168"/><circle class="dot" cx="192"/>
+          <circle class="dot" cx="216"/><circle class="dot" cx="240"/><circle class="dot" cx="264"/><circle class="dot" cx="288"/>
+          <circle class="dot" cx="312"/><circle class="dot" cx="336"/><circle class="dot" cx="360"/><circle class="dot" cx="384"/>
+          <circle class="dot" cx="408"/><circle class="dot" cx="432"/><circle class="dot" cx="456"/><circle class="dot" cx="480"/>
+          <circle class="dot" cx="504"/><circle class="dot" cx="528"/><circle class="dot" cx="552"/><circle class="dot" cx="576"/>
+          <circle class="dot" cx="600"/><circle class="dot" cx="624"/><circle class="dot" cx="648"/><circle class="dot" cx="672"/>
+          <circle class="dot" cx="696"/><circle class="dot" cx="720"/><circle class="dot" cx="744"/><circle class="dot" cx="768"/><circle class="dot" cx="792"/>
+        </g>
+        <g transform="translate(0,19)">
+          <circle class="dot" cx="12"/><circle class="dot" cx="36"/><circle class="dot" cx="60"/><circle class="dot" cx="84"/>
+          <circle class="dot" cx="108"/><circle class="dot" cx="132"/><circle class="dot" cx="156"/><circle class="dot" cx="180"/>
+          <circle class="dot" cx="204"/><circle class="dot" cx="228"/><circle class="dot" cx="252"/><circle class="dot" cx="276"/>
+          <circle class="dot" cx="300"/><circle class="dot" cx="324"/><circle class="dot" cx="348"/><circle class="dot" cx="372"/>
+          <circle class="dot" cx="396"/><circle class="dot" cx="420"/><circle class="dot" cx="444"/><circle class="dot" cx="468"/>
+          <circle class="dot" cx="492"/><circle class="dot" cx="516"/><circle class="dot" cx="540"/><circle class="dot" cx="564"/>
+          <circle class="dot" cx="588"/><circle class="dot" cx="612"/><circle class="dot" cx="636"/><circle class="dot" cx="660"/>
+          <circle class="dot" cx="684"/><circle class="dot" cx="708"/><circle class="dot" cx="732"/><circle class="dot" cx="756"/><circle class="dot" cx="780"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- COMO FAZEMOS -->
+    <section id="processo" class="hero" aria-label="Como fazemos">
+      <div class="hero-content">
+        <h2 class="hero-title">Como fazemos</h2>
+        <p class="hero-subtitle">Nossa filosofia é <strong>Produção 360</strong>: planejamento, operação e validação com tecnologia.</p>
+
+        <h3>1) Alinhamento</h3><p>Briefing claro que vira roteiro de execução.</p>
+        <h3>2) Planejamento</h3><p>Distribuição de recursos e cidades com gestão centralizada.</p>
+        <h3>3) Operação em campo</h3><p>Registros em tempo real e pontos focais locais.</p>
+        <h3>4) Validação e relatório</h3><p>Dashboards e relatório final com evidências.</p>
+
+        <p class="micro-trust">
+          Quer ver esse processo aplicado ao seu caso? Vá até <a href="#seu-projeto">Seu Projeto</a> e envie o briefing.
+        </p>
+      </div>
+    </section>
+
+    <!-- SEPARADOR -->
+    <div class="separator-dots" aria-hidden="true">
+      <svg viewBox="0 0 800 28" role="presentation">
+        <g transform="translate(0,9)">
+          <circle class="dot" cx="24"/><circle class="dot" cx="48"/><circle class="dot" cx="72"/><circle class="dot" cx="96"/>
+          <circle class="dot" cx="120"/><circle class="dot" cx="144"/><circle class="dot" cx="168"/><circle class="dot" cx="192"/>
+          <circle class="dot" cx="216"/><circle class="dot" cx="240"/><circle class="dot" cx="264"/><circle class="dot" cx="288"/>
+          <circle class="dot" cx="312"/><circle class="dot" cx="336"/><circle class="dot" cx="360"/><circle class="dot" cx="384"/>
+          <circle class="dot" cx="408"/><circle class="dot" cx="432"/><circle class="dot" cx="456"/><circle class="dot" cx="480"/>
+          <circle class="dot" cx="504"/><circle class="dot" cx="528"/><circle class="dot" cx="552"/><circle class="dot" cx="576"/>
+          <circle class="dot" cx="600"/><circle class="dot" cx="624"/><circle class="dot" cx="648"/><circle class="dot" cx="672"/>
+          <circle class="dot" cx="696"/><circle class="dot" cx="720"/><circle class="dot" cx="744"/><circle class="dot" cx="768"/><circle class="dot" cx="792"/>
+        </g>
+        <g transform="translate(0,19)">
+          <circle class="dot" cx="12"/><circle class="dot" cx="36"/><circle class="dot" cx="60"/><circle class="dot" cx="84"/>
+          <circle class="dot" cx="108"/><circle class="dot" cx="132"/><circle class="dot" cx="156"/><circle class="dot" cx="180"/>
+          <circle class="dot" cx="204"/><circle class="dot" cx="228"/><circle class="dot" cx="252"/><circle class="dot" cx="276"/>
+          <circle class="dot" cx="300"/><circle class="dot" cx="324"/><circle class="dot" cx="348"/><circle class="dot" cx="372"/>
+          <circle class="dot" cx="396"/><circle class="dot" cx="420"/><circle class="dot" cx="444"/><circle class="dot" cx="468"/>
+          <circle class="dot" cx="492"/><circle class="dot" cx="516"/><circle class="dot" cx="540"/><circle class="dot" cx="564"/>
+          <circle class="dot" cx="588"/><circle class="dot" cx="612"/><circle class="dot" cx="636"/><circle class="dot" cx="660"/>
+          <circle class="dot" cx="684"/><circle class="dot" cx="708"/><circle class="dot" cx="732"/><circle class="dot" cx="756"/><circle class="dot" cx="780"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- DETALHES DOS SERVIÇOS -->
+    <section id="detalhes-servicos" class="hero" aria-label="Detalhes dos serviços">
+      <div class="hero-content">
+        <h2 class="hero-title">Detalhes dos serviços</h2>
+        <p class="hero-subtitle">Escopos resumidos. Itens completos sob demanda.</p>
+
+        <section id="servicos-ativacoes" class="hero" aria-label="Ativações & Live Marketing">
+          <div class="hero-content">
+            <h3>Ativações &amp; Live Marketing</h3>
+            <p>Do conceito à entrega: criação, produção, equipes, equipamentos, coordenação precisa, licenças e prestação de contas. Execução multi-praça com trilhas de aprovação claras.</p>
+            <p class="micro-trust"><a href="#servicos">← Voltar</a></p>
+          </div>
+        </section>
+
+        <!-- SEPARADOR -->
+        <div class="separator-dots" aria-hidden="true">
+          <svg viewBox="0 0 800 28" role="presentation">
+            <g transform="translate(0,9)">
+              <circle class="dot" cx="24"/><circle class="dot" cx="48"/><circle class="dot" cx="72"/><circle class="dot" cx="96"/>
+              <circle class="dot" cx="120"/><circle class="dot" cx="144"/><circle class="dot" cx="168"/><circle class="dot" cx="192"/>
+              <circle class="dot" cx="216"/><circle class="dot" cx="240"/><circle class="dot" cx="264"/><circle class="dot" cx="288"/>
+              <circle class="dot" cx="312"/><circle class="dot" cx="336"/><circle class="dot" cx="360"/><circle class="dot" cx="384"/>
+              <circle class="dot" cx="408"/><circle class="dot" cx="432"/><circle class="dot" cx="456"/><circle class="dot" cx="480"/>
+              <circle class="dot" cx="504"/><circle class="dot" cx="528"/><circle class="dot" cx="552"/><circle class="dot" cx="576"/>
+              <circle class="dot" cx="600"/><circle class="dot" cx="624"/><circle class="dot" cx="648"/><circle class="dot" cx="672"/>
+              <circle class="dot" cx="696"/><circle class="dot" cx="720"/><circle class="dot" cx="744"/><circle class="dot" cx="768"/><circle class="dot" cx="792"/>
+            </g>
+            <g transform="translate(0,19)">
+              <circle class="dot" cx="12"/><circle class="dot" cx="36"/><circle class="dot" cx="60"/><circle class="dot" cx="84"/>
+              <circle class="dot" cx="108"/><circle class="dot" cx="132"/><circle class="dot" cx="156"/><circle class="dot" cx="180"/>
+              <circle class="dot" cx="204"/><circle class="dot" cx="228"/><circle class="dot" cx="252"/><circle class="dot" cx="276"/>
+              <circle class="dot" cx="300"/><circle class="dot" cx="324"/><circle class="dot" cx="348"/><circle class="dot" cx="372"/>
+              <circle class="dot" cx="396"/><circle class="dot" cx="420"/><circle class="dot" cx="444"/><circle class="dot" cx="468"/>
+              <circle class="dot" cx="492"/><circle class="dot" cx="516"/><circle class="dot" cx="540"/><circle class="dot" cx="564"/>
+              <circle class="dot" cx="588"/><circle class="dot" cx="612"/><circle class="dot" cx="636"/><circle class="dot" cx="660"/>
+              <circle class="dot" cx="684"/><circle class="dot" cx="708"/><circle class="dot" cx="732"/><circle class="dot" cx="756"/><circle class="dot" cx="780"/>
+            </g>
+          </svg>
+        </div>
+
+        <section id="servicos-performance" class="hero" aria-label="Eventos para performance corporativa">
+          <div class="hero-content">
+            <h3>Eventos para performance corporativa</h3>
+            <p>Desenhamos experiências corporativas orientadas a objetivos de negócio: fortalecer cultura, acelerar produtividade e impulsionar receita. Estruturamos convenções, treinamentos e lançamentos internos com curadoria de conteúdo, fluidez operacional e mensuração do que importa — participação, NPS, aprendizado aplicado e impacto em indicadores do time. O resultado: eventos que movem pessoas e melhoram performance.</p>
+            <p class="micro-trust"><a href="#servicos">← Voltar</a></p>
+          </div>
+        </section>
+
+        <!-- SEPARADOR -->
+        <div class="separator-dots" aria-hidden="true">
+          <svg viewBox="0 0 800 28" role="presentation">
+            <g transform="translate(0,9)">
+              <circle class="dot" cx="24"/><circle class="dot" cx="48"/><circle class="dot" cx="72"/><circle class="dot" cx="96"/>
+              <circle class="dot" cx="120"/><circle class="dot" cx="144"/><circle class="dot" cx="168"/><circle class="dot" cx="192"/>
+              <circle class="dot" cx="216"/><circle class="dot" cx="240"/><circle class="dot" cx="264"/><circle class="dot" cx="288"/>
+              <circle class="dot" cx="312"/><circle class="dot" cx="336"/><circle class="dot" cx="360"/><circle class="dot" cx="384"/>
+              <circle class="dot" cx="408"/><circle class="dot" cx="432"/><circle class="dot" cx="456"/><circle class="dot" cx="480"/>
+              <circle class="dot" cx="504"/><circle class="dot" cx="528"/><circle class="dot" cx="552"/><circle class="dot" cx="576"/>
+              <circle class="dot" cx="600"/><circle class="dot" cx="624"/><circle class="dot" cx="648"/><circle class="dot" cx="672"/>
+              <circle class="dot" cx="696"/><circle class="dot" cx="720"/><circle class="dot" cx="744"/><circle class="dot" cx="768"/><circle class="dot" cx="792"/>
+            </g>
+            <g transform="translate(0,19)">
+              <circle class="dot" cx="12"/><circle class="dot" cx="36"/><circle class="dot" cx="60"/><circle class="dot" cx="84"/>
+              <circle class="dot" cx="108"/><circle class="dot" cx="132"/><circle class="dot" cx="156"/><circle class="dot" cx="180"/>
+              <circle class="dot" cx="204"/><circle class="dot" cx="228"/><circle class="dot" cx="252"/><circle class="dot" cx="276"/>
+              <circle class="dot" cx="300"/><circle class="dot" cx="324"/><circle class="dot" cx="348"/><circle class="dot" cx="372"/>
+              <circle class="dot" cx="396"/><circle class="dot" cx="420"/><circle class="dot" cx="444"/><circle class="dot" cx="468"/>
+              <circle class="dot" cx="492"/><circle class="dot" cx="516"/><circle class="dot" cx="540"/><circle class="dot" cx="564"/>
+              <circle class="dot" cx="588"/><circle class="dot" cx="612"/><circle class="dot" cx="636"/><circle class="dot" cx="660"/>
+              <circle class="dot" cx="684"/><circle class="dot" cx="708"/><circle class="dot" cx="732"/><circle class="dot" cx="756"/><circle class="dot" cx="780"/>
+            </g>
+          </svg>
+        </div>
+
+        <section id="servicos-mkttech" class="hero" aria-label="Marketing com tecnologia">
+          <div class="hero-content">
+            <h3>Marketing com tecnologia</h3>
+            <p>Conectamos estratégia e execução para transformar marketing em resultados mensuráveis. Criamos landing pages de alta conversão, configuramos SEO para maior visibilidade orgânica e planejamos campanhas digitais integradas a ativações presenciais. Oferecemos gestão de conteúdos, automação de fluxos simples, coleta inteligente de leads e análise de métricas em dashboards claros. Da estratégia ao relatório final, aplicamos tecnologia para ampliar alcance, engajar o público e gerar inteligência prática para marcas e agências.</p>
+            <p class="micro-trust"><a href="#servicos">← Voltar</a></p>
+          </div>
+        </section>
+
+        <!-- SEPARADOR -->
+        <div class="separator-dots" aria-hidden="true">
+          <svg viewBox="0 0 800 28" role="presentation">
+            <g transform="translate(0,9)">
+              <circle class="dot" cx="24"/><circle class="dot" cx="48"/><circle class="dot" cx="72"/><circle class="dot" cx="96"/>
+              <circle class="dot" cx="120"/><circle class="dot" cx="144"/><circle class="dot" cx="168"/><circle class="dot" cx="192"/>
+              <circle class="dot" cx="216"/><circle class="dot" cx="240"/><circle class="dot" cx="264"/><circle class="dot" cx="288"/>
+              <circle class="dot" cx="312"/><circle class="dot" cx="336"/><circle class="dot" cx="360"/><circle class="dot" cx="384"/>
+              <circle class="dot" cx="408"/><circle class="dot" cx="432"/><circle class="dot" cx="456"/><circle class="dot" cx="480"/>
+              <circle class="dot" cx="504"/><circle class="dot" cx="528"/><circle class="dot" cx="552"/><circle class="dot" cx="576"/>
+              <circle class="dot" cx="600"/><circle class="dot" cx="624"/><circle class="dot" cx="648"/><circle class="dot" cx="672"/>
+              <circle class="dot" cx="696"/><circle class="dot" cx="720"/><circle class="dot" cx="744"/><circle class="dot" cx="768"/><circle class="dot" cx="792"/>
+            </g>
+            <g transform="translate(0,19)">
+              <circle class="dot" cx="12"/><circle class="dot" cx="36"/><circle class="dot" cx="60"/><circle class="dot" cx="84"/>
+              <circle class="dot" cx="108"/><circle class="dot" cx="132"/><circle class="dot" cx="156"/><circle class="dot" cx="180"/>
+              <circle class="dot" cx="204"/><circle class="dot" cx="228"/><circle class="dot" cx="252"/><circle class="dot" cx="276"/>
+              <circle class="dot" cx="300"/><circle class="dot" cx="324"/><circle class="dot" cx="348"/><circle class="dot" cx="372"/>
+              <circle class="dot" cx="396"/><circle class="dot" cx="420"/><circle class="dot" cx="444"/><circle class="dot" cx="468"/>
+              <circle class="dot" cx="492"/><circle class="dot" cx="516"/><circle class="dot" cx="540"/><circle class="dot" cx="564"/>
+              <circle class="dot" cx="588"/><circle class="dot" cx="612"/><circle class="dot" cx="636"/><circle class="dot" cx="660"/>
+              <circle class="dot" cx="684"/><circle class="dot" cx="708"/><circle class="dot" cx="732"/><circle class="dot" cx="756"/><circle class="dot" cx="780"/>
+            </g>
+          </svg>
+        </div>
+
+        <section id="servicos-ux" class="hero" aria-label="UX para eventos">
+          <div class="hero-content">
+            <h3>UX para eventos <span class="badge-new" style="vertical-align:middle">ESSENCIAL</span></h3>
+            <p>Pesquisa com público, blueprint de jornada, fluxo de pessoas, wayfinding, microinterações (check-in, fila, sinalização), mensuração de NPS e insights acionáveis.</p>
+            <p class="micro-trust"><a href="#servicos">← Voltar</a></p>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- SEPARADOR FINAL ANTES DO FORM -->
+    <div class="separator-dots" aria-hidden="true">
+      <svg viewBox="0 0 800 28" role="presentation">
+        <g transform="translate(0,9)">
+          <circle class="dot" cx="24"/><circle class="dot" cx="48"/><circle class="dot" cx="72"/><circle class="dot" cx="96"/>
+          <circle class="dot" cx="120"/><circle class="dot" cx="144"/><circle class="dot" cx="168"/><circle class="dot" cx="192"/>
+          <circle class="dot" cx="216"/><circle class="dot" cx="240"/><circle class="dot" cx="264"/><circle class="dot" cx="288"/>
+          <circle class="dot" cx="312"/><circle class="dot" cx="336"/><circle class="dot" cx="360"/><circle class="dot" cx="384"/>
+          <circle class="dot" cx="408"/><circle class="dot" cx="432"/><circle class="dot" cx="456"/><circle class="dot" cx="480"/>
+          <circle class="dot" cx="504"/><circle class="dot" cx="528"/><circle class="dot" cx="552"/><circle class="dot" cx="576"/>
+          <circle class="dot" cx="600"/><circle class="dot" cx="624"/><circle class="dot" cx="648"/><circle class="dot" cx="672"/>
+          <circle class="dot" cx="696"/><circle class="dot" cx="720"/><circle class="dot" cx="744"/><circle class="dot" cx="768"/><circle class="dot" cx="792"/>
+        </g>
+        <g transform="translate(0,19)">
+          <circle class="dot" cx="12"/><circle class="dot" cx="36"/><circle class="dot" cx="60"/><circle class="dot" cx="84"/>
+          <circle class="dot" cx="108"/><circle class="dot" cx="132"/><circle class="dot" cx="156"/><circle class="dot" cx="180"/>
+          <circle class="dot" cx="204"/><circle class="dot" cx="228"/><circle class="dot" cx="252"/><circle class="dot" cx="276"/>
+          <circle class="dot" cx="300"/><circle class="dot" cx="324"/><circle class="dot" cx="348"/><circle class="dot" cx="372"/>
+          <circle class="dot" cx="396"/><circle class="dot" cx="420"/><circle class="dot" cx="444"/><circle class="dot" cx="468"/>
+          <circle class="dot" cx="492"/><circle class="dot" cx="516"/><circle class="dot" cx="540"/><circle class="dot" cx="564"/>
+          <circle class="dot" cx="588"/><circle class="dot" cx="612"/><circle class="dot" cx="636"/><circle class="dot" cx="660"/>
+          <circle class="dot" cx="684"/><circle class="dot" cx="708"/><circle class="dot" cx="732"/><circle class="dot" cx="756"/><circle class="dot" cx="780"/>
+        </g>
+      </svg>
+    </div>
 
     <!-- SEU PROJETO (FORM) -->
     <section id="seu-projeto" class="hero" aria-label="Seu Projeto">
@@ -258,7 +526,7 @@
     </section>
   </main>
 
-  <!-- AVISO DESKTOP (modal) -->
+  <!-- AVISO DESKTOP (modal centralizado + scrim) -->
   <div id="desktop-advice" class="overlay" role="dialog" aria-modal="true" aria-labelledby="desktop-advice-title" aria-describedby="desktop-advice-desc" hidden>
     <div class="overlay__scrim" data-close aria-hidden="true"></div>
     <div class="overlay__card" role="document">
@@ -292,7 +560,7 @@
     <p>2025 © B2B Partners BRZL</p>
   </footer>
 
-  <!-- JS externalizado (minificado) -->
+  <!-- JS EXTERNALIZADO (minificado) -->
   <script src="script.min.js?v=1" defer></script>
 </body>
 </html>
