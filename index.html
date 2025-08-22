@@ -29,8 +29,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
 
-  <!-- força recarregar CSS -->
-  <link rel="stylesheet" href="styles.css?v=menu-final-1" />
+  <link rel="stylesheet" href="styles.css?v=menu-fix-2" />
 </head>
 <body>
 
@@ -53,7 +52,7 @@
       <a href="#seu-projeto">Seu Projeto</a>
     </nav>
 
-    <!-- BOTÃO MENU (MOBILE) -->
+    <!-- BOTÃO MENU (MOBILE) sem cápsula -->
     <button class="menu-toggle menu-pulse" aria-label="Abrir menu" aria-controls="mobile-menu" aria-expanded="false" type="button">
       <span class="menu-icon" aria-hidden="true">☰</span>
       <span class="menu-label">Menu</span>
@@ -72,7 +71,6 @@
         <a href="#quem-somos">Quem somos</a>
         <a href="#processo">Como fazemos</a>
         <a href="#seu-projeto">Seu Projeto</a>
-        <button type="button" class="mobile-menu-exit" aria-label="Fechar">Fechar</button>
       </nav>
     </div>
   </div>
@@ -253,7 +251,6 @@
         <h2 class="hero-title">Seu Projeto</h2>
         <p class="hero-subtitle">Envie um briefing rápido. Respondemos com prazo e próximos passos.</p>
 
-        <!-- action já aponta para o seu Web App (/exec) -->
         <form id="briefing-form" class="form" method="POST" action="https://script.google.com/macros/s/AKfycbwV4pGGADw0Q2i5KV80w3VAVBoLoThFB0OF8p376GU6IIIwZhdiMFtRHR6-t4ks5cxw/exec" novalidate>
           <div class="visually-hidden" aria-hidden="true" hidden>
             <label for="website">Não preencha este campo</label>
@@ -365,7 +362,6 @@
       const menuOverlay = document.getElementById('mobile-menu');
       const panel = menuOverlay?.querySelector('.mobile-menu-panel');
       const closeInside = menuOverlay?.querySelector('.mobile-menu-close');
-      const exitBtn = menuOverlay?.querySelector('.mobile-menu-exit');
       const links = menuOverlay ? menuOverlay.querySelectorAll('a[href^="#"]') : [];
       const firstLink = links?.[0] || null;
 
@@ -388,9 +384,7 @@
         menuOverlay.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
         setBtn(true);
-        // empilha estado para fechar com botão "voltar" (Android)
         try{ history.pushState({menu:true}, '', '#menu'); }catch(_){}
-        // foco
         setTimeout(()=> { (firstLink || closeInside || btn).focus?.(); }, 0);
       }
       function closeMenu(fromHistory=false){
@@ -399,11 +393,9 @@
         menuOverlay.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
         setBtn(false);
-        // se fechar por UI e houver hash #menu, tira via history.back()
         if(!fromHistory && location.hash === '#menu'){
           try{ history.back(); }catch(_){}
         }
-        // devolve foco ao botão
         setTimeout(()=> btn?.focus?.(), 0);
       }
       function toggleMenu(force){
@@ -412,19 +404,17 @@
         want ? openMenu() : closeMenu();
       }
 
-      // Eventos
       btn?.addEventListener('click', ()=> toggleMenu());
       closeInside?.addEventListener('click', ()=> closeMenu());
-      exitBtn?.addEventListener('click', ()=> closeMenu());
       links.forEach(a => a.addEventListener('click', ()=> closeMenu()));
-      // click fora do painel fecha
+      // clique fora do painel fecha
       menuOverlay?.addEventListener('click', (e)=>{
         if(!panel) return;
         if(!panel.contains(e.target)) closeMenu();
       });
       // Esc fecha
       window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && menuOverlay?.classList.contains('show')) closeMenu(); });
-      // Back/Popstate fecha
+      // Back fecha
       window.addEventListener('popstate', ()=> {
         if(menuOverlay?.classList.contains('show')) closeMenu(true);
       });
@@ -475,7 +465,7 @@
         });
       }
 
-      /* ===== AVISO DESKTOP (modal centralizado + scrim) ===== */
+      /* ===== AVISO DESKTOP ===== */
       const OVERLAY_ID = 'desktop-advice';
       const KEY_TS = 'b2b_desktop_notice_ack_ts';
       const TTL_DAYS = 30;
