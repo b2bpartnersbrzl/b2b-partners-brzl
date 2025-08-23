@@ -109,7 +109,7 @@ a:hover, a:focus{
 
 /* ====== BREAKPOINT DO MENU ================================================= */
 /* Desktop (≥ 1025px): mostra links e oculta hambúrguer */
-@media(min-width:1025px){
+@media (min-width:1025px){
   .menu-toggle{display:none}
   .top-menu{display:flex}
 }
