@@ -7,7 +7,6 @@
   <title>B2B Partners BRZL – Marketing. Eventos. Com tecnologia.</title>
   <meta name="description" content="Execução nacional para marcas e agências: ativações, eventos, operação multi-praça e produção 360. Da ideia à entrega, com tecnologia." />
 
-  <!-- SEO adicionais -->
   <link rel="canonical" href="https://b2bpartners.marketing/" />
 
   <!-- Ícones -->
@@ -29,16 +28,15 @@
   <meta name="twitter:description" content="Execução nacional para marcas e agências: ativações, eventos, operação multi-praça e produção 360. Da ideia à entrega, com tecnologia." />
   <meta name="twitter:image" content="https://b2bpartners.marketing/images/thumb.png" />
 
-  <!-- Fontes (preconnect + preload do CSS) -->
+  <!-- Fontes -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
 
-  <!-- CSS (mantendo seu styles.css) -->
+  <!-- CSS principal -->
   <link rel="stylesheet" href="styles.css?v=sep-tight-4" />
 
-  <!-- Dados estruturados -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -50,9 +48,9 @@
   }
   </script>
 </head>
-<body>
+<body id="top">
 
-  <!-- HEADER FIXO -->
+  <!-- HEADER -->
   <header class="main-header" role="banner">
     <div class="logo-area">
       <a href="#top" class="logo-link top-link" aria-label="Ir para o topo">
@@ -63,7 +61,6 @@
       </p>
     </div>
 
-    <!-- MENU DESKTOP -->
     <nav class="top-menu" aria-label="Menu principal">
       <a href="#top" class="top-link">Início</a>
       <a href="#servicos">O que fazemos</a>
@@ -72,7 +69,6 @@
       <a href="#seu-projeto">Seu Projeto</a>
     </nav>
 
-    <!-- BOTÃO MENU (MOBILE) sem cápsula -->
     <button class="menu-toggle menu-pulse" aria-label="Abrir menu" aria-controls="mobile-menu" aria-expanded="false" type="button">
       <span class="menu-toggle-inner">
         <span class="menu-icon" aria-hidden="true">☰</span>
@@ -81,7 +77,7 @@
     </button>
   </header>
 
-  <!-- MENU MOBILE (overlay + painel) -->
+  <!-- MENU MOBILE -->
   <div id="mobile-menu" class="mobile-menu-overlay" aria-hidden="true">
     <div class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Menu">
       <div class="mobile-menu-top">
@@ -98,7 +94,7 @@
     </div>
   </div>
 
-  <!-- CARROSSEL (travado ao header) -->
+  <!-- CARROSSEL DE MARCAS (fixo ao topo) -->
   <section id="clientes" class="clients-fixed" aria-label="Marcas que confiam em nós">
     <div class="logo-marquee" role="region" aria-roledescription="carrossel automático" aria-label="Logos de clientes">
       <div class="logo-marquee__track">
@@ -133,6 +129,7 @@
 
   <!-- CONTEÚDO -->
   <main class="content-area">
+
     <!-- HERO -->
     <section id="hero" class="hero" aria-label="Abertura">
       <div class="hero-content">
@@ -146,13 +143,12 @@
       </div>
     </section>
 
-    <!-- O QUE FAZEMOS -->
+    <!-- O QUE FAZEMOS (cards) -->
     <section id="servicos" class="hero" aria-label="O que fazemos">
       <div class="hero-content">
         <h2 class="hero-title">O que fazemos</h2>
 
         <div class="services-grid" role="list">
-          <!-- UX PARA EVENTOS EM PRIMEIRO + DESTAQUE + ESSENCIAL -->
           <article class="service-card service-card--ux" role="listitem">
             <div class="card-body">
               <div class="card-line">
@@ -215,59 +211,6 @@
         </g>
       </svg>
     </div>
-
-    <!-- ===== CARROSSEL DE ARTISTAS (ACIMA DOS DETALHES) ===== -->
-    <section id="artistas" aria-label="Artistas que já produzimos" style="background:var(--carousel-bg);border-top:1px solid #669999;border-bottom:1px solid var(--block-border);">
-      <div class="logo-marquee" role="region" aria-roledescription="carrossel automático" aria-label="Retratos de artistas">
-        <div class="logo-marquee__track">
-          <!-- LISTA PRINCIPAL -->
-          <ul class="logo-list">
-            <li class="logo-item"><img src="images/artistas/artista-01.jpg" alt="Artista 01" class="logo-img-brand logo-lg" decoding="async"></li>
-            <li class="logo-item"><img src="images/artistas/artista-02.jpg" alt="Artista 02" class="logo-img-brand logo-lg" decoding="async"></li>
-            <li class="logo-item"><img src="images/artistas/artista-03.jpg" alt="Artista 03" class="logo-img-brand logo-lg" decoding="async"></li>
-            <li class="logo-item"><img src="images/artistas/artista-04.jpg" alt="Artista 04" class="logo-img-brand logo-lg" decoding="async"></li>
-            <li class="logo-item"><img src="images/artistas/artista-05.jpg" alt="Artista 05" class="logo-img-brand logo-lg" decoding="async"></li>
-            <li class="logo-item"><img src="images/artistas/artista-06.jpg" alt="Artista 06" class="logo-img-brand logo-lg" decoding="async"></li>
-            <li class="logo-item"><img src="images/artistas/artista-07.jpg" alt="Artista 07" class="logo-img-brand logo-lg" decoding="async"></li>
-            <li class="logo-item"><img src="images/artistas/artista-08.jpg" alt="Artista 08" class="logo-img-brand logo-lg" decoding="async"></li>
-            <li class="logo-item"><img src="images/artistas/artista-09.jpg" alt="Artista 09" class="logo-img-brand logo-lg" decoding="async"></li>
-            <li class="logo-item"><img src="images/artistas/artista-10.jpg" alt="Artista 10" class="logo-img-brand logo-lg" decoding="async"></li>
-            <li class="logo-item"><img src="images/artistas/artista-11.jpg" alt="Artista 11" class="logo-img-brand logo-lg" decoding="async"></li>
-            <li class="logo-item"><img src="images/artistas/artista-12.jpg" alt="Artista 12" class="logo-img-brand logo-lg" decoding="async"></li>
-            <li class="logo-item"><img src="images/artistas/artista-13.jpg" alt="Artista 13" class="logo-img-brand logo-lg" decoding="async"></li>
-            <li class="logo-item"><img src="images/artistas/artista-14.jpg" alt="Artista 14" class="logo-img-brand logo-lg" decoding="async"></li>
-            <li class="logo-item"><img src="images/artistas/artista-15.jpg" alt="Artista 15" class="logo-img-brand logo-lg" decoding="async"></li>
-            <li class="logo-item"><img src="images/artistas/artista-16.jpg" alt="Artista 16" class="logo-img-brand logo-lg" decoding="async"></li>
-            <li class="logo-item"><img src="images/artistas/artista-17.jpg" alt="Artista 17" class="logo-img-brand logo-lg" decoding="async"></li>
-            <li class="logo-item"><img src="images/artistas/artista-18.jpg" alt="Artista 18" class="logo-img-brand logo-lg" decoding="async"></li>
-          </ul>
-
-          <!-- LISTA DUPLICADA PARA LOOP CONTÍNUO -->
-          <ul class="logo-list" aria-hidden="true">
-            <li class="logo-item"><img src="images/artistas/artista-01.jpg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
-            <li class="logo-item"><img src="images/artistas/artista-02.jpg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
-            <li class="logo-item"><img src="images/artistas/artista-03.jpg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
-            <li class="logo-item"><img src="images/artistas/artista-04.jpg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
-            <li class="logo-item"><img src="images/artistas/artista-05.jpg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
-            <li class="logo-item"><img src="images/artistas/artista-06.jpg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
-            <li class="logo-item"><img src="images/artistas/artista-07.jpg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
-            <li class="logo-item"><img src="images/artistas/artista-08.jpg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
-            <li class="logo-item"><img src="images/artistas/artista-09.jpg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
-            <li class="logo-item"><img src="images/artistas/artista-10.jpg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
-            <li class="logo-item"><img src="images/artistas/artista-11.jpg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
-            <li class="logo-item"><img src="images/artistas/artista-12.jpg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
-            <li class="logo-item"><img src="images/artistas/artista-13.jpg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
-            <li class="logo-item"><img src="images/artistas/artista-14.jpg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
-            <li class="logo-item"><img src="images/artistas/artista-15.jpg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
-            <li class="logo-item"><img src="images/artistas/artista-16.jpg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
-            <li class="logo-item"><img src="images/artistas/artista-17.jpg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
-            <li class="logo-item"><img src="images/artistas/artista-18.jpg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
-          </ul>
-        </div>
-      </div>
-      <p class="clients-caption"><strong>ARTISTAS QUE JÁ PRODUZIMOS</strong></p>
-    </section>
-    <!-- ===== FIM DO BLOCO DE ARTISTAS ===== -->
 
     <!-- QUEM SOMOS -->
     <section id="quem-somos" class="hero" aria-label="Quem somos">
@@ -362,7 +305,60 @@
       </svg>
     </div>
 
-    <!-- DETALHES DOS SERVIÇOS -->
+    <!-- ===== CARROSSEL DE ARTISTAS (IMEDIATAMENTE ACIMA DE DETALHES) ===== -->
+    <section id="artistas" aria-label="Artistas que já produzimos" style="background:var(--carousel-bg);border-top:1px solid #669999;border-bottom:1px solid var(--block-border);">
+      <div class="logo-marquee" role="region" aria-roledescription="carrossel automático" aria-label="Retratos de artistas">
+        <div class="logo-marquee__track">
+          <!-- LISTA PRINCIPAL -->
+          <ul class="logo-list">
+            <li class="logo-item"><img src="images/artistas/alceu_valenca.jpg" alt="Alceu Valença" class="logo-img-brand logo-lg" decoding="async"></li>
+            <li class="logo-item"><img src="images/artistas/caetano_veloso.jpg" alt="Caetano Veloso" class="logo-img-brand logo-lg" decoding="async"></li>
+            <li class="logo-item"><img src="images/artistas/carlinhos_brown.jpg" alt="Carlinhos Brown" class="logo-img-brand logo-lg" decoding="async"></li>
+            <li class="logo-item"><img src="images/artistas/chico_buarque.jpg" alt="Chico Buarque" class="logo-img-brand logo-lg" decoding="async"></li>
+            <li class="logo-item"><img src="images/artistas/daniela_mercury.jpg" alt="Daniela Mercury" class="logo-img-brand logo-lg" decoding="async"></li>
+            <li class="logo-item"><img src="images/artistas/diogo_nogueira.jpg" alt="Diogo Nogueira" class="logo-img-brand logo-lg" decoding="async"></li>
+            <li class="logo-item"><img src="images/artistas/gilberto_gil.jpg" alt="Gilberto Gil" class="logo-img-brand logo-lg" decoding="async"></li>
+            <li class="logo-item"><img src="images/artistas/ivete_sangalo.jpg" alt="Ivete Sangalo" class="logo-img-brand logo-lg" decoding="async"></li>
+            <li class="logo-item"><img src="images/artistas/joao_bosco.jpg" alt="João Bosco" class="logo-img-brand logo-lg" decoding="async"></li>
+            <li class="logo-item"><img src="images/artistas/lulu_santos.jpg" alt="Lulu Santos" class="logo-img-brand logo-lg" decoding="async"></li>
+            <li class="logo-item"><img src="images/artistas/marisa_monte.jpg" alt="Marisa Monte" class="logo-img-brand logo-lg" decoding="async"></li>
+            <li class="logo-item"><img src="images/artistas/milton_nascimento.jpg" alt="Milton Nascimento" class="logo-img-brand logo-lg" decoding="async"></li>
+            <li class="logo-item"><img src="images/artistas/nando_reis.jpg" alt="Nando Reis" class="logo-img-brand logo-lg" decoding="async"></li>
+            <li class="logo-item"><img src="images/artistas/ney_matogrosso.jpg" alt="Ney Matogrosso" class="logo-img-brand logo-lg" decoding="async"></li>
+            <li class="logo-item"><img src="images/artistas/toquinho.jpg" alt="Toquinho" class="logo-img-brand logo-lg" decoding="async"></li>
+            <li class="logo-item"><img src="images/artistas/vanessa_da_mata.jpg" alt="Vanessa da Mata" class="logo-img-brand logo-lg" decoding="async"></li>
+            <li class="logo-item"><img src="images/artistas/xanddy.jpg" alt="Xanddy" class="logo-img-brand logo-lg" decoding="async"></li>
+            <li class="logo-item"><img src="images/artistas/ze_ramalho.jpg" alt="Zé Ramalho" class="logo-img-brand logo-lg" decoding="async"></li>
+          </ul>
+
+          <!-- LISTA DUPLICADA PARA LOOP CONTÍNUO -->
+          <ul class="logo-list" aria-hidden="true">
+            <li class="logo-item"><img src="images/artistas/alceu_valenca.jpg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/artistas/caetano_veloso.jpg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/artistas/carlinhos_brown.jpg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/artistas/chico_buarque.jpg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/artistas/daniela_mercury.jpg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/artistas/diogo_nogueira.jpg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/artistas/gilberto_gil.jpg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/artistas/ivete_sangalo.jpg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/artistas/joao_bosco.jpg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/artistas/lulu_santos.jpg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/artistas/marisa_monte.jpg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/artistas/milton_nascimento.jpg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/artistas/nando_reis.jpg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/artistas/ney_matogrosso.jpg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/artistas/toquinho.jpg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/artistas/vanessa_da_mata.jpg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/artistas/xanddy.jpg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
+            <li class="logo-item"><img src="images/artistas/ze_ramalho.jpg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
+          </ul>
+        </div>
+      </div>
+      <p class="clients-caption"><strong>ARTISTAS QUE JÁ PRODUZIMOS</strong></p>
+    </section>
+    <!-- ===== FIM DO BLOCO DE ARTISTAS ===== -->
+
+    <!-- DETALHES DOS SERVIÇOS (logo abaixo do carrossel de artistas) -->
     <section id="detalhes-servicos" class="hero" aria-label="Detalhes dos serviços">
       <div class="hero-content">
         <h2 class="hero-title">Detalhes dos serviços</h2>
@@ -576,7 +572,7 @@
       </svg>
     </div>
 
-    <!-- SEU PROJETO (FORM) -->
+    <!-- SEU PROJETO -->
     <section id="seu-projeto" class="hero" aria-label="Seu Projeto">
       <div class="hero-content">
         <h2 class="hero-title">Seu Projeto</h2>
@@ -651,7 +647,7 @@
     </section>
   </main>
 
-  <!-- AVISO DESKTOP (modal centralizado + scrim) -->
+  <!-- OVERLAY DESKTOP -->
   <div id="desktop-advice" class="overlay" role="dialog" aria-modal="true" aria-labelledby="desktop-advice-title" aria-describedby="desktop-advice-desc" hidden>
     <div class="overlay__scrim" data-close aria-hidden="true"></div>
     <div class="overlay__card" role="document">
@@ -685,7 +681,7 @@
     <p>2025 © B2B Partners BRZL</p>
   </footer>
 
-  <!-- JS EXTERNALIZADO (minificado) -->
+  <!-- JS -->
   <script src="script.min.js?v=1" defer></script>
 </body>
 </html>
