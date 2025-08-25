@@ -1,3 +1,4 @@
+/* FILE: styles.css */
 /* ====== SEU CSS ORIGINAL (mantido) ====== */
 :root{
   --header-height: 96px;
@@ -391,3 +392,5 @@ html, body{ overflow-x: hidden; }
   height:var(--clients-caption-h);
   line-height:var(--clients-caption-h);
 }
+
+/* fonte: :contentReference[oaicite:0]{index=0} */
