@@ -34,56 +34,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <!-- CSS principal -->
-  <link rel="stylesheet" href="styles.css?v=sep-tight-4" />
-
-  <!-- Ajustes específicos do bloco #artistas (full-bleed, 100%, legenda centralizada) -->
-  <style>
-    /* Força o bloco a sair do container e ocupar 100% da viewport (desktop e mobile) */
-    #artistas,
-    #artistas + .clients-caption.artistas-caption{
-      width: 100vw;
-      margin-left: calc(50% - 50vw);
-    }
-    /* Remove limites e espaçamentos do marquee no bloco de artistas */
-    #artistas .logo-marquee__track,
-    #artistas .logo-marquee,
-    #artistas .logo-list{
-      margin: 0;
-      padding: 0;
-    }
-    #artistas .logo-list{
-      display: flex;
-      gap: 0;              /* zero espaçamento entre itens */
-      list-style: none;
-    }
-    #artistas .logo-item{
-      flex: 0 0 auto;      /* itens lado a lado, sem encolher */
-      line-height: 0;      /* elimina microespaços abaixo da imagem */
-    }
-    #artistas .logo-item img{
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;   /* garante ocupação total sem “bordas” */
-    }
-
-    /* Barra/legenda com largura total e centralizada */
-    .clients-caption.artistas-caption{
-      text-align: center;
-    }
-
-    /* Evita rolagem lateral indesejada causada pelo full-bleed */
-    html, body{
-      overflow-x: hidden;
-    }
-
-    /* Delimitação visual igual ao padrão já usado (mantém sua identidade) */
-    #artistas{
-      background: var(--carousel-bg);
-      border-top: 1px solid #669999;
-      border-bottom: 1px solid var(--block-border);
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css?v=sep-tight-5" />
 
   <!-- Schema -->
   <script type="application/ld+json">
@@ -192,7 +143,7 @@
       </div>
     </section>
 
-    <!-- O QUE FAZEMOS -->
+    <!-- O QUE FAZEMOS (cards) -->
     <section id="servicos" class="hero" aria-label="O que fazemos">
       <div class="hero-content">
         <h2 class="hero-title">O que fazemos</h2>
@@ -290,7 +241,8 @@
           <circle class="dot" cx="312"/><circle class="dot" cx="336"/><circle class="dot" cx="360"/><circle class="dot" cx="384"/>
           <circle class="dot" cx="408"/><circle class="dot" cx="432"/><circle class="dot" cx="456"/><circle class="dot" cx="480"/>
           <circle class="dot" cx="504"/><circle class="dot" cx="528"/><circle class="dot" cx="552"/><circle class="dot" cx="576"/>
-          <circle class="dot" cx="600"/><circle class="dot" cx="624"/><circle class="dot" cx="648"/><circle class="dot" cx="672"/><circle class="dot" cx="696"/><circle class="dot" cx="720"/><circle class="dot" cx="744"/><circle class="dot" cx="768"/><circle class="dot" cx="792"/>
+          <circle class="dot" cx="600"/><circle class="dot" cx="624"/><circle class="dot" cx="648"/><circle class="dot" cx="672"/>
+          <circle class="dot" cx="696"/><circle class="dot" cx="720"/><circle class="dot" cx="744"/><circle class="dot" cx="768"/><circle class="dot" cx="792"/>
         </g>
         <g transform="translate(0,19)">
           <circle class="dot" cx="12"/><circle class="dot" cx="36"/><circle class="dot" cx="60"/><circle class="dot" cx="84"/>
@@ -339,7 +291,8 @@
           <circle class="dot" cx="312"/><circle class="dot" cx="336"/><circle class="dot" cx="360"/><circle class="dot" cx="384"/>
           <circle class="dot" cx="408"/><circle class="dot" cx="432"/><circle class="dot" cx="456"/><circle class="dot" cx="480"/>
           <circle class="dot" cx="504"/><circle class="dot" cx="528"/><circle class="dot" cx="552"/><circle class="dot" cx="576"/>
-          <circle class="dot" cx="600"/><circle class="dot" cx="624"/><circle class="dot" cx="648"/><circle class="dot" cx="672"/><circle class="dot" cx="696"/><circle class="dot" cx="720"/><circle class="dot" cx="744"/><circle class="dot" cx="768"/><circle class="dot" cx="792"/>
+          <circle class="dot" cx="600"/><circle class="dot" cx="624"/><circle class="dot" cx="648"/><circle class="dot" cx="672"/>
+          <circle class="dot" cx="696"/><circle class="dot" cx="720"/><circle class="dot" cx="744"/><circle class="dot" cx="768"/><circle class="dot" cx="792"/>
         </g>
         <g transform="translate(0,19)">
           <circle class="dot" cx="12"/><circle class="dot" cx="36"/><circle class="dot" cx="60"/><circle class="dot" cx="84"/>
@@ -592,7 +545,8 @@
           <circle class="dot" cx="312"/><circle class="dot" cx="336"/><circle class="dot" cx="360"/><circle class="dot" cx="384"/>
           <circle class="dot" cx="408"/><circle class="dot" cx="432"/><circle class="dot" cx="456"/><circle class="dot" cx="480"/>
           <circle class="dot" cx="504"/><circle class="dot" cx="528"/><circle class="dot" cx="552"/><circle class="dot" cx="576"/>
-          <circle class="dot" cx="600"/><circle class="dot" cx="624"/><circle class="dot" cx="648"/><circle class="dot" cx="672"/><circle class="dot" cx="696"/><circle class="dot" cx="720"/><circle class="dot" cx="744"/><circle class="dot" cx="768"/><circle class="dot" cx="792"/>
+          <circle class="dot" cx="600"/><circle class="dot" cx="624"/><circle class="dot" cx="648"/><circle class="dot" cx="672"/>
+          <circle class="dot" cx="696"/><circle class="dot" cx="720"/><circle class="dot" cx="744"/><circle class="dot" cx="768"/><circle class="dot" cx="792"/>
         </g>
         <g transform="translate(0,19)">
           <circle class="dot" cx="12"/><circle class="dot" cx="36"/><circle class="dot" cx="60"/><circle class="dot" cx="84"/>
