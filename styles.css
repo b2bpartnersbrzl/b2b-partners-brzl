@@ -354,6 +354,7 @@ html, body{ overflow-x: hidden; }
   display:block;
 }
 
+
 /* ========================================================================== */
 /* AJUSTES ESPECÍFICOS PARA O CARROSSEL DE MARCAS                             */
 /*  - Faixa branca com a MESMA altura das imagens dos artistas                */
@@ -374,7 +375,7 @@ html, body{ overflow-x: hidden; }
 
 /* Trilho sem padding e ocupando 100% da altura da faixa */
 #clientes .logo-marquee{
-  padding: 0;            /* evita “inflar” a altura com respiro extra */
+  padding: 0;            /* evita somar altura; seguimos a altura da faixa */
   height: 100%;
   display: flex;
   align-items: center;
@@ -394,7 +395,7 @@ html, body{ overflow-x: hidden; }
 
 /* Crescimento proporcional das logos por classe, sem distorção */
 #clientes .logo-img-brand{
-  height: auto;          /* sobrescreve alturas fixas */
+  height: auto;          /* sobrescreve alturas fixas anteriores */
   max-height: 94%;       /* teto global */
   width: auto;
   object-fit: contain;
