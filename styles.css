@@ -368,6 +368,7 @@ html, body{ overflow-x: hidden; }
   display: flex;
   align-items: center;   /* centraliza verticalmente todo o conteúdo da faixa */
   justify-content: center;
+  background: #FFE069;  /* trilho das marcas agora amarelo */
 }
 @media (min-width: 768px){
   #clientes{ height: var(--artist-size-desktop); }
