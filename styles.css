@@ -353,3 +353,57 @@ html, body{ overflow-x: hidden; }
   line-height:var(--clients-caption-h); height:var(--clients-caption-h);
   display:block;
 }
+
+/* ========================================================================== */
+/* AJUSTES ESPECÍFICOS PARA O CARROSSEL DE MARCAS                             */
+/*  - Faixa branca com a MESMA altura das imagens dos artistas                */
+/*  - Logos escalam proporcionalmente dentro da faixa                         */
+/*  - Faixa cinza (caption) inalterada                                        */
+/* ========================================================================== */
+
+/* Altura da faixa branca de marcas = altura dos quadrados dos artistas */
+#clientes{
+  height: var(--artist-size-mobile);
+  display: flex;
+  align-items: center;   /* centraliza verticalmente todo o conteúdo da faixa */
+  justify-content: center;
+}
+@media (min-width: 768px){
+  #clientes{ height: var(--artist-size-desktop); }
+}
+
+/* Trilho sem padding e ocupando 100% da altura da faixa */
+#clientes .logo-marquee{
+  padding: 0;            /* evita “inflar” a altura com respiro extra */
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+#clientes .logo-marquee__track{
+  height: 100%;
+  align-items: center;   /* centraliza os itens no eixo vertical */
+}
+#clientes .logo-list{
+  height: 100%;
+  align-items: center;
+}
+#clientes .logo-item{
+  display:flex;
+  align-items:center;
+}
+
+/* Crescimento proporcional das logos por classe, sem distorção */
+#clientes .logo-img-brand{
+  height: auto;          /* sobrescreve alturas fixas */
+  max-height: 94%;       /* teto global */
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+/* Multiplicadores por classe (hierarquia visual mantida) */
+#clientes .logo-xs{ max-height: 64%; }
+#clientes .logo-sm{ max-height: 74%; }
+#clientes .logo-md{ max-height: 84%; }
+#clientes .logo-lg{ max-height: 94%; }
+
+/* A legenda (faixa cinza) já usa --clients-caption-h e permanece igual */
