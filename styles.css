@@ -46,7 +46,6 @@ a:hover, a:focus{
 }
 
 /* HEADER, MENU, MARQUEE DE CLIENTES, CONTEÚDO, FORM, ETC... */
-/* (todo o conteúdo original permanece exatamente como você enviou) */
 
 .main-header{
   position:fixed; top:0; left:0; right:0;
@@ -121,7 +120,7 @@ a:hover, a:focus{
 }
 .mobile-menu-nav a:hover, .mobile-menu-nav a:focus{ background:#f7f7f7; }
 
-/* CARROSSEL DE MARCAS */
+/* CARROSSEL DE MARCAS (estilos base globais) */
 .clients-fixed{
   position:relative; margin-top:var(--header-height);
   background:var(--carousel-bg);
@@ -133,6 +132,7 @@ a:hover, a:focus{
 .logo-list{ display:flex; gap:var(--logo-gap); list-style:none; }
 .logo-item{ display:flex; align-items:center; }
 .logo-img-brand{ display:block; height:auto; width:auto; object-fit:contain; }
+/* tamanhos globais (artigos, etc.) */
 .logo-xs{ height:28px; } .logo-sm{ height:34px; } .logo-md{ height:40px; } .logo-lg{ height:46px; }
 
 .clients-caption{
@@ -283,129 +283,111 @@ html, body{ overflow-x: hidden; }
 
 /* Full‑bleed e fundo igual ao da legenda (#666) */
 #artistas{
-  /* sair das margens do container e ocupar a largura total da viewport */
   width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-
-  background:#666;                /* mesma cor da faixa da legenda */
+  background:#666;
   border-top:1px solid #669999;
   border-bottom:1px solid var(--block-border);
 }
-
-#artistas .logo-marquee{
-  /* sem respiro para não criar “buracos” entre imagens */
-  padding: 0;
-}
-
-/* Movimento contínuo como o carrossel de marcas */
+#artistas .logo-marquee{ padding: 0; }
 #artistas .logo-marquee__track{
-  display:flex;
-  gap:0;
-  width:max-content;
-  animation: marquee 26s linear infinite; /* pode ajustar a velocidade aqui */
+  display:flex; gap:0; width:max-content;
+  animation: marquee 26s linear infinite;
 }
-
-/* Listas duplicadas, sem espaçamento entre itens */
 #artistas .logo-list{
-  display:flex;
-  gap:0;
-  list-style:none;
-  margin:0;
-  padding:0;
+  display:flex; gap:0; list-style:none; margin:0; padding:0;
 }
 
-/* Tamanho dos quadrados:
-   - Redução ~60% vs. antes, mas com mobile maior para não ficar pequeno */
+/* Quadrados dos artistas */
 :root{
   --artist-size-mobile: clamp(140px, 46vw, 220px);
   --artist-size-desktop: clamp(110px, 10vw, 168px);
 }
-
 #artistas .logo-item{
-  flex: 0 0 auto;
-  width: var(--artist-size-mobile);
-  aspect-ratio: 1 / 1;
-  line-height:0;           /* elimina microespaço abaixo da imagem */
+  flex:0 0 auto; width: var(--artist-size-mobile);
+  aspect-ratio:1/1; line-height:0;
 }
-
-@media (min-width: 768px){
+@media (min-width:768px){
   #artistas .logo-item{ width: var(--artist-size-desktop); }
 }
-
-/* Imagens ocupam 100% do quadrado, sem bordas nem gaps */
 #artistas .logo-item img{
-  display:block;
-  width:100%;
-  height:100%;
-  object-fit:cover;
+  display:block; width:100%; height:100%; object-fit:cover;
 }
 
-/* Legenda full‑bleed centralizada e coerente com a de clientes */
+/* Legenda dos artistas (full‑bleed) */
 .clients-caption.artistas-caption{
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-
-  background:#666; color:#fff;
-  text-align:center;
+  width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);
+  background:#666; color:#fff; text-align:center;
   font-weight:700; font-size:12px; letter-spacing:.14em; text-transform:uppercase;
-  line-height:var(--clients-caption-h); height:var(--clients-caption-h);
-  display:block;
+  line-height:var(--clients-caption-h); height:var(--clients-caption-h); display:block;
 }
 
 
 /* ========================================================================== */
 /* AJUSTES ESPECÍFICOS PARA O CARROSSEL DE MARCAS                             */
-/*  - Faixa branca com a MESMA altura das imagens dos artistas                */
-/*  - Logos escalam proporcionalmente dentro da faixa                         */
-/*  - Faixa cinza (caption) inalterada                                        */
+/*  - Mesmo height dos artistas                                               */
+/*  - Logos proporcionais                                                     */
+/*  - Legenda alinhada                                                        */
 /* ========================================================================== */
 
-/* Altura da faixa branca de marcas = altura dos quadrados dos artistas */
+/* Faixa do trilho das marcas = mesma altura dos quadrados de artistas */
 #clientes{
   height: var(--artist-size-mobile);
   display: flex;
-  align-items: center;   /* centraliza verticalmente todo o conteúdo da faixa */
+  align-items: center;
   justify-content: center;
-  background: #FFE069;  /* trilho das marcas agora amarelo */
+  background: #FFE069; /* trilho amarelo */
+  padding: 0;          /* garante que a altura não infla */
+  border-top:1px solid #669999;
+  border-bottom:1px solid var(--block-border);
 }
 @media (min-width: 768px){
   #clientes{ height: var(--artist-size-desktop); }
 }
 
-/* Trilho sem padding e ocupando 100% da altura da faixa */
+/* Trilho ocupa 100% da altura da faixa */
 #clientes .logo-marquee{
-  padding: 0;            /* evita somar altura; seguimos a altura da faixa */
+  padding: 0;
   height: 100%;
   display: flex;
   align-items: center;
 }
 #clientes .logo-marquee__track{
   height: 100%;
-  align-items: center;   /* centraliza os itens no eixo vertical */
+  align-items: center;
+  gap: var(--logo-gap);
 }
 #clientes .logo-list{
   height: 100%;
   align-items: center;
+  gap: var(--logo-gap);
 }
 #clientes .logo-item{
   display:flex;
   align-items:center;
 }
 
-/* Crescimento proporcional das logos por classe, sem distorção */
+/* Imagens — proporcionais à faixa */
 #clientes .logo-img-brand{
-  height: auto;          /* sobrescreve alturas fixas anteriores */
-  max-height: 94%;       /* teto global */
-  width: auto;
-  object-fit: contain;
-  display: block;
+  height:auto !important;
+  width:auto;
+  max-height:94%;
+  object-fit:contain;
+  display:block;
 }
-/* Multiplicadores por classe (hierarquia visual mantida) */
-#clientes .logo-xs{ max-height: 64%; }
-#clientes .logo-sm{ max-height: 74%; }
-#clientes .logo-md{ max-height: 84%; }
-#clientes .logo-lg{ max-height: 94%; }
 
-/* A legenda (faixa cinza) já usa --clients-caption-h e permanece igual */
+/* Neutraliza tamanhos fixos e aplica proporções por classe dentro de #clientes */
+#clientes .logo-xs{ height:auto !important; max-height:64% !important; }
+#clientes .logo-sm{ height:auto !important; max-height:74% !important; }
+#clientes .logo-md{ height:auto !important; max-height:84% !important; }
+#clientes .logo-lg{ height:auto !important; max-height:94% !important; }
+
+/* Legenda das marcas — mantém medidas e evita “pulos” */
+.clients-caption{
+  margin:0;
+  display:block;
+  width:100%;
+  height:var(--clients-caption-h);
+  line-height:var(--clients-caption-h);
+}
