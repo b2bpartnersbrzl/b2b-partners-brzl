@@ -7,11 +7,11 @@
   --anchor-offset-extra: 12px;
 
   /* Carrossel */
-  --carousel-bg: #FFFFFF;
+  --carousel-bg: #FFE069;
   --logo-gap: 48px;
   --marquee-duration: 20s;
-  --marquee-pad-top: 14px;
-  --marquee-pad-bot: 14px;
+  --marquee-pad-top: 18px;
+  --marquee-pad-bot: 18px;
   --clients-caption-h: 28px;
 
   /* Tipografia e cores */
