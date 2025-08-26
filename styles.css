@@ -10,8 +10,8 @@
   --carousel-bg: #FFE069;
   --logo-gap: 48px;
   --marquee-duration: 20s;
-  --marquee-pad-top: 18px;
-  --marquee-pad-bot: 18px;
+  --marquee-pad-top: 22px;
+  --marquee-pad-bot: 22px;
   --clients-caption-h: 28px;
 
   /* Tipografia e cores */
@@ -281,7 +281,7 @@ body.overlay-open .logo-marquee__track{ animation-play-state: paused; }
 /* Evita rolagem lateral ao usar full-bleed */
 html, body{ overflow-x: hidden; }
 
-/* Full‑bleed e fundo igual ao da legenda (#666) */
+/* Full-bleed e fundo igual ao da legenda (#666) */
 #artistas{
   /* sair das margens do container e ocupar a largura total da viewport */
   width: 100vw;
@@ -341,7 +341,7 @@ html, body{ overflow-x: hidden; }
   object-fit:cover;
 }
 
-/* Legenda full‑bleed centralizada e coerente com a de clientes */
+/* Legenda full-bleed centralizada e coerente com a de clientes */
 .clients-caption.artistas-caption{
   width: 100vw;
   margin-left: calc(50% - 50vw);
