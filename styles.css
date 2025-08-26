@@ -315,11 +315,10 @@ html, body{ overflow-x: hidden; }
   padding:0;
 }
 
-/* Tamanho dos quadrados:
-   - Redução ~60% vs. antes, mas com mobile maior para não ficar pequeno */
+/* Tamanho dos quadrados — leve redução mantendo proporções */
 :root{
-  --artist-size-mobile: clamp(140px, 46vw, 220px);
-  --artist-size-desktop: clamp(110px, 10vw, 168px);
+  --artist-size-mobile: clamp(132px, 44vw, 204px);
+  --artist-size-desktop: clamp(104px, 9.5vw, 156px);
 }
 
 #artistas .logo-item{
