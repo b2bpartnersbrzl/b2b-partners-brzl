@@ -27,6 +27,10 @@
 
   --radius: 12px;
   --transition: 0.3s;
+
+  /* Slides “O que fazemos” (mobile) */
+  --service-slide-w: clamp(280px, 86vw, 560px);
+  --service-slide-min-h: 260px; /* altura mínima uniforme para permitir bgs consistentes */
 }
 
 /* Reset mínimo */
@@ -165,49 +169,31 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
 #servicos{ background:#ffffff; color:#666666; border-color:#e5e5e5; }
 #servicos .hero-title, #servicos .hero-subtitle{ color:#666666; }
 
-/* === Novo: “O que fazemos” como carrossel horizontal com scroll-snap === */
+/* =========================
+   “O que fazemos” – Regras:
+   - Mobile (<900px): carrossel horizontal uniforme
+   - Desktop (≥900px): grade fixa (sem rolagem)
+   ========================= */
+
+/* Base (mobile-first): carrossel horizontal */
 .services-grid{
-  display: flex;
-  gap: 16px;
-  margin-top: 4px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  padding: 2px 8px 14px; /* leve respiro inferior p/ não colar na borda do container */
-  position: relative;
+  display:flex;
+  gap:16px;
+  margin-top:4px;
+  overflow-x:auto;
+  overflow-y:hidden;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  padding:2px 8px 14px;
+  position:relative;
 }
-/* Oculta barras de rolagem sem afetar acessibilidade */
-.services-grid::-webkit-scrollbar{ display:none; }
-.services-grid{ scrollbar-width: none; -ms-overflow-style: none; }
-
-/* Pistas visuais (gradientes nas laterais) – não-interativas e discretas */
-.services-grid::before,
-.services-grid::after{
-  content:"";
-  position:absolute;
-  top:0; bottom:0;
-  width:24px;
-  pointer-events:none;
-  z-index:1;
-}
-.services-grid::before{
-  left:0;
-  background: linear-gradient(to right, rgba(255,255,255,0.85), rgba(255,255,255,0));
-}
-.services-grid::after{
-  right:0;
-  background: linear-gradient(to left, rgba(255,255,255,0.85), rgba(255,255,255,0));
-}
-
-/* Cartões dimensionados para “slides” responsivos */
+/* Slides uniformes no mobile (facilita bgs personalizados) */
 .service-card{
   border:1px solid #e5e5e5; border-radius:12px; background:#fff; box-shadow:0 2px 8px rgba(0,0,0,.04);
-  transition: box-shadow .18s ease, transform .18s ease;
-  flex: 0 0 86%;           /* ~1 card por tela no mobile */
-  scroll-snap-align: start;
-  min-width: 280px;        /* evita esmagar textos em telas muito estreitas */
-  max-width: 560px;        /* limita largura do “slide” para leitura confortável */
+  transition:box-shadow .18s ease, transform .18s ease;
+  flex:0 0 var(--service-slide-w);
+  scroll-snap-align:start;
+  min-height:var(--service-slide-min-h);
 }
 .service-card:hover, .service-card:focus-within{ box-shadow:0 8px 24px rgba(0,0,0,.12); transform: translateY(-1px); }
 .card-body{ padding:16px 16px 14px; display:flex; flex-direction:column; gap:8px; }
@@ -218,6 +204,51 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
 .card-link:hover, .card-link:focus{ text-decoration:underline; }
 .badge-new{ display:inline-block; font-weight:700; font-size:11px; letter-spacing:.06em; padding:2px 6px; border-radius:999px; line-height:1; background: var(--hero-yellow); color:#444; }
 .service-card--ux{ background:#f9fdfd; } .service-card--ux .card-title{ color: var(--accent); }
+
+/* Pistas visuais (somente mobile) */
+.services-grid::before,
+.services-grid::after{
+  content:"";
+  position:absolute;
+  top:0; bottom:0;
+  width:24px;
+  pointer-events:none;
+  z-index:1;
+  background:transparent;
+}
+.services-grid::before{
+  left:0;
+  background: linear-gradient(to right, rgba(255,255,255,0.85), rgba(255,255,255,0));
+}
+.services-grid::after{
+  right:0;
+  background: linear-gradient(to left, rgba(255,255,255,0.85), rgba(255,255,255,0));
+}
+/* Oculta barras de rolagem no mobile */
+.services-grid::-webkit-scrollbar{ display:none; }
+.services-grid{ scrollbar-width:none; -ms-overflow-style:none; }
+
+/* Desktop (≥900px): grade fixa sem rolagem */
+@media (min-width: 900px){
+  .services-grid{
+    display:grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap:16px;
+    padding:0;
+    overflow:visible;
+    scroll-snap-type:none;
+  }
+  .services-grid::before,
+  .services-grid::after{ display:none; }
+  .service-card{
+    flex:initial;
+    min-height:initial; /* desktop volta a crescer conforme conteúdo */
+  }
+}
+/* ≥1200px: 4 em linha (cabem → ficam fixos) */
+@media (min-width: 1200px){
+  .services-grid{ grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
 
 /* FORM */
 .form{ margin-top:10px; }
@@ -292,19 +323,7 @@ body.overlay-open .logo-marquee__track{ animation-play-state: paused; }
 .separator-dots + .hero{ margin-top: calc(var(--section-gap) / 2); }
 #detalhes-servicos .separator-dots{ display:none; }
 
-/* RESPONSIVO – ajustes para o carrossel de serviços */
-@media (min-width:600px){
-  .service-card{ flex-basis: 64%; }
-}
-@media (min-width:900px){
-  .service-card{ flex-basis: 46%; }
-}
-@media (min-width:1200px){
-  .service-card{ flex-basis: 40%; }
-}
-
-/* Removidos: ajustes de grid de .services-grid por largura,
-   pois agora a seção é flex horizontal. Mantém-se os demais breakpoints. */
+/* RESPONSIVO – demais elementos do site */
 @media (max-width:768px){
   .hero{padding:24px}
   #hero .hero-content{ text-align: left; }
