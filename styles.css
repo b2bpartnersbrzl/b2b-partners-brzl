@@ -1,4 +1,4 @@
-/* ====== SEU CSS ORIGINAL (mantido) ====== */
+/* ====== SEU CSS ORIGINAL (mantido/atualizado) ====== */
 :root{
   --header-height: 96px;
   --footer-height: 42px;
@@ -205,26 +205,8 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
 .badge-new{ display:inline-block; font-weight:700; font-size:11px; letter-spacing:.06em; padding:2px 6px; border-radius:999px; line-height:1; background: var(--hero-yellow); color:#444; }
 .service-card--ux{ background:#f9fdfd; } .service-card--ux .card-title{ color: var(--accent); }
 
-/* Pistas visuais (somente mobile) */
-.services-grid::before,
-.services-grid::after{
-  content:"";
-  position:absolute;
-  top:0; bottom:0;
-  width:24px;
-  pointer-events:none;
-  z-index:1;
-  background:transparent;
-}
-.services-grid::before{
-  left:0;
-  background: linear-gradient(to right, rgba(255,255,255,0.85), rgba(255,255,255,0));
-}
-.services-grid::after{
-  right:0;
-  background: linear-gradient(to left, rgba(255,255,255,0.85), rgba(255,255,255,0));
-}
-/* Oculta barras de rolagem no mobile */
+/* Remoção definitiva de pistas visuais sobrepostas (sem ::before/::after) */
+/* Oculta barras de rolagem no mobile sem afetar a rolagem por teclado/gesto */
 .services-grid::-webkit-scrollbar{ display:none; }
 .services-grid{ scrollbar-width:none; -ms-overflow-style:none; }
 
@@ -238,8 +220,6 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
     overflow:visible;
     scroll-snap-type:none;
   }
-  .services-grid::before,
-  .services-grid::after{ display:none; }
   .service-card{
     flex:initial;
     min-height:initial; /* desktop volta a crescer conforme conteúdo */
