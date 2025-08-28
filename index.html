@@ -36,6 +36,25 @@
   <!-- CSS principal -->
   <link rel="stylesheet" href="styles.css?v=sep-tight-5" />
 
+  <!-- Patch mínimo para o rótulo “← passe →” (mobile-only, estático) -->
+  <style>
+    .services-hint{ display:none; }
+    @media (max-width: 899.98px){
+      .services-hint{
+        display:block;
+        margin-top:8px;
+        text-align:center;
+        font-weight:700;
+        font-size:14px;
+        letter-spacing:.02em;
+        color: var(--accent);
+        line-height:1;
+        user-select:none;
+        pointer-events:none; /* não interfere no gesto de arrasto */
+      }
+    }
+  </style>
+
   <!-- Schema -->
   <script type="application/ld+json">
   {
@@ -148,6 +167,9 @@
       <div class="hero-content">
         <h2 class="hero-title">O que fazemos</h2>
 
+        <!-- dica para leitores de tela -->
+        <p class="visually-hidden">Dica: passe horizontalmente pelos cartões de serviços para ver mais opções.</p>
+
         <div class="services-grid" role="list">
           <article class="service-card service-card--ux" role="listitem">
             <div class="card-body">
@@ -156,7 +178,7 @@
                 <span class="badge-new" aria-label="Serviço essencial">ESSENCIAL</span>
               </div>
               <p class="card-desc">Ofereça experiências que encantam o público, aumentam resultados e transformam interações em dados valiosos.</p>
-              <a class="card-link" href="#servicos-ux">Explorar serviço →</a>
+              <a class="card-link" href="#servicos-ux">Explorar serviço</a>
             </div>
           </article>
 
@@ -164,7 +186,7 @@
             <div class="card-body">
               <h3 class="card-title">Ativações e Live Marketing</h3>
               <p class="card-desc">Do conceito à execução: ativações em PDV, rua e eventos que conectam público e geram dados mensuráveis.</p>
-              <a class="card-link" href="#servicos-ativacoes">Explorar serviço →</a>
+              <a class="card-link" href="#servicos-ativacoes">Explorar serviço</a>
             </div>
           </article>
 
@@ -172,7 +194,7 @@
             <div class="card-body">
               <h3 class="card-title">Eventos para performance corporativa</h3>
               <p class="card-desc">Desenhamos experiências que aceleram rendimento, ampliam lucros e convertem engajamento em inteligência de dados.</p>
-              <a class="card-link" href="#servicos-performance">Explorar serviço →</a>
+              <a class="card-link" href="#servicos-performance">Explorar serviço</a>
             </div>
           </article>
 
@@ -180,10 +202,13 @@
             <div class="card-body">
               <h3 class="card-title">Marketing com tecnologia</h3>
               <p class="card-desc">Criamos soluções digitais que expandem visibilidade, geram leads qualificados e transformam resultados em inteligência de dados.</p>
-              <a class="card-link" href="#servicos-mkttech">Explorar serviço →</a>
+              <a class="card-link" href="#servicos-mkttech">Explorar serviço</a>
             </div>
           </article>
         </div>
+
+        <!-- rótulo estático do carrossel (mobile-only; não interativo) -->
+        <p class="services-hint" aria-hidden="true">← passe →</p>
       </div>
     </section>
 
@@ -494,8 +519,7 @@
               <circle class="dot" cx="312"/><circle class="dot" cx="336"/><circle class="dot" cx="360"/><circle class="dot" cx="384"/>
               <circle class="dot" cx="408"/><circle class="dot" cx="432"/><circle class="dot" cx="456"/><circle class="dot" cx="480"/>
               <circle class="dot" cx="504"/><circle class="dot" cx="528"/><circle class="dot" cx="552"/><circle class="dot" cx="576"/>
-              <circle class="dot" cx="600"/><circle class="dot" cx="624"/><circle class="dot" cx="648"/><circle class="dot" cx="672"/>
-              <circle class="dot" cx="696"/><circle class="dot" cx="720"/><circle class="dot" cx="744"/><circle class="dot" cx="768"/><circle class="dot" cx="792"/>
+              <circle class="dot" cx="600"/><circle class="dot" cx="624"/><circle class="dot" cx="648"/><circle class="dot" cx="672"/><circle class="dot" cx="696"/><circle class="dot" cx="720"/><circle class="dot" cx="744"/><circle class="dot" cx="768"/><circle class="dot" cx="792"/>
             </g>
             <g transform="translate(0,19)">
               <circle class="dot" cx="12"/><circle class="dot" cx="36"/><circle class="dot" cx="60"/><circle class="dot" cx="84"/>
