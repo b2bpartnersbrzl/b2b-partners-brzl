@@ -954,3 +954,44 @@ html, body{ overflow-x: hidden; }
 @media (min-width: 900px){
   #servicos .services-hint{ display:none !important; }
 }
+/* ==========================================================
+   PATCH: "Deslize" como TEXTO (sem chip), sobre os cards – mobile
+   ========================================================== */
+@media (max-width: 899.98px){
+  #servicos .hero-content{ position: relative; }
+
+  /* Força visual de TEXTO puro, sem “pílula” */
+  #servicos .services-hint{
+    display: inline !important;       /* não vira bloco, é só texto */
+    position: absolute !important;    /* flutua sobre os cards */
+    left: 0; right: 0;
+    bottom: 56px;                     /* ajuste fino da altura sobre os cards */
+    margin: 0 auto;                   /* centraliza o inline */
+    text-align: center;
+
+    /* Tipografia */
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #444;
+
+    /* Acessibilidade visual (sem “barra”): leve sombra no texto */
+    text-shadow: 0 1px 3px rgba(0,0,0,.25);
+
+    /* ZERA o chip anterior */
+    padding: 0 !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+
+    pointer-events: none;
+    z-index: 3;
+  }
+}
+
+/* Garantia: jamais aparece no desktop */
+@media (min-width: 900px){
+  #servicos .services-hint{ display:none !important; }
+}
