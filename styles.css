@@ -1079,3 +1079,71 @@ html, body{ overflow-x: hidden; }
     z-index: 3;
   }
 }
+/* =========================
+   SAFE PATCH – #servicos (mobile)
+   Só afeta a seção "O que fazemos"
+   ========================= */
+@media (max-width: 899.98px){
+
+  /* Hero full-bleed lateral com bordas sup/inf contínuas */
+  #servicos.hero{
+    width: 100vw;
+    margin-left:  calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    border-left: none !important;
+    border-right: none !important;
+    border-top: 1px solid var(--block-border) !important;
+    border-bottom: 1px solid var(--block-border) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-bottom: 8px; /* borda inferior "justa" ao trilho */
+  }
+
+  /* Trilho full-bleed real na viewport, com safe-area */
+  #servicos .services-grid{
+    position: relative;
+    width: 100vw;
+    margin-left:  calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    padding-left: 12px;      /* safe-area p/ não cortar extremidades */
+    padding-right: 12px;
+    padding-bottom: 56px;    /* "berço" p/ o rótulo não cobrir links */
+    overflow-x: auto;        /* garante rolagem horizontal */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Garantia de não-corte nos extremos do trilho */
+  #servicos .services-grid > .service-card:first-child{ margin-left: 0; }
+  #servicos .services-grid > .service-card:last-child { margin-right: 0; }
+
+  /* "← Deslize →" como TEXTO, dentro e no rodapé do carrossel */
+  #servicos .services-grid > .services-hint{
+    position: absolute;
+    left: 0; right: 0; bottom: 18px; /* ajuste fino da altura */
+    margin: 0 auto;
+    text-align: center;
+
+    display: inline;
+    font: 700 12px/1 var(--font-base);
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: #444;
+    text-shadow: 0 1px 3px rgba(0,0,0,.22);
+
+    background: transparent !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+
+    pointer-events: none;
+    z-index: 3;
+  }
+}
+
+/* Nunca mostrar o rótulo no desktop */
+@media (min-width: 900px){
+  #servicos .services-hint{ display:none !important; }
+}
