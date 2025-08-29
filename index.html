@@ -3,16 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-
   <title>B2B Partners BRZL – Marketing. Eventos. Com tecnologia.</title>
   <meta name="description" content="Execução nacional para marcas e agências: ativações, eventos, operação multi-praça e produção 360. Da ideia à entrega, com tecnologia." />
   <link rel="canonical" href="https://b2bpartners.marketing/" />
-
   <!-- Ícones -->
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png" />
   <link rel="apple-touch-icon" href="images/favicon.png" />
-
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="B2B Partners BRZL" />
@@ -26,16 +23,36 @@
   <meta name="twitter:title" content="B2B Partners BRZL – Marketing. Eventos. Com tecnologia." />
   <meta name="twitter:description" content="Execução nacional para marcas e agências: ativações, eventos, operação multi-praça e produção 360. Da ideia à entrega, com tecnologia." />
   <meta name="twitter:image" content="https://b2bpartners.marketing/images/thumb.png" />
-
   <!-- Fontes -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
-
   <!-- CSS principal -->
   <link rel="stylesheet" href="styles.css?v=sep-tight-5" />
-
+  <!-- Patch para ajustar o carrossel de serviços no mobile -->
+  <style>
+  @media (max-width: 899.98px) {
+    /* 1. Acabar com a visualização das laterais do hero "O que fazemos" */
+    #servicos.hero {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    
+    .services-grid {
+      padding-left: 24px;
+      padding-right: 24px;
+      margin-left: 0;
+      margin-right: 0;
+      width: 100%;
+    }
+    
+    /* 2. Diminuir respiro inferior dos cards */
+    .card-body {
+      padding-bottom: 8px; /* Era 14px */
+    }
+  }
+  </style>
   <!-- Patch mínimo para o rótulo “← passe →” (mobile-only, estático) -->
   <style>
     .services-hint{ display:none; }
@@ -54,7 +71,6 @@
       }
     }
   </style>
-
   <!-- Schema -->
   <script type="application/ld+json">
   {
@@ -68,7 +84,6 @@
   </script>
 </head>
 <body id="top">
-
   <!-- HEADER -->
   <header class="main-header" role="banner">
     <div class="logo-area">
@@ -79,7 +94,6 @@
         <strong>Marketing. Eventos. <em>Com tecnologia.</em></strong>
       </p>
     </div>
-
     <nav class="top-menu" aria-label="Menu principal">
       <a href="#top" class="top-link">Início</a>
       <a href="#servicos">O que fazemos</a>
@@ -87,7 +101,6 @@
       <a href="#processo">Como fazemos</a>
       <a href="#seu-projeto">Seu Projeto</a>
     </nav>
-
     <button class="menu-toggle menu-pulse" aria-label="Abrir menu" aria-controls="mobile-menu" aria-expanded="false" type="button">
       <span class="menu-toggle-inner">
         <span class="menu-icon" aria-hidden="true">☰</span>
@@ -95,7 +108,6 @@
       </span>
     </button>
   </header>
-
   <!-- MENU MOBILE -->
   <div id="mobile-menu" class="mobile-menu-overlay" aria-hidden="true">
     <div class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Menu">
@@ -112,7 +124,6 @@
       </nav>
     </div>
   </div>
-
   <!-- CARROSSEL DE MARCAS (fixo ao topo) -->
   <section id="clientes" class="clients-fixed" aria-label="Marcas que confiam em nós">
     <div class="logo-marquee" role="region" aria-roledescription="carrossel automático" aria-label="Logos de clientes">
@@ -145,10 +156,8 @@
     </div>
     <p class="clients-caption"><strong>MARCAS QUE CONFIAM EM NÓS</strong></p>
   </section>
-
   <!-- CONTEÚDO -->
   <main class="content-area">
-
     <!-- HERO -->
     <section id="hero" class="hero" aria-label="Abertura">
       <div class="hero-content">
@@ -161,15 +170,12 @@
         </h1>
       </div>
     </section>
-
     <!-- O QUE FAZEMOS (cards) -->
     <section id="servicos" class="hero" aria-label="O que fazemos">
       <div class="hero-content">
         <h2 class="hero-title">O que fazemos</h2>
-
         <!-- dica para leitores de tela -->
         <p class="visually-hidden">Dica: passe horizontalmente pelos cartões de serviços para ver mais opções.</p>
-
         <div class="services-grid" role="list">
           <article class="service-card service-card--ux" role="listitem">
             <div class="card-body">
@@ -181,7 +187,6 @@
               <a class="card-link" href="#servicos-ux">Explorar serviço</a>
             </div>
           </article>
-
           <article class="service-card" role="listitem">
             <div class="card-body">
               <h3 class="card-title">Ativações e Live Marketing</h3>
@@ -189,7 +194,6 @@
               <a class="card-link" href="#servicos-ativacoes">Explorar serviço</a>
             </div>
           </article>
-
           <article class="service-card" role="listitem">
             <div class="card-body">
               <h3 class="card-title">Eventos para performance corporativa</h3>
@@ -197,7 +201,6 @@
               <a class="card-link" href="#servicos-performance">Explorar serviço</a>
             </div>
           </article>
-
           <article class="service-card" role="listitem">
             <div class="card-body">
               <h3 class="card-title">Marketing com tecnologia</h3>
@@ -206,12 +209,10 @@
             </div>
           </article>
         </div>
-
         <!-- rótulo estático do carrossel (mobile-only; não interativo) -->
         <p class="services-hint" aria-hidden="true">← passe →</p>
       </div>
     </section>
-
     <!-- ===== CARROSSEL DE ARTISTAS ===== -->
     <section id="artistas" aria-label="Artistas que já produzimos">
       <div class="logo-marquee" role="region" aria-roledescription="carrossel automático" aria-label="Retratos de artistas">
@@ -237,7 +238,6 @@
             <li class="logo-item"><img src="images/artistas/xanddy.webp" alt="Xanddy"></li>
             <li class="logo-item"><img src="images/artistas/ze_ramalho.webp" alt="Zé Ramalho"></li>
           </ul>
-
           <!-- LISTA DUPLICADA PARA LOOP CONTÍNUO -->
           <ul class="logo-list" aria-hidden="true">
             <li class="logo-item"><img src="images/artistas/alceu_valenca.webp" alt=""></li>
@@ -264,7 +264,6 @@
       <p class="clients-caption artistas-caption"><strong>ARTISTAS QUE JÁ PRODUZIMOS</strong></p>
     </section>
     <!-- ===== FIM DO BLOCO DE ARTISTAS ===== -->
-
     <!-- SEPARADOR -->
     <div class="separator-dots" aria-hidden="true">
       <svg viewBox="0 0 800 28" role="presentation">
@@ -289,7 +288,6 @@
         </g>
       </svg>
     </div>
-
     <!-- QUEM SOMOS -->
     <section id="quem-somos" class="hero" aria-label="Quem somos">
       <div class="hero-content">
@@ -297,18 +295,14 @@
         <p class="hero-subtitle">
           Somos especialistas em transformar planos em realidade, com escala, padrão e previsibilidade. Nascemos para resolver um desafio comum em diferentes contextos: fazer acontecer com qualidade, onde e quando for preciso.
         </p>
-
         <p>Para marcas, somos o braço que viabiliza ativações e eventos com execução inteligente, criativa e orientada por dados.</p>
         <p>Para agências, somos o parceiro de confiança que garante consistência em múltiplas praças, sem perder prazos, padrão ou clareza no processo.</p>
-
         <p>Nosso compromisso é entregar experiências que unem pessoas, ampliam resultados e geram inteligência para decisões futuras.</p>
-
         <p class="micro-trust">
           Pronto para viabilizar sua operação? Acesse <a href="#seu-projeto">Seu Projeto</a> e envie o briefing.
         </p>
       </div>
     </section>
-
     <!-- SEPARADOR -->
     <div class="separator-dots" aria-hidden="true">
       <svg viewBox="0 0 800 28" role="presentation">
@@ -333,31 +327,24 @@
         </g>
       </svg>
     </div>
-
     <!-- COMO FAZEMOS -->
     <section id="processo" class="hero" aria-label="Como fazemos">
       <div class="hero-content">
         <h2 class="hero-title">Como fazemos</h2>
         <p class="hero-subtitle">Nossa filosofia é <strong>Produção 360</strong>: planejamento, execução e validação apoiados por tecnologia. É assim que garantimos escala com consistência e resultados mensuráveis.</p>
-
         <h3>1. Alinhamento</h3>
         <p>Transformamos briefing em roteiro claro, alinhando expectativas e objetivos.</p>
-
         <h3>2. Planejamento</h3>
         <p>Definimos recursos e praças com gestão centralizada, garantindo eficiência e previsibilidade.</p>
-
         <h3>3. Execução em campo</h3>
         <p>Equipes locais e pontos focais asseguram qualidade, com registros em tempo real que dão visibilidade a cada etapa.</p>
-
         <h3>4. Validação e relatório</h3>
         <p>Consolidamos métricas em dashboards claros e relatórios finais com evidências para decisões futuras.</p>
-
         <p class="micro-trust">
           Quer ver esse processo aplicado ao seu caso? Acesse <a href="#seu-projeto">Seu Projeto</a> e envie o briefing.
         </p>
       </div>
     </section>
-
     <!-- SEPARADOR -->
     <div class="separator-dots" aria-hidden="true">
       <svg viewBox="0 0 800 28" role="presentation">
@@ -382,19 +369,16 @@
         </g>
       </svg>
     </div>
-
       <!-- DETALHES DOS SERVIÇOS -->
     <section id="detalhes-servicos" class="hero" aria-label="Detalhes dos serviços">
       <div class="hero-content">
         <h2 class="hero-title">Detalhes dos serviços</h2>
-
         <section id="servicos-ativacoes" class="hero" aria-label="Ativações e Live Marketing">
           <div class="hero-content">
             <h3>Ativações e Live Marketing</h3>
             <p>Do conceito à entrega, criamos experiências de marca em PDV, ruas e eventos que conectam pessoas e geram dados estratégicos. Nossa execução combina criatividade, tecnologia e coordenação precisa para transformar ideias em vivências que engajam e ficam na memória.</p>
             <p>Cada projeto é estruturado para dar segurança ao cliente e impacto ao público: equipes qualificadas, processos transparentes e acompanhamento em tempo real. Assim, garantimos consistência em múltiplas praças e clareza nos resultados.</p>
             <p>Mais que presença, entregamos inteligência: cada ativação gera métricas que fortalecem campanhas digitais, apoiam decisões de marketing e aceleram a performance corporativa.</p>
-
             <h4>Serviços e formatos de ativações possíveis:</h4>
             <ul>
               <li>Lançamentos de produtos com experiências interativas</li>
@@ -407,11 +391,9 @@
               <li>Roadshows e ativações multi-praça com gestão centralizada</li>
               <li>Projetos especiais de co-branding e colabs de marca</li>
             </ul>
-
             <p class="micro-trust"><a href="#servicos">← Voltar</a></p>
           </div>
         </section>
-
         <!-- SEPARADOR -->
         <div class="separator-dots" aria-hidden="true">
           <svg viewBox="0 0 800 28" role="presentation">
@@ -437,14 +419,12 @@
             </g>
           </svg>
         </div>
-
         <section id="servicos-performance" class="hero" aria-label="Eventos para performance corporativa">
           <div class="hero-content">
             <h3>Eventos para performance corporativa</h3>
             <p>Criamos experiências desenhadas para acelerar rendimento e fortalecer equipes, transformando encontros em resultados tangíveis.</p>
             <p>Cada evento é pensado como uma plataforma de alta performance: conteúdos direcionados, interações estruturadas e tecnologia de apoio para mensurar engajamento em tempo real.</p>
             <p>Mais do que eventos, entregamos ferramentas de crescimento organizacional — experiências que motivam, retêm talentos e deixam um legado de resultados contínuos.</p>
-
             <h4>Exemplos de eventos corporativos de performance:</h4>
             <ul>
               <li>Convenções de vendas orientadas a metas</li>
@@ -455,11 +435,9 @@
               <li>Encontros de reconhecimento e premiação</li>
               <li>Fóruns internos para alinhamento de cultura e propósito</li>
             </ul>
-
             <p class="micro-trust"><a href="#servicos">← Voltar</a></p>
           </div>
         </section>
-
         <!-- SEPARADOR -->
         <div class="separator-dots" aria-hidden="true">
           <svg viewBox="0 0 800 28" role="presentation">
@@ -485,14 +463,12 @@
             </g>
           </svg>
         </div>
-
         <section id="servicos-mkttech" class="hero" aria-label="Marketing com tecnologia">
           <div class="hero-content">
             <h3>Marketing com tecnologia</h3>
             <p>Conectamos estratégia e execução para transformar marketing em resultados mensuráveis.</p>
             <p>Nosso diferencial está em unir tecnologia e inteligência de dados: gestão de conteúdos, automação de jornadas simples, captura estruturada de leads e análise em dashboards claros.</p>
             <p>Mais do que ferramentas, entregamos conexões inteligentes que fortalecem campanhas, potencializam eventos e aceleram a performance corporativa.</p>
-
             <h4>Serviços dentro de Marketing com tecnologia:</h4>
             <ul>
               <li>Criação de landing pages otimizadas para conversão</li>
@@ -504,11 +480,9 @@
               <li>Dashboards de métricas claros para acompanhamento de resultados</li>
               <li>Relatórios finais com inteligência prática para decisões futuras</li>
             </ul>
-
             <p class="micro-trust"><a href="#servicos">← Voltar</a></p>
           </div>
         </section>
-
         <!-- SEPARADOR -->
         <div class="separator-dots" aria-hidden="true">
           <svg viewBox="0 0 800 28" role="presentation">
@@ -533,12 +507,10 @@
             </g>
           </svg>
         </div>
-
         <section id="servicos-ux" class="hero" aria-label="UX para eventos">
           <div class="hero-content">
             <h3>UX para eventos <span class="badge-new" style="vertical-align:middle">ESSENCIAL</span></h3>
             <p>Mapeamos cada detalhe da jornada do público para eliminar fricções, criar fluidez e gerar experiências que encantam.</p>
-
             <h4>Serviços dentro de UX para eventos:</h4>
             <ul>
               <li>Pesquisa e análise do público antes e após o evento</li>
@@ -550,13 +522,11 @@
               <li>Mensuração de NPS e coleta de feedback</li>
               <li>Relatórios e insights para próximos projetos</li>
             </ul>
-
             <p class="micro-trust"><a href="#servicos">← Voltar</a></p>
           </div>
         </section>
       </div>
     </section>
-
     <!-- SEPARADOR FINAL ANTES DO FORM -->
     <div class="separator-dots" aria-hidden="true">
       <svg viewBox="0 0 800 28" role="presentation">
@@ -581,40 +551,33 @@
         </g>
       </svg>
     </div>
-
     <!-- SEU PROJETO -->
     <section id="seu-projeto" class="hero" aria-label="Seu Projeto">
       <div class="hero-content">
         <h2 class="hero-title">Seu Projeto</h2>
         <p class="hero-subtitle">Envie um breve resumo. Responderemos com os próximos passos.</p>
-
         <form id="briefing-form" class="form" method="POST" action="https://script.google.com/macros/s/AKfycbwV4pGGADw0Q2i5KV80w3VAVBoLoThFB0OF8p376GU6IIIwZhdiMFtRHR6-t4ks5cxw/exec" novalidate>
           <div class="visualmente-hidden visually-hidden" aria-hidden="true" hidden>
             <label for="website">Não preencha este campo</label>
             <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
           </div>
-
           <div class="form-grid">
             <div class="form-field">
               <label for="nome">Nome *</label>
               <input type="text" id="nome" name="nome" required autocomplete="name" />
             </div>
-
             <div class="form-field">
               <label for="email">E-mail *</label>
               <input type="email" id="email" name="email" required autocomplete="email" />
             </div>
-
             <div class="form-field">
               <label for="telefone">Telefone</label>
               <input type="tel" id="telefone" name="telefone" autocomplete="tel" />
             </div>
-
             <div class="form-field">
               <label for="empresa">Empresa</label>
               <input type="text" id="empresa" name="empresa" autocomplete="organization" />
             </div>
-
             <div class="form-field">
               <label for="servico">Serviço</label>
               <select id="servico" name="servico">
@@ -626,18 +589,15 @@
                 <option>Outro</option>
               </select>
             </div>
-
             <div class="form-field">
               <label for="prazo">Prazo desejado</label>
               <input type="date" id="prazo" name="prazo" />
             </div>
-
             <div class="form-field form-field--full">
               <label for="mensagem">Mensagem *</label>
               <textarea id="mensagem" name="mensagem" rows="5" required placeholder="Detalhes do projeto: cidades, datas, metas, links (Drive/WeTransfer)…"></textarea>
             </div>
           </div>
-
           <!-- Consentimento LGPD -->
           <div class="form-field form-field--full">
             <label for="lgpd" class="consent-label">
@@ -645,18 +605,15 @@
               <span>Autorizo o uso dos dados enviados para contato e envio de proposta, conforme a LGPD.</span>
             </label>
           </div>
-
           <div class="form-actions">
             <button type="submit" class="btn-primary">Enviar briefing</button>
             <p class="form-legal">Ao enviar, você concorda em ser contatado para prosseguirmos com seu projeto.</p>
           </div>
-
           <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
         </form>
       </div>
     </section>
   </main>
-
   <!-- OVERLAY DESKTOP -->
   <div id="desktop-advice" class="overlay" role="dialog" aria-modal="true" aria-labelledby="desktop-advice-title" aria-describedby="desktop-advice-desc" hidden>
     <div class="overlay__scrim" data-close aria-hidden="true"></div>
@@ -664,12 +621,10 @@
       <button class="overlay__close" type="button" aria-label="Fechar aviso" title="Fechar" data-close>&times;</button>
       <h2 id="desktop-advice-title">Experiência otimizada para celular</h2>
       <p id="desktop-advice-desc">Você está acessando no desktop. A versão mobile oferece a melhor visualização.</p>
-
       <div class="overlay__actions">
         <button type="button" class="btn-primary" id="desktop-continue">Continuar no desktop</button>
         <button type="button" class="btn-secondary" id="desktop-open-mobile">Ver no celular</button>
       </div>
-
       <div class="overlay__hint" id="desktop-hint" hidden>
         <p>Abra esta mesma página no seu celular. Se preferir, copie o link:</p>
         <div class="overlay__copy">
@@ -680,17 +635,14 @@
       </div>
     </div>
   </div>
-
   <!-- CTA WhatsApp -->
   <a class="whatsapp-float" href="https://wa.me/557193081072?text=Ol%C3%A1,%20acabei%20de%20visitar%20o%20site%20da%20B2B%20Partners%20BRZL%20e%20gostaria%20de%20falar%20sobre%20um%20projeto." target="_blank" rel="noopener">
     <img src="images/cta-whatsapp.svg" alt="WhatsApp" class="whatsapp-icon" width="64" height="64" loading="lazy" decoding="async" />
   </a>
-
   <!-- FOOTER -->
   <footer class="footer-bar" role="contentinfo">
     <p>2025 © B2B Partners BRZL</p>
   </footer>
-
   <!-- JS -->
   <script src="script.min.js?v=1" defer></script>
 </body>
