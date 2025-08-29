@@ -35,6 +35,9 @@
   --hero-padding-mobile: 24px;
   --service-grid-padding-mobile: 16px; /* Era 8px */
   --service-card-gap: 16px;
+  
+  /* Nova variável para padding inferior dos cards no mobile */
+  --service-card-padding-bottom-mobile: 12px; /* Era 14px */
 }
 
 /* Reset mínimo */
@@ -194,7 +197,7 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
   scroll-snap-type:x mandatory;
   -webkit-overflow-scrolling:touch;
   /* Padding ajustado para alinhar com as bordas do hero */
-  padding: 2px var(--hero-padding-mobile) 14px var(--hero-padding-mobile); 
+  padding: 2px var(--hero-padding-mobile) var(--service-grid-padding-mobile) var(--hero-padding-mobile); 
   position:relative;
   margin-left: calc(var(--hero-padding-mobile) * -1); /* Compensa o padding esquerdo */
   margin-right: calc(var(--hero-padding-mobile) * -1); /* Compensa o padding direito */
@@ -210,7 +213,13 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
   scroll-snap-align: start;
 }
 .service-card:hover, .service-card:focus-within{ box-shadow:0 8px 24px rgba(0,0,0,.12); transform: translateY(-1px); }
-.card-body{ padding:16px 16px 14px; display:flex; flex-direction:column; gap:8px; }
+
+/* Ajuste do padding inferior do card body somente no mobile */
+.card-body{ 
+  padding:16px 16px var(--service-card-padding-bottom-mobile); /* Usando variável */
+  display:flex; flex-direction:column; gap:8px; 
+}
+
 .card-title{ font-size:18px; font-weight:700; line-height:1.25; color:#444; }
 .card-line{ display:flex; align-items:center; gap:8px; }
 .card-desc{ font-size:15px; line-height:1.5; color:#666; }
@@ -234,10 +243,16 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
     scroll-snap-type:none;
     margin: 0; /* Reset das margens */
     width: 100%; /* Reset da largura */
+    /* Reset do padding inferior do grid */
+    padding-bottom: 0;
   }
   .service-card{
     flex:initial;
     min-height:initial;
+  }
+  /* Reset do padding inferior do card body */
+  .card-body{ 
+    padding:16px 16px 14px; /* Valor original */
   }
 }
 /* ≥1200px: 4 em linha */
