@@ -822,3 +822,71 @@ html, body{ overflow-x: hidden; }
     padding-right: 24px;
   }
 }
+/* ==========================================================
+   PATCH: Servicos (mobile) – trilho com bordas sup/inf + rótulo mais alto
+   ========================================================== */
+@media (max-width: 899.98px){
+
+  /* 1) Hero full-bleed lateral, mas COM bordas sup/inf "infinitas" */
+  #servicos.hero{
+    /* ocupar a viewport inteira, tal como em #artistas */
+    width: 100vw;
+    margin-left:  calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+
+    /* manter apenas as bordas sup/inf */
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid var(--block-border);
+    border-bottom: 1px solid var(--block-border);
+
+    /* sem cantos arredondados e sem sombra */
+    border-radius: 0;
+    box-shadow: none;
+
+    /* sem respiro lateral, o conteúdo controla o respiro interno */
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* 2) Conteúdo interno com respiro; cards já são full-bleed */
+  #servicos .hero-content{
+    position: relative;  /* contexto p/ rótulo */
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  /* 3) Trilho sem "laterais" visuais e com berço maior p/ o rótulo */
+  .services-grid{
+    /* você já usa o full-bleed; aumentamos o espaço inferior */
+    padding-bottom: 88px; /* era 14/56 → espaço p/ rótulo ficar SOBRE os cards */
+  }
+
+  /* 4) Rótulo "← Deslize →" acima dos cards, flutuando */
+  #servicos .services-hint{
+    display: inline-block;     /* visível só no mobile */
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 64px;              /* ↑ sobe o rótulo para dentro da área dos cards */
+    z-index: 3;                /* acima dos cards */
+    margin: 0;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    font-size: 12px;
+    pointer-events: none;
+    padding: 6px 12px;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    background: rgba(255,255,255,.72);
+    border-radius: 999px;
+    color: #444;
+  }
+}
+
+/* Garantia: no desktop, o rótulo não aparece */
+@media (min-width: 900px){
+  #servicos .services-hint{ display:none !important; }
+}
