@@ -890,3 +890,67 @@ html, body{ overflow-x: hidden; }
 @media (min-width: 900px){
   #servicos .services-hint{ display:none !important; }
 }
+/* ==========================================================
+   PATCH: Hero #servicos (mobile) – borda justa + “Deslize” sobre os cards
+   ========================================================== */
+@media (max-width: 899.98px){
+
+  /* 1) Hero full-bleed LATERAL, mantendo bordas sup/inf contínuas */
+  #servicos.hero{
+    width: 100vw;
+    margin-left:  calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid var(--block-border);
+    border-bottom: 1px solid var(--block-border);
+
+    border-radius: 0;
+    box-shadow: none;
+
+    /* Deixa a borda inferior “justa” ao trilho */
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 8px; /* ↓ bem curto, apenas para respirar a borda */
+  }
+
+  /* 2) Trilho: full-bleed já aplicado; mantém só um respiro mínimo */
+  .services-grid{
+    position: relative;     /* base para o rótulo sobrepor visualmente */
+    padding-bottom: 10px;   /* ↓ curto (a borda do hero fica logo abaixo) */
+  }
+
+  /* 3) “Deslize” SOBRE os cards (sem empurrar o layout) */
+  #servicos .hero-content{ position: relative; }
+
+  /* Força a sobreposição visual, ignorando regra antiga de display:block/margem */
+  #servicos .services-hint{
+    display: block !important;
+    position: relative !important;
+    z-index: 3;
+
+    /* Sobe por cima dos cards, sem depender do padding do trilho */
+    top: 0;
+    transform: translateY(-40px);  /* ↑ ajuste fino da altura sobre os cards */
+    margin: 0 12px -24px;          /* margens: recuo lateral + “devolve” o espaço abaixo */
+
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    font-size: 12px;
+    pointer-events: none;
+    padding: 6px 12px;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    background: rgba(255,255,255,.72);
+    border-radius: 999px;
+    color: #444;
+  }
+}
+
+/* Segurança: nunca mostrar o rótulo no desktop */
+@media (min-width: 900px){
+  #servicos .services-hint{ display:none !important; }
+}
