@@ -32,7 +32,7 @@
   --service-slide-min-h: 260px; /* altura mínima uniforme para permitir bgs consistentes */
   
   /* Nova variável para padding inferior dos cards no mobile */
-  --service-card-padding-bottom-mobile: 8px; /* Era 14px, depois 12px */
+  --service-card-padding-bottom-mobile: 8px; /* Era 14px */
 }
 
 /* Reset mínimo */
