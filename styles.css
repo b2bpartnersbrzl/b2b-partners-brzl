@@ -552,3 +552,56 @@ html, body{ overflow-x: hidden; }
   }
 }
 
+/* ==========================================================
+   PATCH: Serviços (carrossel full-bleed + rótulo mobile-only)
+   ========================================================== */
+
+/* 0) Rótulo oculto por padrão (desktop/tablet) */
+#servicos .services-hint{ display:none; }
+
+/* 1) MOBILE (≤ 899.98px): full-bleed + rótulo flutuante */
+@media (max-width: 899.98px){
+
+  /* Contexto p/ posicionar o rótulo sobre os cards */
+  #servicos .hero-content{ position: relative; }
+
+  /* Trilho full-bleed */
+  .services-grid{
+    display:flex;
+    gap:16px;
+    overflow-x:auto;
+    overflow-y:hidden;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    padding:2px 24px 14px;
+    margin-left:-24px;
+    margin-right:-24px;
+    width:calc(100% + 48px);
+  }
+
+  /* Sem folga nos extremos */
+  .service-card:first-child{ margin-left:0; }
+  .service-card:last-child { margin-right:0; }
+
+  /* Rótulo flutuante visível só no mobile */
+  #servicos .services-hint{
+    display:inline-block;            /* ← torna visível apenas no mobile */
+    position:absolute;
+    left:0; right:0; bottom:6px;
+    margin:0; text-align:center;
+    font-weight:700; letter-spacing:.04em; text-transform:uppercase;
+    font-size:12px; pointer-events:none; z-index:2; width:100%;
+    padding:6px 12px;
+    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+    background: rgba(255,255,255,.72);
+    border-radius:999px; color:#444;
+  }
+
+  /* Respiro menor no conteúdo do card (já usa sua variável) */
+  .card-body{ padding-bottom: var(--service-card-padding-bottom-mobile); }
+}
+
+/* 2) Garantia extra: no desktop, esconda sempre */
+@media (min-width: 900px){
+  #servicos .services-hint{ display:none !important; }
+}
