@@ -726,3 +726,76 @@ html, body{ overflow-x: hidden; }
   background: linear-gradient(to bottom, rgba(102,102,102,0), rgba(102,102,102,.12));
   pointer-events:none;
 }
+/* ==========================================================
+   PATCH FINAL – Serviços (mobile): rótulo + full-bleed real
+   ========================================================== */
+
+/* Por padrão (desktop/tablet), não mostrar o rótulo */
+#servicos .services-hint{ display:none; }
+
+@media (max-width: 899.98px){
+
+  /* 1) Hero sem respiro lateral – conteúdo pode ocupar a largura total */
+  #servicos.hero{
+    padding-left: 0;
+    padding-right: 0;
+    overflow: visible;                 /* NÃO recorta nos limites do hero */
+  }
+
+  /* 2) Trilho 100% viewport (full-bleed real) + “safe area” para não cortar
+        - ocupa 100vw
+        - escapa do container com margin calc(50% - 50vw)
+        - cria 12px de respiro apenas para evitar o corte do 1º/último card */
+  .services-grid{
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+
+    /* full-bleed na viewport */
+    width: 100vw;
+    margin-left:  calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+
+    /* sem “laterais” do hero; só 12px de área segura para não cortar */
+    padding: 2px 12px 56px;            /* ↑ padding-bottom maior p/ o rótulo */
+  }
+
+  /* 3) Garantia de não-corte nas extremidades do trilho */
+  .service-card:first-child { margin-left: 0; }
+  .service-card:last-child  { margin-right: 0; }
+
+  /* 4) Rótulo realmente por cima dos cards, mais alto */
+  #servicos .hero-content{ position: relative; }
+  #servicos .services-hint{
+    display: inline-block;             /* visível só no mobile */
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 36px;                      /* ↑ sobe o rótulo sobre os cards */
+    margin: 0;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    font-size: 12px;
+    pointer-events: none;
+    z-index: 3;                        /* acima dos cards */
+    padding: 6px 12px;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    background: rgba(255,255,255,.72);
+    border-radius: 999px;
+    color: #444;
+  }
+
+  /* 5) Mantém respiro inferior reduzido do conteúdo do card */
+  .card-body{ padding-bottom: var(--service-card-padding-bottom-mobile); }
+}
+
+/* Segurança extra no desktop */
+@media (min-width: 900px){
+  #servicos .services-hint{ display:none !important; }
+}
