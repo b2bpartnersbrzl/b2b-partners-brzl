@@ -32,28 +32,28 @@
   <link rel="stylesheet" href="styles.css?v=sep-tight-5" />
   <!-- Patch para ajustar o carrossel de serviços no mobile -->
   <style>
-  @media (max-width: 899.98px) {
-    /* 1. Acabar com a visualização das laterais do hero "O que fazemos" */
-    #servicos.hero {
-      padding-left: 0;
-      padding-right: 0;
+    @media (max-width: 899.98px) {
+      /* 1. Acabar com a visualização das laterais do hero "O que fazemos" */
+      #servicos.hero {
+        padding-left: 0;
+        padding-right: 0;
+      }
+      
+      .services-grid {
+        padding-left: 24px;
+        padding-right: 24px;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+      }
+      
+      /* 2. Diminuir respiro inferior dos cards */
+      .card-body {
+        padding-bottom: 8px; /* Era 14px */
+      }
     }
-    
-    .services-grid {
-      padding-left: 24px;
-      padding-right: 24px;
-      margin-left: 0;
-      margin-right: 0;
-      width: 100%;
-    }
-    
-    /* 2. Diminuir respiro inferior dos cards */
-    .card-body {
-      padding-bottom: 8px; /* Era 14px */
-    }
-  }
   </style>
-  <!-- Patch mínimo para o rótulo “← passe →” (mobile-only, estático) -->
+  <!-- Patch mínimo para o rótulo "← passe →" (mobile-only, estático) -->
   <style>
     .services-hint{ display:none; }
     @media (max-width: 899.98px){
@@ -82,8 +82,7 @@
     "sameAs":[]
   }
   </script>
-</head>
-<body id="top">
+</head><body id="top">
   <!-- HEADER -->
   <header class="main-header" role="banner">
     <div class="logo-area">
