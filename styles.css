@@ -954,3 +954,128 @@ html, body{ overflow-x: hidden; }
 @media (min-width: 900px){
   #servicos .services-hint{ display:none !important; }
 }
+/* ==========================================================
+   PATCH: "Deslize" como TEXTO (sem chip), sobre os cards – mobile
+   ========================================================== */
+@media (max-width: 899.98px){
+  #servicos .hero-content{ position: relative; }
+
+  /* Força visual de TEXTO puro, sem “pílula” */
+  #servicos .services-hint{
+    display: inline !important;       /* não vira bloco, é só texto */
+    position: absolute !important;    /* flutua sobre os cards */
+    left: 0; right: 0;
+    bottom: 56px;                     /* ajuste fino da altura sobre os cards */
+    margin: 0 auto;                   /* centraliza o inline */
+    text-align: center;
+
+    /* Tipografia */
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #444;
+
+    /* Acessibilidade visual (sem “barra”): leve sombra no texto */
+    text-shadow: 0 1px 3px rgba(0,0,0,.25);
+
+    /* ZERA o chip anterior */
+    padding: 0 !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+
+    pointer-events: none;
+    z-index: 3;
+  }
+}
+
+/* Garantia: jamais aparece no desktop */
+@media (min-width: 900px){
+  #servicos .services-hint{ display:none !important; }
+}
+/* ==========================================================
+   PATCH: "Deslize" dentro do carrossel (mobile)
+   - texto puro, centralizado, na parte inferior dos cards
+   - espaço interno do trilho para não cobrir "Explorar serviço"
+   ========================================================== */
+@media (max-width: 899.98px){
+  /* O herói já está full-bleed lateral e com bordas sup/inf */
+  #servicos .hero-content{ position: relative; }
+
+  /* 1) Trilho com “berço” suficiente p/ o rótulo */
+  .services-grid{
+    position: relative;      /* não muda layout, mas dá contexto visual */
+    padding-bottom: 56px !important;  /* espaço para o rótulo ficar DUAS linhas abaixo dos links */
+  }
+
+  /* 2) Rótulo: TEXTO puro, centralizado, encostando no rodapé do trilho */
+  #servicos .services-hint{
+    position: absolute !important;
+    left: 0; right: 0;
+    bottom: 18px;            /* ↓ altura interna, dentro da área dos cards */
+    margin: 0 auto;
+    text-align: center;
+
+    /* tipografia */
+    display: inline !important;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #444;
+    text-shadow: 0 1px 3px rgba(0,0,0,.22);
+
+    /* garante que sobrepõe os cards, mas sem bloquear toques */
+    z-index: 3;
+    pointer-events: none;
+
+    /* 3) Mata qualquer “chip” remanescente e offsets antigos */
+    padding: 0 !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    transform: none !important;
+  }
+}
+
+/* Desktop: nunca mostra */
+@media (min-width: 900px){
+  #servicos .services-hint{ display:none !important; }
+}
+/* ==========================================================
+   PATCH: "Deslize" ancorado ao carrossel (mobile)
+   ========================================================== */
+@media (max-width: 899.98px){
+  .services-grid{
+    position: relative;            /* cria contexto p/ o rótulo */
+    padding-bottom: 56px;          /* espaço para o rótulo não cobrir links */
+  }
+
+  #servicos .services-hint{
+    display: block !important;
+    position: absolute !important;
+    left: 0; right: 0;
+    bottom: 14px;                  /* fica dentro, junto ao rodapé dos cards */
+    margin: 0 auto;
+    text-align: center;
+
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #444;
+    text-shadow: 0 1px 3px rgba(0,0,0,.22);
+
+    background: transparent !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+
+    pointer-events: none;
+    z-index: 3;
+  }
+}
