@@ -436,3 +436,59 @@ html, body{ overflow-x: hidden; }
   line-height:var(--clients-caption-h); height:var(--clients-caption-h);
   display:block;
 }
+
+
+/* ========================================================================== */
+/* ===== MOBILE-ONLY AJUSTES "O QUE FAZEMOS"  (apenas < 900px) ============== */
+/* ========================================================================== */
+@media (max-width: 899.98px){
+
+  /* 1) Hero sem respiro lateral e sem bleed visual nas bordas */
+  #servicos.hero{
+    padding-left: 0;
+    padding-right: 0;
+    overflow: hidden;              /* evita ver “laterais” durante o arrasto */
+  }
+
+  /* 2) Trilho do carrossel alinhado e ocupando toda a largura do hero */
+  .services-grid{
+    padding-left: 24px;
+    padding-right: 24px;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+
+  /* 3) Cards sem folgas nas extremidades do trilho */
+  .service-card:first-child{
+    margin-left: 0;
+    padding-left: 0;
+  }
+  .service-card:last-child{
+    margin-right: 0;
+    padding-right: 0;
+  }
+
+  /* 4) Menor respiro inferior no conteúdo do card (somente mobile) */
+  :root{
+    --service-card-padding-bottom-mobile: 8px; /* era 14px */
+  }
+  .card-body{
+    padding-bottom: var(--service-card-padding-bottom-mobile);
+  }
+
+  /* 5) Rótulo estático do carrossel visível só no mobile */
+  .services-hint{
+    display:block;
+    margin-top:8px;
+    text-align:center;
+    font-weight:700;
+    font-size:14px;
+    letter-spacing:.02em;
+    color: var(--accent);
+    line-height:1;
+    user-select:none;
+    pointer-events:none; /* não intercepta o gesto de arrasto */
+  }
+}
+/* ============================= FIM DOS AJUSTES MOBILE ===================== */

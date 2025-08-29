@@ -30,47 +30,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
   <!-- CSS principal -->
   <link rel="stylesheet" href="styles.css?v=sep-tight-5" />
-  <!-- Patch para ajustar o carrossel de serviços no mobile -->
-  <style>
-    @media (max-width: 899.98px) {
-      /* 1. Acabar com a visualização das laterais do hero "O que fazemos" */
-      #servicos.hero {
-        padding-left: 0;
-        padding-right: 0;
-      }
-      
-      .services-grid {
-        padding-left: 24px;
-        padding-right: 24px;
-        margin-left: 0;
-        margin-right: 0;
-        width: 100%;
-      }
-      
-      /* 2. Diminuir respiro inferior dos cards */
-      .card-body {
-        padding-bottom: 8px; /* Era 14px */
-      }
-    }
-  </style>
-  <!-- Patch mínimo para o rótulo "← passe →" (mobile-only, estático) -->
-  <style>
-    .services-hint{ display:none; }
-    @media (max-width: 899.98px){
-      .services-hint{
-        display:block;
-        margin-top:8px;
-        text-align:center;
-        font-weight:700;
-        font-size:14px;
-        letter-spacing:.02em;
-        color: var(--accent);
-        line-height:1;
-        user-select:none;
-        pointer-events:none; /* não interfere no gesto de arrasto */
-      }
-    }
-  </style>
   <!-- Schema -->
   <script type="application/ld+json">
   {
@@ -403,8 +362,7 @@
               <circle class="dot" cx="312"/><circle class="dot" cx="336"/><circle class="dot" cx="360"/><circle class="dot" cx="384"/>
               <circle class="dot" cx="408"/><circle class="dot" cx="432"/><circle class="dot" cx="456"/><circle class="dot" cx="480"/>
               <circle class="dot" cx="504"/><circle class="dot" cx="528"/><circle class="dot" cx="552"/><circle class="dot" cx="576"/>
-              <circle class="dot" cx="600"/><circle class="dot" cx="624"/><circle class="dot" cx="648"/><circle class="dot" cx="672"/>
-              <circle class="dot" cx="696"/><circle class="dot" cx="720"/><circle class="dot" cx="744"/><circle class="dot" cx="768"/><circle class="dot" cx="792"/>
+              <circle class="dot" cx="600"/><circle class="dot" cx="624"/><circle class="dot" cx="648"/><circle class="dot" cx="672"/><circle class="dot" cx="696"/><circle class="dot" cx="720"/><circle class="dot" cx="744"/><circle class="dot" cx="768"/><circle class="dot" cx="792"/>
             </g>
             <g transform="translate(0,19)">
               <circle class="dot" cx="12"/><circle class="dot" cx="36"/><circle class="dot" cx="60"/><circle class="dot" cx="84"/>
@@ -492,7 +450,8 @@
               <circle class="dot" cx="312"/><circle class="dot" cx="336"/><circle class="dot" cx="360"/><circle class="dot" cx="384"/>
               <circle class="dot" cx="408"/><circle class="dot" cx="432"/><circle class="dot" cx="456"/><circle class="dot" cx="480"/>
               <circle class="dot" cx="504"/><circle class="dot" cx="528"/><circle class="dot" cx="552"/><circle class="dot" cx="576"/>
-              <circle class="dot" cx="600"/><circle class="dot" cx="624"/><circle class="dot" cx="648"/><circle class="dot" cx="672"/><circle class="dot" cx="696"/><circle class="dot" cx="720"/><circle class="dot" cx="744"/><circle class="dot" cx="768"/><circle class="dot" cx="792"/>
+              <circle class="dot" cx="600"/><circle class="dot" cx="624"/><circle class="dot" cx="648"/><circle class="dot" cx="672"/>
+              <circle class="dot" cx="696"/><circle class="dot" cx="720"/><circle class="dot" cx="744"/><circle class="dot" cx="768"/><circle class="dot" cx="792"/>
             </g>
             <g transform="translate(0,19)">
               <circle class="dot" cx="12"/><circle class="dot" cx="36"/><circle class="dot" cx="60"/><circle class="dot" cx="84"/>
