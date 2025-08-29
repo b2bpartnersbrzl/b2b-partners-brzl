@@ -186,12 +186,12 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
   overflow-y:hidden;
   scroll-snap-type:x mandatory;
   -webkit-overflow-scrolling:touch;
-  padding:2px 0 14px;
+  padding:2px 24px 14px; /* Adicionado padding lateral para alinhar com o hero */
   position:relative;
   /* Removido margin e width para eliminar bordas visíveis */
-  margin-left: 0;
-  margin-right: 0;
-  width: 100%;
+  margin-left: -24px; /* Compensar padding esquerdo */
+  margin-right: -24px; /* Compensar padding direito */
+  width: calc(100% + 48px); /* Ajustar largura total */
 }
 /* Slides uniformes no mobile (facilita bgs personalizados) */
 .service-card{
@@ -201,12 +201,14 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
   scroll-snap-align:start;
   min-height:var(--service-slide-min-h);
 }
-/* Removido first-child e last-child para eliminar bordas visíveis */
+/* Ajuste para eliminar bordas visíveis */
 .service-card:first-child {
-  margin-left: 0;
+  margin-left: 0; /* Remover margin-left */
+  padding-left: 0; /* Remover padding-left */
 }
 .service-card:last-child {
-  margin-right: 0;
+  margin-right: 0; /* Remover margin-right */
+  padding-right: 0; /* Remover padding-right */
 }
 .service-card:hover, .service-card:focus-within{ box-shadow:0 8px 24px rgba(0,0,0,.12); transform: translateY(-1px); }
 .card-body{ 
@@ -232,11 +234,11 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
     display:grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap:16px;
-    padding:0;
+    padding:0; /* Reset padding */
     overflow:visible;
     scroll-snap-type:none;
-    margin: 0;
-    width: 100%;
+    margin: 0; /* Reset margin */
+    width: 100%; /* Reset width */
   }
   .service-card{
     flex:initial;
@@ -247,6 +249,16 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
   /* Reset do padding inferior para desktop */
   .card-body{ 
     padding:16px 16px 14px; /* Valor original para desktop */
+  }
+  
+  /* Reset das propriedades do primeiro e último card para desktop */
+  .service-card:first-child {
+    margin-left: 0;
+    padding-left: 16px; /* Valor padrão */
+  }
+  .service-card:last-child {
+    margin-right: 0;
+    padding-right: 16px; /* Valor padrão */
   }
 }
 /* ≥1200px: 4 em linha (cabem → ficam fixos) */
