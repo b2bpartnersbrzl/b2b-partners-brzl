@@ -1045,3 +1045,37 @@ html, body{ overflow-x: hidden; }
 @media (min-width: 900px){
   #servicos .services-hint{ display:none !important; }
 }
+/* ==========================================================
+   PATCH: "Deslize" ancorado ao carrossel (mobile)
+   ========================================================== */
+@media (max-width: 899.98px){
+  .services-grid{
+    position: relative;            /* cria contexto p/ o rótulo */
+    padding-bottom: 56px;          /* espaço para o rótulo não cobrir links */
+  }
+
+  #servicos .services-hint{
+    display: block !important;
+    position: absolute !important;
+    left: 0; right: 0;
+    bottom: 14px;                  /* fica dentro, junto ao rodapé dos cards */
+    margin: 0 auto;
+    text-align: center;
+
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #444;
+    text-shadow: 0 1px 3px rgba(0,0,0,.22);
+
+    background: transparent !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+
+    pointer-events: none;
+    z-index: 3;
+  }
+}
