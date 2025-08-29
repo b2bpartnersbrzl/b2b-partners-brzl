@@ -504,37 +504,37 @@ html, body{ overflow-x: hidden; }
     position: relative;
   }
 
-  /* Carrossel “full-bleed”: encosta nas bordas da tela no swipe */
+  /* Carrossel “full-bleed”: cartões encostam nas bordas */
   .services-grid{
-    /* Mantém seu carrossel horizontal com snap */
-    padding: 2px 24px 14px;    /* alinha com o padding do hero */
-    margin-left: -24px;        /* compensa padding externo → encosta à esquerda */
-    margin-right: -24px;       /* compensa padding externo → encosta à direita */
-    width: calc(100% + 48px);  /* cobre toda a largura do viewport */
+    display: flex;
+    gap: 16px;
     overflow-x: auto;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
+    padding: 2px 24px 14px;
+    margin-left: -24px;            /* encosta na borda esquerda do hero */
+    margin-right: -24px;           /* encosta na borda direita do hero */
+    width: calc(100% + 48px);      /* compensa os 24px de cada lado */
   }
 
-  /* Tira quaisquer “folgas” no primeiro/último card */
-  .service-card:first-child{ margin-left: 0; }
-  .service-card:last-child{  margin-right: 0; }
+  /* Remove folgas no primeiro e último card */
+  .service-card:first-child { margin-left: 0; }
+  .service-card:last-child  { margin-right: 0; }
 
-  /* Rótulo flutuante "← Deslize →" (cards passam por trás) */
+  /* Rótulo flutuante “← Deslize →” (cards passam por trás) */
   #servicos .services-hint{
     position: absolute;
-    left: 0; right: 0;
-    bottom: 6px;                 /* sobre a base dos cards */
+    left: 0;
+    right: 0;
+    bottom: 6px;
     margin: 0;
     text-align: center;
     font-weight: 700;
     letter-spacing: .04em;
     text-transform: uppercase;
     font-size: 12px;
-
-    /* Legibilidade sem bloquear gesto */
-    pointer-events: none;        /* não intercepta o swipe */
+    pointer-events: none;
     z-index: 2;
     display: inline-block;
     width: 100%;
@@ -546,11 +546,9 @@ html, body{ overflow-x: hidden; }
     color: #444;
   }
 
-  /* Mantém o “respiro” reduzido (você já usa a variável no mobile) */
+  /* Mantém o “respiro” reduzido nos cards */
   .card-body{
     padding-bottom: var(--service-card-padding-bottom-mobile);
   }
 }
-
-/* Desktop (≥900px) já fica em grade fixa e sem rolagem, preservado pelas suas regras atuais */
 
