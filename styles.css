@@ -492,3 +492,65 @@ html, body{ overflow-x: hidden; }
   }
 }
 /* ============================= FIM DOS AJUSTES MOBILE ===================== */
+/* =========================
+   MOBILE (≤ 899.98px)
+   - Carrossel full-bleed (sem “laterais”)
+   - Rótulo "← Deslize →" flutuante
+   ========================= */
+@media (max-width: 899.98px){
+
+  /* Contexto para posicionar o rótulo flutuante */
+  #servicos .hero-content{
+    position: relative;
+  }
+
+  /* Carrossel “full-bleed”: encosta nas bordas da tela no swipe */
+  .services-grid{
+    /* Mantém seu carrossel horizontal com snap */
+    padding: 2px 24px 14px;    /* alinha com o padding do hero */
+    margin-left: -24px;        /* compensa padding externo → encosta à esquerda */
+    margin-right: -24px;       /* compensa padding externo → encosta à direita */
+    width: calc(100% + 48px);  /* cobre toda a largura do viewport */
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Tira quaisquer “folgas” no primeiro/último card */
+  .service-card:first-child{ margin-left: 0; }
+  .service-card:last-child{  margin-right: 0; }
+
+  /* Rótulo flutuante "← Deslize →" (cards passam por trás) */
+  #servicos .services-hint{
+    position: absolute;
+    left: 0; right: 0;
+    bottom: 6px;                 /* sobre a base dos cards */
+    margin: 0;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    font-size: 12px;
+
+    /* Legibilidade sem bloquear gesto */
+    pointer-events: none;        /* não intercepta o swipe */
+    z-index: 2;
+    display: inline-block;
+    width: 100%;
+    padding: 6px 12px;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    background: rgba(255,255,255,.72);
+    border-radius: 999px;
+    color: #444;
+  }
+
+  /* Mantém o “respiro” reduzido (você já usa a variável no mobile) */
+  .card-body{
+    padding-bottom: var(--service-card-padding-bottom-mobile);
+  }
+}
+
+/* Desktop (≥900px) já fica em grade fixa e sem rolagem, preservado pelas suas regras atuais */
+
