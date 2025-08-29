@@ -1,7 +1,6 @@
-:root{
+:root {
   --header-height: 96px;
   --footer-height: 42px;
-
   --section-gap: 24px;
   --anchor-offset-extra: 12px;
 
@@ -16,8 +15,6 @@
   /* Tipografia e cores */
   --font-base: 'Noto Sans', sans-serif;
   --text: #666666;
-  --text-muted: #666666;
-
   --accent: #669999;
   --hero-yellow: #FFE069;
 
@@ -29,1121 +26,281 @@
 
   /* Slides "O que fazemos" (mobile) */
   --service-slide-w: clamp(280px, 86vw, 560px);
-  --service-slide-min-h: 260px; /* altura mínima uniforme para permitir bgs consistentes */
-  
-  /* Nova variável para padding inferior dos cards no mobile */
-  --service-card-padding-bottom-mobile: 8px; /* Era 14px */
+  --service-slide-min-h: 260px;
+  --service-card-padding-bottom-mobile: 8px;
+
+  /* Carrossel de artistas */
+  --artist-size-mobile: clamp(132px, 44vw, 204px);
+  --artist-size-desktop: clamp(104px, 9.5vw, 156px);
 }
 
-/* Reset mínimo */
-*{margin:0; padding:0; box-sizing:border-box;}
-html{ scroll-behavior:smooth; }
-body{
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
   font-family: var(--font-base);
   color: var(--text);
   background: #fdfdfd;
   line-height: 1.5;
 }
-a{ color: var(--accent); text-decoration:none; }
-a:hover, a:focus{
+a { color: var(--accent); text-decoration: none; }
+a:hover, a:focus {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
 }
 
-/* HEADER, MENU, MARQUEE DE CLIENTES, CONTEÚDO, FORM, ETC... */
-/* (todo o conteúdo original permanece exatamente como você enviou) */
+/* Header / Menu */
+.main-header {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: var(--header-height);
+  background: #fff; border-bottom: 1px solid var(--block-border);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 12px 8px 24px;
+  z-index: 1200;
+}
+.logo-area { display: flex; flex-direction: column; align-items: flex-start; flex: 1; }
+.logo-img { max-height: 50px; width: auto; }
+.logo-subline {
+  font-size: 15px; color: #666; margin-top: 6px; font-weight: 700; line-height: 1.4;
+  letter-spacing: .02em; white-space: nowrap;
+}
+.logo-subline em { font-style: italic; }
 
-.main-header{
-  position:fixed; top:0; left:0; right:0;
-  height:var(--header-height);
-  background:#ffffff; border-bottom:1px solid var(--block-border);
-  display:flex; align-items:center; justify-content:space-between;
-  padding:8px 12px 8px 24px;
-  z-index:1200; overflow:hidden;
+.top-menu { display: none; gap: 28px; align-items: center; }
+.top-menu a {
+  font-weight: 600; font-size: 15px; padding: 8px 0;
+  transition: color var(--transition) ease;
 }
-.logo-area{
-  display:flex; flex-direction:column; align-items:flex-start;
-  min-width:0; flex:1;
-}
-.logo-img{ max-height:50px; height:auto; width:auto; display:block; }
-.logo-subline{
-  font-size:15px; color:#666666;
-  margin-top:6px; margin-bottom:0; font-weight:700; line-height:1.4;
-  letter-spacing:.02em; white-space:nowrap;
-}
-.logo-subline em{font-style:italic;}
-.top-menu{display:none; gap:28px; align-items:center; flex-shrink:0}
-.top-menu a{font-weight:600; font-size:15px; padding:8px 0; transition:color var(--transition) ease;}
-.top-menu a:hover, .top-menu a:focus-visible{color:var(--accent)}
-.menu-toggle{
-  display:flex; align-items:center; gap:8px;
-  min-width:44px; min-height:44px;
-  padding:0; border:none; background:transparent;
-  color:var(--accent); font-weight:700; cursor:pointer; margin-left:12px;
-}
-.menu-toggle:hover, .menu-toggle:focus-visible{
-  text-decoration: underline; text-underline-offset: 3px;
-}
-.menu-toggle.is-open{ color:#333; }
-.menu-icon{font-size:18px; line-height:1;}
-.menu-label{font-size:15px;}
-.menu-toggle-inner{
-  position:relative; display:inline-flex; align-items:center; gap:8px;
-  line-height:1; padding:2px 2px; border-radius:10px;
-}
-@keyframes pulseRing{ 0%{ box-shadow:0 0 0 0 rgba(102,153,153,.22);} 100%{ box-shadow:0 0 0 4px rgba(102,153,153,0);} }
-.menu-toggle.menu-pulse .menu-toggle-inner::after{
-  content:""; position:absolute; inset:0; border-radius:inherit;
-  box-shadow:0 0 0 0 rgba(102,153,153,.22);
-  animation:pulseRing 2.2s ease-out infinite; pointer-events:none;
-}
-@media (min-width:1025px){ .menu-toggle{display:none} .top-menu{display:flex} }
+.top-menu a:hover, .top-menu a:focus-visible { color: var(--accent); }
 
-.mobile-menu-overlay{
-  position:fixed; inset:0; background:rgba(255,255,255,.92);
-  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
-  display:flex; align-items:flex-start; justify-content:center;
-  opacity:0; pointer-events:none; transition:opacity .25s ease;
-  z-index:1300; padding-top:calc(var(--header-height) + 8px);
+.menu-toggle {
+  display: flex; align-items: center; gap: 8px;
+  min-width: 44px; min-height: 44px;
+  border: none; background: transparent;
+  color: var(--accent); font-weight: 700; cursor: pointer;
 }
-.mobile-menu-overlay.show{ opacity:1; pointer-events:auto; }
-.mobile-menu-panel{
-  width:min(640px, calc(100% - 32px));
-  background:#fff; border:1px solid var(--block-border); border-radius:12px;
-  box-shadow:0 16px 48px rgba(0,0,0,.20); overflow:hidden;
-}
-.mobile-menu-top{ display:flex; align-items:center; justify-content:space-between;
-  padding:12px 16px; border-bottom:1px solid var(--block-border); }
-.mobile-menu-title{ font-size:16px; font-weight:700; color:#333; }
-.mobile-menu-close{ background:transparent; border:1px solid #dcdcdc; border-radius:10px;
-  padding:6px 10px; cursor:pointer; color:#666; font-weight:700; }
-.mobile-menu-close:hover, .mobile-menu-close:focus{ background:#fafafa; }
-.mobile-menu-nav{ display:flex; flex-direction:column; gap:18px; align-items:stretch; padding:16px; }
-.mobile-menu-nav a{
-  font-size:20px; font-weight:700; text-align:center;
-  padding:10px 12px; border-radius:10px; border:1px solid #e5e5e5; color:#333; background:#fff;
-  text-decoration:none;
-}
-.mobile-menu-nav a:hover, .mobile-menu-nav a:focus{ background:#f7f7f7; }
+.menu-toggle.is-open { color: #333; }
+.menu-icon { font-size: 18px; }
+.menu-label { font-size: 15px; }
+.menu-toggle-inner { display: inline-flex; align-items: center; gap: 8px; }
 
-/* CARROSSEL DE MARCAS */
-.clients-fixed{
-  position:relative; margin-top:var(--header-height);
-  background:var(--carousel-bg);
-  border-top:1px solid #669999; border-bottom:1px solid var(--block-border);
-  text-align:center; z-index:1;
+@keyframes pulseRing {
+  0% { box-shadow: 0 0 0 0 rgba(102,153,153,.22);}
+  100% { box-shadow: 0 0 0 4px rgba(102,153,153,0);}
 }
-.logo-marquee{ overflow:hidden; padding: var(--marquee-pad-top) 0 var(--marquee-pad-bot); }
-.logo-marquee__track{ display:flex; gap:var(--logo-gap); width:max-content; animation: marquee var(--marquee-duration) linear infinite; }
-.logo-list{ display:flex; gap:var(--logo-gap); list-style:none; }
-.logo-item{ display:flex; align-items:center; }
-.logo-img-brand{ display:block; height:auto; width:auto; object-fit:contain; }
-.logo-xs{ height:28px; } .logo-sm{ height:34px; } .logo-md{ height:40px; } .logo-lg{ height:46px; }
-
-.clients-caption{
-  background:#666; color:#fff; font-weight:700; font-size:12px; letter-spacing:.14em; text-transform:uppercase;
-  line-height:var(--clients-caption-h); height:var(--clients-caption-h); display:block; width:100%; margin:0;
+.menu-toggle.menu-pulse .menu-toggle-inner::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit;
+  animation: pulseRing 2.2s ease-out infinite;
 }
-@keyframes marquee{ from{ transform: translate3d(0,0,0);} to{ transform: translate3d(-50%,0,0);} }
 
-/* CONTEÚDO */
-.content-area{ padding-top:0; padding-left:24px; padding-right:24px; padding-bottom: calc(var(--footer-height) + 40px); }
+@media (min-width:1025px){
+  .menu-toggle { display:none }
+  .top-menu { display:flex }
+}
+
+/* Menu mobile */
+.mobile-menu-overlay {
+  position: fixed; inset: 0; background: rgba(255,255,255,.92);
+  backdrop-filter: blur(10px);
+  display: flex; align-items: flex-start; justify-content: center;
+  opacity: 0; pointer-events: none; transition: opacity .25s;
+  z-index: 1300; padding-top: calc(var(--header-height) + 8px);
+}
+.mobile-menu-overlay.show { opacity: 1; pointer-events: auto; }
+.mobile-menu-panel {
+  width: min(640px, calc(100% - 32px));
+  background: #fff; border: 1px solid var(--block-border);
+  border-radius: 12px; box-shadow: 0 16px 48px rgba(0,0,0,.20);
+}
+.mobile-menu-top { display: flex; justify-content: space-between; padding: 12px 16px; }
+.mobile-menu-nav {
+  display: flex; flex-direction: column; gap: 18px; padding: 16px;
+}
+.mobile-menu-nav a {
+  font-size: 20px; font-weight: 700; text-align: center;
+  padding: 10px 12px; border-radius: 10px; border: 1px solid #e5e5e5;
+  color: #333; background: #fff;
+}
+
+/* Carrossel de marcas */
+.clients-fixed {
+  margin-top: var(--header-height);
+  background: var(--carousel-bg);
+  border-top: 1px solid #669999; border-bottom: 1px solid var(--block-border);
+  text-align: center;
+}
+.logo-marquee { overflow: hidden; padding: var(--marquee-pad-top) 0 var(--marquee-pad-bot); }
+.logo-marquee__track {
+  display: flex; gap: var(--logo-gap); width: max-content;
+  animation: marquee var(--marquee-duration) linear infinite;
+}
+.logo-list { display: flex; gap: var(--logo-gap); list-style: none; }
+.logo-item { display: flex; align-items: center; }
+.logo-img-brand { height: auto; object-fit: contain; }
+.logo-sm{ height:34px; } .logo-md{ height:40px; } .logo-lg{ height:46px; }
+
+.clients-caption {
+  background:#666; color:#fff; font-weight:700; font-size:12px;
+  letter-spacing:.14em; text-transform:uppercase;
+  line-height:var(--clients-caption-h); height:var(--clients-caption-h);
+}
+
+@keyframes marquee {
+  from{ transform: translate3d(0,0,0);}
+  to{ transform: translate3d(-50%,0,0);}
+}
+
+/* Conteúdo */
+.content-area {
+  padding: 0 24px calc(var(--footer-height) + 40px);
+}
 section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-extra)); }
-.hero{
-  background:var(--surface); border:1px solid var(--block-border); border-radius:var(--radius);
-  max-width:1200px; margin: var(--section-gap) auto 0; padding:28px; box-shadow:0 4px 12px rgba(0,0,0,.05);
-}
-.hero+.hero{ margin-top: var(--section-gap); }
-.hero .hero-content > * + * { margin-top:14px; }
-.hero h3{ margin-top:18px; }
-.hero-title{ font-weight:700; letter-spacing:.01em; line-height:1.25; max-width:42ch; overflow:hidden; white-space:nowrap; color:inherit; }
-.hero-subtitle{ color:var(--text-muted); line-height:1.6; max-width:60ch; }
 
-/* HERO inicial */
-#hero{ background:#669999; color:#ffffff; }
-#hero .hero-content{ text-align:center; }
-#hero .hero-text{ font-family: Arial, sans-serif; color:#FFFFFF; font-size:24px; line-height:1.25; margin:0; white-space:nowrap; }
-#hero .seg-normal{ font-weight:400; } #hero .seg-bold{ font-weight:700; } #hero .seg-italic{ font-style:italic; } #hero .seg-yellow{ color: var(--hero-yellow); }
-.mbr{ display:none; }
+.hero {
+  background: var(--surface); border: 1px solid var(--block-border); border-radius: var(--radius);
+  max-width: 1200px; margin: var(--section-gap) auto 0; padding: 28px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.05);
+}
+.hero-title { font-weight:700; line-height:1.25; }
+
+/* Hero inicial */
+#hero { background:#669999; color:#fff; text-align:center; }
+#hero .hero-text { font-size:24px; font-family: Arial, sans-serif; }
+#hero .seg-yellow { color: var(--hero-yellow); }
+.mbr { display: none; }
 
 /* O que fazemos */
-#servicos{ background:#ffffff; color:#666666; border-color:#e5e5e5; }
-#servicos .hero-title, #servicos .hero-subtitle{ color:#666666; }
+#servicos { background:#fff; color:#666; border-color:#e5e5e5; }
 
-/* =========================
-   "O que fazemos" - Regras:
-   - Mobile (<900px): carrossel horizontal uniforme
-   - Desktop (≥900px): grade fixa (sem rolagem)
-   ========================= */
-
-/* Base (mobile-first): carrossel horizontal */
-.services-grid{
-  display:flex;
-  gap:16px;
-  margin-top:4px;
-  overflow-x:auto;
-  overflow-y:hidden;
-  scroll-snap-type:x mandatory;
-  -webkit-overflow-scrolling:touch;
-  padding:2px 24px 14px; /* Adicionado padding lateral para alinhar com o hero */
-  position:relative;
-  /* Removido margin e width para eliminar bordas visíveis */
-  margin-left: -24px; /* Compensar padding esquerdo */
-  margin-right: -24px; /* Compensar padding direito */
-  width: calc(100% + 48px); /* Ajustar largura total */
+/* Grid de serviços */
+.services-grid {
+  display: flex; gap: 16px; margin-top:4px;
+  overflow-x:auto; scroll-snap-type:x mandatory;
+  padding: 2px 24px 14px; position:relative;
 }
-/* Slides uniformes no mobile (facilita bgs personalizados) */
-.service-card{
-  border:1px solid #e5e5e5; border-radius:12px; background:#fff; box-shadow:0 2px 8px rgba(0,0,0,.04);
-  transition:box-shadow .18s ease, transform .18s ease;
-  flex:0 0 var(--service-slide-w);
-  scroll-snap-align:start;
+.service-card {
+  border:1px solid #e5e5e5; border-radius:12px; background:#fff;
+  box-shadow:0 2px 8px rgba(0,0,0,.04);
+  flex:0 0 var(--service-slide-w); scroll-snap-align:start;
   min-height:var(--service-slide-min-h);
 }
-/* Ajuste para eliminar bordas visíveis */
-.service-card:first-child {
-  margin-left: 0; /* Remover margin-left */
-  padding-left: 0; /* Remover padding-left */
-}
-.service-card:last-child {
-  margin-right: 0; /* Remover margin-right */
-  padding-right: 0; /* Remover padding-right */
-}
-.service-card:hover, .service-card:focus-within{ box-shadow:0 8px 24px rgba(0,0,0,.12); transform: translateY(-1px); }
-.card-body{ 
-  padding:16px 16px var(--service-card-padding-bottom-mobile); /* Usando variável para padding inferior */
-  display:flex; flex-direction:column; gap:8px; 
-}
-.card-title{ font-size:18px; font-weight:700; line-height:1.25; color:#444; }
-.card-line{ display:flex; align-items:center; gap:8px; }
-.card-desc{ font-size:15px; line-height:1.5; color:#666; }
-.card-link{ align-self:flex-start; font-weight:700; font-size:14px; text-decoration:none; color:var(--accent); padding-top:2px; }
-.card-link:hover, .card-link:focus{ text-decoration:underline; }
-.badge-new{ display:inline-block; font-weight:700; font-size:11px; letter-spacing:.06em; padding:2px 6px; border-radius:999px; line-height:1; background: var(--hero-yellow); color:#444; }
+.card-body{ padding:16px; padding-bottom: var(--service-card-padding-bottom-mobile); }
+.card-title{ font-size:18px; font-weight:700; }
+.card-desc{ font-size:15px; color:#666; }
+.card-link{ font-weight:700; font-size:14px; color:var(--accent); }
+.badge-new{ font-size:11px; padding:2px 6px; background: var(--hero-yellow); border-radius:999px; }
 .service-card--ux{ background:#f9fdfd; } .service-card--ux .card-title{ color: var(--accent); }
 
-/* Remoção definitiva de pistas visuais sobrepostas (sem ::before/::after) */
-/* Oculta barras de rolagem no mobile sem afetar a rolagem por teclado/gesto */
+/* Oculta scrollbar */
 .services-grid::-webkit-scrollbar{ display:none; }
-.services-grid{ scrollbar-width:none; -ms-overflow-style:none; }
+.services-grid{ scrollbar-width:none; }
 
-/* Desktop (≥900px): grade fixa sem rolagem */
-@media (min-width: 900px){
+@media (min-width:900px){
   .services-grid{
-    display:grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap:16px;
-    padding:0; /* Reset padding */
-    overflow:visible;
-    scroll-snap-type:none;
-    margin: 0; /* Reset margin */
-    width: 100%; /* Reset width */
+    display:grid; grid-template-columns: repeat(3,1fr);
+    gap:16px; padding:0; margin:0; width:100%;
   }
-  .service-card{
-    flex:initial;
-    min-height:initial; /* desktop volta a crescer conforme conteúdo */
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-  /* Reset do padding inferior para desktop */
-  .card-body{ 
-    padding:16px 16px 14px; /* Valor original para desktop */
-  }
-  
-  /* Reset das propriedades do primeiro e último card para desktop */
-  .service-card:first-child {
-    margin-left: 0;
-    padding-left: 16px; /* Valor padrão */
-  }
-  .service-card:last-child {
-    margin-right: 0;
-    padding-right: 16px; /* Valor padrão */
-  }
+  .service-card{ flex:initial; min-height:initial; }
+  .card-body{ padding:16px; }
 }
-/* ≥1200px: 4 em linha (cabem → ficam fixos) */
-@media (min-width: 1200px){
-  .services-grid{ grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (min-width:1200px){
+  .services-grid{ grid-template-columns: repeat(4,1fr); }
 }
 
-/* FORM */
-.form{ margin-top:10px; }
-.form-grid{ display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap:14px; }
-.form-field{ display:flex; flex-direction:column; gap:8px; }
-.form-field--full{ grid-column: 1 / -1; }
+/* Form */
+.form-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+.form-field--full{ grid-column:1 / -1; }
 .form label{ font-weight:600; font-size:14px; color:#666; }
 .form input, .form select, .form textarea{
-  width:100%; padding:12px 12px; border:1px solid #dcdcdc; border-radius:10px;
-  background:#fff; color:#666; outline:none; transition: border-color .18s ease, box-shadow .18s ease;
+  width:100%; padding:12px; border:1px solid #dcdcdc; border-radius:10px;
 }
-.form input:focus, .form select:focus, .form textarea:focus{ border-color:#669999; box-shadow:0 0 0 3px rgba(102,153,153,.18); }
-.form textarea{ resize: vertical; }
-.consent-label{ display:grid; grid-template-columns: auto 1fr; column-gap:8px; align-items:start; line-height:1.4; }
-.consent-label input[type="checkbox"]{ margin:0; margin-top:.15em; }
-.form-actions{ display:flex; align-items:center; gap:14px; margin-top:10px; }
-.btn-primary{
-  appearance:none; border:none; cursor:pointer; background:#669999; color:#fff; font-weight:700;
-  padding:12px 18px; border-radius:10px; box-shadow:0 6px 14px rgba(0,0,0,.12);
-  transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease;
+.form input:focus, .form select:focus, .form textarea:focus{
+  border-color:#669999; box-shadow:0 0 0 3px rgba(102,153,153,.18);
 }
-.btn-primary:hover, .btn-primary:focus{ transform: translateY(-1px); box-shadow:0 10px 22px rgba(0,0,0,.16); }
-.btn-primary:disabled{ opacity:.6; cursor:not-allowed; }
-.form-legal{ font-size:12px; color:#666; }
-.form-status{
-  font-size:14px; margin-top:10px; min-height:1.2em; padding:10px 12px; border-radius:10px; border:1px solid transparent; font-weight:600;
-}
-.form-status:empty{ padding:0; border:none; }
 .form-status--success{ color:#2e5e5e; background: rgba(102,153,153,.12); border-color:#669999; }
 .form-status--error{ color:#8a1f11; background:#fdecea; border-color:#f5c2c7; }
+.btn-primary{
+  background:#669999; color:#fff; font-weight:700; padding:12px 18px;
+  border:none; border-radius:10px; cursor:pointer;
+}
 
 /* CTA WhatsApp */
-.visually-hidden{ position:absolute !important; height:1px; width:1px; overflow:hidden; clip:rect(1px,1px,1px,1px); white-space:nowrap; clip-path: inset(50%); }
 .whatsapp-float{ position:fixed; right:20px; bottom: calc(var(--footer-height) - 16px); z-index:1400; }
 .whatsapp-icon{ width:64px; height:64px; filter: drop-shadow(0 6px 12px rgba(0,0,0,.25)); }
 
-/* FOOTER */
+/* Footer */
 .footer-bar{
   position:fixed; left:0; right:0; bottom:0; height:var(--footer-height);
-  background:#ffffff; border-top:1px solid var(--block-border);
-  display:flex; align-items:center; justify-content:center; z-index:1150;
+  background:#fff; border-top:1px solid var(--block-border);
+  display:flex; align-items:center; justify-content:center;
 }
-.footer-bar p{ font-size:12px; color:#666; }
 
-/* MODAL */
+/* Modal */
 .overlay{ position:fixed; inset:0; z-index:3000; display:none; }
 .overlay.show{ display:block; }
-.overlay__scrim{ position:absolute; inset:0; background:rgba(0,0,0,.4); }
 .overlay__card{
-  position:absolute; left:50%; top:50%; transform: translate(-50%, -50%);
-  width: min(640px, calc(100% - 48%));
-  background:#fff; border:1px solid var(--block-border); border-radius:var(--radius);
-  padding:24px 24px 18px; box-shadow:0 16px 48px rgba(0,0,0,.20);
-}
-.overlay__close{ position:absolute; right:10px; top:8px; background:transparent; border:none; font-size:28px; line-height:1; color:#999; cursor:pointer; }
-.overlay__close:hover{ color:#666; }
-.overlay__card h2{ font-size:20px; line-height:1.3; margin:0 28px 8px 0; color:#333; }
-.overlay__card p{ color:#666; margin:8px 0; }
-.overlay__actions{ display:flex; gap:12px; margin-top:12px; flex-wrap:wrap; }
-.overlay__hint{ margin-top:12px; border-top:1px dashed #e5e5e5; padding-top:12px; }
-.overlay__copy{ display:flex; gap:8px; align-items:center; }
-.overlay__copy input{ flex:1; min-width:0; padding:10px 12px; border:1px solid var(--block-border); border-radius:10px; color:#666; background:#fff; }
-
-body.overlay-open{ overflow:hidden; }
-body.overlay-open .logo-marquee__track{ animation-play-state: paused; }
-
-/* SEPARADORES */
-.separator-dots{ width:100%; height:28px; margin:0; display:block; }
-.separator-dots svg{ display:block; width:100%; height:100%; }
-.separator-dots .dot{ fill: var(--accent); opacity:.28; r:2.4; transform-box: fill-box; transform-origin: center; }
-.hero + .separator-dots{ margin-top: calc(var(--section-gap) / 2); }
-.separator-dots + .hero{ margin-top: calc(var(--section-gap) / 2); }
-#detalhes-servicos .separator-dots{ display:none; }
-
-/* RESPONSIVO - demais elementos do site */
-@media (max-width:768px){
-  .hero{padding:24px}
-  #hero .hero-content{ text-align: left; }
-  #hero .hero-text{ white-space: normal; font-size: 22px; }
-  .mbr{ display: inline; }
-  .logo-subline{ white-space:nowrap; }
-  .form-grid{ grid-template-columns: 1fr; gap: 10px; }
-  .separator-dots{ height:22px; }
-  .separator-dots .dot{ opacity:.42; transform: scale(1.7); }
-  .form-actions{ flex-direction:column; align-items:flex-start; gap:8px; }
-}
-@media (max-width:520px){
-  #hero .hero-text{ font-size: 20px; }
+  position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+  width:min(640px, calc(100% - 48%)); background:#fff;
+  border:1px solid var(--block-border); border-radius:var(--radius);
+  padding:24px;
 }
 
-/* ====== FIM DO SEU CSS ORIGINAL ====== */
+/* Separadores */
+.separator-dots{ width:100%; height:28px; }
+.separator-dots .dot{ fill: var(--accent); opacity:.28; r:2.4; }
 
-
-/* ========================================================================== */
-/* AJUSTES ESPECÍFICOS PARA O CARROSSEL DE ARTISTAS                           */
-/* ========================================================================== */
-
-/* Evita rolagem lateral ao usar full-bleed */
-html, body{ overflow-x: hidden; }
-
-/* Full-bleed e fundo igual ao da legenda (#666) */
+/* Carrossel de artistas */
+html, body{ overflow-x:hidden; }
 #artistas{
-  /* sair das margens do container e ocupar a largura total da viewport */
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-
-  background:#666;                /* mesma cor da faixa da legenda */
-  border-top:1px solid #669999;
-  border-bottom:1px solid var(--block-border);
+  width:100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);
+  background:#666; border-top:1px solid #669999; border-bottom:1px solid var(--block-border);
 }
-
-#artistas .logo-marquee{
-  /* sem respiro para não criar "buracos" entre imagens */
-  padding: 0;
-}
-
-/* Movimento contínuo como o carrossel de marcas */
+#artistas .logo-marquee{ padding:0; }
 #artistas .logo-marquee__track{
-  display:flex;
-  gap:0;
-  width:max-content;
-  animation: marquee 26s linear infinite; /* pode ajustar a velocidade aqui */
+  display:flex; gap:0; width:max-content; animation:marquee 26s linear infinite;
 }
-
-/* Listas duplicadas, sem espaçamento entre itens */
-#artistas .logo-list{
-  display:flex;
-  gap:0;
-  list-style:none;
-  margin:0;
-  padding:0;
-}
-
-/* Tamanho dos quadrados - leve redução mantendo proporções */
-:root{
-  --artist-size-mobile: clamp(132px, 44vw, 204px);
-  --artist-size-desktop: clamp(104px, 9.5vw, 156px);
-}
-
+#artistas .logo-list{ display:flex; gap:0; list-style:none; }
 #artistas .logo-item{
-  flex: 0 0 auto;
-  width: var(--artist-size-mobile);
-  aspect-ratio: 1 / 1;
-  line-height:0;           /* elimina microespaço abaixo da imagem */
+  width: var(--artist-size-mobile); aspect-ratio:1/1;
 }
-
-@media (min-width: 768px){
+@media(min-width:768px){
   #artistas .logo-item{ width: var(--artist-size-desktop); }
 }
-
-/* Imagens ocupam 100% do quadrado, sem bordas nem gaps */
-#artistas .logo-item img{
-  display:block;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-/* Legenda full-bleed centralizada e coerente com a de clientes */
+#artistas .logo-item img{ width:100%; height:100%; object-fit:cover; }
 .clients-caption.artistas-caption{
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-
-  background:#666; color:#fff;
-  text-align:center;
-  font-weight:700; font-size:12px; letter-spacing:.14em; text-transform:uppercase;
-  line-height:var(--clients-caption-h); height:var(--clients-caption-h);
-  display:block;
+  width:100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);
+  background:#666; color:#fff; text-align:center; font-size:12px; line-height: var(--clients-caption-h);
 }
 
+/* Responsivo */
+@media (max-width:768px){
+  .hero{padding:24px}
+  #hero .hero-content{ text-align:left; }
+  #hero .hero-text{ font-size:22px; white-space:normal; }
+  .mbr{ display:inline; }
+  .form-grid{ grid-template-columns:1fr; gap:10px; }
+}
+@media (max-width:520px){
+  #hero .hero-text{ font-size:20px; }
+}
 
-/* ========================================================================== */
-/* ===== MOBILE-ONLY AJUSTES "O QUE FAZEMOS"  (apenas < 900px) ============== */
-/* ========================================================================== */
-@media (max-width: 899.98px){
-
-  /* 1) Hero sem respiro lateral e sem bleed visual nas bordas */
+/* Mobile-only ajustes "O que fazemos" */
+@media (max-width:899.98px){
   #servicos.hero{
-    padding-left: 0;
-    padding-right: 0;
-    overflow: hidden;              /* evita ver “laterais” durante o arrasto */
+    width:100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);
+    border-left:none; border-right:none;
+    border-top:1px solid var(--block-border); border-bottom:1px solid var(--block-border);
+    border-radius:0; box-shadow:none; padding:0;
   }
-
-  /* 2) Trilho do carrossel alinhado e ocupando toda a largura do hero */
+  #servicos .hero-content{ position:relative; padding:0 24px; }
   .services-grid{
-    padding-left: 24px;
-    padding-right: 24px;
-    margin-left: 0;
-    margin-right: 0;
-    width: 100%;
+    width:100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);
+    padding:2px 12px 56px; overflow-x:auto;
   }
-
-  /* 3) Cards sem folgas nas extremidades do trilho */
-  .service-card:first-child{
-    margin-left: 0;
-    padding-left: 0;
-  }
-  .service-card:last-child{
-    margin-right: 0;
-    padding-right: 0;
-  }
-
-  /* 4) Menor respiro inferior no conteúdo do card (somente mobile) */
-  :root{
-    --service-card-padding-bottom-mobile: 8px; /* era 14px */
-  }
-  .card-body{
-    padding-bottom: var(--service-card-padding-bottom-mobile);
-  }
-
-  /* 5) Rótulo estático do carrossel visível só no mobile */
-  .services-hint{
-    display:block;
-    margin-top:8px;
-    text-align:center;
-    font-weight:700;
-    font-size:14px;
-    letter-spacing:.02em;
-    color: var(--accent);
-    line-height:1;
-    user-select:none;
-    pointer-events:none; /* não intercepta o gesto de arrasto */
-  }
-}
-/* ============================= FIM DOS AJUSTES MOBILE ===================== */
-/* =========================
-   MOBILE (≤ 899.98px)
-   - Carrossel full-bleed (sem “laterais”)
-   - Rótulo "← Deslize →" flutuante
-   ========================= */
-@media (max-width: 899.98px){
-
-  /* Contexto para posicionar o rótulo flutuante */
-  #servicos .hero-content{
-    position: relative;
-  }
-
-  /* Carrossel “full-bleed”: cartões encostam nas bordas */
-  .services-grid{
-    display: flex;
-    gap: 16px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding: 2px 24px 14px;
-    margin-left: -24px;            /* encosta na borda esquerda do hero */
-    margin-right: -24px;           /* encosta na borda direita do hero */
-    width: calc(100% + 48px);      /* compensa os 24px de cada lado */
-  }
-
-  /* Remove folgas no primeiro e último card */
-  .service-card:first-child { margin-left: 0; }
-  .service-card:last-child  { margin-right: 0; }
-
-  /* Rótulo flutuante “← Deslize →” (cards passam por trás) */
   #servicos .services-hint{
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 6px;
-    margin: 0;
-    text-align: center;
-    font-weight: 700;
-    letter-spacing: .04em;
-    text-transform: uppercase;
-    font-size: 12px;
-    pointer-events: none;
-    z-index: 2;
-    display: inline-block;
-    width: 100%;
-    padding: 6px 12px;
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    background: rgba(255,255,255,.72);
-    border-radius: 999px;
-    color: #444;
+    position:absolute; left:0; right:0; bottom:18px;
+    text-align:center; font:700 12px/1 var(--font-base); color:#444;
+    text-transform:uppercase; pointer-events:none;
   }
-
-  /* Mantém o “respiro” reduzido nos cards */
-  .card-body{
-    padding-bottom: var(--service-card-padding-bottom-mobile);
-  }
-}
-
-/* ==========================================================
-   PATCH: Serviços (carrossel full-bleed + rótulo mobile-only)
-   ========================================================== */
-
-/* 0) Rótulo oculto por padrão (desktop/tablet) */
-#servicos .services-hint{ display:none; }
-
-/* 1) MOBILE (≤ 899.98px): full-bleed + rótulo flutuante */
-@media (max-width: 899.98px){
-
-  /* Contexto p/ posicionar o rótulo sobre os cards */
-  #servicos .hero-content{ position: relative; }
-
-  /* Trilho full-bleed */
-  .services-grid{
-    display:flex;
-    gap:16px;
-    overflow-x:auto;
-    overflow-y:hidden;
-    scroll-snap-type:x mandatory;
-    -webkit-overflow-scrolling:touch;
-    padding:2px 24px 14px;
-    margin-left:-24px;
-    margin-right:-24px;
-    width:calc(100% + 48px);
-  }
-
-  /* Sem folga nos extremos */
-  .service-card:first-child{ margin-left:0; }
-  .service-card:last-child { margin-right:0; }
-
-  /* Rótulo flutuante visível só no mobile */
-  #servicos .services-hint{
-    display:inline-block;            /* ← torna visível apenas no mobile */
-    position:absolute;
-    left:0; right:0; bottom:6px;
-    margin:0; text-align:center;
-    font-weight:700; letter-spacing:.04em; text-transform:uppercase;
-    font-size:12px; pointer-events:none; z-index:2; width:100%;
-    padding:6px 12px;
-    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
-    background: rgba(255,255,255,.72);
-    border-radius:999px; color:#444;
-  }
-
-  /* Respiro menor no conteúdo do card (já usa sua variável) */
-  .card-body{ padding-bottom: var(--service-card-padding-bottom-mobile); }
-}
-
-/* 2) Garantia extra: no desktop, esconda sempre */
-@media (min-width: 900px){
-  #servicos .services-hint{ display:none !important; }
-}
-/* ==========================================================
-   PATCH: Serviços (mobile, sem laterais: cards tocam a borda)
-   ========================================================== */
-
-/* 0) Rótulo oculto por padrão (evita aparecer no desktop) */
-#servicos .services-hint{ display:none; }
-
-@media (max-width: 899.98px){
-
-  /* 1) A seção não tem respiro lateral e recorta o conteúdo nas bordas */
-  #servicos.hero{
-    padding-left: 0;
-    padding-right: 0;
-    overflow: hidden; /* cards "somem" exatamente na borda */
-  }
-
-  /* 2) Trilho sem “laterais”: edge-to-edge real
-        - zera o padding do trilho
-        - usa margens negativas para ocupar a tela inteira
-        - largura compensada para caber o conteúdo + gaps */
-  .services-grid{
-    display: flex;
-    gap: 16px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-
-    padding: 2px 0 14px;         /* ← sem respiro lateral */
-    margin-left: -24px;          /* compensa o container .content-area */
-    margin-right: -24px;
-    width: calc(100% + 48px);    /* ocupa toda a viewport */
-  }
-
-  /* 3) Sem folgas extras nos extremos do trilho */
-  .service-card:first-child { margin-left: 0; }
-  .service-card:last-child  { margin-right: 0; }
-
-  /* 4) Rótulo flutuante só no mobile (passa por trás dos cards) */
-  #servicos .hero-content{ position: relative; }
-  #servicos .services-hint{
-    display: inline-block;
-    position: absolute;
-    left: 0; right: 0; bottom: 6px;
-    margin: 0;
-    text-align: center;
-    font-weight: 700;
-    letter-spacing: .04em;
-    text-transform: uppercase;
-    font-size: 12px;
-    pointer-events: none;
-    z-index: 2;
-    width: 100%;
-    padding: 6px 12px;
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    background: rgba(255,255,255,.72);
-    border-radius: 999px;
-    color: #444;
-  }
-
-  /* 5) Mantém o respiro inferior menor no conteúdo do card */
-  .card-body{ padding-bottom: var(--service-card-padding-bottom-mobile); }
-}
-
-/* 6) Garantia extra no desktop */
-@media (min-width: 900px){
-  #servicos .services-hint{ display:none !important; }
-}
-/* ==========================================================
-   PATCH: rótulo mais alto sobre os cards + respiro dos artistas
-   ========================================================== */
-
-/* Oculta o rótulo por padrão (desktop/tablet) */
-#servicos .services-hint{ display:none; }
-
-@media (max-width: 899.98px){
-
-  /* 1) Rótulo flutuante mais alto, por cima dos cards */
-  #servicos .hero-content{ position: relative; }
-  #servicos .services-hint{
-    display:inline-block;           /* visível só no mobile */
-    position:absolute;
-    left: 12px;                     /* leve recuo p/ não colar na borda */
-    right: 12px;
-    bottom: 22px;                   /* ↑ sobe o rótulo para a parte inferior interna */
-    margin:0; text-align:center;
-    font-weight:700; letter-spacing:.04em; text-transform:uppercase;
-    font-size:12px; pointer-events:none; z-index:2;
-    padding:6px 12px;
-    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
-    background: rgba(255,255,255,.72);
-    border-radius:999px; color:#444;
-  }
-
-  /* 2) Garante espaço abaixo dos cards para o rótulo não cobrir conteúdo */
-  .services-grid{
-    /* mantém full-bleed e snap que você já utiliza */
-    padding-bottom: 42px;           /* era 14px → cria “berço” para o rótulo */
-  }
-}
-
-/* Segurança extra: nunca mostrar o rótulo no desktop */
-@media (min-width: 900px){
-  #servicos .services-hint{ display:none !important; }
-}
-
-/* 3) “Descolar” suavemente o carrossel de artistas do hero anterior */
-#artistas{
-  margin-top: clamp(10px, 2vw, 24px);   /* pequeno respiro entre as seções */
-  position: relative;                    /* base p/ efeitos caso precise no futuro */
-}
-
-/* (opcional) sutil fade entre as seções, sem interferir no conteúdo */
-#artistas::before{
-  content:"";
-  position:absolute; left:0; right:0; top:-12px; height:12px;
-  /* de transparente para o fundo do bloco de artistas (#666) */
-  background: linear-gradient(to bottom, rgba(102,102,102,0), rgba(102,102,102,.12));
-  pointer-events:none;
-}
-/* ==========================================================
-   PATCH FINAL – Serviços (mobile): rótulo + full-bleed real
-   ========================================================== */
-
-/* Por padrão (desktop/tablet), não mostrar o rótulo */
-#servicos .services-hint{ display:none; }
-
-@media (max-width: 899.98px){
-
-  /* 1) Hero sem respiro lateral – conteúdo pode ocupar a largura total */
-  #servicos.hero{
-    padding-left: 0;
-    padding-right: 0;
-    overflow: visible;                 /* NÃO recorta nos limites do hero */
-  }
-
-  /* 2) Trilho 100% viewport (full-bleed real) + “safe area” para não cortar
-        - ocupa 100vw
-        - escapa do container com margin calc(50% - 50vw)
-        - cria 12px de respiro apenas para evitar o corte do 1º/último card */
-  .services-grid{
-    display: flex;
-    gap: 16px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-
-    /* full-bleed na viewport */
-    width: 100vw;
-    margin-left:  calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-
-    /* sem “laterais” do hero; só 12px de área segura para não cortar */
-    padding: 2px 12px 56px;            /* ↑ padding-bottom maior p/ o rótulo */
-  }
-
-  /* 3) Garantia de não-corte nas extremidades do trilho */
-  .service-card:first-child { margin-left: 0; }
-  .service-card:last-child  { margin-right: 0; }
-
-  /* 4) Rótulo realmente por cima dos cards, mais alto */
-  #servicos .hero-content{ position: relative; }
-  #servicos .services-hint{
-    display: inline-block;             /* visível só no mobile */
-    position: absolute;
-    left: 12px;
-    right: 12px;
-    bottom: 36px;                      /* ↑ sobe o rótulo sobre os cards */
-    margin: 0;
-    text-align: center;
-    font-weight: 700;
-    letter-spacing: .04em;
-    text-transform: uppercase;
-    font-size: 12px;
-    pointer-events: none;
-    z-index: 3;                        /* acima dos cards */
-    padding: 6px 12px;
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    background: rgba(255,255,255,.72);
-    border-radius: 999px;
-    color: #444;
-  }
-
-  /* 5) Mantém respiro inferior reduzido do conteúdo do card */
-  .card-body{ padding-bottom: var(--service-card-padding-bottom-mobile); }
-}
-
-/* Segurança extra no desktop */
-@media (min-width: 900px){
-  #servicos .services-hint{ display:none !important; }
-}
-/* ==========================================================
-   PATCH: Hero "O que fazemos" full-bleed no mobile
-   ========================================================== */
-@media (max-width: 899.98px){
-
-  /* Hero sem bordas/laterais: ocupa a viewport inteira */
-  #servicos.hero{
-    width: 100vw;                            /* ocupa largura total */
-    margin-left: calc(50% - 50vw);           /* remove centralização */
-    margin-right: calc(50% - 50vw);
-    border: none;                            /* remove borda */
-    border-radius: 0;                        /* remove cantos arredondados */
-    box-shadow: none;                        /* remove sombra */
-    padding-left: 0;                         /* remove respiro lateral */
-    padding-right: 0;
-  }
-
-  /* Conteúdo interno ainda respira */
-  #servicos .hero-content{
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-}
-/* ==========================================================
-   PATCH: Servicos (mobile) – trilho com bordas sup/inf + rótulo mais alto
-   ========================================================== */
-@media (max-width: 899.98px){
-
-  /* 1) Hero full-bleed lateral, mas COM bordas sup/inf "infinitas" */
-  #servicos.hero{
-    /* ocupar a viewport inteira, tal como em #artistas */
-    width: 100vw;
-    margin-left:  calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-
-    /* manter apenas as bordas sup/inf */
-    border-left: none;
-    border-right: none;
-    border-top: 1px solid var(--block-border);
-    border-bottom: 1px solid var(--block-border);
-
-    /* sem cantos arredondados e sem sombra */
-    border-radius: 0;
-    box-shadow: none;
-
-    /* sem respiro lateral, o conteúdo controla o respiro interno */
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  /* 2) Conteúdo interno com respiro; cards já são full-bleed */
-  #servicos .hero-content{
-    position: relative;  /* contexto p/ rótulo */
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-
-  /* 3) Trilho sem "laterais" visuais e com berço maior p/ o rótulo */
-  .services-grid{
-    /* você já usa o full-bleed; aumentamos o espaço inferior */
-    padding-bottom: 88px; /* era 14/56 → espaço p/ rótulo ficar SOBRE os cards */
-  }
-
-  /* 4) Rótulo "← Deslize →" acima dos cards, flutuando */
-  #servicos .services-hint{
-    display: inline-block;     /* visível só no mobile */
-    position: absolute;
-    left: 12px;
-    right: 12px;
-    bottom: 64px;              /* ↑ sobe o rótulo para dentro da área dos cards */
-    z-index: 3;                /* acima dos cards */
-    margin: 0;
-    text-align: center;
-    font-weight: 700;
-    letter-spacing: .04em;
-    text-transform: uppercase;
-    font-size: 12px;
-    pointer-events: none;
-    padding: 6px 12px;
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    background: rgba(255,255,255,.72);
-    border-radius: 999px;
-    color: #444;
-  }
-}
-
-/* Garantia: no desktop, o rótulo não aparece */
-@media (min-width: 900px){
-  #servicos .services-hint{ display:none !important; }
-}
-/* ==========================================================
-   PATCH: Hero #servicos (mobile) – borda justa + “Deslize” sobre os cards
-   ========================================================== */
-@media (max-width: 899.98px){
-
-  /* 1) Hero full-bleed LATERAL, mantendo bordas sup/inf contínuas */
-  #servicos.hero{
-    width: 100vw;
-    margin-left:  calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-
-    border-left: none;
-    border-right: none;
-    border-top: 1px solid var(--block-border);
-    border-bottom: 1px solid var(--block-border);
-
-    border-radius: 0;
-    box-shadow: none;
-
-    /* Deixa a borda inferior “justa” ao trilho */
-    padding-left: 0;
-    padding-right: 0;
-    padding-bottom: 8px; /* ↓ bem curto, apenas para respirar a borda */
-  }
-
-  /* 2) Trilho: full-bleed já aplicado; mantém só um respiro mínimo */
-  .services-grid{
-    position: relative;     /* base para o rótulo sobrepor visualmente */
-    padding-bottom: 10px;   /* ↓ curto (a borda do hero fica logo abaixo) */
-  }
-
-  /* 3) “Deslize” SOBRE os cards (sem empurrar o layout) */
-  #servicos .hero-content{ position: relative; }
-
-  /* Força a sobreposição visual, ignorando regra antiga de display:block/margem */
-  #servicos .services-hint{
-    display: block !important;
-    position: relative !important;
-    z-index: 3;
-
-    /* Sobe por cima dos cards, sem depender do padding do trilho */
-    top: 0;
-    transform: translateY(-40px);  /* ↑ ajuste fino da altura sobre os cards */
-    margin: 0 12px -24px;          /* margens: recuo lateral + “devolve” o espaço abaixo */
-
-    text-align: center;
-    font-weight: 700;
-    letter-spacing: .04em;
-    text-transform: uppercase;
-    font-size: 12px;
-    pointer-events: none;
-    padding: 6px 12px;
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    background: rgba(255,255,255,.72);
-    border-radius: 999px;
-    color: #444;
-  }
-}
-
-/* Segurança: nunca mostrar o rótulo no desktop */
-@media (min-width: 900px){
-  #servicos .services-hint{ display:none !important; }
-}
-/* ==========================================================
-   PATCH: "Deslize" como TEXTO (sem chip), sobre os cards – mobile
-   ========================================================== */
-@media (max-width: 899.98px){
-  #servicos .hero-content{ position: relative; }
-
-  /* Força visual de TEXTO puro, sem “pílula” */
-  #servicos .services-hint{
-    display: inline !important;       /* não vira bloco, é só texto */
-    position: absolute !important;    /* flutua sobre os cards */
-    left: 0; right: 0;
-    bottom: 56px;                     /* ajuste fino da altura sobre os cards */
-    margin: 0 auto;                   /* centraliza o inline */
-    text-align: center;
-
-    /* Tipografia */
-    font-weight: 700;
-    letter-spacing: .04em;
-    text-transform: uppercase;
-    font-size: 12px;
-    color: #444;
-
-    /* Acessibilidade visual (sem “barra”): leve sombra no texto */
-    text-shadow: 0 1px 3px rgba(0,0,0,.25);
-
-    /* ZERA o chip anterior */
-    padding: 0 !important;
-    background: transparent !important;
-    border-radius: 0 !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-
-    pointer-events: none;
-    z-index: 3;
-  }
-}
-
-/* Garantia: jamais aparece no desktop */
-@media (min-width: 900px){
-  #servicos .services-hint{ display:none !important; }
-}
-/* ==========================================================
-   PATCH: "Deslize" dentro do carrossel (mobile)
-   - texto puro, centralizado, na parte inferior dos cards
-   - espaço interno do trilho para não cobrir "Explorar serviço"
-   ========================================================== */
-@media (max-width: 899.98px){
-  /* O herói já está full-bleed lateral e com bordas sup/inf */
-  #servicos .hero-content{ position: relative; }
-
-  /* 1) Trilho com “berço” suficiente p/ o rótulo */
-  .services-grid{
-    position: relative;      /* não muda layout, mas dá contexto visual */
-    padding-bottom: 56px !important;  /* espaço para o rótulo ficar DUAS linhas abaixo dos links */
-  }
-
-  /* 2) Rótulo: TEXTO puro, centralizado, encostando no rodapé do trilho */
-  #servicos .services-hint{
-    position: absolute !important;
-    left: 0; right: 0;
-    bottom: 18px;            /* ↓ altura interna, dentro da área dos cards */
-    margin: 0 auto;
-    text-align: center;
-
-    /* tipografia */
-    display: inline !important;
-    font-weight: 700;
-    letter-spacing: .04em;
-    text-transform: uppercase;
-    font-size: 12px;
-    color: #444;
-    text-shadow: 0 1px 3px rgba(0,0,0,.22);
-
-    /* garante que sobrepõe os cards, mas sem bloquear toques */
-    z-index: 3;
-    pointer-events: none;
-
-    /* 3) Mata qualquer “chip” remanescente e offsets antigos */
-    padding: 0 !important;
-    background: transparent !important;
-    border-radius: 0 !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    transform: none !important;
-  }
-}
-
-/* Desktop: nunca mostra */
-@media (min-width: 900px){
-  #servicos .services-hint{ display:none !important; }
-}
-/* ==========================================================
-   PATCH: "Deslize" ancorado ao carrossel (mobile)
-   ========================================================== */
-@media (max-width: 899.98px){
-  .services-grid{
-    position: relative;            /* cria contexto p/ o rótulo */
-    padding-bottom: 56px;          /* espaço para o rótulo não cobrir links */
-  }
-
-  #servicos .services-hint{
-    display: block !important;
-    position: absolute !important;
-    left: 0; right: 0;
-    bottom: 14px;                  /* fica dentro, junto ao rodapé dos cards */
-    margin: 0 auto;
-    text-align: center;
-
-    font-weight: 700;
-    letter-spacing: .04em;
-    text-transform: uppercase;
-    font-size: 12px;
-    color: #444;
-    text-shadow: 0 1px 3px rgba(0,0,0,.22);
-
-    background: transparent !important;
-    padding: 0 !important;
-    border-radius: 0 !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-
-    pointer-events: none;
-    z-index: 3;
-  }
-}
-/* =========================
-   SAFE PATCH – #servicos (mobile)
-   Só afeta a seção "O que fazemos"
-   ========================= */
-@media (max-width: 899.98px){
-
-  /* Hero full-bleed lateral com bordas sup/inf contínuas */
-  #servicos.hero{
-    width: 100vw;
-    margin-left:  calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-    border-left: none !important;
-    border-right: none !important;
-    border-top: 1px solid var(--block-border) !important;
-    border-bottom: 1px solid var(--block-border) !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    padding-bottom: 8px; /* borda inferior "justa" ao trilho */
-  }
-
-  /* Trilho full-bleed real na viewport, com safe-area */
-  #servicos .services-grid{
-    position: relative;
-    width: 100vw;
-    margin-left:  calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-    padding-left: 12px;      /* safe-area p/ não cortar extremidades */
-    padding-right: 12px;
-    padding-bottom: 56px;    /* "berço" p/ o rótulo não cobrir links */
-    overflow-x: auto;        /* garante rolagem horizontal */
-    -webkit-overflow-scrolling: touch;
-  }
-
-  /* Garantia de não-corte nos extremos do trilho */
-  #servicos .services-grid > .service-card:first-child{ margin-left: 0; }
-  #servicos .services-grid > .service-card:last-child { margin-right: 0; }
-
-  /* "← Deslize →" como TEXTO, dentro e no rodapé do carrossel */
-  #servicos .services-grid > .services-hint{
-    position: absolute;
-    left: 0; right: 0; bottom: 18px; /* ajuste fino da altura */
-    margin: 0 auto;
-    text-align: center;
-
-    display: inline;
-    font: 700 12px/1 var(--font-base);
-    letter-spacing: .04em;
-    text-transform: uppercase;
-    color: #444;
-    text-shadow: 0 1px 3px rgba(0,0,0,.22);
-
-    background: transparent !important;
-    padding: 0 !important;
-    border-radius: 0 !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-
-    pointer-events: none;
-    z-index: 3;
-  }
-}
-
-/* Nunca mostrar o rótulo no desktop */
-@media (min-width: 900px){
-  #servicos .services-hint{ display:none !important; }
 }
