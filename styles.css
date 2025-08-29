@@ -674,3 +674,55 @@ html, body{ overflow-x: hidden; }
 @media (min-width: 900px){
   #servicos .services-hint{ display:none !important; }
 }
+/* ==========================================================
+   PATCH: rótulo mais alto sobre os cards + respiro dos artistas
+   ========================================================== */
+
+/* Oculta o rótulo por padrão (desktop/tablet) */
+#servicos .services-hint{ display:none; }
+
+@media (max-width: 899.98px){
+
+  /* 1) Rótulo flutuante mais alto, por cima dos cards */
+  #servicos .hero-content{ position: relative; }
+  #servicos .services-hint{
+    display:inline-block;           /* visível só no mobile */
+    position:absolute;
+    left: 12px;                     /* leve recuo p/ não colar na borda */
+    right: 12px;
+    bottom: 22px;                   /* ↑ sobe o rótulo para a parte inferior interna */
+    margin:0; text-align:center;
+    font-weight:700; letter-spacing:.04em; text-transform:uppercase;
+    font-size:12px; pointer-events:none; z-index:2;
+    padding:6px 12px;
+    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+    background: rgba(255,255,255,.72);
+    border-radius:999px; color:#444;
+  }
+
+  /* 2) Garante espaço abaixo dos cards para o rótulo não cobrir conteúdo */
+  .services-grid{
+    /* mantém full-bleed e snap que você já utiliza */
+    padding-bottom: 42px;           /* era 14px → cria “berço” para o rótulo */
+  }
+}
+
+/* Segurança extra: nunca mostrar o rótulo no desktop */
+@media (min-width: 900px){
+  #servicos .services-hint{ display:none !important; }
+}
+
+/* 3) “Descolar” suavemente o carrossel de artistas do hero anterior */
+#artistas{
+  margin-top: clamp(10px, 2vw, 24px);   /* pequeno respiro entre as seções */
+  position: relative;                    /* base p/ efeitos caso precise no futuro */
+}
+
+/* (opcional) sutil fade entre as seções, sem interferir no conteúdo */
+#artistas::before{
+  content:"";
+  position:absolute; left:0; right:0; top:-12px; height:12px;
+  /* de transparente para o fundo do bloco de artistas (#666) */
+  background: linear-gradient(to bottom, rgba(102,102,102,0), rgba(102,102,102,.12));
+  pointer-events:none;
+}
