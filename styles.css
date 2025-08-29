@@ -605,3 +605,72 @@ html, body{ overflow-x: hidden; }
 @media (min-width: 900px){
   #servicos .services-hint{ display:none !important; }
 }
+/* ==========================================================
+   PATCH: Serviços (mobile, sem laterais: cards tocam a borda)
+   ========================================================== */
+
+/* 0) Rótulo oculto por padrão (evita aparecer no desktop) */
+#servicos .services-hint{ display:none; }
+
+@media (max-width: 899.98px){
+
+  /* 1) A seção não tem respiro lateral e recorta o conteúdo nas bordas */
+  #servicos.hero{
+    padding-left: 0;
+    padding-right: 0;
+    overflow: hidden; /* cards "somem" exatamente na borda */
+  }
+
+  /* 2) Trilho sem “laterais”: edge-to-edge real
+        - zera o padding do trilho
+        - usa margens negativas para ocupar a tela inteira
+        - largura compensada para caber o conteúdo + gaps */
+  .services-grid{
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+
+    padding: 2px 0 14px;         /* ← sem respiro lateral */
+    margin-left: -24px;          /* compensa o container .content-area */
+    margin-right: -24px;
+    width: calc(100% + 48px);    /* ocupa toda a viewport */
+  }
+
+  /* 3) Sem folgas extras nos extremos do trilho */
+  .service-card:first-child { margin-left: 0; }
+  .service-card:last-child  { margin-right: 0; }
+
+  /* 4) Rótulo flutuante só no mobile (passa por trás dos cards) */
+  #servicos .hero-content{ position: relative; }
+  #servicos .services-hint{
+    display: inline-block;
+    position: absolute;
+    left: 0; right: 0; bottom: 6px;
+    margin: 0;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    font-size: 12px;
+    pointer-events: none;
+    z-index: 2;
+    width: 100%;
+    padding: 6px 12px;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    background: rgba(255,255,255,.72);
+    border-radius: 999px;
+    color: #444;
+  }
+
+  /* 5) Mantém o respiro inferior menor no conteúdo do card */
+  .card-body{ padding-bottom: var(--service-card-padding-bottom-mobile); }
+}
+
+/* 6) Garantia extra no desktop */
+@media (min-width: 900px){
+  #servicos .services-hint{ display:none !important; }
+}
