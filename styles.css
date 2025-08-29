@@ -160,9 +160,18 @@ a:hover, a:focus{
   padding-bottom: calc(var(--footer-height) + 40px); 
 }
 section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-extra)); }
+
+/* Hero base - ajustado para mobile */
 .hero{
   background:var(--surface); border:1px solid var(--block-border); border-radius:var(--radius);
-  max-width:1200px; margin: var(--section-gap) auto 0; padding:28px; box-shadow:0 4px 12px rgba(0,0,0,.05);
+  max-width:1200px; margin: var(--section-gap) auto 0; 
+  /* Padding ajustado para mobile */
+  padding: 28px var(--hero-padding-mobile); 
+  box-shadow:0 4px 12px rgba(0,0,0,.05);
+  /* Margem ajustada para mobile */
+  margin-left: calc(var(--hero-padding-mobile) * -1);
+  margin-right: calc(var(--hero-padding-mobile) * -1);
+  width: calc(100% + var(--hero-padding-mobile) * 2);
 }
 .hero+.hero{ margin-top: var(--section-gap); }
 .hero .hero-content > * + * { margin-top:14px; }
@@ -170,11 +179,25 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
 .hero-title{ font-weight:700; letter-spacing:.01em; line-height:1.25; max-width:42ch; overflow:hidden; white-space:nowrap; color:inherit; }
 .hero-subtitle{ color:var(--text-muted); line-height:1.6; max-width:60ch; }
 
-/* HERO inicial */
-#hero{ background:#669999; color:#ffffff; }
+/* HERO inicial - resetando padding para manter o texto centralizado */
+#hero{ 
+  background:#669999; color:#ffffff; 
+  /* Resetando padding e margem para o hero principal */
+  padding: 28px var(--hero-padding-mobile);
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+}
 #hero .hero-content{ text-align:center; }
-#hero .hero-text{ font-family: Arial, sans-serif; color:#FFFFFF; font-size:24px; line-height:1.25; margin:0; white-space:nowrap; }
-#hero .seg-normal{ font-weight:400; } #hero .seg-bold{ font-weight:700; } #hero .seg-italic{ font-style:italic; } #hero .seg-yellow{ color: var(--hero-yellow); }
+#hero .hero-text{ 
+  font-family: Arial, sans-serif; color:#FFFFFF; font-size:24px; line-height:1.25; margin:0; 
+  /* Removendo white-space:nowrap para permitir quebra de linha */
+  white-space: normal; 
+}
+#hero .seg-normal{ font-weight:400; } 
+#hero .seg-bold{ font-weight:700; } 
+#hero .seg-italic{ font-style:italic; } 
+#hero .seg-yellow{ color: var(--hero-yellow); }
 .mbr{ display:none; }
 
 /* O que fazemos */
@@ -234,6 +257,13 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
 
 /* Desktop (≥900px): grade fixa sem rolagem */
 @media (min-width: 900px){
+  .hero{
+    /* Resetando padding e margem para desktop */
+    padding: 28px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
   .services-grid{
     display:grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -253,6 +283,11 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
   /* Reset do padding inferior do card body */
   .card-body{ 
     padding:16px 16px 14px; /* Valor original */
+  }
+  
+  /* Resetando padding do hero principal para desktop */
+  #hero{
+    padding: 28px;
   }
 }
 /* ≥1200px: 4 em linha */
@@ -335,7 +370,7 @@ body.overlay-open .logo-marquee__track{ animation-play-state: paused; }
 
 /* RESPONSIVO - demais elementos do site */
 @media (max-width:768px){
-  .hero{padding:24px}
+  .hero{padding:24px var(--hero-padding-mobile)}
   #hero .hero-content{ text-align: left; }
   #hero .hero-text{ white-space: normal; font-size: 22px; }
   .mbr{ display: inline; }
