@@ -196,6 +196,9 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
 .services-grid::-webkit-scrollbar{ display:none; }
 .services-grid{ scrollbar-width:none; }
 
+/* RÓTULO "DESLIZE" – OCULTO POR PADRÃO (desktop/tablet) */
+.services-hint{ display:none; }
+
 @media (min-width:900px){
   .services-grid{
     display:grid; grid-template-columns: repeat(3,1fr);
@@ -296,11 +299,14 @@ html, body{ overflow-x:hidden; }
   #servicos .hero-content{ position:relative; padding:0 24px; }
   .services-grid{
     width:100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);
-    padding:2px 12px 56px; overflow-x:auto;
+    padding:2px 12px 56px; overflow-x:auto; /* espaço para o rótulo na base */
   }
+  /* Rótulo estático do carrossel (mobile-only; não interativo) */
   #servicos .services-hint{
+    display:block;               /* aparece só no mobile */
     position:absolute; left:0; right:0; bottom:18px;
     text-align:center; font:700 12px/1 var(--font-base); color:#444;
     text-transform:uppercase; pointer-events:none;
+    z-index: 2;                  /* fica por cima dos cards rolando */
   }
 }
