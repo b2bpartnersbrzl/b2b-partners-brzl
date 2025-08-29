@@ -799,3 +799,26 @@ html, body{ overflow-x: hidden; }
 @media (min-width: 900px){
   #servicos .services-hint{ display:none !important; }
 }
+/* ==========================================================
+   PATCH: Hero "O que fazemos" full-bleed no mobile
+   ========================================================== */
+@media (max-width: 899.98px){
+
+  /* Hero sem bordas/laterais: ocupa a viewport inteira */
+  #servicos.hero{
+    width: 100vw;                            /* ocupa largura total */
+    margin-left: calc(50% - 50vw);           /* remove centralização */
+    margin-right: calc(50% - 50vw);
+    border: none;                            /* remove borda */
+    border-radius: 0;                        /* remove cantos arredondados */
+    box-shadow: none;                        /* remove sombra */
+    padding-left: 0;                         /* remove respiro lateral */
+    padding-right: 0;
+  }
+
+  /* Conteúdo interno ainda respira */
+  #servicos .hero-content{
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
