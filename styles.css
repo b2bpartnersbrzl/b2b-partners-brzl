@@ -86,14 +86,14 @@ a:hover, a:focus {
 .menu-toggle.is-open { color: #333; }
 .menu-icon { font-size: 18px; }
 .menu-label { font-size: 15px; }
-.menu-toggle-inner { display: inline-flex; align-items: center; gap: 8px; }
+.menu-toggle-inner { position: relative; display: inline-flex; align-items: center; gap: 8px; }
 
 @keyframes pulseRing {
   0% { box-shadow: 0 0 0 0 rgba(102,153,153,.22);}
   100% { box-shadow: 0 0 0 4px rgba(102,153,153,0);}
 }
 .menu-toggle.menu-pulse .menu-toggle-inner::after {
-  content: ""; position: absolute; inset: 0; border-radius: inherit;
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
   animation: pulseRing 2.2s ease-out infinite;
 }
 
@@ -278,8 +278,7 @@ services-hint{ display:none; }
 }
 
 /* Separadores */
-.separator-dots{ width:100%; height:28px; }
-.separator-dots .dot{ fill: var(--accent); opacity:.28; r:2.4; }
+.separator-dots{ display: none !important; }
 
 /* =========================================================
    Carrossel de artistas — quadrados maiores e sem espaço no trilho
@@ -294,7 +293,7 @@ html, body{ overflow-x:hidden; }
 /* Mesmo padding vertical do carrossel de marcas */
 #artistas .logo-marquee{
   overflow:hidden;
-  padding: var(--marquee-pad-top) 0 var(--marquee-pad-bot);
+  padding: 0;
 }
 
 /* Trilho contínuo (sem gap) */
@@ -325,6 +324,7 @@ html, body{ overflow-x:hidden; }
 .clients-caption.artistas-caption{
   width:100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);
   background:#666; color:#fff; text-align:center; font-size:12px; line-height: var(--clients-caption-h);
+  margin: 0;
 }
 
 /* Responsivo */
@@ -345,21 +345,21 @@ html, body{ overflow-x:hidden; }
     width:100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);
     border-left:none; border-right:none;
     border-top:1px solid var(--block-border); border-bottom:1px solid var(--block-border);
-    border-radius:0; box-shadow:none; padding:0;
+    border-radius:0; box-shadow:none; padding: 24px 0;
   }
   #servicos .hero-content{ position:relative; padding:0 24px; }
   .services-grid{
     width:100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);
-    padding:2px 12px 24px; /* reduzido: rótulo ficará sobre os cards */
+    padding:2px 12px 24px;
     overflow-x:auto;
   }
   /* Rótulo estático do carrossel (mobile-only; não interativo) */
   #servicos .services-hint{
-    display:block;               /* aparece só no mobile */
-    position:absolute; left:0; right:0; bottom:35px; /* valor ajustado */
+    display:block;
+    position:absolute; left:0; right:0; bottom:35px;
     text-align:center; font:700 12px/1 var(--font-base); color:#444;
     text-transform:uppercase; pointer-events:none;
-    z-index: 4;                  /* fica por cima dos cards */
+    z-index: 4;
     text-shadow: 0 1px 2px rgba(255,255,255,.75);
   }
 }
@@ -405,93 +405,6 @@ html, body{ overflow-x:hidden; }
     animation: none;
   }
 }
-
-/* Espaçador opcional (se usado no HTML) */
-#servicos .services-hint .spacer {
-  display:inline-block;
-  width:10px;
-}
-/* Carrossel de artistas – fundo colado às imagens e legenda sem respiro extra */
-#artistas .logo-marquee{
-  padding-top: 0;      /* remove o respiro acima das imagens */
-  padding-bottom: 0;   /* remove o respiro abaixo das imagens */
-}
-
-.clients-caption.artistas-caption{
-  margin: 0;           /* legenda imediatamente abaixo das imagens */
-}
-/* Garantir que todas as setas "core" pulsem, inclusive a seta 4 */
-#servicos .services-hint .core {
-  display:inline-block;
-  animation: arrowPulse var(--arrow-pulse-duration) ease-in-out infinite;
-  will-change: transform, opacity;
-}
-/* Corrige área clicável do hambúrguer: restringe o pseudo-elemento ao botão */
-.menu-toggle-inner { position: relative; } /* cria contexto para o ::after */
-.menu-toggle.menu-pulse .menu-toggle-inner::after { pointer-events: none; } /* anel não intercepta cliques */
-/* Ajustes de respiro para a seção "O que fazemos" */
-
-/* Mobile: adiciona respiro em cima e embaixo */
-@media (max-width: 899.98px) {
-  #servicos.hero {
-    padding-top: 24px;
-    padding-bottom: 24px;
-  }
-}
-
-/* Desktop: adiciona respiro abaixo */
-@media (min-width: 900px) {
-  #servicos.hero {
-    margin-bottom: 32px; /* pode ajustar o valor se quiser mais/menos espaço */
-  }
-}
-/* Desktop: respiro extra no topo e embaixo da seção "O que fazemos" */
-@media (min-width: 900px) {
-  #servicos.hero {
-    padding-top: 32px;   /* espaço interno acima dos cards */
-    margin-bottom: 32px; /* espaço externo abaixo da seção */
-  }
-  #servicos .services-grid {
-    margin-top: 16px;    /* espaço entre o h2 "O que fazemos" e os cards */
-  }
-}
-/* Remove todos os separadores pontilhados */
-.separator-dots {
-  display: none !important;
-}
-/* Corrige área clicável do hambúrguer: restringe o pseudo-elemento ao botão */
-.menu-toggle-inner { position: relative; } /* cria contexto para o ::after */
-.menu-toggle.menu-pulse .menu-toggle-inner::after { pointer-events: none; } /* anel não intercepta cliques */
-/* Ajustes de respiro para a seção "O que fazemos" */
-
-/* Mobile: adiciona respiro em cima e embaixo */
-@media (max-width: 899.98px) {
-  #servicos.hero {
-    padding-top: 24px;
-    padding-bottom: 24px;
-  }
-}
-
-/* Desktop: adiciona respiro abaixo */
-@media (min-width: 900px) {
-  #servicos.hero {
-    margin-bottom: 32px; /* pode ajustar o valor se quiser mais/menos espaço */
-  }
-}
-/* Desktop: respiro extra no topo e embaixo da seção "O que fazemos" */
-@media (min-width: 900px) {
-  #servicos.hero {
-    padding-top: 32px;   /* espaço interno acima dos cards */
-    margin-bottom: 32px; /* espaço externo abaixo da seção */
-  }
-  #servicos .services-grid {
-    margin-top: 16px;    /* espaço entre o h2 "O que fazemos" e os cards */
-  }
-}
-/* Remove todos os separadores pontilhados */
-.separator-dots {
-  display: none !important;
-}
 /* Correção para o alinhamento do checkbox LGPD */
 .consent-label {
   display: flex;
@@ -502,6 +415,17 @@ html, body{ overflow-x:hidden; }
 .consent-label input[type="checkbox"] {
   width: auto; /* Garante que o checkbox não ocupe toda a largura */
 }
+
+@media (min-width: 900px) {
+  #servicos.hero {
+    padding-top: 32px;
+    margin-bottom: 32px;
+  }
+  #servicos .services-grid {
+    margin-top: 16px;
+  }
+}
+
 @media (max-width: 899px) {
   #artistas {
     margin-top: -20px;
