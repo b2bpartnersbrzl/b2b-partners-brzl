@@ -334,6 +334,14 @@ html, body{ overflow-x:hidden; }
     opacity:.28;
     font-size:1.15em;
   }
+#servicos .services-hint .arrow {
+  color: #669999; /* cor base */
+}
+#servicos .services-hint .arrow.left {
+  transform: scaleX(-1); /* espelha horizontalmente */
+  display: inline-block; /* necessário para o transform funcionar */
+}
+
   #servicos .services-hint .spacer {
     display:inline-block;
     width:10px;
