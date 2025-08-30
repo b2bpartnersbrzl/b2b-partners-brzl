@@ -29,9 +29,9 @@
   --service-slide-min-h: 220px;
   --service-card-padding-bottom-mobile: 8px;
 
-  /* Carrossel de artistas (valores originais mantidos para referência, mas sobrescritos abaixo) */
-  --artist-size-mobile: clamp(132px, 44vw, 204px);
-  --artist-size-desktop: clamp(104px, 9.5vw, 156px);
+  /* Carrossel de artistas — tamanhos controlados */
+  --artist-item-size-mobile: clamp(96px, 28vw, 128px);
+  --artist-item-size-desktop: clamp(104px, 9.5vw, 140px);
 
   /* Pulsação das setas "Deslize" */
   --arrow-pulse-duration: 2.4s;
@@ -212,7 +212,8 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
 .services-grid{ scrollbar-width:none; }
 
 /* RÓTULO "DESLIZE" – OCULTO POR PADRÃO (desktop/tablet) */
-.services-hint{ display:none; }
+services-hint{ display:none; }
+.services-hint{ display:none; } /* correção do seletor */
 
 @media (min-width:900px){
   .services-grid{
@@ -269,7 +270,7 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
 .separator-dots .dot{ fill: var(--accent); opacity:.28; r:2.4; }
 
 /* =========================================================
-   Carrossel de artistas – replicado para a mesma altura do de marcas
+   Carrossel de artistas — quadrados maiores e sem espaço no trilho
    ========================================================= */
 html, body{ overflow-x:hidden; }
 
@@ -278,30 +279,35 @@ html, body{ overflow-x:hidden; }
   background:#666; border-top:1px solid #669999; border-bottom:1px solid var(--block-border);
 }
 
-/* Mesma lógica de padding do carrossel de marcas */
+/* Mesmo padding vertical do carrossel de marcas */
 #artistas .logo-marquee{
   overflow:hidden;
   padding: var(--marquee-pad-top) 0 var(--marquee-pad-bot);
 }
 
-/* Mesmo gap do track/list do carrossel de marcas */
+/* Trilho contínuo (sem gap) */
 #artistas .logo-marquee__track{
-  display:flex; gap: var(--logo-gap); width:max-content;
-  animation:marquee 26s linear infinite; /* mantém velocidade/tempo próprios */
+  display:flex; gap: 0; width:max-content;
+  animation:marquee 26s linear infinite;
 }
-#artistas .logo-list{ display:flex; gap: var(--logo-gap); list-style:none; }
+#artistas .logo-list{ display:flex; gap: 0; list-style:none; }
 
-/* Itens com altura igual à dos logos grandes (46px) — mobile e desktop */
+/* Itens quadrados e maiores (mobile) */
 #artistas .logo-item{
-  display:flex; align-items:center; justify-content:center;
-  height:46px;           /* igual a .logo-lg */
-  width:auto;            /* sem largura fixa */
-  aspect-ratio:auto;     /* remove formato quadrado */
+  width: var(--artist-item-size-mobile);
+  aspect-ratio: 1 / 1;
+}
+#artistas .logo-item img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-/* Imagens se ajustam ao item, sem corte */
-#artistas .logo-item img{
-  height:100%; width:auto; object-fit:contain;
+/* Tamanho no desktop */
+@media(min-width:768px){
+  #artistas .logo-item{
+    width: var(--artist-item-size-desktop);
+  }
 }
 
 .clients-caption.artistas-caption{
@@ -338,11 +344,11 @@ html, body{ overflow-x:hidden; }
   /* Rótulo estático do carrossel (mobile-only; não interativo) */
   #servicos .services-hint{
     display:block;               /* aparece só no mobile */
-    position:absolute; left:0; right:0; bottom:35px; /* você ajustou para 35px */
+    position:absolute; left:0; right:0; bottom:35px; /* valor ajustado */
     text-align:center; font:700 12px/1 var(--font-base); color:#444;
     text-transform:uppercase; pointer-events:none;
-    z-index: 4;                  /* garante que fica por cima dos cards */
-    text-shadow: 0 1px 2px rgba(255,255,255,.75); /* melhora leitura sobre o conteúdo */
+    z-index: 4;                  /* fica por cima dos cards */
+    text-shadow: 0 1px 2px rgba(255,255,255,.75);
   }
 }
 
@@ -353,10 +359,9 @@ html, body{ overflow-x:hidden; }
   margin:0 2px;
   font-weight:700;
   font-size:1.25em;
-  color: #669999;                /* cor base */
-  /* Base para animação (composta com left/right) */
+  color: #669999;
   --arrow-base-transform: none;
-  --arrow-rest-opacity: .9;      /* opacidade padrão desta variante */
+  --arrow-rest-opacity: .9;
   transform: var(--arrow-base-transform);
   animation: arrowPulse var(--arrow-pulse-duration) ease-in-out infinite;
   will-change: transform, opacity;
@@ -364,8 +369,8 @@ html, body{ overflow-x:hidden; }
 #servicos .services-hint .core {
   font-weight:800;
   font-size:1.6em;
-  --arrow-rest-opacity: 1;       /* mais forte */
-  animation-delay: .24s;         /* pequeno atraso para ondulação */
+  --arrow-rest-opacity: 1;
+  animation-delay: .24s;
 }
 #servicos .services-hint .dim1 {
   font-size:1.35em;
@@ -378,7 +383,6 @@ html, body{ overflow-x:hidden; }
   animation-delay: 0s;
 }
 #servicos .services-hint .arrow.left {
-  /* Espelha horizontalmente e mantém composição com a animação */
   --arrow-base-transform: scaleX(-1);
   display: inline-block;
 }
