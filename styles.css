@@ -459,6 +459,39 @@ html, body{ overflow-x:hidden; }
 .separator-dots {
   display: none !important;
 }
+/* Corrige área clicável do hambúrguer: restringe o pseudo-elemento ao botão */
+.menu-toggle-inner { position: relative; } /* cria contexto para o ::after */
+.menu-toggle.menu-pulse .menu-toggle-inner::after { pointer-events: none; } /* anel não intercepta cliques */
+/* Ajustes de respiro para a seção "O que fazemos" */
+
+/* Mobile: adiciona respiro em cima e embaixo */
+@media (max-width: 899.98px) {
+  #servicos.hero {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+}
+
+/* Desktop: adiciona respiro abaixo */
+@media (min-width: 900px) {
+  #servicos.hero {
+    margin-bottom: 32px; /* pode ajustar o valor se quiser mais/menos espaço */
+  }
+}
+/* Desktop: respiro extra no topo e embaixo da seção "O que fazemos" */
+@media (min-width: 900px) {
+  #servicos.hero {
+    padding-top: 32px;   /* espaço interno acima dos cards */
+    margin-bottom: 32px; /* espaço externo abaixo da seção */
+  }
+  #servicos .services-grid {
+    margin-top: 16px;    /* espaço entre o h2 "O que fazemos" e os cards */
+  }
+}
+/* Remove todos os separadores pontilhados */
+.separator-dots {
+  display: none !important;
+}
 /* Correção para o alinhamento do checkbox LGPD */
 .consent-label {
   display: flex;
