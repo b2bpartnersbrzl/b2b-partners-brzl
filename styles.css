@@ -437,4 +437,11 @@ html, body{ overflow-x:hidden; }
     margin-bottom: 32px; /* pode ajustar o valor se quiser mais/menos espaço */
   }
 }
+/* Desktop: respiro extra no topo e embaixo da seção "O que fazemos" */
+@media (min-width: 900px) {
+  #servicos.hero {
+    padding-top: 32px;   /* espaço interno acima dos cards */
+    margin-bottom: 32px; /* espaço externo abaixo da seção */
+  }
+}
 
