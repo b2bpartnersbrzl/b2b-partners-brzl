@@ -408,4 +408,10 @@ html, body{ overflow-x:hidden; }
 .clients-caption.artistas-caption{
   margin: 0;           /* legenda imediatamente abaixo das imagens */
 }
+/* Garantir que todas as setas "core" pulsem, inclusive a seta 4 */
+#servicos .services-hint .core {
+  display:inline-block;
+  animation: arrowPulse var(--arrow-pulse-duration) ease-in-out infinite;
+  will-change: transform, opacity;
+}
 
