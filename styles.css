@@ -459,3 +459,13 @@ html, body{ overflow-x:hidden; }
 .separator-dots {
   display: none !important;
 }
+/* Correção para o alinhamento do checkbox LGPD */
+.consent-label {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espaçamento entre o checkbox e o texto */
+}
+
+.consent-label input[type="checkbox"] {
+  width: auto; /* Garante que o checkbox não ocupe toda a largura */
+}
