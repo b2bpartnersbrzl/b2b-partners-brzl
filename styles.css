@@ -191,13 +191,13 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
 /* Grid de serviços */
 .services-grid {
   display: flex; gap: 16px; margin-top:4px;
-  overflow-x:auto; scroll-snap-type:x mandatory;
+  overflow-x:auto;
   padding: 2px 24px 14px; position:relative;
 }
 .service-card {
   border:1px solid #e5e5e5; border-radius:12px; background:#fff;
   box-shadow:0 2px 8px rgba(0,0,0,.04);
-  flex:0 0 var(--service-slide-w); scroll-snap-align:start;
+  flex:0 0 var(--service-slide-w);
   min-height:var(--service-slide-min-h);
 }
 .card-body{ padding:16px; padding-bottom: var(--service-card-padding-bottom-mobile); }
