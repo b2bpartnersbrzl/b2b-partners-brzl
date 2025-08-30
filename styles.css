@@ -207,6 +207,14 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
 .badge-new{ font-size:11px; padding:2px 6px; background: var(--hero-yellow); border-radius:999px; }
 .service-card--ux{ background:#f9fdfd; } .service-card--ux .card-title{ color: var(--accent); }
 
+/* ALINHAMENTO DO TÍTULO E A PILULA ESSENCIAL */
+.card-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px; /* Adiciona um pequeno espaçamento abaixo da linha */
+}
+
 /* Oculta scrollbar */
 .services-grid::-webkit-scrollbar{ display:none; }
 .services-grid{ scrollbar-width:none; }
@@ -443,14 +451,6 @@ html, body{ overflow-x:hidden; }
     padding-top: 32px;   /* espaço interno acima dos cards */
     margin-bottom: 32px; /* espaço externo abaixo da seção */
   }
-}
-/* Desktop — dá respiro no topo da seção e entre título e cards,
-   e garante respiro abaixo da seção */
-@media (min-width: 900px) {
-  #servicos.hero {
-    padding-top: 28px;   /* respiro interno no topo */
-    margin-bottom: 32px; /* respiro externo abaixo da seção */
-  }
   #servicos .services-grid {
     margin-top: 16px;    /* espaço entre o h2 "O que fazemos" e os cards */
   }
@@ -459,4 +459,3 @@ html, body{ overflow-x:hidden; }
 .separator-dots {
   display: none !important;
 }
-
