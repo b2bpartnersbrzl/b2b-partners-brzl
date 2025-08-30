@@ -444,4 +444,15 @@ html, body{ overflow-x:hidden; }
     margin-bottom: 32px; /* espaço externo abaixo da seção */
   }
 }
+/* Desktop — dá respiro no topo da seção e entre título e cards,
+   e garante respiro abaixo da seção */
+@media (min-width: 900px) {
+  #servicos.hero {
+    padding-top: 28px;   /* respiro interno no topo */
+    margin-bottom: 32px; /* respiro externo abaixo da seção */
+  }
+  #servicos .services-grid {
+    margin-top: 16px;    /* espaço entre o h2 "O que fazemos" e os cards */
+  }
+}
 
