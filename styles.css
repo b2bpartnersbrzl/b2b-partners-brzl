@@ -320,7 +320,7 @@ html, body{ overflow-x:hidden; }
   /* Rótulo estático do carrossel (mobile-only; não interativo) */
   #servicos .services-hint{
     display:block;               /* aparece só no mobile */
-    position:absolute; left:0; right:0; bottom:80px; /* sobe para sobrepor a base dos cards */
+    position:absolute; left:0; right:0; bottom:40px; /* sobe para sobrepor a base dos cards */
     text-align:center; font:700 12px/1 var(--font-base); color:#444;
     text-transform:uppercase; pointer-events:none;
     z-index: 4;                  /* garante que fica por cima dos cards */
