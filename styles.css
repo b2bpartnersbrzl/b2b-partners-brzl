@@ -469,3 +469,8 @@ html, body{ overflow-x:hidden; }
 .consent-label input[type="checkbox"] {
   width: auto; /* Garante que o checkbox não ocupe toda a largura */
 }
+@media (max-width: 899px) {
+  #artistas {
+    margin-top: -12px;
+  }
+}
