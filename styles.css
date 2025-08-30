@@ -399,3 +399,13 @@ html, body{ overflow-x:hidden; }
   display:inline-block;
   width:10px;
 }
+/* Carrossel de artistas – fundo colado às imagens e legenda sem respiro extra */
+#artistas .logo-marquee{
+  padding-top: 0;      /* remove o respiro acima das imagens */
+  padding-bottom: 0;   /* remove o respiro abaixo das imagens */
+}
+
+.clients-caption.artistas-caption{
+  margin: 0;           /* legenda imediatamente abaixo das imagens */
+}
+
