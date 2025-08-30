@@ -455,4 +455,8 @@ html, body{ overflow-x:hidden; }
     margin-top: 16px;    /* espaço entre o h2 "O que fazemos" e os cards */
   }
 }
+/* Remove todos os separadores pontilhados */
+.separator-dots {
+  display: none !important;
+}
 
