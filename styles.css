@@ -26,7 +26,7 @@
 
   /* Slides "O que fazemos" (mobile) */
   --service-slide-w: clamp(280px, 86vw, 560px);
-  --service-slide-min-h: 260px;
+  --service-slide-min-h: 220px;
   --service-card-padding-bottom-mobile: 8px;
 
   /* Carrossel de artistas */
