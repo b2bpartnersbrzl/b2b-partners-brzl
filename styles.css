@@ -34,8 +34,8 @@
   --artist-item-size-desktop: clamp(104px, 9.5vw, 140px);
 
   /* Pulsação das setas "Deslize" */
-  --arrow-pulse-duration: 2.4s;
-  --arrow-pulse-scale: 1.12;
+  --arrow-pulse-duration: 1.6s;
+  --arrow-pulse-scale: 1.25;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
