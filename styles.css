@@ -3,41 +3,28 @@
   --footer-height: 42px;
   --section-gap: 24px;
   --anchor-offset-extra: 12px;
-
-  /* Carrossel */
   --carousel-bg: #FFE069;
   --logo-gap: 48px;
   --marquee-duration: 20s;
   --marquee-pad-top: 26px;
   --marquee-pad-bot: 26px;
   --clients-caption-h: 28px;
-
-  /* Tipografia e cores */
   --font-base: 'Noto Sans', sans-serif;
   --text: #666666;
   --accent: #669999;
   --hero-yellow: #FFE069;
-
   --block-border: #e5e5e5;
   --surface: #ffffff;
-
   --radius: 12px;
   --transition: 0.3s;
-
-  /* Slides "O que fazemos" (mobile) */
   --service-slide-w: clamp(280px, 86vw, 560px);
   --service-slide-min-h: 220px;
   --service-card-padding-bottom-mobile: 8px;
-
-  /* Carrossel de artistas — tamanhos controlados */
   --artist-item-size-mobile: clamp(96px, 28vw, 128px);
   --artist-item-size-desktop: clamp(104px, 9.5vw, 140px);
-
-  /* Pulsação das setas "Deslize" */
   --arrow-pulse-duration: 1.6s;
   --arrow-pulse-scale: 1.25;
 }
-
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
@@ -52,8 +39,6 @@ a:hover, a:focus {
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
 }
-
-/* Header / Menu */
 .main-header {
   position: fixed; top: 0; left: 0; right: 0;
   height: var(--header-height);
@@ -69,14 +54,12 @@ a:hover, a:focus {
   letter-spacing: .02em; white-space: nowrap;
 }
 .logo-subline em { font-style: italic; }
-
 .top-menu { display: none; gap: 28px; align-items: center; }
 .top-menu a {
   font-weight: 600; font-size: 15px; padding: 8px 0;
   transition: color var(--transition) ease;
 }
 .top-menu a:hover, .top-menu a:focus-visible { color: var(--accent); }
-
 .menu-toggle {
   display: flex; align-items: center; gap: 8px;
   min-width: 44px; min-height: 44px;
@@ -87,7 +70,6 @@ a:hover, a:focus {
 .menu-icon { font-size: 18px; }
 .menu-label { font-size: 15px; }
 .menu-toggle-inner { position: relative; display: inline-flex; align-items: center; gap: 8px; }
-
 @keyframes pulseRing {
   0% { box-shadow: 0 0 0 0 rgba(102,153,153,.22);}
   100% { box-shadow: 0 0 0 4px rgba(102,153,153,0);}
@@ -96,7 +78,6 @@ a:hover, a:focus {
   content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
   animation: pulseRing 2.2s ease-out infinite;
 }
-
 /* Pulsação suave das setas "Deslize" */
 @keyframes arrowPulse {
   0%, 100% {
@@ -108,13 +89,10 @@ a:hover, a:focus {
     opacity: 1;
   }
 }
-
 @media (min-width:1025px){
   .menu-toggle { display:none }
   .top-menu { display:flex }
 }
-
-/* Menu mobile */
 .mobile-menu-overlay {
   position: fixed; inset: 0; background: rgba(255,255,255,.92);
   backdrop-filter: blur(10px);
@@ -137,8 +115,6 @@ a:hover, a:focus {
   padding: 10px 12px; border-radius: 10px; border: 1px solid #e5e5e5;
   color: #333; background: #fff;
 }
-
-/* Carrossel de marcas */
 .clients-fixed {
   margin-top: var(--header-height);
   background: var(--carousel-bg);
@@ -154,41 +130,30 @@ a:hover, a:focus {
 .logo-item { display: flex; align-items: center; }
 .logo-img-brand { height: auto; object-fit: contain; }
 .logo-sm{ height:34px; } .logo-md{ height:40px; } .logo-lg{ height:46px; }
-
 .clients-caption {
   background:#666; color:#fff; font-weight:700; font-size:12px;
   letter-spacing:.14em; text-transform:uppercase;
   line-height:var(--clients-caption-h); height:var(--clients-caption-h);
 }
-
 @keyframes marquee {
   from{ transform: translate3d(0,0,0);}
   to{ transform: translate3d(-50%,0,0);}
 }
-
-/* Conteúdo */
 .content-area {
   padding: 0 24px calc(var(--footer-height) + 40px);
 }
 section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-extra)); }
-
 .hero {
   background: var(--surface); border: 1px solid var(--block-border); border-radius: var(--radius);
   max-width: 1200px; margin: var(--section-gap) auto 0; padding: 28px;
   box-shadow: 0 4px 12px rgba(0,0,0,.05);
 }
 .hero-title { font-weight:700; line-height:1.25; }
-
-/* Hero inicial */
 #hero { background:#669999; color:#fff; text-align:center; }
 #hero .hero-text { font-size:24px; font-family: Arial, sans-serif; }
 #hero .seg-yellow { color: var(--hero-yellow); }
 .mbr { display: none; }
-
-/* O que fazemos */
 #servicos { background:#fff; color:#666; border-color:#e5e5e5; }
-
-/* Grid de serviços */
 .services-grid {
   display: flex; gap: 16px; margin-top:4px;
   overflow-x:auto;
@@ -206,23 +171,16 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
 .card-link{ font-weight:700; font-size:14px; color:var(--accent); }
 .badge-new{ font-size:11px; padding:2px 6px; background: var(--hero-yellow); border-radius:999px; font-weight: bold; }
 .service-card--ux{ background:#f9fdfd; } .service-card--ux .card-title{ color: var(--accent); }
-
-/* ALINHAMENTO DO TÍTULO E A PILULA ESSENCIAL */
 .card-line {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 4px; /* Adiciona um pequeno espaçamento abaixo da linha */
+  margin-bottom: 4px;
 }
-
-/* Oculta scrollbar */
 .services-grid::-webkit-scrollbar{ display:none; }
 .services-grid{ scrollbar-width:none; }
-
-/* RÓTULO "DESLIZE" – OCULTO POR PADRÃO (desktop/tablet) */
 services-hint{ display:none; }
-.services-hint{ display:none; } /* correção do seletor */
-
+.services-hint{ display:none; }
 @media (min-width:900px){
   .services-grid{
     display:grid; grid-template-columns: repeat(3,1fr);
@@ -234,8 +192,6 @@ services-hint{ display:none; }
 @media (min-width:1200px){
   .services-grid{ grid-template-columns: repeat(4,1fr); }
 }
-
-/* Form */
 .form-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
 .form-field--full{ grid-column:1 / -1; }
 .form label{ font-weight:600; font-size:14px; color:#666; }
@@ -251,12 +207,8 @@ services-hint{ display:none; }
   background:#669999; color:#fff; font-weight:700; padding:12px 18px;
   border:none; border-radius:10px; cursor:pointer;
 }
-
-/* CTA WhatsApp */
 .whatsapp-float{ position:fixed; right:20px; bottom: calc(var(--footer-height) - 16px); z-index:1400; }
 .whatsapp-icon{ width:64px; height:64px; filter: drop-shadow(0 6px 12px rgba(0,0,0,.25)); }
-
-/* Footer */
 .footer-bar{
   position:fixed; left:0; right:0; bottom:0; height:var(--footer-height);
   background:#fff; border-top:1px solid var(--block-border);
@@ -267,7 +219,6 @@ services-hint{ display:none; }
   color: #999;
   margin: 0;
 }
-/* Modal */
 .overlay{ position:fixed; inset:0; z-index:3000; display:none; }
 .overlay.show{ display:block; }
 .overlay__card{
@@ -276,34 +227,21 @@ services-hint{ display:none; }
   border:1px solid var(--block-border); border-radius: var(--radius);
   padding:24px;
 }
-
-/* Separadores */
 .separator-dots{ display: none !important; }
-
-/* =========================================================
-   Carrossel de artistas — quadrados maiores e sem espaço no trilho
-   ========================================================= */
 html, body{ overflow-x:hidden; }
-
 #artistas{
   width:100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);
   background:#666; border-top:1px solid #669999; border-bottom:1px solid var(--block-border); margin-top: -15px;
 }
-
-/* Mesmo padding vertical do carrossel de marcas */
 #artistas .logo-marquee{
   overflow:hidden;
   padding: 0;
 }
-
-/* Trilho contínuo (sem gap) */
 #artistas .logo-marquee__track{
   display:flex; gap: 0; width:max-content;
   animation:marquee 26s linear infinite;
 }
 #artistas .logo-list{ display:flex; gap: 0; list-style:none; }
-
-/* Itens quadrados e maiores (mobile) */
 #artistas .logo-item{
   width: var(--artist-item-size-mobile);
   aspect-ratio: 1 / 1;
@@ -313,21 +251,16 @@ html, body{ overflow-x:hidden; }
   height: 100%;
   object-fit: cover;
 }
-
-/* Tamanho no desktop */
 @media(min-width:768px){
   #artistas .logo-item{
     width: var(--artist-item-size-desktop);
   }
 }
-
 .clients-caption.artistas-caption{
   width:100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);
   background:#666; color:#fff; text-align:center; font-size:12px; line-height: var(--clients-caption-h);
   margin: 0;
 }
-
-/* Responsivo */
 @media (max-width:768px){
   .hero{padding:24px}
   #hero .hero-content{ text-align:left; }
@@ -338,8 +271,6 @@ html, body{ overflow-x:hidden; }
 @media (max-width:520px){
   #hero .hero-text{ font-size:20px; }
 }
-
-/* Mobile-only ajustes "O que fazemos" */
 @media (max-width:899.98px){
   #servicos.hero{
     width:100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);
@@ -353,7 +284,6 @@ html, body{ overflow-x:hidden; }
     padding:2px 12px 24px;
     overflow-x:auto;
   }
-  /* Rótulo estático do carrossel (mobile-only; não interativo) */
   #servicos .services-hint{
     display:block;
     position:absolute; left:0; right:0; bottom:35px;
@@ -363,8 +293,6 @@ html, body{ overflow-x:hidden; }
     text-shadow: 0 1px 2px rgba(255,255,255,.75);
   }
 }
-
-/* Setas estilizadas no "Deslize" */
 #servicos .services-hint .arrow {
   display:inline-block;
   line-height:1;
@@ -373,49 +301,43 @@ html, body{ overflow-x:hidden; }
   font-size:1.25em;
   color: #669999;
   --arrow-base-transform: none;
-  --arrow-rest-opacity: .9;
-  transform: var(--arrow-base-transform);
-  animation: arrowPulse var(--arrow-pulse-duration) ease-in-out infinite;
   will-change: transform, opacity;
 }
 #servicos .services-hint .core {
   font-weight:800;
   font-size:1.6em;
   --arrow-rest-opacity: 1;
+  animation: arrowPulse var(--arrow-pulse-duration) ease-in-out infinite;
   animation-delay: .24s;
 }
 #servicos .services-hint .dim1 {
   font-size:1.35em;
   --arrow-rest-opacity: .55;
+  animation: arrowPulse var(--arrow-pulse-duration) ease-in-out infinite;
   animation-delay: .12s;
 }
 #servicos .services-hint .dim2 {
   font-size:1.15em;
   --arrow-rest-opacity: .28;
+  animation: arrowPulse var(--arrow-pulse-duration) ease-in-out infinite;
   animation-delay: 0s;
 }
 #servicos .services-hint .arrow.left {
   --arrow-base-transform: scaleX(-1);
-  display: inline-block;
 }
-
-/* Acessibilidade: respeita redução de movimento */
 @media (prefers-reduced-motion: reduce){
   #servicos .services-hint .arrow {
     animation: none;
   }
 }
-/* Correção para o alinhamento do checkbox LGPD */
 .consent-label {
   display: flex;
   align-items: center;
-  gap: 8px; /* Espaçamento entre o checkbox e o texto */
+  gap: 8px;
 }
-
 .consent-label input[type="checkbox"] {
-  width: auto; /* Garante que o checkbox não ocupe toda a largura */
+  width: auto;
 }
-
 @media (min-width: 900px) {
   #servicos.hero {
     padding-top: 32px;
@@ -425,7 +347,6 @@ html, body{ overflow-x:hidden; }
     margin-top: 16px;
   }
 }
-
 @media (max-width: 899px) {
   #artistas {
     margin-top: -20px;
