@@ -414,4 +414,7 @@ html, body{ overflow-x:hidden; }
   animation: arrowPulse var(--arrow-pulse-duration) ease-in-out infinite;
   will-change: transform, opacity;
 }
+/* Corrige área clicável do hambúrguer: restringe o pseudo-elemento ao botão */
+.menu-toggle-inner { position: relative; } /* cria contexto para o ::after */
+.menu-toggle.menu-pulse .menu-toggle-inner::after { pointer-events: none; } /* anel não intercepta cliques */
 
