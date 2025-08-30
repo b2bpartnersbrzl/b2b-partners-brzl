@@ -471,6 +471,6 @@ html, body{ overflow-x:hidden; }
 }
 @media (max-width: 899px) {
   #artistas {
-    margin-top: -12px;
+    margin-top: -20px;
   }
 }
