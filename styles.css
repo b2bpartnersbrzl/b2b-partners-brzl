@@ -299,14 +299,16 @@ html, body{ overflow-x:hidden; }
   #servicos .hero-content{ position:relative; padding:0 24px; }
   .services-grid{
     width:100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);
-    padding:2px 12px 56px; overflow-x:auto; /* espaço para o rótulo na base */
+    padding:2px 12px 24px; /* reduzido: rótulo ficará sobre os cards */
+    overflow-x:auto;
   }
   /* Rótulo estático do carrossel (mobile-only; não interativo) */
   #servicos .services-hint{
     display:block;               /* aparece só no mobile */
-    position:absolute; left:0; right:0; bottom:18px;
+    position:absolute; left:0; right:0; bottom:64px; /* sobe para sobrepor a base dos cards */
     text-align:center; font:700 12px/1 var(--font-base); color:#444;
     text-transform:uppercase; pointer-events:none;
-    z-index: 2;                  /* fica por cima dos cards rolando */
+    z-index: 4;                  /* garante que fica por cima dos cards */
+    text-shadow: 0 1px 2px rgba(255,255,255,.75); /* melhora leitura sobre o conteúdo */
   }
 }
