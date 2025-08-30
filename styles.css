@@ -204,7 +204,7 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
 .card-title{ font-size:18px; font-weight:700; }
 .card-desc{ font-size:15px; color:#666; }
 .card-link{ font-weight:700; font-size:14px; color:var(--accent); }
-.badge-new{ font-size:11px; padding:2px 6px; background: var(--hero-yellow); border-radius:999px; }
+.badge-new{ font-size:11px; padding:2px 6px; background: var(--hero-yellow); border-radius:999px; font-weight: bold; }
 .service-card--ux{ background:#f9fdfd; } .service-card--ux .card-title{ color: var(--accent); }
 
 /* ALINHAMENTO DO TÍTULO E A PILULA ESSENCIAL */
