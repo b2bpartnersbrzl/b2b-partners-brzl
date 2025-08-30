@@ -32,9 +32,12 @@
   /* Carrossel de artistas */
   --artist-size-mobile: clamp(132px, 44vw, 204px);
   --artist-size-desktop: clamp(104px, 9.5vw, 156px);
+
+  /* Pulsação das setas "Deslize" */
+  --arrow-pulse-duration: 2.4s;
+  --arrow-pulse-scale: 1.12;
 }
 
-/* Reset */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
@@ -92,6 +95,18 @@ a:hover, a:focus {
 .menu-toggle.menu-pulse .menu-toggle-inner::after {
   content: ""; position: absolute; inset: 0; border-radius: inherit;
   animation: pulseRing 2.2s ease-out infinite;
+}
+
+/* Pulsação suave das setas "Deslize" */
+@keyframes arrowPulse {
+  0%, 100% {
+    transform: var(--arrow-base-transform) scale(1);
+    opacity: var(--arrow-rest-opacity);
+  }
+  50% {
+    transform: var(--arrow-base-transform) scale(var(--arrow-pulse-scale));
+    opacity: 1;
+  }
 }
 
 @media (min-width:1025px){
@@ -245,7 +260,7 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
 .overlay__card{
   position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
   width:min(640px, calc(100% - 48%)); background:#fff;
-  border:1px solid var(--block-border); border-radius:var(--radius);
+  border:1px solid var(--block-border); border-radius: var(--radius);
   padding:24px;
 }
 
@@ -312,37 +327,53 @@ html, body{ overflow-x:hidden; }
     text-shadow: 0 1px 2px rgba(255,255,255,.75); /* melhora leitura sobre o conteúdo */
   }
 }
-  /* Setas estilizadas no "Deslize" */
-  #servicos .services-hint .arrow {
-    display:inline-block;
-    line-height:1;
-    margin:0 2px;
-    opacity:.9;
-    font-weight:700;
-    font-size:1.25em;
-  }
-  #servicos .services-hint .core {
-    font-weight:800;
-    opacity:1;
-    font-size:1.6em;
-  }
-  #servicos .services-hint .dim1 {
-    opacity:.55;
-    font-size:1.35em;
-  }
-  #servicos .services-hint .dim2 {
-    opacity:.28;
-    font-size:1.15em;
-  }
+
+/* Setas estilizadas no "Deslize" */
 #servicos .services-hint .arrow {
-  color: #669999; /* cor base */
+  display:inline-block;
+  line-height:1;
+  margin:0 2px;
+  font-weight:700;
+  font-size:1.25em;
+  color: #669999;                /* cor base */
+  /* Base para animação (composta com left/right) */
+  --arrow-base-transform: none;
+  --arrow-rest-opacity: .9;      /* opacidade padrão desta variante */
+  transform: var(--arrow-base-transform);
+  animation: arrowPulse var(--arrow-pulse-duration) ease-in-out infinite;
+  will-change: transform, opacity;
+}
+#servicos .services-hint .core {
+  font-weight:800;
+  font-size:1.6em;
+  --arrow-rest-opacity: 1;       /* mais forte */
+  animation-delay: .24s;         /* pequeno atraso para ondulação */
+}
+#servicos .services-hint .dim1 {
+  font-size:1.35em;
+  --arrow-rest-opacity: .55;
+  animation-delay: .12s;
+}
+#servicos .services-hint .dim2 {
+  font-size:1.15em;
+  --arrow-rest-opacity: .28;
+  animation-delay: 0s;
 }
 #servicos .services-hint .arrow.left {
-  transform: scaleX(-1); /* espelha horizontalmente */
-  display: inline-block; /* necessário para o transform funcionar */
+  /* Espelha horizontalmente e mantém composição com a animação */
+  --arrow-base-transform: scaleX(-1);
+  display: inline-block;
 }
 
-  #servicos .services-hint .spacer {
-    display:inline-block;
-    width:10px;
+/* Acessibilidade: respeita redução de movimento */
+@media (prefers-reduced-motion: reduce){
+  #servicos .services-hint .arrow {
+    animation: none;
   }
+}
+
+/* Espaçador opcional (se usado no HTML) */
+#servicos .services-hint .spacer {
+  display:inline-block;
+  width:10px;
+}
