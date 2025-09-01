@@ -188,8 +188,9 @@ section[id]{ scroll-padding-top: calc(var(--header-height) + var(--anchor-offset
 }
 .services-grid::-webkit-scrollbar{ display:none; }
 .services-grid{ scrollbar-width:none; }
-services-hint{ display:none; }
-.services-hint{ display:none; }
+.services-hint {
+    display: none;
+}
 @media (min-width:900px){
   .services-grid{
     display:grid; grid-template-columns: repeat(3,1fr);
