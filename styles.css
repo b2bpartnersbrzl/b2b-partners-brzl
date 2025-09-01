@@ -356,13 +356,13 @@ html, body{ overflow-x:hidden; }
   #servicos .services-grid {
     margin-top: 16px;
   }
-  #servicos .services-hint {
-    bottom: 10px;
-  }
 }
 @media (max-width: 899px) {
   #artistas {
     margin-top: -20px;
+  }
+  #servicos .services-grid {
+    padding: 2px 12px 32px;
   }
 }
 
@@ -418,7 +418,7 @@ html, body{ overflow-x:hidden; }
   }
   
   #servicos .services-hint {
-    bottom: 25px;
+    bottom: 10px;
   }
 }
 
