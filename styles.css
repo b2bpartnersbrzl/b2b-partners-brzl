@@ -418,7 +418,7 @@ html, body{ overflow-x:hidden; }
   }
   
   #servicos .services-hint {
-    bottom: 8px;
+    bottom: 15px;
   }
 }
 
