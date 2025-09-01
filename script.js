@@ -1,40 +1,3 @@
-Com base na sua solicitação de refinamento, a rolagem para as seções de serviço não está precisa, pois o menu fixo do cabeçalho está cobrindo o título das seções.
-
-Para resolver isso, você precisa ajustar a posição de rolagem para que a seção de destino seja visível, sem ser coberta pelo cabeçalho.
-
-O procedimento para corrigir o problema de rolagem é o seguinte:
-
-### 1\. Ajuste de CSS
-
-No seu arquivo `styles.css`, vá até a linha 90. Localize a regra `section[id]`. Altere o valor da propriedade `scroll-margin-top` para incluir o ajuste necessário. O valor original é `calc(var(--header-height) + var(--anchor-offset-extra))`.
-
-Altere a linha:
-`section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-extra)); }`
-
-Para a nova linha:
-`section[id]{ scroll-padding-top: calc(var(--header-height) + var(--anchor-offset-extra)); }`
-
-Essa pequena mudança de `scroll-margin-top` para `scroll-padding-top` deve resolver o problema, pois a propriedade `scroll-padding-top` foi adicionada para ser utilizada com menus fixos.
-
------
-
-### 2\. Sincronização da URL
-
-No seu arquivo `script.js`, a navegação do menu mobile tem uma sintaxe que pode causar conflitos em navegadores mais antigos. A linha de código que causa o problema é:
-
-`if(target) target.scrollIntoView({behavior:'smooth', block:'start'});`
-
-Essa sintaxe, embora funcional na maioria dos navegadores modernos, pode ser simplificada para garantir compatibilidade e fluidez na rolagem.
-
-Altere a linha para:
-
-`if(target) target.scrollIntoView({behavior:'smooth'});`
-
-Além disso, para melhorar a experiência de navegação e a sintaxe, a sua função de navegação do menu móvel (a partir da linha 34 de `script.js`) também precisa ser ajustada, assim como a navegação dos links do topo (a partir da linha 48 de `script.js`).
-
-**Código completo e corrigido para `script.js`:**
-
-```javascript
 /* ===== MENU, NAVEGAÇÃO, FORM, OVERLAY ===== */
 (function(){
   /* MENU MOBILE */
@@ -97,7 +60,7 @@ Além disso, para melhorar a experiência de navegação e a sintaxe, a sua fun�
       const id = href.replace(/^#/, '');
       const target = document.getElementById(id);
       closeMenu(true);
-      if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
+      if(target) target.scrollIntoView({behavior:'smooth'});
       try{ history.replaceState({}, '', '#'+id); }catch(_){}
     });
   });
@@ -239,4 +202,3 @@ Além disso, para melhorar a experiência de navegação e a sintaxe, a sua fun�
     if(!isDesktop) closeOverlay(false);
   });
 })();
-```
