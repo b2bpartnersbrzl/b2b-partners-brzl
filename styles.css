@@ -420,3 +420,40 @@ html, body{ overflow-x:hidden; }
     padding-left: 12px;
   }
 }
+/* Container para a sobreposição de gradiente */
+.scroller-hint-container {
+  display: none;
+}
+
+/* Ativa o container apenas em telas menores, posicionando-o sobre o carrossel */
+@media (max-width: 899.98px) {
+  .scroller-hint-container {
+    display: block;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none; /* Permite o clique nos cards através da sobreposição */
+    z-index: 10;
+  }
+}
+
+/* Gradientes de sobreposição (o "nevoeiro" nas bordas) */
+.scroller-hint-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  pointer-events: none;
+}
+
+.scroller-hint-overlay--left {
+  left: 0;
+  background: linear-gradient(to right, rgba(253, 253, 253, 1), rgba(253, 253, 253, 0));
+}
+
+.scroller-hint-overlay--right {
+  right: 0;
+  background: linear-gradient(to left, rgba(253, 253, 253, 1), rgba(253, 253, 253, 0));
+}
