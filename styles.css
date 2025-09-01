@@ -352,26 +352,3 @@ html, body{ overflow-x:hidden; }
     margin-top: -20px;
   }
 }
-/* Ajustes para os cards de servicos com mais conteúdo */
-@media (min-width:900px){
-  #servicos .services-grid article.service-card {
-    min-height: 480px; /* Ajusta a altura mínima para acomodar o texto */
-  }
-}
-
-.service-card ul {
-  list-style: none;
-  padding: 0;
-  margin-top: 8px;
-}
-
-.service-card ul li {
-  margin-bottom: 4px;
-}
-
-.service-card ul li::before {
-  content: "—";
-  margin-right: 6px;
-  color: #669999;
-  font-weight: bold;
-}
