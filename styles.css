@@ -392,3 +392,43 @@ html, body{ overflow-x:hidden; }
     padding-left: 12px;
   }
 }
+/* Adiciona espaçamento vertical para respiro no conteúdo */
+.hero h2,
+.hero h3,
+.hero h4 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+
+.hero p {
+  margin-bottom: 16px;
+}
+
+.hero ul {
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+.hero h3 {
+  margin-top: 24px;
+}
+
+.hero h4 {
+  margin-top: 16px;
+}
+
+/* Ajustes específicos para títulos e subtítulos */
+.hero-title {
+  margin-bottom: 12px;
+}
+
+.hero-subtitle {
+  margin-bottom: 24px;
+}
+
+@media (max-width: 899.98px) {
+  .hero p {
+    margin-bottom: 12px;
+  }
+}
