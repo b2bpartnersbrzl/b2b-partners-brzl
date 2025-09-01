@@ -372,3 +372,23 @@ html, body{ overflow-x:hidden; }
 .service-subtitle {
   margin-top: 24px;
 }
+#detalhes-servicos ul {
+  list-style: none; /* remove os marcadores padrão */
+  margin-left: 0;
+  padding-left: 20px; /* ajusta o recuo */
+}
+
+#detalhes-servicos li::before {
+  content: "•"; /* substitui por um ponto simples */
+  color: var(--accent); /* cor do ponto */
+  font-size: 1.5em; /* tamanho do ponto */
+  line-height: 0;
+  vertical-align: middle;
+  margin-right: 8px; /* espaçamento entre o ponto e o texto */
+}
+
+@media (max-width: 899.98px) {
+  #detalhes-servicos ul {
+    padding-left: 12px;
+  }
+}
