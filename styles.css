@@ -294,46 +294,24 @@ html, body{ overflow-x:hidden; }
     padding:2px 12px 32px;
     overflow-x:auto;
   }
-  #servicos .services-hint{
-    display:block;
-    position:absolute; left:0; right:0; bottom:1px;
-    text-align:center; font:700 12px/1 var(--font-base); color:#444;
-    text-transform:uppercase; pointer-events:none;
-    z-index: 4;
-    text-shadow: 0 1px 2px rgba(255,255,255,.75);
+  #servicos .services-hint {
+    display: none;
   }
 }
 #servicos .services-hint .arrow {
-  display:inline-block;
-  line-height:1;
-  margin:0 2px;
-  font-weight:700;
-  font-size:1.25em;
-  color: #669999;
-  --arrow-base-transform: scaleX(1);
-  will-change: transform, opacity;
+  display: none;
 }
 #servicos .services-hint .core {
-  font-weight:800;
-  font-size:1.6em;
-  --arrow-rest-opacity: 1;
-  animation: arrowPulse var(--arrow-pulse-duration) ease-in-out infinite;
-  animation-delay: .24s;
+  display: none;
 }
 #servicos .services-hint .dim1 {
-  font-size:1.35em;
-  --arrow-rest-opacity: .55;
-  animation: arrowPulse var(--arrow-pulse-duration) ease-in-out infinite;
-  animation-delay: .12s;
+  display: none;
 }
 #servicos .services-hint .dim2 {
-  font-size:1.15em;
-  --arrow-rest-opacity: .28;
-  animation: arrowPulse var(--arrow-pulse-duration) ease-in-out infinite;
-  animation-delay: 0s;
+  display: none;
 }
 #servicos .services-hint .arrow.left {
-  --arrow-base-transform: scaleX(-1);
+  display: none;
 }
 @media (prefers-reduced-motion: reduce){
   #servicos .services-hint .arrow {
