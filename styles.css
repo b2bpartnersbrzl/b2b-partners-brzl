@@ -148,7 +148,7 @@ a:hover, a:focus {
 .content-area {
   padding: 0 24px calc(var(--footer-height) + 40px);
 }
-section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-extra)); }
+section[id]{ scroll-padding-top: calc(var(--header-height) + var(--anchor-offset-extra)); }
 .hero {
   background: var(--surface); border: 1px solid var(--block-border); border-radius: var(--radius);
   max-width: 1200px; margin: var(--section-gap) auto 0; padding: 28px;
@@ -171,7 +171,7 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
   flex:0 0 var(--service-slide-w);
   min-height:var(--service-slide-min-h);
 }
-.card-body{ padding:16px; padding-bottom: var(--service-card-padding-bottom-mobile); }
+.card-body{ padding-top: 8px; padding-left: 16px; padding-right: 16px; padding-bottom: var(--service-card-padding-bottom-mobile); }
 .card-title{ font-size:18px; font-weight:700; }
 .card-desc{ font-size:15px; color:#666; }
 .card-link{ font-weight:700; font-size:14px; color:var(--accent); }
@@ -296,7 +296,7 @@ html, body{ overflow-x:hidden; }
   }
   #servicos .services-hint{
     display:block;
-    position:absolute; left:0; right:0; bottom:35px;
+    position:absolute; left:0; right:0; bottom:10px;
     text-align:center; font:700 12px/1 var(--font-base); color:#444;
     text-transform:uppercase; pointer-events:none;
     z-index: 4;
@@ -372,26 +372,7 @@ html, body{ overflow-x:hidden; }
 .service-subtitle {
   margin-top: 24px;
 }
-#detalhes-servicos ul {
-  list-style: none; /* remove os marcadores padrão */
-  margin-left: 0;
-  padding-left: 20px; /* ajusta o recuo */
-}
 
-#detalhes-servicos li::before {
-  content: "•"; /* substitui por um ponto simples */
-  color: var(--accent); /* cor do ponto */
-  font-size: 1.5em; /* tamanho do ponto */
-  line-height: 0;
-  vertical-align: middle;
-  margin-right: 8px; /* espaçamento entre o ponto e o texto */
-}
-
-@media (max-width: 899.98px) {
-  #detalhes-servicos ul {
-    padding-left: 12px;
-  }
-}
 /* Adiciona espaçamento vertical para respiro no conteúdo */
 .hero h2,
 .hero h3,
@@ -430,5 +411,30 @@ html, body{ overflow-x:hidden; }
 @media (max-width: 899.98px) {
   .hero p {
     margin-bottom: 12px;
+  }
+  
+  #servicos .services-hint {
+    bottom: 10px;
+  }
+}
+
+#detalhes-servicos ul {
+  list-style: none; /* remove os marcadores padrão */
+  margin-left: 0;
+  padding-left: 20px; /* ajusta o recuo */
+}
+
+#detalhes-servicos li::before {
+  content: "•"; /* substitui por um ponto simples */
+  color: var(--accent); /* cor do ponto */
+  font-size: 1.5em; /* tamanho do ponto */
+  line-height: 0;
+  vertical-align: middle;
+  margin-right: 8px; /* espaçamento entre o ponto e o texto */
+}
+
+@media (max-width: 899.98px) {
+  #detalhes-servicos ul {
+    padding-left: 12px;
   }
 }
