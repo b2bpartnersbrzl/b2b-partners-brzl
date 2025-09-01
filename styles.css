@@ -142,7 +142,7 @@ a:hover, a:focus {
 .content-area {
   padding: 0 24px calc(var(--footer-height) + 40px);
 }
-section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-extra)); }
+section[id]{ scroll-padding-top: calc(var(--header-height) + var(--anchor-offset-extra)); }
 .hero {
   background: var(--surface); border: 1px solid var(--block-border); border-radius: var(--radius);
   max-width: 1200px; margin: var(--section-gap) auto 0; padding: 28px;
@@ -261,6 +261,10 @@ html, body{ overflow-x:hidden; }
   background:#666; color:#fff; text-align:center; font-size:12px; line-height: var(--clients-caption-h);
   margin: 0;
 }
+@keyframes marquee {
+  from{ transform: translate3d(0,0,0);}
+  to{ transform: translate3d(-50%,0,0);}
+}
 @media (max-width:768px){
   .hero{padding:24px}
   #hero .hero-content{ text-align:left; }
@@ -352,6 +356,7 @@ html, body{ overflow-x:hidden; }
     margin-top: -20px;
   }
 }
+
 .service-separator {
   border-top: 1px solid #669999;
   margin: 32px auto;
