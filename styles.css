@@ -291,12 +291,12 @@ html, body{ overflow-x:hidden; }
   #servicos .hero-content{ position:relative; padding:0 24px; }
   .services-grid{
     width:100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);
-    padding:2px 12px 20px;
+    padding:2px 12px 32px;
     overflow-x:auto;
   }
   #servicos .services-hint{
     display:block;
-    position:absolute; left:0; right:0; bottom:10px;
+    position:absolute; left:0; right:0; bottom:1px;
     text-align:center; font:700 12px/1 var(--font-base); color:#444;
     text-transform:uppercase; pointer-events:none;
     z-index: 4;
@@ -356,6 +356,9 @@ html, body{ overflow-x:hidden; }
   #servicos .services-grid {
     margin-top: 16px;
   }
+  #servicos .services-hint {
+    bottom: 10px;
+  }
 }
 @media (max-width: 899px) {
   #artistas {
@@ -364,9 +367,10 @@ html, body{ overflow-x:hidden; }
 }
 
 .service-separator {
-  border-top: 1px solid #669999;
-  margin: 32px auto;
+  height: 1px;
   max-width: 800px;
+  margin: 32px auto;
+  background-image: linear-gradient(to right, rgba(102,153,153,0), #669999, rgba(102,153,153,0));
 }
 
 .service-subtitle {
