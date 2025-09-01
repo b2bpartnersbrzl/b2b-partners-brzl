@@ -291,7 +291,7 @@ html, body{ overflow-x:hidden; }
   #servicos .hero-content{ position:relative; padding:0 24px; }
   .services-grid{
     width:100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);
-    padding:2px 12px 32px;
+    padding:2px 12px 40px;
     overflow-x:auto;
   }
   #servicos .services-hint{
