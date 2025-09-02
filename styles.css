@@ -454,10 +454,10 @@ html, body{ overflow-x:hidden; }
 
 .scroller-hint-overlay--left {
   left: 0;
-  background: linear-gradient(to right, rgba(153, 204, 204, 1), rgba(153, 204, 204, 0));
+  background: linear-gradient(to right, rgba(253, 253, 253, 1), rgba(253, 253, 253, 0));
 }
 
 .scroller-hint-overlay--right {
   right: 0;
-  background: linear-gradient(to left, rgba(153, 204, 204, 1), rgba(153, 204, 204, 0));
+  background: linear-gradient(to left, rgba(253, 253, 253, 1), rgba(253, 253, 253, 0));
 }
