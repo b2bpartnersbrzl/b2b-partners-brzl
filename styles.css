@@ -128,6 +128,7 @@ a:hover, a:focus {
   text-align: center;
 }
 .logo-marquee { overflow: hidden; padding: var(--marquee-pad-top) 0 var(--marquee-pad-bot); }
+#clientes .logo-marquee { padding: 0; }
 .logo-marquee__track {
   display: flex; gap: var(--logo-gap); width: max-content;
   animation: marquee var(--marquee-duration) linear infinite;
@@ -142,6 +143,7 @@ a:hover, a:focus {
   background:#666; color:#fff; font-weight:700; font-size:12px;
   letter-spacing:.14em; text-transform:uppercase;
   line-height:var(--clients-caption-h); height:var(--clients-caption-h);
+  margin:0;
 }
 @keyframes marquee {
   from{ transform: translate3d(0,0,0);}
