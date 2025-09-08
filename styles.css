@@ -4,7 +4,6 @@
   --section-gap: 24px;
   --anchor-offset-extra: 12px;
   --carousel-bg: #ffffff;
-  --logo-gap: 48px;
   --marquee-duration: 20s;
   --marquee-pad-top: 26px;
   --marquee-pad-bot: 26px;
@@ -129,10 +128,12 @@ a:hover, a:focus {
 }
 .logo-marquee { overflow: hidden; padding: var(--marquee-pad-top) 0 var(--marquee-pad-bot); }
 .logo-marquee__track {
-  display: flex; gap: var(--logo-gap); width: max-content;
+  display: flex;
+  gap: 0;
+  width: max-content;
   animation: marquee var(--marquee-duration) linear infinite;
 }
-.logo-list { display: flex; gap: var(--logo-gap); list-style: none; }
+.logo-list { display: flex; gap: 0; list-style: none; }
 .logo-item {
   display: flex;
   align-items: center;
