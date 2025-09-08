@@ -6,8 +6,8 @@
   --carousel-bg: #ffffff;
   --logo-gap: 48px;
   --marquee-duration: 50s;
-  --marquee-pad-top: 16px;
-  --marquee-pad-bot: 16px;
+  --marquee-pad-top: 10px;
+  --marquee-pad-bot: 10px;
   --clients-caption-h: 28px;
   --font-base: 'Noto Sans', sans-serif;
   --text: #666666;
