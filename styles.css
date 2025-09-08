@@ -133,7 +133,11 @@ a:hover, a:focus {
   width: max-content;
   animation: marquee var(--marquee-duration) linear infinite;
 }
-.logo-list { display: flex; gap: 0; list-style: none; }
+.logo-list {
+  display: flex;
+  gap: 0;
+  list-style: none;
+}
 .logo-item {
   display: flex;
   align-items: center;
@@ -142,7 +146,7 @@ a:hover, a:focus {
 }
 .logo-img-brand {
   height: 48px;
-  width: auto;
+  width: 100%;
   object-fit: contain;
 }
 .clients-caption {
