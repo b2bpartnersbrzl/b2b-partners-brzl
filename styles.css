@@ -145,9 +145,10 @@ a:hover, a:focus {
   width: 100%;
 }
 .logo-img-brand {
-  height: 60px; /* Alteração */
-  width: auto; /* Alteração */
+  height: auto;
+  width: 100%;
   object-fit: fill;
+  transform: scale(1.5); /* Adicione esta linha para ampliar a imagem */
 }
 .clients-caption {
   background:#666; color:#fff; font-weight:700; font-size:12px;
