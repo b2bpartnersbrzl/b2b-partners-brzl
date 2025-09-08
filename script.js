@@ -60,7 +60,7 @@
       const id = href.replace(/^#/, '');
       const target = document.getElementById(id);
       closeMenu(true);
-      if(target) target.scrollIntoView({behavior:'smooth'});
+      if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
       try{ history.replaceState({}, '', '#'+id); }catch(_){}
     });
   });
@@ -85,6 +85,14 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
       try{ history.replaceState({}, '', '#'); }catch(_){}
     });
+  });
+  
+  /* LINK DO CARROSSEL-ISCA */
+  document.getElementById('clients-trap')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    const target = document.getElementById('para-quem-fazemos');
+    if(target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    try{ history.replaceState({}, '', '#para-quem-fazemos'); }catch(_){}
   });
 
   /* FORM – status */
