@@ -15,7 +15,7 @@
     btn.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
     const icon = btn.querySelector('.menu-icon');
     const label = btn.querySelector('.menu-label');
-    if(icon) icon.textContent = open ? '✕' : '☰';
+    if(icon) icon.textContent = open ? '×' : '☰';
     if(label) label.textContent = open ? 'Fechar' : 'Menu';
     if(open){ btn.classList.remove('menu-pulse'); } else { btn.classList.add('menu-pulse'); }
   }
@@ -118,7 +118,7 @@
 
       data.append('timestamp', new Date().toISOString());
 
-      sbtn.disabled = true; const prev = sbtn.textContent; sbtn.textContent = 'Enviando…';
+      sbtn.disabled = true; const prev = sbtn.textContent; sbtn.textContent = 'Enviando...';
       try{
         await fetch(form.action, { method: 'POST', body: data, mode: 'no-cors' });
         statusEl.textContent = 'Recebido. Entraremos em contato em breve.';
