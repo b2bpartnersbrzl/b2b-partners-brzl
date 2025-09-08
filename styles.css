@@ -145,7 +145,7 @@ a:hover, a:focus {
   flex: 0 0 auto;
 }
 .logo-img-brand {
-  height: 48px;
+  height: auto;
   width: 100%;
   object-fit: contain;
 }
