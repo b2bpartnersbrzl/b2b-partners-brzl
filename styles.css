@@ -4,6 +4,7 @@
   --section-gap: 24px;
   --anchor-offset-extra: 12px;
   --carousel-bg: #ffffff;
+  --logo-gap: 48px;
   --marquee-duration: 20s;
   --marquee-pad-top: 26px;
   --marquee-pad-bot: 26px;
@@ -128,29 +129,13 @@ a:hover, a:focus {
 }
 .logo-marquee { overflow: hidden; padding: var(--marquee-pad-top) 0 var(--marquee-pad-bot); }
 .logo-marquee__track {
-  display: flex;
-  gap: 0;
-  width: 200%;
+  display: flex; gap: var(--logo-gap); width: max-content;
   animation: marquee var(--marquee-duration) linear infinite;
 }
-.logo-list {
-  display: flex;
-  gap: 0;
-  list-style: none;
-  width: 100%;
-}
-.logo-item {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  flex-shrink: 0;
-}
-.logo-img-brand {
-  height: 60px;
-  width: auto;
-  object-fit: fill;
-  transform: scale(1);
-}
+.logo-list { display: flex; gap: var(--logo-gap); list-style: none; }
+.logo-item { display: flex; align-items: center; }
+.logo-img-brand { height: auto; object-fit: contain; }
+.logo-sm{ height:34px; } .logo-md{ height:40px; } .logo-lg{ height:46px; }
 .clients-caption {
   background:#666; color:#fff; font-weight:700; font-size:12px;
   letter-spacing:.14em; text-transform:uppercase;
