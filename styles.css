@@ -142,7 +142,7 @@ a:hover, a:focus {
 .logo-item {
   display: flex;
   align-items: center;
-  width: 250%;
+  width: 400%;
 }
 .logo-img-brand {
   height: auto;
