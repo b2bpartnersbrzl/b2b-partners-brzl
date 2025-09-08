@@ -60,7 +60,7 @@
       const id = href.replace(/^#/, '');
       const target = document.getElementById(id);
       closeMenu(true);
-      if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
+      if(target) target.scrollIntoView({behavior:'smooth'});
       try{ history.replaceState({}, '', '#'+id); }catch(_){}
     });
   });

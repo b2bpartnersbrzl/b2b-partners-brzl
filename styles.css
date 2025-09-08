@@ -3,7 +3,7 @@
   --footer-height: 42px;
   --section-gap: 24px;
   --anchor-offset-extra: 12px;
-  --carousel-bg: #FFE069;
+  --carousel-bg: #ffffff;
   --logo-gap: 48px;
   --marquee-duration: 20s;
   --marquee-pad-top: 26px;
@@ -26,7 +26,13 @@
   --arrow-pulse-scale: 1.25;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + var(--anchor-offset-extra));
+}
+.main-header .top-link {
+  scroll-padding-top: 0;
+}
 body {
   font-family: var(--font-base);
   color: var(--text);
@@ -142,7 +148,7 @@ a:hover, a:focus {
 .content-area {
   padding: 0 24px calc(var(--footer-height) + 40px);
 }
-section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-extra)); }
+section[id]{ scroll-padding-top: calc(var(--header-height) + var(--anchor-offset-extra)); }
 .hero {
   background: var(--surface); border: 1px solid var(--block-border); border-radius: var(--radius);
   max-width: 1200px; margin: var(--section-gap) auto 0; padding: 28px;
@@ -153,6 +159,9 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
 #hero .hero-text { font-size:24px; font-family: Arial, sans-serif; }
 #hero .seg-yellow { color: var(--hero-yellow); }
 .mbr { display: none; }
+.seg-italic {
+    font-style: italic;
+}
 #servicos { background:#fff; color:#666; border-color:#e5e5e5; }
 .services-grid {
   display: flex; gap: 16px; margin-top:4px;
@@ -165,7 +174,7 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
   flex:0 0 var(--service-slide-w);
   min-height:var(--service-slide-min-h);
 }
-.card-body{ padding:16px; padding-bottom: var(--service-card-padding-bottom-mobile); }
+.card-body{ padding-top: 4px; padding-left: 16px; padding-right: 16px; padding-bottom: var(--service-card-padding-bottom-mobile); }
 .card-title{ font-size:18px; font-weight:700; }
 .card-desc{ font-size:15px; color:#666; }
 .card-link{ font-weight:700; font-size:14px; color:var(--accent); }
@@ -179,8 +188,9 @@ section[id]{ scroll-margin-top: calc(var(--header-height) + var(--anchor-offset-
 }
 .services-grid::-webkit-scrollbar{ display:none; }
 .services-grid{ scrollbar-width:none; }
-services-hint{ display:none; }
-.services-hint{ display:none; }
+.services-hint {
+    display: none;
+}
 @media (min-width:900px){
   .services-grid{
     display:grid; grid-template-columns: repeat(3,1fr);
@@ -261,6 +271,10 @@ html, body{ overflow-x:hidden; }
   background:#666; color:#fff; text-align:center; font-size:12px; line-height: var(--clients-caption-h);
   margin: 0;
 }
+@keyframes marquee {
+  from{ transform: translate3d(0,0,0);}
+  to{ transform: translate3d(-50%,0,0);}
+}
 @media (max-width:768px){
   .hero{padding:24px}
   #hero .hero-content{ text-align:left; }
@@ -281,49 +295,27 @@ html, body{ overflow-x:hidden; }
   #servicos .hero-content{ position:relative; padding:0 24px; }
   .services-grid{
     width:100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);
-    padding:2px 12px 24px;
+    padding:2px 12px 32px;
     overflow-x:auto;
   }
-  #servicos .services-hint{
-    display:block;
-    position:absolute; left:0; right:0; bottom:35px;
-    text-align:center; font:700 12px/1 var(--font-base); color:#444;
-    text-transform:uppercase; pointer-events:none;
-    z-index: 4;
-    text-shadow: 0 1px 2px rgba(255,255,255,.75);
+  #servicos .services-hint {
+    display: none;
   }
 }
 #servicos .services-hint .arrow {
-  display:inline-block;
-  line-height:1;
-  margin:0 2px;
-  font-weight:700;
-  font-size:1.25em;
-  color: #669999;
-  --arrow-base-transform: scaleX(1);
-  will-change: transform, opacity;
+  display: none;
 }
 #servicos .services-hint .core {
-  font-weight:800;
-  font-size:1.6em;
-  --arrow-rest-opacity: 1;
-  animation: arrowPulse var(--arrow-pulse-duration) ease-in-out infinite;
-  animation-delay: .24s;
+  display: none;
 }
 #servicos .services-hint .dim1 {
-  font-size:1.35em;
-  --arrow-rest-opacity: .55;
-  animation: arrowPulse var(--arrow-pulse-duration) ease-in-out infinite;
-  animation-delay: .12s;
+  display: none;
 }
 #servicos .services-hint .dim2 {
-  font-size:1.15em;
-  --arrow-rest-opacity: .28;
-  animation: arrowPulse var(--arrow-pulse-duration) ease-in-out infinite;
-  animation-delay: 0s;
+  display: none;
 }
 #servicos .services-hint .arrow.left {
-  --arrow-base-transform: scaleX(-1);
+  display: none;
 }
 @media (prefers-reduced-motion: reduce){
   #servicos .services-hint .arrow {
@@ -351,4 +343,121 @@ html, body{ overflow-x:hidden; }
   #artistas {
     margin-top: -20px;
   }
+  #servicos .services-grid {
+    padding: 2px 12px 32px;
+  }
+}
+
+.service-separator {
+  height: 1px;
+  max-width: 800px;
+  margin: 32px auto;
+  background-image: linear-gradient(to right, rgba(102,153,153,0), #669999, rgba(102,153,153,0));
+}
+
+.service-subtitle {
+  margin-top: 24px;
+}
+
+/* Adiciona espaçamento vertical para respiro no conteúdo */
+.hero h2,
+.hero h3,
+.hero h4 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+
+.hero p {
+  margin-bottom: 16px;
+}
+
+.hero ul {
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+.hero h3 {
+  margin-top: 24px;
+}
+
+.hero h4 {
+  margin-top: 16px;
+}
+
+/* Ajustes específicos para títulos e subtítulos */
+.hero-title {
+  margin-bottom: 12px;
+}
+
+.hero-subtitle {
+  margin-bottom: 24px;
+}
+
+@media (max-width: 899.98px) {
+  .hero p {
+    margin-bottom: 12px;
+  }
+  
+  #servicos .services-hint {
+    bottom: 10px;
+  }
+}
+
+#detalhes-servicos ul {
+  list-style: none; /* remove os marcadores padrão */
+  margin-left: 0;
+  padding-left: 20px; /* ajusta o recuo */
+}
+
+#detalhes-servicos li::before {
+  content: "•"; /* substitui por um ponto simples */
+  color: var(--accent); /* cor do ponto */
+  font-size: 1.5em; /* tamanho do ponto */
+  line-height: 0;
+  vertical-align: middle;
+  margin-right: 8px; /* espaçamento entre o ponto e o texto */
+}
+
+@media (max-width: 899.98px) {
+  #detalhes-servicos ul {
+    padding-left: 12px;
+  }
+}
+/* Container para a sobreposição de gradiente */
+.scroller-hint-container {
+  display: none;
+}
+
+/* Ativa o container apenas em telas menores, posicionando-o sobre o carrossel */
+@media (max-width: 899.98px) {
+  .scroller-hint-container {
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none; /* Permite o clique nos cards através da sobreposição */
+    z-index: 10;
+  }
+}
+
+/* Gradientes de sobreposição (o "nevoeiro" nas bordas) */
+.scroller-hint-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  pointer-events: none;
+}
+
+.scroller-hint-overlay--left {
+  left: 0;
+  background: linear-gradient(to right, rgba(253, 253, 253, 1), rgba(253, 253, 253, 0));
+}
+
+.scroller-hint-overlay--right {
+  right: 0;
+  background: linear-gradient(to left, rgba(253, 253, 253, 1), rgba(253, 253, 253, 0));
 }
