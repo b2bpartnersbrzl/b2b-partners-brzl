@@ -155,7 +155,7 @@ a:hover, a:focus {
 section[id]{ scroll-padding-top: calc(var(--header-height) + var(--anchor-offset-extra)); }
 .hero {
   background: var(--surface); border: 1px solid var(--block-border); border-radius: var(--radius);
-  max-width: 1200px; margin: var(--section-gap) auto 0; padding: 28px;
+  max-width: 1200px; margin: var(--section-gap) auto; padding: 28px;
   box-shadow: 0 4px 12px rgba(0,0,0,.05);
 }
 .hero-title { font-weight:700; line-height:1.25; }
@@ -245,7 +245,7 @@ section[id]{ scroll-padding-top: calc(var(--header-height) + var(--anchor-offset
 html, body{ overflow-x:hidden; }
 #artistas{
   width:100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);
-  background:#666; border-top:1px solid #669999; border-bottom:1px solid var(--block-border); 
+  background:#666; border-top:1px solid #669999; border-bottom:1px solid var(--block-border);
 }
 #artistas .logo-marquee{
   overflow:hidden;
@@ -345,7 +345,7 @@ html, body{ overflow-x:hidden; }
 }
 @media (max-width: 899px) {
   #artistas {
-    margin-top: -20px;
+    margin-top: 0;
   }
   #servicos .services-grid {
     padding: 2px 12px 32px;
