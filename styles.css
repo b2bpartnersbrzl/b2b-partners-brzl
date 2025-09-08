@@ -5,8 +5,8 @@
   --anchor-offset-extra: 12px;
   --carousel-bg: #ffffff;
   --marquee-duration: 20s;
-  --marquee-pad-top: 40px;
-  --marquee-pad-bot: 40px;
+  --marquee-pad-top: 26px;
+  --marquee-pad-bot: 26px;
   --clients-caption-h: 28px;
   --font-base: 'Noto Sans', sans-serif;
   --text: #666666;
@@ -137,12 +137,12 @@ a:hover, a:focus {
   display: flex;
   gap: 0;
   list-style: none;
-  width: 100%;
+  width: max-content; /* Alteração */
 }
 .logo-item {
   display: flex;
   align-items: center;
-  width: 400%;
+  width: 300px; /* Alteração */
 }
 .logo-img-brand {
   height: auto;
