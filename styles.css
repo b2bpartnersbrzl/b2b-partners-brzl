@@ -248,10 +248,8 @@ html, body{ overflow-x:hidden; }
   padding: 0;
 }
 #artistas .logo-marquee__track{
-  display: flex;
-  gap: 0;
-  width: max-content;
-  animation: marquee 26s linear infinite;
+  display:flex; gap: 0; width:max-content;
+  animation:marquee 26s linear infinite;
 }
 #artistas .logo-list{ display:flex; gap: 0; list-style:none; }
 #artistas .logo-item{
