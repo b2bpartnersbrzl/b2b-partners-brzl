@@ -121,40 +121,30 @@ a:hover, a:focus {
   padding: 10px 12px; border-radius: 10px; border: 1px solid #e5e5e5;
   color: #333; background: #fff;
 }
-
-/* Carrossel estático "isca" */
-.clients-fixed-link {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-}
 .clients-fixed {
   margin-top: var(--header-height);
   background: var(--carousel-bg);
   border-top: 1px solid #669999; border-bottom: 1px solid var(--block-border);
   text-align: center;
-  position: relative;
-  overflow: hidden;
-  height: clamp(240px, 50vw, 400px);
 }
-.logo-marquee-static {
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 100%;
+.logo-marquee { overflow: hidden; padding: var(--marquee-pad-top) 0 var(--marquee-pad-bot); }
+.logo-marquee__track {
+  display: flex; gap: var(--logo-gap); width: max-content;
+  animation: marquee var(--marquee-duration) linear infinite;
 }
-.logo-img-static {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: center top;
-}
+.logo-list { display: flex; gap: var(--logo-gap); list-style: none; }
+.logo-item { display: flex; align-items: center; }
+.logo-img-brand { height: auto; object-fit: contain; }
+.logo-sm{ height:34px; } .logo-md{ height:40px; } .logo-lg{ height:46px; }
 .clients-caption {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
   background:#666; color:#fff; font-weight:700; font-size:12px;
   letter-spacing:.14em; text-transform:uppercase;
   line-height:var(--clients-caption-h); height:var(--clients-caption-h);
 }
-
+@keyframes marquee {
+  from{ transform: translate3d(0,0,0);}
+  to{ transform: translate3d(-50%,0,0);}
+}
 .content-area {
   padding: 0 24px calc(var(--footer-height) + 40px);
 }
@@ -408,7 +398,7 @@ html, body{ overflow-x:hidden; }
   .hero p {
     margin-bottom: 12px;
   }
-
+  
   #servicos .services-hint {
     bottom: 10px;
   }
@@ -470,115 +460,4 @@ html, body{ overflow-x:hidden; }
 .scroller-hint-overlay--right {
   right: 0;
   background: linear-gradient(to left, rgba(253, 253, 253, 1), rgba(253, 253, 253, 0));
-}
-
-/* Novo nevoeiro na parte inferior (removido do carrossel estático) */
-.scroller-hint-overlay--bottom {
-  height: 80px;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  background: linear-gradient(to top, rgba(255, 255, 255, 1) 20%, rgba(255, 255, 255, 0));
-}
-
-
-/* Novo carrossel manual */
-#para-quem-fazemos .hero-content {
-  position: relative;
-  padding-bottom: 32px;
-}
-
-.manual-carousel-container {
-  position: relative;
-  margin: 16px -24px 0;
-  padding: 0 24px;
-}
-.manual-carousel {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  padding: 8px 0;
-}
-.manual-carousel::-webkit-scrollbar {
-  display: none;
-}
-.manual-carousel-list {
-  display: flex;
-  gap: 24px;
-  list-style: none;
-  padding: 0;
-}
-.carousel-item {
-  flex-shrink: 0;
-  width: 120px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 8px;
-}
-.carousel-item img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-@media(min-width: 900px) {
-  .manual-carousel-container {
-    margin: 16px -40px 0;
-    padding: 0 40px;
-  }
-}
-
-/* Adicionando os nevoeiros ao carrossel estático (a isca) */
-#clients-trap-section {
-  position: relative;
-}
-
-.clients-trap-overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  pointer-events: none;
-}
-
-.clients-trap-overlay--left {
-  position: absolute;
-  top: 0; bottom: 0; left: 0; width: 40px;
-  background: linear-gradient(to right, rgba(253, 253, 253, 1), rgba(253, 253, 253, 0));
-  pointer-events: none;
-}
-
-.clients-trap-overlay--right {
-  position: absolute;
-  top: 0; bottom: 0; right: 0; width: 40px;
-  background: linear-gradient(to left, rgba(253, 253, 253, 1), rgba(253, 253, 253, 0));
-  pointer-events: none;
-}
-
-
-/* Adaptação dos nevoeiros ao novo carrossel */
-.manual-carousel-container .scroller-hint-overlay--left {
-  left: 0;
-  background: linear-gradient(to right, rgba(253, 253, 253, 1), rgba(253, 253, 253, 0));
-  width: 40px;
-  top: 0; bottom: 0;
-  pointer-events: none;
-}
-.manual-carousel-container .scroller-hint-overlay--right {
-  right: 0;
-  background: linear-gradient(to left, rgba(253, 253, 253, 1), rgba(253, 253, 253, 0));
-  width: 40px;
-  top: 0; bottom: 0;
-  pointer-events: none;
-}
-
-/* Ajustes responsivos para os nevoeiros */
-@media (min-width: 900px) {
-  .manual-carousel-container .scroller-hint-overlay--left,
-  .manual-carousel-container .scroller-hint-overlay--right {
-    width: 60px;
-  }
 }

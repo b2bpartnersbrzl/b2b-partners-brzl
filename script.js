@@ -87,14 +87,6 @@
     });
   });
   
-  /* LINK DO CARROSSEL-ISCA */
-  document.getElementById('clients-trap')?.addEventListener('click', (e) => {
-    e.preventDefault();
-    const target = document.getElementById('para-quem-fazemos');
-    if(target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    try{ history.replaceState({}, '', '#para-quem-fazemos'); }catch(_){}
-  });
-
   /* FORM – status */
   const form = document.getElementById('briefing-form');
   const statusEl = document.getElementById('form-status');

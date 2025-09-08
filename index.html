@@ -50,7 +50,6 @@
     <nav class="top-menu" aria-label="Menu principal">
       <a href="#top" class="top-link">Início</a>
       <a href="#servicos">O que fazemos</a>
-      <a href="#para-quem-fazemos">Para quem fazemos</a>
       <a href="#quem-somos">Quem somos</a>
       <a href="#processo">Como fazemos</a>
       <a href="#seu-projeto">Seu Projeto</a>
@@ -72,7 +71,6 @@
       <nav class="mobile-menu-nav" aria-label="Menu principal (mobile)">
         <a href="#top" class="top-link" data-menu-link>Início</a>
         <a href="#servicos" data-menu-link>O que fazemos</a>
-        <a href="#para-quem-fazemos" data-menu-link>Para quem fazemos</a>
         <a href="#quem-somos" data-menu-link>Quem somos</a>
         <a href="#processo" data-menu-link>Como fazemos</a>
         <a href="#seu-projeto" data-menu-link>Seu Projeto</a>
@@ -80,15 +78,37 @@
     </div>
   </div>
 
-  <a href="#para-quem-fazemos" id="clients-trap" class="clients-fixed-link">
-    <section id="clients-trap-section" class="clients-fixed" aria-label="Clique para ver as marcas que confiam em nós">
-      <div class="logo-marquee-static">
-        <img src="images/logos/carrossel_marcas.webp" alt="Marcas que confiam em nós" class="logo-img-static" width="1200" height="1200" decoding="async">
-        <div class="scroller-hint-overlay scroller-hint-overlay--bottom"></div>
+  <section id="clientes" class="clients-fixed" aria-label="Marcas que confiam em nós">
+    <div class="logo-marquee" role="region" aria-roledescription="carrossel automático" aria-label="Logos de clientes">
+      <div class="logo-marquee__track">
+        <ul class="logo-list">
+          <li class="logo-item"><img src="images/logos/logo_aneel.svg" alt="ANEEL" class="logo-img-brand logo-sm" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_vivo.svg" alt="Vivo" class="logo-img-brand logo-md" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_dell.svg" alt="Dell" class="logo-img-brand logo-md" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_natura.svg" alt="Natura" class="logo-img-brand logo-lg" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_itau.svg" alt="Itaú" class="logo-img-brand logo-lg" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_jeep.svg" alt="Jeep" class="logo-img-brand logo-md" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_bb.svg" alt="Banco do Brasil" class="logo-img-brand logo-lg" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_fiat.svg" alt="Fiat" class="logo-img-brand logo-md" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_citi.svg" alt="Citi" class="logo-img-brand logo-md" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_chilli_beans.svg" alt="Chilli Beans" class="logo-img-brand logo-md" decoding="async"></li>
+        </ul>
+        <ul class="logo-list" aria-hidden="true">
+          <li class="logo-item"><img src="images/logos/logo_aneel.svg" alt="" class="logo-img-brand logo-sm" loading="lazy" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_vivo.svg" alt="" class="logo-img-brand logo-md" loading="lazy" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_dell.svg" alt="" class="logo-img-brand logo-md" loading="lazy" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_natura.svg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_itau.svg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_jeep.svg" alt="" class="logo-img-brand logo-md" loading="lazy" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_bb.svg" alt="" class="logo-img-brand logo-lg" loading="lazy" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_fiat.svg" alt="" class="logo-img-brand logo-md" loading="lazy" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_citi.svg" alt="" class="logo-img-brand logo-md" loading="lazy" decoding="async"></li>
+          <li class="logo-item"><img src="images/logos/logo_chilli_beans.svg" alt="" class="logo-img-brand logo-md" loading="lazy" decoding="async"></li>
+        </ul>
       </div>
-      <p class="clients-caption"><strong>MARCAS QUE CONFIAM EM NÓS</strong></p>
-    </section>
-  </a>
+    </div>
+    <p class="clients-caption"><strong>MARCAS QUE CONFIAM EM NÓS</strong></p>
+  </section>
 
   <main class="content-area">
     <section id="hero" class="hero" aria-label="Abertura">
@@ -145,32 +165,6 @@
         </div>
 
         <div class="scroller-hint-container" aria-hidden="true">
-          <div class="scroller-hint-overlay scroller-hint-overlay--left"></div>
-          <div class="scroller-hint-overlay scroller-hint-overlay--right"></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="para-quem-fazemos" class="hero" aria-label="Para quem fazemos">
-      <div class="hero-content">
-        <h2 class="hero-title">Para quem fazemos</h2>
-        <p class="hero-subtitle">Conectamos marcas e audiências. Construímos experiências para quem sabe que um evento é o primeiro passo para o próximo negócio.</p>
-
-        <div class="manual-carousel-container" role="region" aria-roledescription="carrossel manual">
-          <div class="manual-carousel" tabindex="0">
-            <ul class="manual-carousel-list">
-              <li class="carousel-item"><img src="images/logos/logo_aneel.svg" alt="ANEEL" class="logo-img-brand logo-sm" decoding="async"></li>
-              <li class="carousel-item"><img src="images/logos/logo_vivo.svg" alt="Vivo" class="logo-img-brand logo-md" decoding="async"></li>
-              <li class="carousel-item"><img src="images/logos/logo_dell.svg" alt="Dell" class="logo-img-brand logo-md" decoding="async"></li>
-              <li class="carousel-item"><img src="images/logos/logo_natura.svg" alt="Natura" class="logo-img-brand logo-lg" decoding="async"></li>
-              <li class="carousel-item"><img src="images/logos/logo_itau.svg" alt="Itaú" class="logo-img-brand logo-lg" decoding="async"></li>
-              <li class="carousel-item"><img src="images/logos/logo_jeep.svg" alt="Jeep" class="logo-img-brand logo-md" decoding="async"></li>
-              <li class="carousel-item"><img src="images/logos/logo_bb.svg" alt="Banco do Brasil" class="logo-img-brand logo-lg" decoding="async"></li>
-              <li class="carousel-item"><img src="images/logos/logo_fiat.svg" alt="Fiat" class="logo-img-brand logo-md" decoding="async"></li>
-              <li class="carousel-item"><img src="images/logos/logo_citi.svg" alt="Citi" class="logo-img-brand logo-md" decoding="async"></li>
-              <li class="carousel-item"><img src="images/logos/logo_chilli_beans.svg" alt="Chilli Beans" class="logo-img-brand logo-md" decoding="async"></li>
-            </ul>
-          </div>
           <div class="scroller-hint-overlay scroller-hint-overlay--left"></div>
           <div class="scroller-hint-overlay scroller-hint-overlay--right"></div>
         </div>
