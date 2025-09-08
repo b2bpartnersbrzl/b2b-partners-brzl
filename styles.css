@@ -5,9 +5,9 @@
   --anchor-offset-extra: 12px;
   --carousel-bg: #ffffff;
   --logo-gap: 48px;
-  --marquee-duration: 50s;
-  --marquee-pad-top: 10px;
-  --marquee-pad-bot: 10px;
+  --marquee-duration: 20s;
+  --marquee-pad-top: 26px;
+  --marquee-pad-bot: 26px;
   --clients-caption-h: 28px;
   --font-base: 'Noto Sans', sans-serif;
   --text: #666666;
@@ -345,7 +345,7 @@ html, body{ overflow-x:hidden; }
 }
 @media (max-width: 899px) {
   #artistas {
-    margin-top: 0;
+    margin-top: -20px;
   }
   #servicos .services-grid {
     padding: 2px 12px 32px;
