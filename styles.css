@@ -5,9 +5,9 @@
   --anchor-offset-extra: 12px;
   --carousel-bg: #ffffff;
   --logo-gap: 48px;
-  --marquee-duration: 45s;
-  --marquee-pad-top: 24px;
-  --marquee-pad-bot: 24px;
+  --marquee-duration: 20s;
+  --marquee-pad-top: 26px;
+  --marquee-pad-bot: 26px;
   --clients-caption-h: 28px;
   --font-base: 'Noto Sans', sans-serif;
   --text: #666666;
@@ -122,12 +122,9 @@ a:hover, a:focus {
   color: #333; background: #fff;
 }
 .clients-fixed {
-  position: sticky;
-  top: var(--header-height);
-  z-index: 1000;
+  margin-top: var(--header-height);
   background: var(--carousel-bg);
-  border-top: 1px solid #669999;
-  border-bottom: 1px solid var(--block-border);
+  border-top: 1px solid #669999; border-bottom: 1px solid var(--block-border);
   text-align: center;
 }
 .logo-marquee { overflow: hidden; padding: var(--marquee-pad-top) 0 var(--marquee-pad-bot); }
@@ -137,20 +134,12 @@ a:hover, a:focus {
 }
 .logo-list { display: flex; gap: var(--logo-gap); list-style: none; }
 .logo-item { display: flex; align-items: center; }
-.logo-img-brand {
-  height: 40px;
-  max-width: 50vw;
-  object-fit: contain;
-}
+.logo-img-brand { height: auto; object-fit: contain; }
 .logo-sm{ height:34px; } .logo-md{ height:40px; } .logo-lg{ height:46px; }
 .clients-caption {
-  position: sticky;
-  top: calc(var(--header-height) + var(--marquee-pad-top) + var(--marquee-pad-bot) + 1px);
-  z-index: 1000;
   background:#666; color:#fff; font-weight:700; font-size:12px;
   letter-spacing:.14em; text-transform:uppercase;
   line-height:var(--clients-caption-h); height:var(--clients-caption-h);
-  border-bottom: 1px solid var(--block-border);
 }
 @keyframes marquee {
   from{ transform: translate3d(0,0,0);}
@@ -262,6 +251,7 @@ html, body{ overflow-x:hidden; }
   display:flex; gap: 0; width:max-content;
   animation:marquee 26s linear infinite;
 }
+#artistas .logo-list{ display:flex; gap: 0; list-style:none; }
 #artistas .logo-item{
   width: var(--artist-item-size-mobile);
   aspect-ratio: 1 / 1;

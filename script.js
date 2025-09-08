@@ -60,7 +60,7 @@
       const id = href.replace(/^#/, '');
       const target = document.getElementById(id);
       closeMenu(true);
-      if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
+      if(target) target.scrollIntoView({behavior:'smooth'});
       try{ history.replaceState({}, '', '#'+id); }catch(_){}
     });
   });
@@ -86,7 +86,7 @@
       try{ history.replaceState({}, '', '#'); }catch(_){}
     });
   });
-  
+
   /* FORM – status */
   const form = document.getElementById('briefing-form');
   const statusEl = document.getElementById('form-status');
