@@ -132,6 +132,8 @@ a:hover, a:focus {
   display: flex; gap: var(--logo-gap); width: max-content;
   animation: marquee var(--marquee-duration) linear infinite;
 }
+#clientes .logo-marquee__track { gap: 0; }
+#clientes .brands-carousel-img { display: block; height: auto; }
 .logo-list { display: flex; gap: var(--logo-gap); list-style: none; }
 .logo-item { display: flex; align-items: center; }
 .logo-img-brand { height: auto; object-fit: contain; }
