@@ -130,13 +130,14 @@ a:hover, a:focus {
 .logo-marquee__track {
   display: flex;
   gap: 0;
-  width: max-content;
+  width: 200%;
   animation: marquee var(--marquee-duration) linear infinite;
 }
 .logo-list {
   display: flex;
   gap: 0;
   list-style: none;
+  width: 100%;
 }
 .logo-item {
   display: flex;
