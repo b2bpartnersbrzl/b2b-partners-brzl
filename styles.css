@@ -133,7 +133,7 @@ a:hover, a:focus {
   animation: marquee var(--marquee-duration) linear infinite;
 }
 #clientes .logo-marquee__track { gap: 0; }
-#clientes .brands-carousel-img { display: block; height: auto; }
+#clientes .brands-carousel-img { display: block; height: 80px; }
 .logo-list { display: flex; gap: var(--logo-gap); list-style: none; }
 .logo-item { display: flex; align-items: center; }
 .logo-img-brand { height: auto; object-fit: contain; }
