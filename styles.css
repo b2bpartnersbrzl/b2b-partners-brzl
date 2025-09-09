@@ -780,16 +780,3 @@ isso força a sobreposição dos elementos */
 #hero {
     margin-top: -1px !important; /* Sobrepõe 1px no elemento anterior */
 }
-/* Move o texto do hero para baixo (padding no conteúdo) */
-#hero .hero-content {
-    padding-top: 80px;  /* Ajuste este valor para subir/descer o texto */
-    padding-bottom: 80px; /* Mantém proporção */
-}
-
-/* Para mobile - ajuste mais fino */
-@media (max-width: 768px) {
-    #hero .hero-content {
-        padding-top: 60px;  /* Valor para mobile */
-        padding-bottom: 60px;
-    }
-}
