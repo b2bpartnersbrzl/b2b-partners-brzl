@@ -780,3 +780,20 @@ isso força a sobreposição dos elementos */
 #hero {
     margin-top: -1px !important; /* Sobrepõe 1px no elemento anterior */
 }
+/* Centraliza verticalmente o conteúdo do hero */
+#hero .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 60vh; /* Ajuste este valor conforme necessário */
+}
+
+/* Ajusta o espaçamento para ficar harmonioso */
+#hero .hero-title {
+    margin-bottom: 1.5rem;
+}
+
+/* Garante que o link fique alinhado */
+#hero .hero-content > p {
+    margin: 0;
+}
