@@ -395,12 +395,14 @@ section[id] {
   .services-grid {
     grid-template-columns: repeat(4, 1fr);
   }
-  #hero {
+   #hero {
     /* Estende a seção até as laterais da tela, apenas em desktop */
     width: 100vw;
+    text-align: left;
+    align-items: flex-start;
   }
   #hero .hero-title {
-    font-size: 4em;
+    font-size: 3em;
     font-weight: 700;
   }
   #hero .hero-subtitle {
