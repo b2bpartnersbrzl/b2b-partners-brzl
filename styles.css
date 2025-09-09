@@ -824,18 +824,11 @@ isso força a sobreposição dos elementos */
     line-height: 1.5; /* Pode ser um valor diferente para mobile */
   }
 }
-/* Adiciona borda superior e inferior a todas as seções */
-section {
+
+/* Adiciona borda superior e inferior aos blocos de conteúdo */
+.content-block {
   border-top: 1px solid var(--block-border);
   border-bottom: 1px solid var(--block-border);
   padding: var(--section-gap) 0;
   margin: var(--section-gap) 0;
-}
-
-/* Estilo do hero sem bordas laterais */
-.hero {
-  background: var(--surface);
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 28px;
 }
