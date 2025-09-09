@@ -296,15 +296,16 @@ section[id] {
   margin: 0;
   border: none;
   padding: 28px;
-  display: flex; /* Adicionado para ativar o flexbox */
-  align-items: center; /* Adicionado para centralizar verticalmente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 #hero .hero-text {
   font-size: 24px;
   font-family: Arial, sans-serif;
 }
 .hero-content {
-  width: 100%; /* Adicionado para ocupar a largura total */
+  width: 100%;
 }
 .mbr {
   display: none;
