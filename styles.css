@@ -792,3 +792,9 @@ isso força a sobreposição dos elementos */
         top: 20px; /* Ajuste para mobile */
     }
 }
+/* Move o texto para a direita apenas no desktop */
+@media (min-width: 1025px) {
+    #hero .hero-content {
+        left: 50px; /* Ajuste este valor para direita/esquerda */
+    }
+}
