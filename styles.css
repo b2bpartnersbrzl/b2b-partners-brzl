@@ -803,3 +803,14 @@ isso força a sobreposição dos elementos */
     display: none; /* Remove quebras de linha no mobile se necessário */
   }
 }
+/* Mantém as quebras de linha do texto do hero */
+#hero .hero-title {
+  white-space: pre-line; /* Isso respeita as quebras de linha */
+}
+
+/* Remove o ajuste anterior que escondia as quebras */
+@media (max-width: 768px) {
+  #hero .hero-title br {
+    display: inline; /* Mantém as quebras de linha visíveis */
+  }
+}
