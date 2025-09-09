@@ -800,3 +800,14 @@ isso força a sobreposição dos elementos */
         left: 50px; /* Ajuste este valor para direita/esquerda */
     }
 }
+/* Ajuste do texto do hero principal para mobile */
+@media (max-width: 768px) {
+  #hero .hero-title {
+    font-size: 1.5em; /* Ajuste este valor conforme necessário */
+    line-height: 1.3;
+  }
+  
+  #hero .hero-title br {
+    display: none; /* Remove quebras de linha no mobile se necessário */
+  }
+}
