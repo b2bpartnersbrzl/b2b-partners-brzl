@@ -278,11 +278,9 @@ section[id] {
 .hero {
   background: var(--surface);
   border: 1px solid var(--block-border);
-  border-radius: var(--radius);
   max-width: 1200px;
   margin: var(--section-gap) auto;
   padding: 28px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 .hero-title {
   font-weight: 700;
