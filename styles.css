@@ -825,3 +825,32 @@ isso força a sobreposição dos elementos */
     line-height: 1.5; /* Pode ser um valor diferente para mobile */
   }
 }
+
+/* Estilo para seções com a classe .hero */
+.hero {
+  background: var(--surface);
+  border: 1px solid var(--block-border);
+  max-width: 1200px;
+  margin: var(--section-gap) auto;
+  padding: 28px;
+}
+
+/* Estilo para seções específicas sem bordas laterais */
+#quem-somos, #processo, #seu-projeto, #servicos-detalhes {
+    max-width: 1200px;
+    margin: var(--section-gap) auto;
+    padding: 28px;
+    background: var(--surface);
+    border-top: 1px solid var(--block-border);
+    border-bottom: 1px solid var(--block-border);
+}
+
+/* Remove a borda lateral das seções de serviços quando a tela é grande */
+@media (min-width: 900px) {
+  #servicos-cards.hero, #servicos-detalhes.hero {
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
