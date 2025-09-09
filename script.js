@@ -130,4 +130,84 @@
       }
     });
   }
+
+  const OVERLAY_ID = 'desktop-advice';
+  const KEY_TS = 'b2b_desktop_notice_ack_ts';
+  const TTL_DAYS = 30;
+  const overlay = document.getElementById(OVERLAY_ID);
+  const shareInput = document.getElementById('desktop-share-url');
+
+  function daysToMs(days){ return days * 24 * 60 * 60 * 1000; }
+
+  function isAckValid(){
+    try{
+      const ts = parseInt(localStorage.getItem(KEY_TS) || '0', 10);
+      return ts && (Date.now() - ts < daysToMs(TTL_DAYS));
+    } catch(e) {
+      return false;
+    }
+  }
+
+  function setAck(){
+    try{
+      localStorage.setItem(KEY_TS, String(Date.now()));
+    } catch(e) {}
+  }
+
+  function openOverlay(){
+    if(!overlay) return;
+    if(shareInput) shareInput.value = window.location.href;
+    overlay.hidden = false;
+    overlay.classList.add('show');
+    document.body.classList.add('overlay-open');
+  }
+
+  function closeOverlay(setAckFlag){
+    if(!overlay) return;
+    if(setAckFlag) setAck();
+    overlay.classList.remove('show');
+    overlay.hidden = true;
+    document.body.classList.remove('overlay-open');
+  }
+
+  function maybeShowOverlay(){
+    const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
+    if(!isDesktop) return;
+    if(isAckValid()) return;
+    openOverlay();
+  }
+
+  document.getElementById('desktop-continue')?.addEventListener('click', ()=> closeOverlay(true));
+  document.getElementById('desktop-open-mobile')?.addEventListener('click', ()=>{
+    const hint = document.getElementById('desktop-hint');
+    const input = document.getElementById('desktop-share-url');
+    hint.hidden = !hint.hidden;
+    if(!hint.hidden && input) {
+      input.value = window.location.href;
+      input.select();
+    }
+  });
+  document.getElementById('desktop-copy-url')?.addEventListener('click', async ()=>{
+    const input = document.getElementById('desktop-share-url');
+    try{
+      await navigator.clipboard.writeText(input.value);
+      const btn = document.getElementById('desktop-copy-url');
+      const originalText = btn.textContent;
+      btn.textContent = 'Copiado!';
+      setTimeout(()=> btn.textContent = originalText, 1200);
+    } catch(e) {}
+  });
+  document.getElementById('desktop-advice')?.addEventListener('click', e => {
+    if(e.target.hasAttribute('data-close') || e.target.classList.contains('overlay__close')) {
+      closeOverlay(false);
+    }
+  });
+
+  window.addEventListener('load', maybeShowOverlay);
+  window.addEventListener('resize', ()=>{
+    const overlay = document.getElementById('desktop-advice');
+    if(!overlay || overlay.hidden) return;
+    const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
+    if(!isDesktop) closeOverlay(false);
+  });
 })();

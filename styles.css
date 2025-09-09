@@ -604,7 +604,8 @@ body {
   }
 }
 @media (max-width: 899.98px) {
-  #servicos.hero {
+  #servicos-cards.hero,
+  #servicos-detalhes.hero {
     width: 100vw;
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
@@ -616,27 +617,30 @@ body {
     box-shadow: none;
     padding: 24px 0;
   }
-  #servicos .hero-content {
+  #servicos-cards .hero-content,
+  #servicos-detalhes .hero-content {
     position: relative;
     padding: 0 24px;
   }
-  .services-grid {
+  #servicos-cards .services-grid {
     width: 100vw;
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
     padding: 2px 12px 32px;
     overflow-x: auto;
   }
-  #servicos .services-hint {
+  #servicos-cards .services-hint,
+  #servicos-detalhes .services-hint {
     display: none;
   }
 }
 @media (min-width: 900px) {
-  #servicos.hero {
+  #servicos-cards.hero,
+  #servicos-detalhes.hero {
     padding-top: 32px;
     margin-bottom: 32px;
   }
-  #servicos .services-grid {
+  #servicos-cards .services-grid {
     margin-top: 16px;
   }
 }
@@ -644,7 +648,7 @@ body {
   #artistas {
     margin-top: -20px;
   }
-  #servicos .services-grid {
+  #servicos-cards .services-grid {
     padding: 2px 12px 32px;
   }
 }
@@ -772,7 +776,7 @@ body {
     padding: 0 !important;
 }
 
-/* Opcional: Se ainda houver um espaço minúsculo, 
+/* Opcional: Se ainda houver um espaço minúsculo,
 isso força a sobreposição dos elementos */
 #clientes {
     margin-bottom: -1px; /* Puxa o elemento heroi para cixo 1px */
