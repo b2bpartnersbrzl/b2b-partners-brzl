@@ -301,7 +301,7 @@ section[id] {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 40vh;
+  min-height: 25vh;
   text-align: center;
 }
 #hero .hero-text {
@@ -314,10 +314,18 @@ section[id] {
 .mbr {
   display: none;
 }
+.hero-line-break {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .hero-line-break {
+    display: block;
+  }
+}
 .seg-italic {
   font-style: italic;
-}
-.services-grid {
+}.services-grid {
   display: flex;
   gap: 16px;
   margin-top: 4px;
