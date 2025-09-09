@@ -102,7 +102,7 @@ a:focus {
   transition: color var(--transition) ease;
 }
 .top-menu a:hover,
-.top-menu a:focus-visible {
+a:focus-visible {
   color: var(--accent);
 }
 .menu-toggle {
@@ -289,22 +289,9 @@ section[id] {
   line-height: 1.25;
 }
 #hero {
-  /* Alinhamento de texto */
-  text-align: left;
-  
-  /* Remove as bordas arredondadas e a margem */
-  border-radius: 0;
-  border: none;
-  margin: 0;
-
-  /* Estende a seção até as laterais da tela */
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-
   background: #669999;
   color: #fff;
+  text-align: left;
 }
 #hero .hero-text {
   font-size: 24px;
@@ -393,6 +380,23 @@ section[id] {
 @media (min-width: 1200px) {
   .services-grid {
     grid-template-columns: repeat(4, 1fr);
+  }
+  #hero {
+    /* Estende a seção até as laterais da tela, apenas em desktop */
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    border: none;
+    border-radius: 0;
+  }
+  #hero .hero-title {
+    font-size: 4em;
+    font-weight: 700;
+  }
+  #hero .hero-subtitle {
+    font-size: 1.8em;
   }
 }
 .form-grid {
@@ -558,10 +562,6 @@ body {
   }
   #hero .hero-content {
     text-align: left;
-  }
-  #hero .hero-text {
-    font-size: 22px;
-    white-space: normal;
   }
   .mbr {
     display: inline;
