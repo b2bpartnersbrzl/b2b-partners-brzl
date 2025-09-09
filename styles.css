@@ -744,3 +744,39 @@ body {
 .consent-label input[type='checkbox'] {
   width: auto;
 }
+/* Remove a borda inferior do cabeçalho para fundi-lo com o carrossel */
+.main-header {
+    border-bottom: none !important;
+}
+
+/* Remove a borda superior do carrossel de clientes */
+.clients-fixed {
+    border-top: none !important;
+}
+
+/* Ajusta o herói principal para colar com o carrossel */
+#hero {
+    margin: 0 auto !important; /* Remove qualquer margem que crie espaço */
+    border-top: none !important; /* Remove borda superior se houver */
+    border-radius: 0 !important; /* Remove cantos arredondados */
+    box-shadow: none !important; /* Remove qualquer sombra que dê profundidade */
+}
+
+/* Se o carrossel tiver uma borda inferior, remova também */
+.clients-fixed {
+    border-bottom: none !important;
+}
+
+/* Garante que a imagem do carrossel não tenha margens internas */
+.logo-marquee {
+    padding: 0 !important;
+}
+
+/* Opcional: Se ainda houver um espaço minúsculo, 
+isso força a sobreposição dos elementos */
+#clientes {
+    margin-bottom: -1px; /* Puxa o elemento heroi para cixo 1px */
+}
+#hero {
+    margin-top: -1px !important; /* Sobrepõe 1px no elemento anterior */
+}
