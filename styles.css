@@ -281,7 +281,7 @@ section[id] {
   border-radius: var(--radius);
   max-width: 1200px;
   margin: var(--section-gap) auto;
-  padding: 20px;
+  padding: 17px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 .hero-title {
