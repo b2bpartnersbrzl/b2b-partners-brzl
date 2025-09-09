@@ -814,3 +814,14 @@ isso força a sobreposição dos elementos */
     display: inline; /* Mantém as quebras de linha visíveis */
   }
 }
+/* Aumenta o espaçamento entre as linhas do hero */
+#hero .hero-title {
+  line-height: 1.6; /* Aumenta o respiro entre as linhas */
+}
+
+/* Ajuste para mobile se necessário */
+@media (max-width: 768px) {
+  #hero .hero-title {
+    line-height: 1.5; /* Pode ser um valor diferente para mobile */
+  }
+}
