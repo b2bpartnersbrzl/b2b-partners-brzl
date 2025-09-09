@@ -783,7 +783,7 @@ isso força a sobreposição dos elementos */
 /* Move APENAS o texto para baixo sem alterar o container */
 #hero .hero-content {
     position: relative;
-    top: 25px; /* Ajuste este valor para subir/descer o texto */
+    top: 20px; /* Ajuste este valor para subir/descer o texto */
 }
 
 /* Para mobile */
