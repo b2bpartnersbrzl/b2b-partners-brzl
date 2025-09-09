@@ -277,9 +277,8 @@ section[id] {
 }
 .hero {
   background: var(--surface);
-  border: 1px solid var(--block-border);
   max-width: 1200px;
-  margin: var(--section-gap) auto;
+  margin: 0 auto;
   padding: 28px;
 }
 .hero-title {
@@ -824,4 +823,19 @@ isso força a sobreposição dos elementos */
   #hero .hero-title {
     line-height: 1.5; /* Pode ser um valor diferente para mobile */
   }
+}
+/* Adiciona borda superior e inferior a todas as seções */
+section {
+  border-top: 1px solid var(--block-border);
+  border-bottom: 1px solid var(--block-border);
+  padding: var(--section-gap) 0;
+  margin: var(--section-gap) 0;
+}
+
+/* Estilo do hero sem bordas laterais */
+.hero {
+  background: var(--surface);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px;
 }
