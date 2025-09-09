@@ -825,3 +825,19 @@ isso força a sobreposição dos elementos */
     line-height: 1.5; /* Pode ser um valor diferente para mobile */
   }
 }
+/* Faz o carrossel de marcas grudar no cabeçalho */
+.clients-fixed {
+    position: sticky;
+    top: var(--header-height); /* Gruda logo abaixo do cabeçalho */
+    z-index: 1000;
+}
+
+/* Remove qualquer margem que possa estar causando separação */
+#clientes {
+    margin: 0;
+}
+
+/* Garante que o hero principal comece imediatamente após o carrossel */
+#hero {
+    margin-top: 0 !important;
+}
