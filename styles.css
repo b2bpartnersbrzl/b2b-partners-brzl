@@ -289,16 +289,26 @@ section[id] {
   line-height: 1.25;
 }
 #hero {
+  /* Alinhamento de texto */
+  text-align: left;
+  
+  /* Remove as bordas arredondadas e a margem */
+  border-radius: 0;
+  border: none;
+  margin: 0;
+
+  /* Estende a seção até as laterais da tela */
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+
   background: #669999;
   color: #fff;
-  text-align: center;
 }
 #hero .hero-text {
   font-size: 24px;
   font-family: Arial, sans-serif;
-}
-#hero .seg-yellow {
-  color: var(--hero-yellow);
 }
 .mbr {
   display: none;
