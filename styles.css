@@ -26,15 +26,11 @@
   --arrow-pulse-scale: 1.25;
 }
 
-* { 
-  margin: 0; 
-  padding: 0; 
-  box-sizing: border-box; 
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: var(--header-height);
+  scroll-padding-top: calc(var(--header-height) + var(--section-gap));
 }
 
 .main-header .top-link {
@@ -46,7 +42,7 @@ body {
   color: var(--text);
   background: #fdfdfd;
   line-height: 1.5;
-  padding-top: 0; /* Removido o padding-top que causava o problema */
+  padding-top: var(--header-height);
 }
 
 a {
@@ -232,9 +228,6 @@ a:focus {
   border-top: 1px solid #669999;
   border-bottom: 1px solid var(--block-border);
   text-align: center;
-  position: relative; /* Garante que o carrossel role com o conteúdo */
-  top: auto;
-  z-index: auto;
 }
 
 .logo-marquee {
@@ -275,7 +268,7 @@ a:focus {
 .logo-md{ height:40px; }
 .logo-lg{ height:46px; }
 
-.clients-caption {
+clients-caption {
   background:#666;
   color:#fff;
   font-weight:700;
@@ -325,7 +318,7 @@ section[id]{
 
 #servicos { background:#fff; color:#666; border-color:#e5e5e5; }
 
-.services-grid {
+services-grid {
   display: flex;
   gap: 16px;
   margin-top:4px;
@@ -365,15 +358,15 @@ section[id]{
 .service-card--ux{ background:#f9fdfd; }
 .service-card--ux .card-title{ color: var(--accent); }
 
-.card-line {
+card-line {
   display: flex;
   align-items: center;
   gap: 8px;
   margin-bottom: 4px;
 }
 
-.services-grid::-webkit-scrollbar{ display:none; }
-.services-grid{ scrollbar-width:none; }
+services-grid::-webkit-scrollbar{ display:none; }
+services-grid{ scrollbar-width:none; }
 
 .services-hint {
   display: none;
