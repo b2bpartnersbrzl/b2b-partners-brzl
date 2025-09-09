@@ -292,6 +292,9 @@ section[id] {
   background: #669999;
   color: #fff;
   text-align: left;
+  border-radius: 0;
+  margin: 0;
+  border: none;
 }
 #hero .hero-text {
   font-size: 24px;
@@ -387,9 +390,6 @@ section[id] {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    margin: 0;
-    border: none;
-    border-radius: 0;
   }
   #hero .hero-title {
     font-size: 4em;
