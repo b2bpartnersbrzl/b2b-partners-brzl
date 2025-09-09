@@ -803,7 +803,7 @@ isso força a sobreposição dos elementos */
 /* Ajuste do texto do hero principal para mobile */
 @media (max-width: 768px) {
   #hero .hero-title {
-    font-size: 1.5em; /* Ajuste este valor conforme necessário */
+    font-size: 1.2em; /* Ajuste este valor conforme necessário */
     line-height: 1.3;
   }
   
