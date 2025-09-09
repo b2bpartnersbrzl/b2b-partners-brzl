@@ -318,11 +318,19 @@ section[id] {
   display: none;
 }
 
+#hero .hero-title,
+#hero .hero-content > p {
+  margin: 0;
+}
+
+#hero .hero-title {
+  margin-bottom: 16px;
+}
+
 @media (min-width: 768px) {
   .hero-line-break {
     display: block;
-  }
-}
+  }}
 .seg-italic {
   font-style: italic;
 }.services-grid {
