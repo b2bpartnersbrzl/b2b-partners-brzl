@@ -834,9 +834,3 @@ section[id] {
   margin-left: 0;
   margin-right: 0;
 }
-/* Correção do recuo em "Seu Projeto" */
-#seu-projeto .hero-content {
-  padding-left: 0;
-  padding-right: 0;
-}
-
