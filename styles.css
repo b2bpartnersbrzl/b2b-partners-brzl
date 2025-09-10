@@ -607,19 +607,6 @@ section[id] {
     font-size: 20px;
   }
 }
-@media (max-width: 899.98px) {
-  #servicos-cards.hero,
-  #servicos-detalhes.hero {
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-    border-left: none;
-    border-right: none;
-    border-top: 1px solid var(--block-border);
-    border-bottom: 1px solid var(--block-border);
-    border-radius: 0;
-    box-shadow: none;
-    padding: 24px 0;
   }
   #servicos-cards .hero-content,
   #servicos-detalhes .hero-content {
