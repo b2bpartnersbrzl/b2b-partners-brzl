@@ -43,7 +43,8 @@ body {
   background: #fdfdfd;
   line-height: 1.5;
   padding-top: var(--header-height);
-  padding-bottom: var(--footer-height);
+  /* extra space below content so it isn't hidden behind the fixed footer */
+  padding-bottom: calc(var(--footer-height) + 16px);
   overflow-x: hidden;
 }
 a {
