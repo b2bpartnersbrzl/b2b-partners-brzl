@@ -758,3 +758,53 @@ section[id] {
   margin: 0 auto;
   padding: 0 28px;
 }
+/* =========================
+   Limite de leitura + fluid hero
+   ========================= */
+
+/* 1) Variante para seções textuais que devem ser full-bleed (sem “cartão”) */
+.hero--fluid {
+  /* Remove o visual de cartão da .hero */
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+
+  /* Ocupa toda a largura da viewport como as faixas full-bleed */
+  max-width: none !important;
+  width: 100vw !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+  padding: 0 !important; /* retira acolchoamento do cartão */
+}
+
+/* Um respiro mínimo nas laterais em telas pequenas */
+.hero--fluid .hero-content {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+/* 2) Contêiner de leitura: limita largura do TEXTO no desktop,
+      sem interferir no mobile */
+.reading-container {
+  /* Mobile-first: não limita. Fica edge-to-edge com o padding acima. */
+}
+
+/* Em ≥900px (seu breakpoint atual), aplicamos a medida de leitura */
+@media (min-width: 900px) {
+  .reading-container {
+    max-width: 72ch;           /* largura confortável para leitura */
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Higiene de tipografia para trechos longos/URLs */
+.reading-container {
+  overflow-wrap: anywhere;     /* previne estouro por palavras longas */
+  hyphens: auto;
+}
+
+/* Espaçamento vertical básico entre blocos textuais */
+.reading-container > * + * {
+  margin-top: 0.75em;
+}
