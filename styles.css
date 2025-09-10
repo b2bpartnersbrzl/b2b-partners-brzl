@@ -791,8 +791,8 @@ section[id] {
 
 /* Um respiro mínimo nas laterais em telas pequenas */
 .hero--fluid .hero-content {
-  padding-left: 12px;
-  padding-right: 12px;
+  padding-left: 17px;
+  padding-right: 17px;
 }
 
 /* 2) Contêiner de leitura: limita largura do TEXTO no desktop,
