@@ -808,3 +808,7 @@ section[id] {
 .reading-container > * + * {
   margin-top: 0.75em;
 }
+#servicos-detalhes .reading-container > * {
+  margin-left: 0;
+  margin-right: 0;
+}
