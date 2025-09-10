@@ -436,6 +436,9 @@ section[id] {
 .form-field--full {
   grid-column: 1 / -1;
 }
+.form > .form-field.form-field--full {
+  margin-bottom: 12px;
+}
 .form label {
   font-weight: 600;
   font-size: 14px;
@@ -464,6 +467,12 @@ section[id] {
   color: #8a1f11;
   background: #fdecea;
   border-color: #f5c2c7;
+}
+.form-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
 }
 .btn-primary {
   background: #669999;
