@@ -43,6 +43,7 @@ body {
   background: #fdfdfd;
   line-height: 1.5;
   padding-top: var(--header-height);
+  padding-bottom: var(--footer-height);
   overflow-x: hidden;
 }
 a {
