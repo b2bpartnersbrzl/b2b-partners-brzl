@@ -649,13 +649,17 @@ section[id] {
   }
 }
 @media (min-width: 900px) {
-  #servicos-cards.hero,
-  #servicos-detalhes.hero {
+  #servicos-cards {
+    max-width: none;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    box-shadow: none;
     padding-top: 32px;
-    margin-bottom: 32px;
-  }
-  #servicos-cards .services-grid {
-    margin-top: 16px;
+    padding-bottom: 32px;
   }
 }
 .service-separator {
