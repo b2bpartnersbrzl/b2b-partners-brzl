@@ -43,6 +43,7 @@ body {
   background: #fdfdfd;
   line-height: 1.5;
   padding-top: var(--header-height);
+  overflow-x: hidden;
 }
 a {
   color: var(--accent);
@@ -67,6 +68,7 @@ a:focus {
   justify-content: space-between;
   padding: 8px 12px 8px 24px;
   z-index: 1200;
+  border-bottom: none !important;
 }
 .logo-area {
   display: flex;
@@ -207,10 +209,13 @@ a:focus-visible {
   border-top: 1px solid #669999;
   border-bottom: 1px solid var(--block-border);
   text-align: center;
+  border-top: none !important;
+  border-bottom: none !important;
 }
 .logo-marquee {
   overflow: hidden;
   padding: var(--marquee-pad-top) 0 var(--marquee-pad-bot);
+  padding: 0 !important;
 }
 #clientes .logo-marquee {
   padding: 0;
@@ -290,7 +295,7 @@ section[id] {
   background: #669999;
   color: #fff;
   border-radius: 0;
-   margin: 0 auto;
+  margin: 0 auto !important;
   border: none;
   box-shadow: none;
   max-width: none;
@@ -302,6 +307,7 @@ section[id] {
   align-items: center;
   min-height: 25vh;
   text-align: center;
+  margin-top: -1px !important;
 }
 #hero .hero-text {
   font-size: 24px;
@@ -313,18 +319,17 @@ section[id] {
 .hero-line-break {
   display: none;
 }
-
 #hero .hero-title,
 #hero .hero-content > p {
   margin: 0;
 }
-
 #hero .hero-title {
   margin-bottom: 16px;
 }
 .seg-italic {
   font-style: italic;
-}.services-grid {
+}
+.services-grid {
   display: flex;
   gap: 16px;
   margin-top: 4px;
@@ -402,8 +407,7 @@ section[id] {
   .services-grid {
     grid-template-columns: repeat(4, 1fr);
   }
-   #hero {
-    /* Estende a seção até as laterais da tela, apenas em desktop */
+  #hero {
     width: 100vw;
     text-align: left;
     align-items: flex-start;
@@ -513,10 +517,6 @@ section[id] {
 .separator-dots {
   display: none !important;
 }
-html,
-body {
-  overflow-x: hidden;
-}
 #artistas {
   width: 100vw;
   margin-left: calc(50% - 50vw);
@@ -587,41 +587,24 @@ body {
     grid-template-columns: 1fr;
     gap: 10px;
   }
+  #hero .hero-title {
+    font-size: 1.2em;
+    line-height: 1.3;
+    white-space: pre-line;
+  }
+  #hero .hero-title br {
+    display: inline;
+  }
+  .services-grid {
+    padding: 2px 12px 32px;
+  }
+  #artistas {
+    margin-top: -20px;
+  }
 }
 @media (max-width: 520px) {
   #hero .hero-text {
     font-size: 20px;
-  }
-}
-@media (max-width: 899.98px) {
-  #servicos-cards.hero,
-  #servicos-detalhes.hero {
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-    border-left: none;
-    border-right: none;
-    border-top: 1px solid var(--block-border);
-    border-bottom: 1px solid var(--block-border);
-    border-radius: 0;
-    box-shadow: none;
-    padding: 24px 0;
-  }
-  #servicos-cards .hero-content,
-  #servicos-detalhes .hero-content {
-    position: relative;
-    padding: 0 24px;
-  }
-  #servicos-cards .services-grid {
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-    padding: 2px 12px 32px;
-    overflow-x: auto;
-  }
-  #servicos-cards .services-hint,
-  #servicos-detalhes .services-hint {
-    display: none;
   }
 }
 @media (min-width: 900px) {
@@ -634,12 +617,9 @@ body {
     margin-top: 16px;
   }
 }
-@media (max-width: 899px) {
-  #artistas {
-    margin-top: -20px;
-  }
-  #servicos-cards .services-grid {
-    padding: 2px 12px 32px;
+@media (min-width: 1025px) {
+  #hero .hero-content {
+    left: 50px;
   }
 }
 .service-separator {
@@ -673,6 +653,7 @@ body {
 }
 .hero-title {
   margin-bottom: 12px;
+  line-height: 1.6;
 }
 .hero-subtitle {
   margin-bottom: 24px;
@@ -680,6 +661,41 @@ body {
 @media (max-width: 899.98px) {
   .hero p {
     margin-bottom: 12px;
+  }
+  #servicos-cards.hero,
+  #servicos-detalhes.hero {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid var(--block-border);
+    border-bottom: 1px solid var(--block-border);
+    border-radius: 0;
+    box-shadow: none;
+    padding: 24px 0;
+  }
+  #servicos-cards .hero-content,
+  #servicos-detalhes .hero-content {
+    position: relative;
+    padding: 0 24px;
+  }
+  #servicos-cards .services-hint,
+  #servicos-detalhes .services-hint {
+    display: none;
+  }
+  #servicos-cards .services-grid {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+  }
+  #detalhes-servicos ul {
+    padding-left: 12px;
+  }
+}
+@media (max-width: 899px) {
+  #artistas {
+    margin-top: -20px;
   }
 }
 #detalhes-servicos ul {
@@ -694,11 +710,6 @@ body {
   line-height: 0;
   vertical-align: middle;
   margin-right: 8px;
-}
-@media (max-width: 899.98px) {
-  #detalhes-servicos ul {
-    padding-left: 12px;
-  }
 }
 .scroller-hint-container {
   display: none;
@@ -738,119 +749,31 @@ body {
 .consent-label input[type='checkbox'] {
   width: auto;
 }
-/* Remove a borda inferior do cabeçalho para fundi-lo com o carrossel */
-.main-header {
-    border-bottom: none !important;
-}
-
-/* Remove a borda superior do carrossel de clientes */
-.clients-fixed {
-    border-top: none !important;
-}
-
-/* Ajusta o herói principal para colar com o carrossel */
-#hero {
-    margin: 0 auto !important; /* Remove qualquer margem que crie espaço */
-    border-top: none !important; /* Remove borda superior se houver */
-    border-radius: 0 !important; /* Remove cantos arredondados */
-    box-shadow: none !important; /* Remove qualquer sombra que dê profundidade */
-}
-
-/* Se o carrossel tiver uma borda inferior, remova também */
-.clients-fixed {
-    border-bottom: none !important;
-}
-
-/* Garante que a imagem do carrossel não tenha margens internas */
-.logo-marquee {
-    padding: 0 !important;
-}
-
-/* Opcional: Se ainda houver um espaço minúsculo,
-isso força a sobreposição dos elementos */
 #clientes {
-    margin-bottom: -1px; /* Puxa o elemento heroi para cixo 1px */
+  margin-bottom: -1px;
 }
-#hero {
-    margin-top: -1px !important; /* Sobrepõe 1px no elemento anterior */
-}
-/* Move APENAS o texto para baixo sem alterar o container */
 #hero .hero-content {
-    position: relative;
-    top: 15px; /* Ajuste este valor para subir/descer o texto */
+  position: relative;
+  top: 15px;
 }
-
-/* Para mobile */
-@media (max-width: 768px) {
-    #hero .hero-content {
-        top: 20px; /* Ajuste para mobile */
-    }
-}
-/* Move o texto para a direita apenas no desktop */
-@media (min-width: 1025px) {
-    #hero .hero-content {
-        left: 50px; /* Ajuste este valor para direita/esquerda */
-    }
-}
-/* Ajuste do texto do hero principal para mobile */
-@media (max-width: 768px) {
-  #hero .hero-title {
-    font-size: 1.2em; /* Ajuste este valor conforme necessário */
-    line-height: 1.3;
-  }
-  
-  #hero .hero-title br {
-    display: none; /* Remove quebras de linha no mobile se necessário */
-  }
-}
-/* Mantém as quebras de linha do texto do hero */
-#hero .hero-title {
-  white-space: pre-line; /* Isso respeita as quebras de linha */
-}
-
-/* Remove o ajuste anterior que escondia as quebras */
-@media (max-width: 768px) {
-  #hero .hero-title br {
-    display: inline; /* Mantém as quebras de linha visíveis */
-  }
-}
-/* Aumenta o espaçamento entre as linhas do hero */
-#hero .hero-title {
-  line-height: 1.6; /* Aumenta o respiro entre as linhas */
-}
-
-/* Ajuste para mobile se necessário */
-@media (max-width: 768px) {
-  #hero .hero-title {
-    line-height: 1.5; /* Pode ser um valor diferente para mobile */
-  }
-}
-
-/* Estilo para seções com a classe .hero */
-.hero {
-  background: var(--surface);
-  border: 1px solid var(--block-border);
+#quem-somos, #processo, #seu-projeto, #servicos-detalhes {
   max-width: 1200px;
   margin: var(--section-gap) auto;
   padding: 28px;
+  background: var(--surface);
+  border-top: 1px solid var(--block-border);
+  border-bottom: 1px solid var(--block-border);
 }
-
-/* Estilo para seções específicas sem bordas laterais */
-#quem-somos, #processo, #seu-projeto, #servicos-detalhes {
-    max-width: 1200px;
-    margin: var(--section-gap) auto;
-    padding: 28px;
-    background: var(--surface);
-    border-top: 1px solid var(--block-border);
-    border-bottom: 1px solid var(--block-border);
-}
-
-/* Remove a borda lateral das seções de serviços quando a tela é grande */
 @media (min-width: 900px) {
-  #servicos-cards.hero, #servicos-detalhes.hero {
+  #servicos-cards.hero, #servicos-detalhes.hero, #quem-somos, #processo, #seu-projeto {
     border-left: none;
     border-right: none;
     border-radius: 0;
     box-shadow: none;
+  }
+}
+@media (max-width: 768px) {
+  #hero .hero-content {
+    top: 20px;
   }
 }
