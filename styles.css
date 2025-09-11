@@ -535,9 +535,10 @@ section[id] {
   display: none !important;
 }
 #artistas {
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
+  max-width: 960px;
+  margin: 0 auto;
+  padding-left: 12px;
+  padding-right: 12px;
   background: #666;
   border-top: 1px solid #669999;
   border-bottom: 1px solid var(--block-border);
@@ -762,14 +763,10 @@ section[id] {
 }
 /* Garante que o conteúdo dessas seções esteja alinhado com o container principal */
 #servicos-detalhes .hero-content, #quem-somos .hero-content, #processo .hero-content, #seu-projeto .hero-content {
-  max-width: 1200px;
+  max-width: 960px;
   margin: 0 auto;
   padding-left: 12px;
   padding-right: 12px;
-}
-
-#seu-projeto .hero-content {
-  max-width: 960px;
 }
 
 /* Remove horizontal padding from "servicos-detalhes" so its hero content aligns with the main container */
