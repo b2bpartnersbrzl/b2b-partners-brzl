@@ -617,9 +617,7 @@ section[id] {
   #hero .hero-text {
     font-size: 20px;
   }
-}
-  }
-  #servicos-cards .hero-content,
+#servicos-cards .hero-content,
   #servicos-detalhes .hero-content {
     position: relative;
     padding: 0;
