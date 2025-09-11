@@ -560,16 +560,17 @@ section[id] {
 #artistas .logo-item {
   width: var(--artist-item-size-mobile);
   aspect-ratio: 1 / 1;
+}
 #artistas .logo-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
 }
 @media (min-width: 768px) {
   #artistas .logo-item {
     width: var(--artist-item-size-desktop);
   }
+}
 .clients-caption.artistas-caption {
   width: 100vw;
   margin-left: calc(50% - 50vw);
@@ -580,10 +581,6 @@ section[id] {
   font-size: 12px;
   line-height: var(--clients-caption-h);
   margin: 0;
-}
-
-#artistas .logo-marquee + .clients-caption {
-  margin-top: 0;
 }
 @keyframes marquee {
   from {
@@ -836,10 +833,6 @@ section[id] {
 #servicos-detalhes .reading-container > * {
   margin-left: 0;
   margin-right: 0;
-}
-#servicos-detalhes .reading-container > #artistas {
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
 }
 #servicos-detalhes .reading-container > #artistas {
   margin-left: calc(50% - 50vw);
