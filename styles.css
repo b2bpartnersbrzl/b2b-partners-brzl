@@ -761,7 +761,7 @@ section[id] {
   box-shadow: none;
 }
 //* Garante que o conteúdo dessas seções esteja alinhado com o container principal */
-#servicos-detalhes .hero-content, #quem-somos .hero-content, #processo .hero-content, #seu-projeto .hero-content {
+#servicos-cards .hero-content, #servicos-detalhes .hero-content, #quem-somos .hero-content, #processo .hero-content, #seu-projeto .hero-content {
   max-width: 1200px;
   margin: 0 auto;
   padding-left: 12px;
@@ -769,6 +769,9 @@ section[id] {
 }
 
 @media (min-width: 900px) {
+  #servicos-cards .hero-content,
+  #quem-somos .hero-content,
+  #processo .hero-content,
   #seu-projeto .hero-content {
     padding-left: 120px;
     padding-right: 120px;
