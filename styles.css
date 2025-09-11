@@ -617,8 +617,7 @@ section[id] {
   #hero .hero-text {
     font-size: 20px;
   }
-#servicos-cards .hero-content,
-  #servicos-detalhes .hero-content {
+#servicos-cards .hero-content {
     position: relative;
     padding: 0;
   }
@@ -770,13 +769,20 @@ section[id] {
 }
 
 /* Remove horizontal padding from "servicos-detalhes" so its hero content aligns with the main container */
-#servicos-detalhes.hero.hero--fluid .hero-content {
+##servicos-detalhes.hero.hero--fluid .hero-content {
   padding-left: 0;
   padding-right: 0;
 }
+
+@media (max-width: 520px) {
+  #servicos-detalhes.hero.hero--fluid .hero-content {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
 /* =========================
    Limite de leitura + fluid hero
-   ========================= */
+   ========================= *
 
 /* 1) Variante para seções textuais que devem ser full-bleed (sem “cartão”) */
 .hero--fluid {
