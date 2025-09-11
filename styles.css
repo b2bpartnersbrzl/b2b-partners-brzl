@@ -834,10 +834,6 @@ section[id] {
   margin-left: 0;
   margin-right: 0;
 }
-#servicos-detalhes .reading-container > #artistas {
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-}
 /* Correção do alinhamento das descrições em "O que fazemos" */
 #detalhes-servicos .reading-container {
   padding-left: 0;
