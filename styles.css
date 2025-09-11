@@ -764,8 +764,8 @@ section[id] {
 #servicos-detalhes .hero-content, #quem-somos .hero-content, #processo .hero-content, #seu-projeto .hero-content {
   max-width: 1200px;
   margin: 0 auto;
-  padding-left: 12px;
-  padding-right: 12px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 @media (min-width: 900px) {
