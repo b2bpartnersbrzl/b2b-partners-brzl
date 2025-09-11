@@ -760,12 +760,16 @@ section[id] {
   border-radius: 0;
   box-shadow: none;
 }
-//* Garante que o conteúdo dessas seções esteja alinhado com o container principal */
+/* Garante que o conteúdo dessas seções esteja alinhado com o container principal */
 #servicos-detalhes .hero-content, #quem-somos .hero-content, #processo .hero-content, #seu-projeto .hero-content {
   max-width: 1200px;
   margin: 0 auto;
   padding-left: 12px;
   padding-right: 12px;
+}
+
+#seu-projeto .hero-content {
+  max-width: 960px;
 }
 
 /* Remove horizontal padding from "servicos-detalhes" so its hero content aligns with the main container */
