@@ -9,10 +9,10 @@
   --marquee-pad-top: 26px;
   --marquee-pad-bot: 26px;
   --clients-caption-h: 28px;
-  --font-base: 'Noto Sans', sans-serif;
+  --font-base: "Noto Sans", sans-serif;
   --text: #666666;
   --accent: #669999;
-  --hero-yellow: #FFE069;
+  --hero-yellow: #ffe069;
   --block-border: #e5e5e5;
   --surface: #ffffff;
   --radius: 12px;
@@ -145,7 +145,7 @@ a:focus-visible {
   }
 }
 .menu-toggle.menu-pulse .menu-toggle-inner::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
@@ -606,7 +606,7 @@ section[id] {
   }
   #hero .hero-title {
     font-size: 1.2em;
-    line-height: 1.0;
+    line-height: 1;
     white-space: pre-line;
   }
   #hero .hero-title br {
@@ -617,7 +617,7 @@ section[id] {
   #hero .hero-text {
     font-size: 20px;
   }
-#servicos-cards .hero-content {
+  #servicos-cards .hero-content {
     position: relative;
     padding: 0;
   }
@@ -661,7 +661,12 @@ section[id] {
   height: 1px;
   max-width: 800px;
   margin: 32px auto;
-  background-image: linear-gradient(to right, rgba(102, 153, 153, 0), #669999, rgba(102, 153, 153, 0));
+  background-image: linear-gradient(
+    to right,
+    rgba(102, 153, 153, 0),
+    #669999,
+    rgba(102, 153, 153, 0)
+  );
 }
 .service-subtitle {
   margin-top: 24px;
@@ -704,7 +709,7 @@ section[id] {
   padding-left: 20px;
 }
 #detalhes-servicos li::before {
-  content: '•';
+  content: "•";
   color: var(--accent);
   font-size: 1.5em;
   line-height: 0;
@@ -735,22 +740,33 @@ section[id] {
 }
 .scroller-hint-overlay--left {
   left: 0;
-  background: linear-gradient(to right, rgba(253, 253, 253, 1), rgba(253, 253, 253, 0));
+  background: linear-gradient(
+    to right,
+    rgba(253, 253, 253, 1),
+    rgba(253, 253, 253, 0)
+  );
 }
 .scroller-hint-overlay--right {
   right: 0;
-  background: linear-gradient(to left, rgba(253, 253, 253, 1), rgba(253, 253, 253, 0));
+  background: linear-gradient(
+    to left,
+    rgba(253, 253, 253, 1),
+    rgba(253, 253, 253, 0)
+  );
 }
 .consent-label {
   display: flex;
   align-items: center;
   gap: 8px;
 }
-.consent-label input[type='checkbox'] {
+.consent-label input[type="checkbox"] {
   width: auto;
 }
 /* Estilo para seções que devem ter largura total e sem bordas laterais */
-#servicos-detalhes, #quem-somos, #processo, #seu-projeto {
+#servicos-detalhes,
+#quem-somos,
+#processo,
+#seu-projeto {
   max-width: none;
   width: 100vw;
   margin-left: calc(50% - 50vw);
@@ -761,7 +777,12 @@ section[id] {
   box-shadow: none;
 }
 /* Garante que o conteúdo dessas seções esteja alinhado com o container principal */
-#servicos-cards .hero-content, #servicos-detalhes .hero-content, #quem-somos .hero-content, #processo .hero-content, #seu-projeto .hero-content {
+#servicos-cards .hero-content,
+#servicos-detalhes .hero-content,
+#detalhes-servicos .hero-content,
+#quem-somos .hero-content,
+#processo .hero-content,
+#seu-projeto .hero-content {
   max-width: 1200px;
   margin: 0 auto;
   padding-left: 12px;
@@ -770,11 +791,12 @@ section[id] {
 
 @media (min-width: 900px) {
   #servicos-cards .hero-content,
+  #detalhes-servicos .hero-content,
   #quem-somos .hero-content,
   #processo .hero-content,
   #seu-projeto .hero-content {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 120px;
+    padding-right: 120px;
   }
 }
 
@@ -824,7 +846,7 @@ section[id] {
 /* Em ≥900px (seu breakpoint atual), aplicamos a medida de leitura */
 @media (min-width: 900px) {
   .reading-container {
-    max-width: 72ch;           /* largura confortável para leitura */
+    max-width: 72ch; /* largura confortável para leitura */
     margin-left: auto;
     margin-right: auto;
   }
@@ -832,7 +854,7 @@ section[id] {
 
 /* Higiene de tipografia para trechos longos/URLs */
 .reading-container {
-  overflow-wrap: anywhere;     /* previne estouro por palavras longas */
+  overflow-wrap: anywhere; /* previne estouro por palavras longas */
   hyphens: auto;
 }
 
@@ -850,7 +872,7 @@ section[id] {
   padding-right: 0;
 }
 
-#detalhes-servicos .reading-container p {
+#detalhes-servicos .reading-container > * {
   margin-left: 0;
   margin-right: 0;
 }
