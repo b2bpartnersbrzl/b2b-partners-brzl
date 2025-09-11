@@ -637,7 +637,7 @@ section[id] {
 }
 @media (max-width: 899px) {
   #artistas {
-    margin-top: -20px;
+    margin-top: 16px;
   }
   #servicos-cards .services-grid {
     padding: 2px 12px 32px;
