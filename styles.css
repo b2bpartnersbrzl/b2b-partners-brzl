@@ -770,8 +770,8 @@ section[id] {
 
 @media (min-width: 900px) {
   #seu-projeto .hero-content {
-    padding-left: 80px;
-    padding-right: 80px;
+    padding-left: 120px;
+    padding-right: 120px;
   }
 }
 
