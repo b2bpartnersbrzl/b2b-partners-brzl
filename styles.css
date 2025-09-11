@@ -783,8 +783,8 @@ section[id] {
 
 @media (max-width: 520px) {
   #servicos-detalhes.hero.hero--fluid .hero-content {
-    padding-left: 120px;
-    padding-right: 120px;
+    padding-left: 12px;
+    padding-right: 12px;
   }
 }
 /* =========================
