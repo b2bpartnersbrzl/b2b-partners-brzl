@@ -545,12 +545,15 @@ section[id] {
 #artistas .logo-marquee {
   overflow: hidden;
   padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 #artistas .logo-marquee__track {
   display: flex;
   gap: 0;
   width: max-content;
   animation: marquee 26s linear infinite;
+  align-items: flex-start;
 }
 #artistas .logo-list {
   display: flex;
@@ -570,17 +573,15 @@ section[id] {
   #artistas .logo-item {
     width: var(--artist-item-size-desktop);
   }
-}
-.clients-caption.artistas-caption {
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  background: #666;
+}.clients-caption.artistas-caption {
+  width: 100%;
+  background: inherit;
   color: #fff;
   text-align: center;
   font-size: 12px;
   line-height: var(--clients-caption-h);
   margin: 0;
+  padding: 0;
 }
 @keyframes marquee {
   from {
