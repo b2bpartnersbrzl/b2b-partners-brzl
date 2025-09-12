@@ -897,8 +897,8 @@ section[id] {
     max-width: 1200px; /* Mesma largura máxima do formulário */
     margin-left: auto;
     margin-right: auto;
-    padding-left: 50px; /* Ajuste conforme necessário para alinhar com o formulário */
-    padding-right: 50px;
+    padding-left: 24px; /* Ajuste conforme necessário para alinhar com o formulário */
+    padding-right: 24px;
   }
 }
 /* ============================================
@@ -959,5 +959,34 @@ section[id] {
   #detalhes-servicos .reading-container,
   #processo .reading-container {
     max-width: none;
+  }
+}
+/* =========================
+   Correção de alinhamento visual
+   ========================= */
+
+/* Força alinhamento à esquerda nos títulos */
+#quem-somos .hero-title,
+#processo .hero-title {
+  text-align: left;
+  margin-left: 0;
+}
+
+/* Unifica largura e respiro lateral com "O que fazemos" e "Seu Projeto" */
+@media (min-width: 900px) {
+  #quem-somos .hero-content,
+  #processo .hero-content {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  /* Remove limite de leitura para harmonizar com demais seções */
+  #quem-somos .reading-container,
+  #processo .reading-container {
+    max-width: none;
+    width: 100%;
   }
 }
