@@ -922,3 +922,42 @@ section[id] {
     width: 100%;
   }
 }
+/* ============================================
+   CORREÇÃO DO RESPIRO LATERAL PARA DESKTOP
+   ============================================ */
+
+@media (min-width: 900px) {
+  /* Ajuste para Quem Somos */
+  #quem-somos .hero-content {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  
+  /* Ajuste para O que fazemos (detalhes) */
+  #servicos-detalhes .hero-content {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  
+  /* Ajuste para Como fazemos */
+  #processo .hero-content {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  
+  /* Remove a limitação de 72 caracteres para alinhar com o formulário */
+  #quem-somos .reading-container,
+  #detalhes-servicos .reading-container,
+  #processo .reading-container {
+    max-width: none;
+  }
+}
