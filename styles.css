@@ -876,3 +876,28 @@ section[id] {
   margin-left: 0;
   margin-right: 0;
 }
+/* ============================================
+   Alinhamento lateral igual ao "Seu Projeto" 
+   apenas para desktop (≥900px)
+   ============================================ */
+
+@media (min-width: 900px) {
+  /* Aplicar às seções textuais que devem ter o mesmo respiro do formulário */
+  #quem-somos .reading-container,
+  #detalhes-servicos .reading-container,
+  #processo .reading-container {
+    max-width: none; /* Remove a limitação de 72ch */
+    width: 100%; /* Ocupa toda a largura do container pai */
+  }
+
+  /* Garantir que o container pai tenha a mesma largura máxima do "Seu Projeto" */
+  #quem-somos .hero-content,
+  #detalhes-servicos .hero-content,
+  #processo .hero-content {
+    max-width: 1200px; /* Mesma largura máxima do formulário */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px; /* Ajuste conforme necessário para alinhar com o formulário */
+    padding-right: 24px;
+  }
+}
