@@ -795,8 +795,8 @@ section[id] {
   #quem-somos .hero-content,
   #processo .hero-content,
   #seu-projeto .hero-content {
-    padding-left: 80px;
-    padding-right: 80px;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 
