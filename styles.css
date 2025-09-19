@@ -78,7 +78,7 @@ a:focus {
   align-items: flex-start;
   flex: 1;
 }
-.logo-img {
+.main-header .logo-img {
   max-height: 80px;
   width: auto;
 }
