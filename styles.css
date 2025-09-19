@@ -78,8 +78,8 @@ a:focus {
   align-items: flex-start;
   flex: 1;
 }
-.main-header .logo-img {
-  max-height: 100px;
+.logo-img {
+  max-height: 50px;
   width: auto;
 }
 .logo-subline {
