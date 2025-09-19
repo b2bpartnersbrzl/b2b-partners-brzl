@@ -1,5 +1,5 @@
 :root {
-  --header-height: 96px;
+  --header-height: 120px;
   --footer-height: 42px;
   --section-gap: 24px;
   --anchor-offset-extra: 12px;
@@ -79,13 +79,13 @@ a:focus {
   flex: 1;
 }
 .logo-img {
-  max-height: 50px;
+  max-height: 72px;
   width: auto;
 }
 .logo-subline {
   font-size: 15px;
   color: #666;
-  margin-top: 6px;
+  margin-top: 8px;
   font-weight: 700;
   line-height: 1.4;
   letter-spacing: 0.02em;
