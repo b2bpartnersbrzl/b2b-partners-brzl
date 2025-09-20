@@ -42,7 +42,6 @@ body {
   color: var(--text);
   background: #fdfdfd;
   line-height: 1.5;
-  padding-top: var(--header-height);
   /* extra space below content so it isn't hidden behind the fixed footer */
   padding-bottom: calc(var(--footer-height) + 100px);
   overflow-x: hidden;
@@ -62,7 +61,6 @@ a:focus {
   top: 0;
   left: 0;
   right: 0;
-  height: var(--header-height);
   background: #fff;
   border-bottom: 1px solid var(--block-border);
   display: flex;
@@ -788,7 +786,6 @@ section[id] {
   padding-left: 12px;
   padding-right: 12px;
 }
-
 @media (min-width: 900px) {
   #servicos-cards .hero-content,
   #detalhes-servicos .hero-content,
@@ -799,13 +796,11 @@ section[id] {
     padding-right: 0px;
   }
 }
-
 /* Remove horizontal padding from "servicos-detalhes" so its hero content aligns with the main container */
 #servicos-detalhes.hero.hero--fluid .hero-content {
   padding-left: 0;
   padding-right: 0;
 }
-
 @media (max-width: 520px) {
   #servicos-detalhes.hero.hero--fluid .hero-content {
     padding-left: 12px;
@@ -814,15 +809,13 @@ section[id] {
 }
 /* =========================
    Limite de leitura + fluid hero
-   ========================= *
-
+   ========================= */
 /* 1) Variante para seções textuais que devem ser full-bleed (sem “cartão”) */
 .hero--fluid {
   /* Remove o visual de cartão da .hero */
   border: none !important;
   box-shadow: none !important;
   background: transparent !important;
-
   /* Ocupa toda a largura da viewport como as faixas full-bleed */
   max-width: none !important;
   width: 100vw !important;
@@ -830,19 +823,16 @@ section[id] {
   margin-right: calc(50% - 50vw) !important;
   padding: 0 !important; /* retira acolchoamento do cartão */
 }
-
 /* Um respiro mínimo nas laterais em telas pequenas */
 .hero--fluid .hero-content {
   padding-left: 17px;
   padding-right: 17px;
 }
-
 /* 2) Contêiner de leitura: limita largura do TEXTO no desktop,
       sem interferir no mobile */
 .reading-container {
   /* Mobile-first: não limita. Fica edge-to-edge com o padding acima. */
 }
-
 /* Em ≥900px (seu breakpoint atual), aplicamos a medida de leitura */
 @media (min-width: 900px) {
   .reading-container {
@@ -851,13 +841,11 @@ section[id] {
     margin-right: auto;
   }
 }
-
 /* Higiene de tipografia para trechos longos/URLs */
 .reading-container {
   overflow-wrap: anywhere; /* previne estouro por palavras longas */
   hyphens: auto;
 }
-
 /* Espaçamento vertical básico entre blocos textuais */
 .reading-container > * + * {
   margin-top: 0.75em;
@@ -871,16 +859,14 @@ section[id] {
   padding-left: 0;
   padding-right: 0;
 }
-
 #detalhes-servicos .reading-container > * {
   margin-left: 0;
   margin-right: 0;
 }
 /* ============================================
-   Alinhamento lateral igual ao "Seu Projeto" 
+   Alinhamento lateral igual ao "Seu Projeto"
    apenas para desktop (≥900px)
    ============================================ */
-
 @media (min-width: 900px) {
   /* Aplicar às seções textuais que devem ter o mesmo respiro do formulário */
   #quem-somos .reading-container,
@@ -889,7 +875,6 @@ section[id] {
     max-width: none; /* Remove a limitação de 72ch */
     width: 100%; /* Ocupa toda a largura do container pai */
   }
-
   /* Garantir que o container pai tenha a mesma largura máxima do "Seu Projeto" */
   #quem-somos .hero-content,
   #detalhes-servicos .hero-content,
@@ -905,7 +890,6 @@ section[id] {
    Correção do alinhamento lateral para desktop
    Apenas para a seção de detalhes dos serviços
    ============================================ */
-
 @media (min-width: 900px) {
   /* Garantir que o container principal tenha a mesma largura máxima */
   #servicos-detalhes .hero-content {
@@ -915,7 +899,6 @@ section[id] {
     padding-left: 24px;
     padding-right: 24px;
   }
-
   /* Remover a limitação de 72ch do reading-container */
   #servicos-detalhes .reading-container {
     max-width: none;
@@ -925,7 +908,6 @@ section[id] {
 /* ============================================
    CORREÇÃO DO RESPIRO LATERAL PARA DESKTOP
    ============================================ */
-
 @media (min-width: 900px) {
   /* Ajuste para Quem Somos */
   #quem-somos .hero-content {
@@ -935,7 +917,6 @@ section[id] {
     padding-left: 24px;
     padding-right: 24px;
   }
-  
   /* Ajuste para O que fazemos (detalhes) */
   #servicos-detalhes .hero-content {
     max-width: 1200px;
@@ -944,7 +925,6 @@ section[id] {
     padding-left: 24px;
     padding-right: 24px;
   }
-  
   /* Ajuste para Como fazemos */
   #processo .hero-content {
     max-width: 1200px;
@@ -953,7 +933,6 @@ section[id] {
     padding-left: 24px;
     padding-right: 24px;
   }
-  
   /* Remove a limitação de 72 caracteres para alinhar com o formulário */
   #quem-somos .reading-container,
   #detalhes-servicos .reading-container,
@@ -964,14 +943,12 @@ section[id] {
 /* =========================
    Correção de alinhamento visual
    ========================= */
-
 /* Força alinhamento à esquerda nos títulos */
 #quem-somos .hero-title,
 #processo .hero-title {
   text-align: left;
   margin-left: 0;
 }
-
 /* Unifica largura e respiro lateral com "O que fazemos" e "Seu Projeto" */
 @media (min-width: 900px) {
   #quem-somos .hero-content,
@@ -982,7 +959,6 @@ section[id] {
     padding-left: 24px;
     padding-right: 24px;
   }
-
   /* Remove limite de leitura para harmonizar com demais seções */
   #quem-somos .reading-container,
   #processo .reading-container {
