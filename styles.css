@@ -1,5 +1,5 @@
 :root {
-  --header-height: 136px;
+  --header-height: 94px;
   --footer-height: 42px;
   --section-gap: 24px;
   --anchor-offset-extra: 12px;
@@ -37,12 +37,12 @@ html {
 .main-header .top-link {
   scroll-padding-top: 0;
 }
-body {
-  font-family: var(--font-base);
-  color: var(--text);
-  background: #fdfdfd;
-  line-height: 1.5;
-  padding-top: var(--header-height);
+body {␊
+  font-family: var(--font-base);␊
+  color: var(--text);␊
+  background: #fdfdfd;␊
+  line-height: 1.5;␊
+  padding-top: var(--header-height);␊
   /* extra space below content so it isn't hidden behind the fixed footer */
   padding-bottom: calc(var(--footer-height) + 100px);
   overflow-x: hidden;
@@ -57,21 +57,21 @@ a:focus {
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
 }
-.main-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: var(--header-height);
-  background: #fff;
-  border-bottom: 1px solid var(--block-border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 8px 12px 8px 24px;
-  z-index: 1200;
-  border-bottom: none !important;
-}
+.main-header {␊
+  position: fixed;␊
+  top: 0;␊
+  left: 0;␊
+  right: 0;␊
+  min-height: var(--header-height);
+  background: #fff;␊
+  border-bottom: 1px solid var(--block-border);␊
+  display: flex;␊
+  align-items: flex-start;
+  justify-content: space-between;␊
+  padding: 0 12px 8px 24px;
+  z-index: 1200;␊
+  border-bottom: none !important;␊
+}␊
 .logo-area {
   display: flex;
   flex-direction: column;
