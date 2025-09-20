@@ -966,3 +966,22 @@ section[id] {
     width: 100%;
   }
 }
+
+/* Alterações para o problema de alinhamento do carrossel e hero */
+.clients-fixed {
+  z-index: 1100;
+}
+
+#clientes, #hero {
+  max-width: none;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+#clientes {
+  margin-top: calc(var(--header-height) - 1px);
+}
