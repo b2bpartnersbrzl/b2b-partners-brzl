@@ -68,7 +68,7 @@ a:focus {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 12px;
+  padding: 8px 12px 8px 24px;
   z-index: 1200;
   border-bottom: none !important;
 }
@@ -535,9 +535,9 @@ section[id] {
   display: none !important;
 }
 #artistas {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
   background: #666;
   border-top: 1px solid #669999;
   border-bottom: 1px solid var(--block-border);
@@ -571,10 +571,10 @@ section[id] {
     width: var(--artist-item-size-desktop);
   }
 }
-.clients-caption.artistas-caption {␊
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+.clients-caption.artistas-caption {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
   background: #666;
   color: #fff;
   text-align: center;
@@ -625,10 +625,10 @@ section[id] {
   #servicos-detalhes .services-hint {
     display: none;
   }
-  #servicos-cards .services-grid {␊
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+  #servicos-cards .services-grid {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
     padding: 2px 12px 32px;
   }
   #detalhes-servicos ul {
@@ -644,11 +644,11 @@ section[id] {
   }
 }
 @media (min-width: 900px) {
-  #servicos-cards {␊
-    max-width: none;␊
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+  #servicos-cards {
+    max-width: none;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
     border-left: none;
     border-right: none;
     border-radius: 0;
@@ -763,14 +763,14 @@ section[id] {
   width: auto;
 }
 /* Estilo para seções que devem ter largura total e sem bordas laterais */
-#servicos-detalhes,␊
-#quem-somos,␊
-#processo,␊
-#seu-projeto {␊
-  max-width: none;␊
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+#servicos-detalhes,
+#quem-somos,
+#processo,
+#seu-projeto {
+  max-width: none;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
   border-left: none;
   border-right: none;
   border-radius: 0;
@@ -817,19 +817,19 @@ section[id] {
    ========================= *
 
 /* 1) Variante para seções textuais que devem ser full-bleed (sem “cartão”) */
-.hero--fluid {␊
-  /* Remove o visual de cartão da .hero */␊
-  border: none !important;␊
-  box-shadow: none !important;␊
-  background: transparent !important;␊
-␊
-  /* Ocupa toda a largura da viewport como as faixas full-bleed */␊
-  max-width: none !important;␊
-  width: 100% !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  padding: 0 !important; /* retira acolchoamento do cartão */␊
-}␊
+.hero--fluid {
+  /* Remove o visual de cartão da .hero */
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+
+  /* Ocupa toda a largura da viewport como as faixas full-bleed */
+  max-width: none !important;
+  width: 100vw !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+  padding: 0 !important; /* retira acolchoamento do cartão */
+}
 
 /* Um respiro mínimo nas laterais em telas pequenas */
 .hero--fluid .hero-content {
