@@ -525,11 +525,16 @@ section[id] {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: min(640px, calc(100% - 48%));
+  width: min(640px, calc(100% - 32px));
   background: #fff;
   border: 1px solid var(--block-border);
   border-radius: var(--radius);
   padding: 24px;
+
+  /* Quebras de texto */
+  overflow-wrap: anywhere;
+  word-break: normal;
+  hyphens: auto;
 }
 .separator-dots {
   display: none !important;
