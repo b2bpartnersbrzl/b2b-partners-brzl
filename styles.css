@@ -1,5 +1,5 @@
 :root {
-  --header-height: 120px;
+  --header-height: auto;
   --footer-height: 42px;
   --section-gap: 24px;
   --anchor-offset-extra: 12px;
@@ -62,13 +62,13 @@ a:focus {
   top: 0;
   left: 0;
   right: 0;
-  height: var(--header-height);
+  height: auto; /* deixa fluir pela logo */
   background: #fff;
   border-bottom: 1px solid var(--block-border);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 12px 8px 24px;
+  padding: 4px 16px; /* respiro reduzido */
   z-index: 1200;
   border-bottom: none !important;
 }
