@@ -1,168 +1,197 @@
-/* MENU, NAVEGAÇÃO, FORM */
 (function(){
-  /* MENU MOBILE */
-  const btn = document.querySelector('.menu-toggle');
-  const menuOverlay = document.getElementById('mobile-menu');
-  const panel = menuOverlay?.querySelector('.mobile-menu-panel');
-  const closeInside = menuOverlay?.querySelector('.mobile-menu-close');
-  const linkNodes = menuOverlay ? menuOverlay.querySelectorAll('[data-menu-link]') : [];
+  const btn=document.querySelector('.menu-toggle');
+  const menuOverlay=document.getElementById('mobile-menu');
+  const panel=menuOverlay?.querySelector('.mobile-menu-panel');
+  const closeInside=menuOverlay?.querySelector('.mobile-menu-close');
+  const linkNodes=menuOverlay?menuOverlay.querySelectorAll('[data-menu-link]'):[];
+  const firstLink=linkNodes?.[0]||null;
 
-  function setBtn(open){
-    if(!btn) return;
-    btn.classList.toggle('is-open', open);
-    btn.setAttribute('aria-expanded', open);
-    btn.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
-    const icon = btn.querySelector('.menu-icon');
-    const label = btn.querySelector('.menu-label');
-    if(icon) icon.textContent = open ? '✕' : '☰';
-    if(label) label.textContent = open ? 'Fechar' : 'Menu';
-    if(open){ btn.classList.remove('menu-pulse'); } else { btn.classList.add('menu-pulse'); }
+  /* ALTURA DO HEADER → CSS VAR (--header-height) */
+  const root = document.documentElement;
+  const headerEl = document.querySelector('.main-header');
+
+  function applyHeaderHeight() {
+    if (!headerEl) return;
+    const h = Math.ceil(headerEl.getBoundingClientRect().height);
+    root.style.setProperty('--header-height', h + 'px');
   }
 
-  function toggleMenu(force){
-    const open = menuOverlay?.classList.contains('show');
-    const want = (force !== undefined) ? force : !open;
-    if(want){
-      menuOverlay.classList.add('show');
-      menuOverlay.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-      setBtn(true);
-      try{ history.pushState({menu:true}, '', '#menu'); }catch(_){}
-      const firstFocusable = menuOverlay.querySelector('a, button');
-      setTimeout(()=> firstFocusable?.focus?.(), 0);
-    } else {
-      menuOverlay.classList.remove('show');
-      menuOverlay.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-      setBtn(false);
-    }
+  // Aplica no carregamento
+  window.addEventListener('load', applyHeaderHeight);
+
+  // Reaplica quando fontes carregarem (evita “salto”)
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(applyHeaderHeight).catch(() => {});
   }
 
-  btn?.addEventListener('click', ()=> toggleMenu());
-  closeInside?.addEventListener('click', ()=> toggleMenu(false));
+  // Reaplica no resize/orientação
+  let _hdrTO;
+  window.addEventListener('resize', () => {
+    clearTimeout(_hdrTO);
+    _hdrTO = setTimeout(applyHeaderHeight, 120);
+  });
 
-  linkNodes.forEach(a => {
-    a.addEventListener('click', (e)=>{
-      e.preventDefault();
-      const href = a.getAttribute('href') || '';
-      if(href === '#top'){
-        toggleMenu(false);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        try{ history.replaceState({}, '', '#'); }catch(_){}
-        return;
+  function setBtn(e){
+    if(!btn)return;
+    btn.classList.toggle('is-open',e);
+    btn.setAttribute('aria-expanded',e);
+    btn.setAttribute('aria-label',e?'Fechar menu':'Abrir menu');
+    const t=btn.querySelector('.menu-icon');
+    const o=btn.querySelector('.menu-label');
+    t&&(t.textContent=e?'✕':'☰');
+    o&&(o.textContent=e?'Fechar':'Menu');
+    e?btn.classList.remove('menu-pulse'):btn.classList.add('menu-pulse')
+  }
+
+  function openMenu(){
+    if(!menuOverlay)return;
+    menuOverlay.classList.add('show');
+    menuOverlay.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+    setBtn(!0);
+    try{history.pushState({menu:!0},'','#menu')}catch(e){}
+    setTimeout(()=>{(firstLink||closeInside||btn).focus?.()},0)
+  }
+
+  function closeMenu(e=!1){
+    if(!menuOverlay)return;
+    menuOverlay.classList.remove('show');
+    menuOverlay.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+    setBtn(!1);
+    e&&setTimeout(()=>btn?.focus?.(),0)
+  }
+
+  function toggleMenu(e){
+    const t=menuOverlay?.classList.contains('show');
+    const o=e!==undefined?e:!t;
+    o?openMenu():closeMenu()
+  }
+
+  btn?.addEventListener('click',()=>toggleMenu());
+  closeInside?.addEventListener('click',()=>closeMenu());
+  linkNodes.forEach(e=>{
+    e.addEventListener('click',t=>{
+      t.preventDefault();
+      const o=e.getAttribute('href')||'';
+      if(o==='#top'){
+        closeMenu(!0);
+        window.scrollTo({top:0,behavior:'smooth'});
+        try{history.replaceState({},'','#')}catch(e){}
+        return
       }
-      const id = href.replace(/^#/, '');
-      const target = document.getElementById(id);
-      toggleMenu(false);
-      if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
-      try{ history.replaceState({}, '', '#'+id); }catch(_){}
-    });
+      const n=o.replace(/^#/,'');
+      const a=document.getElementById(n);
+      closeMenu(!0);
+      a&&a.scrollIntoView({behavior:'smooth',block:'start'});
+      try{history.replaceState({},'','#'+n)}catch(e){}
+    })
+  });
+  menuOverlay?.addEventListener('click',e=>{
+    if(!panel)return;
+    panel.contains(e.target)||closeMenu()
+  });
+  window.addEventListener('keydown',e=>{
+    e.key==='Escape'&&menuOverlay?.classList.contains('show')&&closeMenu()
+  });
+  window.addEventListener('popstate',()=>{
+    menuOverlay?.classList.contains('show')&&closeMenu(!0)
   });
 
-  menuOverlay?.addEventListener('click', (e)=>{
-    if(!panel) return;
-    if(!panel.contains(e.target)) toggleMenu(false);
-  });
-  window.addEventListener('keydown', (e)=>{
-    if(e.key === 'Escape' && menuOverlay?.classList.contains('show')) toggleMenu(false);
-  });
-  window.addEventListener('popstate', ()=> {
-    if(menuOverlay?.classList.contains('show')) toggleMenu(false);
+  const topLinks=document.querySelectorAll('a.top-link');
+  topLinks.forEach(e=>{
+    e.addEventListener('click',t=>{
+      t.preventDefault();
+      window.scrollTo({top:0,behavior:'smooth'});
+      try{history.replaceState({},'','#')}catch(e){}
+    })
   });
 
-  /* LINKS "Início" (desktop e logo) */
-  const topLinks = document.querySelectorAll('a.top-link');
-  topLinks.forEach(a=>{
-    a.addEventListener('click', (e)=>{
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      try{ history.replaceState({}, '', '#'); }catch(_){}
-    });
-  });
-
-  /* FORM – status */
-  const form = document.getElementById('briefing-form');
-  const statusEl = document.getElementById('form-status');
+  const form=document.getElementById('briefing-form');
+  const statusEl=document.getElementById('form-status');
   if(form){
-    form.addEventListener('submit', async (e)=>{
+    form.addEventListener('submit',async e=>{
       e.preventDefault();
-      const sbtn = form.querySelector('button[type="submit"]');
-      const data = new FormData(form);
-      const resetStatus = () => { statusEl.textContent=''; statusEl.className='form-status'; };
-      resetStatus();
-
-      // Honeypot
-      if ((data.get('website') || '').trim() !== '') return;
-
-      const consent = form.querySelector('#lgpd');
-      if(!consent || !consent.checked){
-        statusEl.textContent = 'Para enviar, marque o consentimento LGPD.';
+      const t=form.querySelector('button[type="submit"]');
+      const o=new FormData(form);
+      const n=()=>{
+        statusEl.textContent='';
+        statusEl.className='form-status'
+      };
+      n();
+      if((o.get('website')||'').trim()!=='')return;
+      const a=form.querySelector('#lgpd');
+      if(!a||!a.checked){
+        statusEl.textContent='Para enviar, marque o consentimento LGPD.';
         statusEl.classList.add('form-status--error');
-        statusEl.scrollIntoView({behavior:'smooth', block:'nearest'});
-        return;
+        statusEl.scrollIntoView({behavior:'smooth',block:'nearest'});
+        return
       }
-      if(!data.get('nome') || !data.get('email') || !data.get('mensagem')){
-        statusEl.textContent = 'Preencha nome, e-mail e mensagem.';
+      if(!o.get('nome')||!o.get('email')||!o.get('mensagem')){
+        statusEl.textContent='Preencha nome, e-mail e mensagem.';
         statusEl.classList.add('form-status--error');
-        statusEl.scrollIntoView({behavior:'smooth', block:'nearest'});
-        return;
+        statusEl.scrollIntoView({behavior:'smooth',block:'nearest'});
+        return
       }
-
-      data.append('timestamp', new Date().toISOString());
-
-      sbtn.disabled = true;
-      const prev = sbtn.textContent;
-      sbtn.textContent = 'Enviando…';
-
+      o.append('timestamp',new Date().toISOString());
+      t.disabled=!0;
+      const i=t.textContent;
+      t.textContent='Enviando…';
       try{
-        await fetch(form.action, { method: 'POST', body: data, mode: 'no-cors' });
-        statusEl.textContent = 'Recebido. Entraremos em contato em breve.';
+        await fetch(form.action,{method:'POST',body:o,mode:'no-cors'});
+        statusEl.textContent='Recebido. Entraremos em contato em breve.';
         statusEl.classList.add('form-status--success');
-        statusEl.scrollIntoView({behavior:'smooth', block:'nearest'});
-        form.reset();
-      }catch(err){
-        statusEl.textContent = 'Não foi possível enviar agora. Tente novamente.';
+        statusEl.scrollIntoView({behavior:'smooth',block:'nearest'});
+        form.reset()
+      }catch(e){
+        statusEl.textContent='Não foi possível enviar agora. Tente novamente.';
         statusEl.classList.add('form-status--error');
-        statusEl.scrollIntoView({behavior:'smooth', block:'nearest'});
+        statusEl.scrollIntoView({behavior:'smooth',block:'nearest'})
       }finally{
-        sbtn.disabled = false;
-        sbtn.textContent = prev;
+        t.disabled=!1;
+        t.textContent=i
       }
-    });
+    })
   }
 
-  /* AVISO (overlay) – sempre abrir, um único botão "Continuar" */
-  const OVERLAY_ID = 'desktop-advice';
-  const overlay = document.getElementById(OVERLAY_ID);
+  const OVERLAY_ID='desktop-advice';
+  const KEY_TS='b2b_desktop_notice_ack_ts';
+  const TTL_DAYS=30;
+  const overlay=document.getElementById(OVERLAY_ID);
+  const shareInput=document.getElementById('desktop-share-url');
 
-  function openOverlay(){
-    if(!overlay) return;
-    overlay.hidden = false;
-    overlay.classList.add('show');
-    document.body.classList.add('overlay-open');
-  }
+  function daysToMs(e){return e*24*60*60*1000}
+  function isAckValid(){try{const e=parseInt(localStorage.getItem(KEY_TS)||'0',10);return e&&Date.now()-e<daysToMs(TTL_DAYS)}catch(e){return!1}}
+  function setAck(){try{localStorage.setItem(KEY_TS,String(Date.now()))}catch(e){}}
+  function openOverlay(){if(!overlay)return;shareInput&&(shareInput.value=window.location.href);overlay.hidden=!1;overlay.classList.add('show');document.body.classList.add('overlay-open')}
+  function closeOverlay(e){if(!overlay)return;e&&setAck();overlay.classList.remove('show');overlay.hidden=!0;document.body.classList.remove('overlay-open')}
+  function maybeShowOverlay(){const e=window.matchMedia('(min-width: 1024px)').matches;if(!e)return;if(isAckValid())return;openOverlay()}
 
-  function closeOverlay(){
-    if(!overlay) return;
-    overlay.classList.remove('show');
-    overlay.hidden = true;
-    document.body.classList.remove('overlay-open');
-  }
-
-  function maybeShowOverlay(){
-    if(!overlay) return;
-    openOverlay(); // SEM checagem de desktop e SEM localStorage
-  }
-
-  document.getElementById('desktop-continue')
-    ?.addEventListener('click', () => closeOverlay());
-
-  document.getElementById('desktop-advice')
-    ?.addEventListener('click', e => {
-      if(e.target.hasAttribute('data-close') || e.target.classList.contains('overlay__close')) {
-        closeOverlay();
-      }
-    });
-
-  window.addEventListener('load', maybeShowOverlay);
+  document.getElementById('desktop-continue')?.addEventListener('click',()=>closeOverlay(!0));
+  document.getElementById('desktop-open-mobile')?.addEventListener('click',()=>{
+    const e=document.getElementById('desktop-hint');
+    const t=document.getElementById('desktop-share-url');
+    e.hidden=!e.hidden;
+    !e.hidden&&t&&(t.value=window.location.href,t.select())
+  });
+  document.getElementById('desktop-copy-url')?.addEventListener('click',async()=>{
+    const e=document.getElementById('desktop-share-url');
+    try{
+      await navigator.clipboard.writeText(e.value);
+      const t=document.getElementById('desktop-copy-url');
+      const o=t.textContent;
+      t.textContent='Copiado!';
+      setTimeout(()=>t.textContent=o,1200)
+    }catch(e){}
+  });
+  document.getElementById('desktop-advice')?.addEventListener('click',e=>{
+    (e.target.hasAttribute('data-close')||e.target.classList.contains('overlay__close'))&&closeOverlay(!1)
+  });
+  window.addEventListener('load',maybeShowOverlay);
+  window.addEventListener('resize',()=>{
+    const e=document.getElementById('desktop-advice');
+    if(!e||e.hidden)return;
+    const t=window.matchMedia('(min-width: 1024px)').matches;
+    !t&&closeOverlay(!1)
+  });
 })();
