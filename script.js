@@ -155,14 +155,19 @@
   }
 
   const OVERLAY_ID='desktop-advice';
+  const KEY_TS='b2b_desktop_notice_ack_ts';
+  const TTL_DAYS=30;
   const overlay=document.getElementById(OVERLAY_ID);
   const shareInput=document.getElementById('desktop-share-url');
 
+  function daysToMs(e){return e*24*60*60*1000}
+  function isAckValid(){try{const e=parseInt(localStorage.getItem(KEY_TS)||'0',10);return e&&Date.now()-e<daysToMs(TTL_DAYS)}catch(e){return!1}}
+  function setAck(){try{localStorage.setItem(KEY_TS,String(Date.now()))}catch(e){}}
   function openOverlay(){if(!overlay)return;shareInput&&(shareInput.value=window.location.href);overlay.hidden=!1;overlay.classList.add('show');document.body.classList.add('overlay-open')}
-  function closeOverlay(){if(!overlay)return;overlay.classList.remove('show');overlay.hidden=!0;document.body.classList.remove('overlay-open')}
-  function maybeShowOverlay(){const e=window.matchMedia('(min-width: 1024px)').matches;if(!e)return;openOverlay()}
+  function closeOverlay(e){if(!overlay)return;e&&setAck();overlay.classList.remove('show');overlay.hidden=!0;document.body.classList.remove('overlay-open')}
+  function maybeShowOverlay(){const e=window.matchMedia('(min-width: 1024px)').matches;if(!e)return;if(isAckValid())return;openOverlay()}
 
-  document.getElementById('desktop-continue')?.addEventListener('click',()=>closeOverlay());
+  document.getElementById('desktop-continue')?.addEventListener('click',()=>closeOverlay(!0));
   document.getElementById('desktop-open-mobile')?.addEventListener('click',()=>{
     const e=document.getElementById('desktop-hint');
     const t=document.getElementById('desktop-share-url');
@@ -179,14 +184,14 @@
       setTimeout(()=>t.textContent=o,1200)
     }catch(e){}
   });
-  document.getElementById('desktop-advice')?.addEventListener('click',e=>{␊
-    (e.target.hasAttribute('data-close')||e.target.classList.contains('overlay__close'))&&closeOverlay()
-  });␊
-  window.addEventListener('load',maybeShowOverlay);␊
-  window.addEventListener('resize',()=>{␊
-    const e=document.getElementById('desktop-advice');␊
-    if(!e||e.hidden)return;␊
-    const t=window.matchMedia('(min-width: 1024px)').matches;␊
-    !t&&closeOverlay()
-  });␊
+  document.getElementById('desktop-advice')?.addEventListener('click',e=>{
+    (e.target.hasAttribute('data-close')||e.target.classList.contains('overlay__close'))&&closeOverlay(!1)
+  });
+  window.addEventListener('load',maybeShowOverlay);
+  window.addEventListener('resize',()=>{
+    const e=document.getElementById('desktop-advice');
+    if(!e||e.hidden)return;
+    const t=window.matchMedia('(min-width: 1024px)').matches;
+    !t&&closeOverlay(!1)
+  });
 })();
