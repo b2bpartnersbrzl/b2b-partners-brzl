@@ -215,13 +215,15 @@ a:focus-visible {
   border-bottom: none !important;
   margin-bottom: -1px;
 }
+#clientes {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
 .logo-marquee {
   overflow: hidden;
   padding: var(--marquee-pad-top) 0 var(--marquee-pad-bot);
   padding: 0 !important;
-}
-#clientes .logo-marquee {
-  padding: 0;
 }
 .logo-marquee__track {
   display: flex;
@@ -269,10 +271,11 @@ a:focus-visible {
   height: var(--clients-caption-h);
   margin: 0;
 }
-@keyframes marquee {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
+#clientes .clients-caption {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
   to {
     transform: translate3d(-50%, 0, 0);
   }
