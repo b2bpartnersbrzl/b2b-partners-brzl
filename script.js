@@ -8,7 +8,16 @@
     form.addEventListener('submit', async function(event) {
       event.preventDefault();
 
+      const lgpdCheckbox = document.getElementById('lgpd');
+      if (!lgpdCheckbox.checked) {
+        formStatus.textContent = 'Por favor, marque o campo de consentimento para continuar.';
+        formStatus.style.color = 'red';
+        formStatus.classList.add('show');
+        return;
+      }
+
       formStatus.textContent = 'Enviando...';
+      formStatus.style.color = 'inherit';
       formStatus.classList.add('show');
       submitButton.disabled = true;
 

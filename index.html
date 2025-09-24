@@ -61,11 +61,14 @@
               <label for="details">Detalhes do projeto *</label>
               <textarea id="details" name="details" rows="6" placeholder="Descreva sua ideia, objetivos, público-alvo, prazo e orçamento estimado..." required></textarea>
             </div>
+            <div class="form-disclaimer form-field--full">
+              <div class="form-checkbox">
+                <input type="checkbox" id="lgpd" name="lgpd" required />
+                <label for="lgpd">Ao enviar, você concorda em ser contatado para prosseguirmos com a análise do seu projeto.</label>
+              </div>
+            </div>
             <button type="submit" class="btn btn-primary" id="submit-button">Enviar projeto</button>
           </form>
-          <div class="form-disclaimer">
-            <p>Ao enviar, você concorda em ser contatado para prosseguirmos com a análise do seu projeto.</p>
-          </div>
           <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
         </div>
       </section>
