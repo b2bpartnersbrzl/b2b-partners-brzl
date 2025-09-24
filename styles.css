@@ -1,5 +1,5 @@
 :root {
-  --header-height: auto;
+  --header-height: 120px;
   --footer-height: 42px;
   --section-gap: 24px;
   --anchor-offset-extra: 12px;
@@ -94,15 +94,14 @@ a:hover {
   align-items: center;
   justify-content: center;
   height: auto;
-  padding-top: 16px;
-  padding-bottom: 16px;
+  padding-block: clamp(16px, 3vw, 20px);
 }
 
 .b2b-logo {
   display: block;
-  width: 100%;
+  width: clamp(200px, 55vw, 320px);
   height: auto;
-  max-width: 250px;
+  max-width: 100%;
 }
 
 .form-intro-text {
