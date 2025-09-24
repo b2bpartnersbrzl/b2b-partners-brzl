@@ -99,7 +99,7 @@ a:hover {
 
 .b2b-logo {
   display: block;
-  width: clamp(200px, 55vw, 320px);
+  width: clamp(340px, 55vw, 544px);
   height: auto;
   max-width: 100%;
 }
