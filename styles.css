@@ -87,7 +87,6 @@ a:hover {
   width: 100%;
   background-color: var(--surface);
   z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .site-header-content {
@@ -99,8 +98,8 @@ a:hover {
 
 .b2b-logo {
   display: block;
-  width: 160px;
-  height: 40px;
+  width: 200px;
+  height: 50px;
 }
 
 .form-intro-text {
