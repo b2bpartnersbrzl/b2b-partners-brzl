@@ -273,7 +273,7 @@ select:focus {
 }
 
 .confirmation-message {
-  font-size: 1.125rem;
+  font-size: 1rem;
   color: #333;
   margin-bottom: 32px;
 }
