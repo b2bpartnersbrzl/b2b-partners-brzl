@@ -31,10 +31,10 @@
           <img src="images/logo-b2b.svg" alt="Logo da B2B Partners" class="b2b-logo" width="160" height="40" />
           <p class="form-intro-text"><strong>Uma nova fase se aproxima.</strong> Em breve, nossa página estará em um novo domínio, com uma identidade visual que reflete nosso novo posicionamento. A mesma empresa, <strong>uma nova assinatura</strong>, a mesma essência e <strong>o mesmo compromisso</strong> que você já conhece, agora em um ambiente digital renovado.</p>
           <p class="form-intro-text">Até a publicação, entre em contato conosco através do formulário abaixo. <strong>Estamos à sua disposição</strong>.</p>
-          <form id="briefing-form" class="form-grid" method="post" action="/">
+          <form id="briefing-form" class="form-grid" method="post" action="https://script.google.com/macros/s/AKfycbw9D6997B2oJ-FmYF5H7w232e0-2R_N0u3dK5iJ7nN6aFmY8rZ/exec">
             <div class="form-field">
               <label for="name">Nome completo *</label>
-              <input type="text" id="name" name="name" required />
+              <input type="text" id="name" name="nome" required />
             </div>
             <div class="form-field">
               <label for="email">E-mail *</label>
@@ -42,15 +42,15 @@
             </div>
             <div class="form-field">
               <label for="phone">Telefone (DDD + Número) *</label>
-              <input type="tel" id="phone" name="phone" required />
+              <input type="tel" id="phone" name="telefone" required />
             </div>
             <div class="form-field">
               <label for="company">Empresa / Marca *</label>
-              <input type="text" id="company" name="company" required />
+              <input type="text" id="company" name="empresa" required />
             </div>
             <div class="form-field form-field--full">
               <label for="type">Qual o tipo de projeto? *</label>
-              <select id="type" name="type" required>
+              <select id="type" name="servico" required>
                 <option value="">Selecione uma opção</option>
                 <option value="evento-presencial">Evento Presencial</option>
                 <option value="ativacao-de-marca">Ativação de Marca</option>
@@ -60,7 +60,7 @@
             </div>
             <div class="form-field form-field--full">
               <label for="details">Detalhes do projeto *</label>
-              <textarea id="details" name="details" rows="6" placeholder="Descreva sua ideia, objetivos, público-alvo, prazo e orçamento estimado..." required></textarea>
+              <textarea id="details" name="mensagem" rows="6" placeholder="Descreva sua ideia, objetivos, público-alvo, prazo e orçamento estimado..." required></textarea>
             </div>
             <div class="form-disclaimer form-field--full">
               <div class="form-checkbox">
