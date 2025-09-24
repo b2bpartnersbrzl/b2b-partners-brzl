@@ -22,15 +22,11 @@
       submitButton.disabled = true;
 
       const formData = new FormData(form);
-      const data = Object.fromEntries(formData.entries());
 
       try {
         const response = await fetch(form.action, {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(data)
+          body: formData
         });
 
         if (response.ok) {
