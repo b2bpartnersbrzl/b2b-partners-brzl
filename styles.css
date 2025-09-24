@@ -1,5 +1,5 @@
 :root {
-  --header-height: 80px;
+  --header-height: auto;
   --footer-height: 42px;
   --section-gap: 24px;
   --anchor-offset-extra: 12px;
@@ -93,13 +93,16 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 80px;
+  height: auto;
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
 .b2b-logo {
   display: block;
-  width: 200px;
-  height: 50px;
+  width: 100%;
+  height: auto;
+  max-width: 250px;
 }
 
 .form-intro-text {
