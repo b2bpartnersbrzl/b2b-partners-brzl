@@ -23,6 +23,8 @@
 
       const formData = new FormData(form);
 
+      let redirecting = false;
+
       try {
         const response = await fetch(form.action, {
           method: 'POST',
@@ -30,21 +32,29 @@
         });
 
         if (response.ok) {
-          formStatus.textContent = 'Projeto enviado com sucesso! Entraremos em contato em breve.';
-          formStatus.style.color = 'green';
+          redirecting = true;
           form.reset();
-        } else {
-          formStatus.textContent = 'Ocorreu um erro ao enviar o projeto. Por favor, tente novamente.';
-          formStatus.style.color = 'red';
+          formStatus.textContent = 'Projeto enviado com sucesso! Redirecionando...';
+          formStatus.style.color = 'green';
+          submitButton.disabled = false;
+          setTimeout(() => {
+            window.location.href = 'confirmacao.html';
+          }, 400);
+          return;
         }
+
+        formStatus.textContent = 'Ocorreu um erro ao enviar o projeto. Por favor, tente novamente.';
+        formStatus.style.color = 'red';
       } catch (error) {
         formStatus.textContent = 'Ocorreu um erro de conexão. Verifique sua internet e tente novamente.';
         formStatus.style.color = 'red';
       } finally {
-        submitButton.disabled = false;
-        setTimeout(() => {
-          formStatus.classList.remove('show');
-        }, 5000);
+        if (!redirecting) {
+          submitButton.disabled = false;
+          setTimeout(() => {
+            formStatus.classList.remove('show');
+          }, 5000);
+        }
       }
     });
   }
