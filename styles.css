@@ -244,6 +244,53 @@ select:focus {
   display: block;
 }
 
+.confirmation-section {
+  min-height: calc(100vh - var(--footer-height));
+  display: flex;
+  align-items: center;
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.confirmation-content {
+  text-align: center;
+  max-width: 640px;
+}
+
+.confirmation-content .b2b-logo {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.confirmation-message {
+  font-size: 1.125rem;
+  color: #333;
+}
+
+.confirmation-subtext {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 32px;
+}
+
+.confirmation-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.btn-outline:hover {
+  background-color: var(--accent);
+  color: #fff;
+}
+
 @media (min-width: 768px) {
   .section-content {
     padding-left: 24px;
