@@ -78,6 +78,13 @@ a:hover {
   max-width: 72ch;
 }
 
+.b2b-logo {
+  display: block;
+  width: 160px;
+  height: auto;
+  margin-bottom: 32px;
+}
+
 .form-intro-text {
   font-size: 1rem;
   text-align: left;
