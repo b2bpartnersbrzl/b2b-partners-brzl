@@ -1,5 +1,5 @@
 :root {
-  --header-height: 0px;
+  --header-height: 80px;
   --footer-height: 42px;
   --section-gap: 24px;
   --anchor-offset-extra: 12px;
@@ -24,8 +24,8 @@ body {
   margin: 0;
   background-color: var(--surface);
   line-height: 1.6;
-  /* Adiciona espaçamento para o rodapé fixo */
   padding-bottom: var(--footer-height);
+  padding-top: var(--header-height);
 }
 
 *,
@@ -80,11 +80,27 @@ a:hover {
   max-width: 72ch;
 }
 
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--surface);
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.site-header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+}
+
 .b2b-logo {
   display: block;
-  width: 320px;
-  height: 80px;
-  margin-bottom: 32px;
+  width: 160px;
+  height: 40px;
 }
 
 .form-intro-text {
@@ -95,26 +111,11 @@ a:hover {
   max-width: 100%;
 }
 
-.main-header {
-  display: none;
-}
-
-.main-header-content {
-  display: none;
-}
-
-.logo-area {
-  display: none;
-}
-
-.menu-toggle {
-  display: none;
-}
-
-.main-nav {
-  display: none;
-}
-
+.main-header,
+.main-header-content,
+.logo-area,
+.menu-toggle,
+.main-nav,
 .mobile-menu-overlay {
   display: none;
 }
@@ -124,13 +125,11 @@ a:hover {
   color: #999;
   text-align: center;
   padding: 8px;
-  /* Torna o rodapé fixo na parte inferior */
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-  /* Adiciona uma sombra para separação visual */
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
 }
 
@@ -143,7 +142,6 @@ a:hover {
   position: fixed;
   bottom: 24px;
   right: 24px;
-  /* Garante que o botão fique na frente do rodapé */
   z-index: 1001;
 }
 
@@ -256,7 +254,7 @@ select:focus {
 }
 
 .confirmation-section {
-  min-height: calc(100vh - var(--footer-height));
+  min-height: calc(100vh - var(--header-height) - var(--footer-height));
   display: flex;
   align-items: center;
   padding-top: 64px;
@@ -273,10 +271,15 @@ select:focus {
   margin-right: auto;
 }
 
-.confirmation-body-text {
-  font-size: 1rem;
+.confirmation-message {
+  font-size: 1.125rem;
   color: #333;
   margin-bottom: 32px;
+}
+
+.confirmation-subtext {
+  font-size: 1rem;
+  color: #333;
 }
 
 .confirmation-actions {
