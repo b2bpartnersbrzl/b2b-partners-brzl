@@ -24,6 +24,8 @@ body {
   margin: 0;
   background-color: var(--surface);
   line-height: 1.6;
+  /* Adiciona espaçamento para o rodapé fixo */
+  padding-bottom: var(--footer-height);
 }
 
 *,
@@ -121,7 +123,15 @@ a:hover {
   background-color: #f5f5f5;
   color: #999;
   text-align: center;
-  padding: 10px;
+  padding: 16px;
+  /* Torna o rodapé fixo na parte inferior */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  /* Adiciona uma sombra para separação visual */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .footer-bar p {
