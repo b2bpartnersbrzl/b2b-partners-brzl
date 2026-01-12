@@ -112,6 +112,13 @@ a:hover {
   max-width: 100%;
 }
 
+/* Nova regra adicionada para destacar o Bem-vindo */
+.form-intro-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
 .main-header,
 .main-header-content,
 .logo-area,
