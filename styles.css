@@ -112,7 +112,6 @@ a:hover {
   max-width: 100%;
 }
 
-/* Bem-vindo!: Fonte maior e negrito, mas herdando a cor do texto padrão */
 .form-intro-title {
   font-size: 1.5rem;
   font-weight: bold;
@@ -185,6 +184,12 @@ a:hover {
 
 .form-field--full {
   grid-column: 1 / -1;
+}
+
+/* Nova regra para negrito nos títulos dos campos */
+.form-field label {
+  font-weight: bold;
+  color: #333;
 }
 
 .form-checkbox {
