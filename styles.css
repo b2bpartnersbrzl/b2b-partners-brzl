@@ -186,10 +186,10 @@ a:hover {
   grid-column: 1 / -1;
 }
 
-/* Nova regra para negrito nos títulos dos campos */
+/* Negrito nos títulos, mas com cor padrão (#666) */
 .form-field label {
   font-weight: bold;
-  color: #333;
+  color: #666;
 }
 
 .form-checkbox {
